@@ -3,7 +3,7 @@ export const IMAGES = {
   hero: "https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
   interior: "https://images.unsplash.com/photo-1473177104440-ffee2f376098?ixlib=rb-1.2.1&auto=format&fit=crop&w=2731&q=80",
   candles: "https://images.unsplash.com/photo-1515541364512-8ee6722dfd87?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-  cross: "https://images.unsplash.com/photo-1518197147797-36a63660f1c9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+  cross: "/lovable-uploads/cross.png",
   cemetery: "https://images.unsplash.com/photo-1500021804447-2ca2eaaaabeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
   church: "https://images.unsplash.com/photo-1493552832245-036e564beeba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
   services: {
