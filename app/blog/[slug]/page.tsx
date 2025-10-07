@@ -1,10 +1,14 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { createServerClient } from '@/lib/supabase/server'
-import { Calendar, Clock, User, ArrowLeft } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import Image from 'next/image'
+import { Calendar, Clock, User, ArrowLeft } from 'lucide-react'
+
+import { createServerClient } from '@/lib/supabase/server'
+import { normalizeForUrl } from '@/lib/utils'
+import { SITE_URL } from '@/lib/constants'
+import { BreadcrumbController } from '@/components/breadcrumb-context'
+import { Button } from '@/components/ui/button'
 
 interface BlogPost {
   id: string
@@ -34,13 +38,12 @@ export async function generateStaticParams() {
 
     if (error) {
       console.error('Error generating static params:', error)
-      return []
     }
 
     console.log(`[BUILD] Generating ${data?.length || 0} blog post pages`)
     
     return (data || []).map((post) => ({
-      slug: post.slug,
+      slug: normalizeForUrl(post.slug),
     }))
   } catch (err) {
     console.error('Error in generateStaticParams:', err)
@@ -51,55 +54,54 @@ export async function generateStaticParams() {
 async function getBlogPost(slug: string): Promise<BlogPost | null> {
   try {
     const supabase = createServerClient()
-    
+
     const { data, error } = await supabase
       .from('blogs')
       .select(`
         *,
         blog_categories(name)
       `)
-      .eq('slug', slug)
       .eq('published', true)
-      .single()
 
-    if (error || !data) {
+    if (error || !data?.length) {
       console.error('Error fetching blog post:', error)
       return null
     }
 
+    const matched = data.find((entry) => normalizeForUrl(entry.slug) === slug)
+
+    if (!matched) {
+      return null
+    }
+
     return {
-      id: data.id,
-      title: data.title,
-      content: data.content,
-      excerpt: data.excerpt,
-      author: data.author,
-      created_at: data.created_at,
-      read_time: data.read_time || '5 min',
-      category_name: data.blog_categories?.name || null,
-      slug: data.slug,
-      featured_image_url: data.featured_image_url,
-      meta_description: data.meta_description,
-      meta_keywords: data.meta_keywords,
+      id: matched.id,
+      title: matched.title,
+      content: matched.content,
+      excerpt: matched.excerpt,
+      author: matched.author,
+      created_at: matched.created_at,
+      read_time: matched.read_time || '5 min',
+      category_name: matched.blog_categories?.name || null,
+      slug: matched.slug,
+      featured_image_url: matched.featured_image_url,
+      meta_description: matched.meta_description,
+      meta_keywords: matched.meta_keywords,
     }
   } catch (err) {
     console.error('Error:', err)
     return null
   }
-}
-
-export async function generateMetadata({ 
-  params 
-}: { 
-  params: { slug: string } 
-}): Promise<Metadata> {
-  const post = await getBlogPost(params.slug)
-  
+{{ ... }}
   if (!post) {
     return {
       title: 'Artykuł nie znaleziony',
     }
   }
-  
+
+  const canonicalSlug = normalizeForUrl(post.slug)
+  const canonicalUrl = `${SITE_URL}/blog/${canonicalSlug}`
+
   return {
     title: post.title,
     description: post.meta_description || post.excerpt || 'Artykuł na blogu Domu Pogrzebowego w Łodzi',
@@ -107,33 +109,72 @@ export async function generateMetadata({
     openGraph: {
       title: post.title,
       description: post.excerpt || post.meta_description || '',
+      url: canonicalUrl,
       images: post.featured_image_url ? [post.featured_image_url] : [],
       type: 'article',
       publishedTime: post.created_at,
+      authors: [post.author],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.meta_description || post.excerpt || '',
+      images: post.featured_image_url ? [post.featured_image_url] : undefined,
+    },
+    alternates: {
+      canonical: canonicalUrl,
     },
   }
 }
 
 export default async function BlogPostPage({ 
-  params 
-}: { 
-  params: { slug: string } 
-}) {
-  const post = await getBlogPost(params.slug)
+{{ ... }}
   
   if (!post) {
     notFound()
   }
 
+  const canonicalSlug = normalizeForUrl(post.slug)
+  const canonicalUrl = `${SITE_URL}/blog/${canonicalSlug}`
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    image: post.featured_image_url ? [post.featured_image_url] : undefined,
+    datePublished: post.created_at,
+    author: {
+      '@type': 'Person',
+      name: post.author,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Nekrolog Łódź',
+      url: SITE_URL,
+    },
+    description: post.meta_description || post.excerpt || '',
+    mainEntityOfPage: canonicalUrl,
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-secondary/20 pt-24">
       <div className="container mx-auto px-4 py-8 max-w-4xl">
+        <BreadcrumbController
+          overrides={[
+            { segment: 'blog', label: 'Blog' },
+            { segment: params.slug, label: post.title },
+          ]}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <div className="mb-8 text-center sm:text-left">
           <Button 
             asChild
             variant="default" 
             className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground"
-          >
+{{ ... }}
             <Link href="/blog">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Wróć do listy artykułów
