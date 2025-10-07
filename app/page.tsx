@@ -69,11 +69,12 @@ export default async function HomePage() {
 
   const businessSchema = {
     '@context': 'https://schema.org',
-    '@type': ['FuneralHome', 'LocalBusiness'],
+    '@type': 'LocalBusiness',
     '@id': `${SITE_URL}/#funeral-home`,
     name: BUSINESS_INFO.name,
     legalName: BUSINESS_INFO.legalName,
     url: SITE_URL,
+    additionalType: 'https://schema.org/FuneralHome',
     telephone: BUSINESS_INFO.phone,
     priceRange: BUSINESS_INFO.priceRange,
     image: `${SITE_URL}${BUSINESS_INFO.imagePath}`,
