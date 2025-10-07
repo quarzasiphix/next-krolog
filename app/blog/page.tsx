@@ -52,21 +52,21 @@ async function getBlogPosts(): Promise<BlogPost[]> {
       .from('blogs')
       .select(`
         id,
+        title,
         excerpt,
         author,
         created_at,
         read_time,
         slug,
-        normalizedSlug: normalizeForUrl(slug),
-      featured_image_url,
-      blog_categories(name)
-    `)
+        featured_image_url,
+        blog_categories(name)
+      `)
       .eq('published', true)
       .order('created_at', { ascending: false })
 
     if (error) {
       console.error('Error fetching blog posts:', error)
-{{ ... }}
+      return []
     }
 
     return (data || []).map((post: any) => ({
@@ -78,7 +78,7 @@ async function getBlogPosts(): Promise<BlogPost[]> {
       read_time: post.read_time || '5 min',
       category_name: post.blog_categories?.name || null,
       slug: post.slug,
-      normalizedSlug: normalizeForUrl(post.slug),
+      normalizedSlug: normalizeForUrl(post.slug || ''),
       featured_image_url: post.featured_image_url,
     }))
   } catch (err) {

@@ -58,17 +58,28 @@ async function getBlogPost(slug: string): Promise<BlogPost | null> {
     const { data, error } = await supabase
       .from('blogs')
       .select(`
-        *,
+        id,
+        title,
+        content,
+        excerpt,
+        author,
+        created_at,
+        read_time,
+        slug,
+        featured_image_url,
+        meta_description,
+        meta_keywords,
         blog_categories(name)
       `)
       .eq('published', true)
 
-    if (error || !data?.length) {
+    if (error || !data) {
       console.error('Error fetching blog post:', error)
       return null
     }
 
-    const matched = data.find((entry) => normalizeForUrl(entry.slug) === slug)
+    const normalizedSlug = normalizeForUrl(slug)
+    const matched = data.find((entry) => normalizeForUrl(entry.slug || '') === normalizedSlug)
 
     if (!matched) {
       return null
@@ -85,27 +96,41 @@ async function getBlogPost(slug: string): Promise<BlogPost | null> {
       category_name: matched.blog_categories?.name || null,
       slug: matched.slug,
       featured_image_url: matched.featured_image_url,
-      meta_description: matched.meta_description,
-      meta_keywords: matched.meta_keywords,
+      meta_description: matched.meta_description || null,
+      meta_keywords: matched.meta_keywords || null,
     }
   } catch (err) {
     console.error('Error:', err)
     return null
   }
-{{ ... }}
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}): Promise<Metadata> {
+  const post = await getBlogPost(params.slug)
+
   if (!post) {
     return {
       title: 'Artykuł nie znaleziony',
     }
   }
 
-  const canonicalSlug = normalizeForUrl(post.slug)
+  const canonicalSlug = normalizeForUrl(post.slug || '')
   const canonicalUrl = `${SITE_URL}/blog/${canonicalSlug}`
+  const keywords = post.meta_keywords
+    ? post.meta_keywords
+        .split(',')
+        .map((keyword) => keyword.trim())
+        .filter(Boolean)
+    : ['blog pogrzebowy', 'poradniki pogrzebowe', 'Łódź']
 
   return {
     title: post.title,
     description: post.meta_description || post.excerpt || 'Artykuł na blogu Domu Pogrzebowego w Łodzi',
-    keywords: post.meta_keywords?.split(',') || ['blog pogrzebowy', 'poradniki pogrzebowe', 'Łódź'],
+    keywords,
     openGraph: {
       title: post.title,
       description: post.excerpt || post.meta_description || '',
@@ -127,14 +152,18 @@ async function getBlogPost(slug: string): Promise<BlogPost | null> {
   }
 }
 
-export default async function BlogPostPage({ 
-{{ ... }}
-  
+export default async function BlogPostPage({
+  params,
+}: {
+  params: { slug: string }
+}) {
+  const post = await getBlogPost(params.slug)
+
   if (!post) {
     notFound()
   }
 
-  const canonicalSlug = normalizeForUrl(post.slug)
+  const canonicalSlug = normalizeForUrl(post.slug || '')
   const canonicalUrl = `${SITE_URL}/blog/${canonicalSlug}`
 
   const jsonLd = {
@@ -174,7 +203,7 @@ export default async function BlogPostPage({
             asChild
             variant="default" 
             className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground"
-{{ ... }}
+          >
             <Link href="/blog">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Wróć do listy artykułów
