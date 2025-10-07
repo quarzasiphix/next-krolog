@@ -146,7 +146,12 @@ const Services = () => {
   }, []);
 
   return (
-    <section id="services" className="py-20 bg-gradient-to-b from-black/90 to-black/95">
+    <section
+      id="services"
+      className="py-20 bg-gradient-to-b from-black/90 to-black/95"
+      itemScope
+      itemType="https://schema.org/Service"
+    >
       <div className="section-container">
         <div 
           ref={sectionRef}

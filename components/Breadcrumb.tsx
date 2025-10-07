@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { normalizeForUrl } from '@/lib/utils';
 import { useBreadcrumbContext } from '@/components/breadcrumb-context';
+import { SITE_URL } from '@/lib/constants';
 
 const labelOverrides: Record<string, string> = {
   'uslugi-pogrzebowe-lodz': 'Usługi Pogrzebowe',
@@ -74,12 +75,45 @@ const Breadcrumb = () => {
     });
   }, [pathname, overrides]);
 
+  const breadcrumbJsonLd = useMemo(() => {
+    if (crumbs.length === 0) {
+      return null;
+    }
+
+    const itemListElement = [
+      {
+        '@type': 'ListItem' as const,
+        position: 1,
+        name: 'Strona główna',
+        item: SITE_URL,
+      },
+      ...crumbs.map((crumb, index) => ({
+        '@type': 'ListItem' as const,
+        position: index + 2,
+        name: crumb.label,
+        item: `${SITE_URL}${crumb.href}`,
+      })),
+    ];
+
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement,
+    };
+  }, [crumbs]);
+
   if (hide || crumbs.length === 0) {
     return null;
   }
 
   return (
     <nav className="container mx-auto px-4 py-4 text-sm" aria-label="Nawigacja okruszkowa">
+      {breadcrumbJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        />
+      )}
       <ol className="flex flex-wrap items-center text-muted-foreground">
         <li className="flex items-center">
           <Link href="/" className="text-primary hover:underline">

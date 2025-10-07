@@ -4,6 +4,7 @@ import Reviews from '@/components/Reviews';
 import ServicesCta from '@/components/ServicesCta';
 import ServicesTable from '@/components/ServicesTable';
 import BlogPreview from '@/components/BlogPreview';
+import FAQ from '@/components/FAQ';
 import About from '@/components/About';
 import Contact from '@/components/Contact';
 import type { BlogSummary } from '@/types/blog';
@@ -21,6 +22,7 @@ const HomePageClient = ({ blogPosts }: HomePageClientProps) => {
       <ServicesCta />
       <ServicesTable />
       <BlogPreview blogPosts={blogPosts} />
+      <FAQ />
       <About />
       <Contact />
 
