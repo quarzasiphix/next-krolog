@@ -39,7 +39,7 @@ const HeroContent = () => {
           <div className="mt-4 flex flex-col gap-2 text-sm text-gray-400">
             <span>Zapraszamy do odwiedzenia nas w sercu miasta.</span>
             <a
-              href="https://maps.app.goo.gl/1o7b6Xxw3XjQ6Xb46"
+              href="https://maps.app.goo.gl/96nCspWXwt5VYqkp6"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium"
