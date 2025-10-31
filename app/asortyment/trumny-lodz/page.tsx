@@ -3,6 +3,7 @@ import ServiceLayout from '@/components/ServiceLayout'
 import { IMAGES } from '@/assets/images'
 import { Card, CardContent } from '@/components/ui/card'
 import { Package, CheckCircle } from 'lucide-react'
+import { SITE_URL } from '@/lib/constants'
 
 const coffins = [
   {
@@ -31,8 +32,21 @@ const coffins = [
 
 export const metadata: Metadata = {
   title: 'Trumny Łódź',
-  description: 'Szeroki wybór trumien w Łodzi. Modele dębowe, sosnowe, olchowe oraz ekonomiczne rozwiązania.',
-  keywords: ['trumny łódź', 'trumna dębowa', 'trumna sosnowa', 'trumny pogrzebowe'],
+  description: 'Szeroki wybór trumien w Łodzi. Modele dębowe, sosnowe, olchowe oraz ekonomiczne rozwiązania. Najwyższa jakość wykonania.',
+  keywords: ['trumny łódź', 'trumna dębowa', 'trumna sosnowa', 'trumny pogrzebowe', 'trumna olchowa'],
+  alternates: {
+    canonical: `${SITE_URL}/asortyment/trumny-lodz`,
+  },
+  openGraph: {
+    title: 'Trumny Łódź - Nekrolog',
+    description: 'Szeroki wybór trumien najwyższej jakości. Modele dębowe, sosnowe, olchowe oraz ekonomiczne.',
+    url: `${SITE_URL}/asortyment/trumny-lodz`,
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function TrumnyPage() {

@@ -3,6 +3,7 @@ import ServiceLayout from '@/components/ServiceLayout'
 import { IMAGES } from '@/assets/images'
 import { Card, CardContent } from '@/components/ui/card'
 import { CheckCircle, MapPin, Clock, Globe, AlertTriangle } from 'lucide-react'
+import { SITE_URL } from '@/lib/constants'
 
 const transportServices = [
   'Transport zmarłych z miejsca zgonu do kostnicy lub chłodni',
@@ -51,8 +52,21 @@ const internationalSupport = [
 export const metadata: Metadata = {
   title: 'Transport Zmarłych Łódź',
   description:
-    'Całodobowy transport zmarłych w Łodzi i na terenie kraju oraz transport międzynarodowy. Profesjonalne karawany i pomoc formalna.',
+    'Całodobowy transport zmarłych w Łodzi i na terenie kraju oraz transport międzynarodowy. Profesjonalne karawany i pomoc formalna. Dostępni 24/7.',
   keywords: ['transport zmarłych łódź', 'przewóz zwłok', 'karawan łódź', 'transport międzynarodowy zmarłych'],
+  alternates: {
+    canonical: `${SITE_URL}/uslugi/transport-zmarlych-lodz`,
+  },
+  openGraph: {
+    title: 'Transport Zmarłych Łódź - Nekrolog',
+    description: 'Całodobowy transport zmarłych w Łodzi, na terenie kraju i międzynarodowy. Profesjonalne karawany.',
+    url: `${SITE_URL}/uslugi/transport-zmarlych-lodz`,
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function TransportZmarlychPage() {

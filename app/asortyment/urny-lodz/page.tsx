@@ -3,6 +3,7 @@ import ServiceLayout from '@/components/ServiceLayout'
 import { IMAGES } from '@/assets/images'
 import { Card, CardContent } from '@/components/ui/card'
 import { Box, CheckCircle } from 'lucide-react'
+import { SITE_URL } from '@/lib/constants'
 
 const urns = [
   {
@@ -46,8 +47,21 @@ const urns = [
 export const metadata: Metadata = {
   title: 'Urny Pogrzebowe Łódź',
   description:
-    'Szeroki wybór urn pogrzebowych w Łodzi. Urny metalowe, drewniane, kamienne, ceramiczne, biodegradowalne i pamiątkowe.',
-  keywords: ['urny pogrzebowe łódź', 'urny na prochy', 'urna pogrzebowa', 'urny kremacyjne łódź'],
+    'Szeroki wybór urn pogrzebowych w Łodzi. Urny metalowe, drewniane, kamienne, ceramiczne, biodegradowalne i pamiątkowe. Możliwość personalizacji.',
+  keywords: ['urny pogrzebowe łódź', 'urny na prochy', 'urna pogrzebowa', 'urny kremacyjne łódź', 'urna biodegradowalna'],
+  alternates: {
+    canonical: `${SITE_URL}/asortyment/urny-lodz`,
+  },
+  openGraph: {
+    title: 'Urny Pogrzebowe Łódź - Nekrolog',
+    description: 'Szeroki wybór urn pogrzebowych. Urny metalowe, drewniane, ceramiczne, biodegradowalne i pamiątkowe.',
+    url: `${SITE_URL}/asortyment/urny-lodz`,
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function UrnyPage() {

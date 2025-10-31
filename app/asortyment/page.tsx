@@ -5,12 +5,26 @@ import { IMAGES } from '@/assets/images'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Package, Box, Flower, Shirt } from 'lucide-react'
+import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Asortyment Pogrzebowy Łódź',
   description:
-    'Trumny, urny, odzież pogrzebowa oraz kompozycje kwiatowe – kompleksowy asortyment domu pogrzebowego Nekrolog Łódź.',
-  keywords: ['asortyment pogrzebowy łódź', 'trumny łódź', 'urny łódź', 'wieńce pogrzebowe'],
+    'Trumny, urny, odzież pogrzebowa oraz kompozycje kwiatowe – kompleksowy asortyment domu pogrzebowego Nekrolog Łódź. Szeroki wybór w przystępnych cenach.',
+  keywords: ['asortyment pogrzebowy łódź', 'trumny łódź', 'urny łódź', 'wieńce pogrzebowe', 'odzież żałobna'],
+  alternates: {
+    canonical: `${SITE_URL}/asortyment`,
+  },
+  openGraph: {
+    title: 'Asortyment Pogrzebowy Łódź - Nekrolog',
+    description: 'Trumny, urny, odzież pogrzebowa oraz kompozycje kwiatowe. Kompleksowy asortyment w jednym miejscu.',
+    url: `${SITE_URL}/asortyment`,
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 const assortmentCards = [

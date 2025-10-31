@@ -3,6 +3,7 @@ import ServiceLayout from '@/components/ServiceLayout'
 import { IMAGES } from '@/assets/images'
 import { Card, CardContent } from '@/components/ui/card'
 import { Flower, CheckCircle } from 'lucide-react'
+import { SITE_URL } from '@/lib/constants'
 
 const arrangements = [
   {
@@ -40,8 +41,21 @@ const arrangements = [
 export const metadata: Metadata = {
   title: 'Wiązanki Pogrzebowe Łódź',
   description:
-    'Wiązanki, wieńce i kompozycje kwiatowe przygotowywane na ceremonie pogrzebowe w Łodzi przez dom pogrzebowy Nekrolog.',
-  keywords: ['wiązanki pogrzebowe łódź', 'wieńce pogrzebowe', 'kwiaty na pogrzeb łódź'],
+    'Wiązanki, wieńce i kompozycje kwiatowe przygotowywane na ceremonie pogrzebowe w Łodzi przez dom pogrzebowy Nekrolog. Świeże kwiaty premium.',
+  keywords: ['wiązanki pogrzebowe łódź', 'wieńce pogrzebowe', 'kwiaty na pogrzeb łódź', 'kompozycje kwiatowe'],
+  alternates: {
+    canonical: `${SITE_URL}/asortyment/wiazanki-lodz`,
+  },
+  openGraph: {
+    title: 'Wiązanki Pogrzebowe Łódź - Nekrolog',
+    description: 'Wiązanki, wieńce i kompozycje kwiatowe na ceremonie pogrzebowe. Świeże kwiaty premium.',
+    url: `${SITE_URL}/asortyment/wiazanki-lodz`,
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function WiazankiPage() {

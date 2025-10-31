@@ -3,6 +3,7 @@ import ServiceLayout from '@/components/ServiceLayout'
 import { IMAGES } from '@/assets/images'
 import { Card, CardContent } from '@/components/ui/card'
 import { Package, CheckCircle } from 'lucide-react'
+import { SITE_URL } from '@/lib/constants'
 
 const clothingCategories = [
   {
@@ -46,8 +47,21 @@ const clothingCategories = [
 export const metadata: Metadata = {
   title: 'Odzież Pogrzebowa Łódź',
   description:
-    'Elegancka odzież żałobna dla kobiet i mężczyzn oraz komplety dla zmarłych dostępne w zakładzie pogrzebowym Nekrolog Łódź.',
-  keywords: ['odzież pogrzebowa łódź', 'ubrania dla zmarłych', 'garnitur żałobny', 'suknia żałobna'],
+    'Elegancka odzież żałobna dla kobiet i mężczyzn oraz komplety dla zmarłych dostępne w zakładzie pogrzebowym Nekrolog Łódź. Pełna rozmiarówka.',
+  keywords: ['odzież pogrzebowa łódź', 'ubrania dla zmarłych', 'garnitur żałobny', 'suknia żałobna', 'odzież żałobna'],
+  alternates: {
+    canonical: `${SITE_URL}/asortyment/odziez-lodz`,
+  },
+  openGraph: {
+    title: 'Odzież Pogrzebowa Łódź - Nekrolog',
+    description: 'Elegancka odzież żałobna dla kobiet i mężczyzn oraz komplety dla zmarłych. Pełna rozmiarówka.',
+    url: `${SITE_URL}/asortyment/odziez-lodz`,
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function OdziezPage() {

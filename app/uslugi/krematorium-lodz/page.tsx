@@ -1,12 +1,26 @@
 import { Metadata } from 'next'
 import ServiceLayout from '@/components/ServiceLayout'
 import { IMAGES } from '@/assets/images'
-import { CheckCircle, Flame, Clock, Coffee, FileText } from 'lucide-react'
+import { Flame, CheckCircle, FileText, Heart, Clock, Box } from 'lucide-react'
+import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Krematorium w Łodzi',
-  description: 'Profesjonalne usługi kremacji w Łodzi. Organizacja kremacji, urny, transport, dokumenty. Pełna pomoc w organizacji pogrzebu po kremacji.',
-  keywords: ['kremacja łódź', 'krematorium', 'spopielenie zwłok', 'pochówek urnowy', 'organizacja kremacji'],
+  description: 'Profesjonalne usługi kremacji w Łodzi. Organizacja kremacji, urny, transport, dokumenty. Pełna pomoc w organizacji pogrzebu po kremacji. Dostępni 24/7.',
+  keywords: ['kremacja łódź', 'krematorium', 'spopielenie zwłok', 'pochówek urnowy', 'organizacja kremacji', 'urny kremacyjne'],
+  alternates: {
+    canonical: `${SITE_URL}/uslugi/krematorium-lodz`,
+  },
+  openGraph: {
+    title: 'Krematorium w Łodzi - Nekrolog',
+    description: 'Profesjonalne usługi kremacji. Organizacja kremacji, urny, transport, dokumenty. Pełna pomoc.',
+    url: `${SITE_URL}/uslugi/krematorium-lodz`,
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function KrematoriumPage() {
@@ -99,7 +113,7 @@ export default function KrematoriumPage() {
             
             <div className="flex items-start">
               <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-4 flex-shrink-0">
-                <Coffee className="w-5 h-5 text-primary" />
+                <Box className="w-5 h-5 text-primary" />
               </div>
               <div>
                 <h4 className="text-lg font-medium text-white">Wybór urny</h4>

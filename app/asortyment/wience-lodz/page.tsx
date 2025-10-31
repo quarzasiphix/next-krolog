@@ -3,6 +3,7 @@ import ServiceLayout from '@/components/ServiceLayout'
 import { IMAGES } from '@/assets/images'
 import { Card, CardContent } from '@/components/ui/card'
 import { Flower, Leaf, CheckCircle } from 'lucide-react'
+import { SITE_URL } from '@/lib/constants'
 
 const wreaths = [
   {
@@ -52,8 +53,21 @@ const wreaths = [
 export const metadata: Metadata = {
   title: 'Wieńce Pogrzebowe Łódź',
   description:
-    'Wieńce i kompozycje kwiatowe na pogrzeb – tradycyjne, okolicznościowe i ekskluzywne aranżacje dostępne w Nekrolog Łódź.',
-  keywords: ['wieńce pogrzebowe łódź', 'wiązanki pogrzebowe', 'kwiaty na pogrzeb'],
+    'Wieńce i kompozycje kwiatowe na pogrzeb – tradycyjne, okolicznościowe i ekskluzywne aranżacje dostępne w Nekrolog Łódź. Możliwość personalizacji szarf.',
+  keywords: ['wieńce pogrzebowe łódź', 'wiązanki pogrzebowe', 'kwiaty na pogrzeb', 'wieńce z szarfami'],
+  alternates: {
+    canonical: `${SITE_URL}/asortyment/wience-lodz`,
+  },
+  openGraph: {
+    title: 'Wieńce Pogrzebowe Łódź - Nekrolog',
+    description: 'Wieńce i kompozycje kwiatowe – tradycyjne, okolicznościowe i ekskluzywne. Możliwość personalizacji.',
+    url: `${SITE_URL}/asortyment/wience-lodz`,
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function WiencePage() {

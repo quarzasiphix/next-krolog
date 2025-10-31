@@ -3,6 +3,7 @@ import ServiceLayout from '@/components/ServiceLayout'
 import { IMAGES } from '@/assets/images'
 import { Card, CardContent } from '@/components/ui/card'
 import { Check, Calendar, FileText, Users, Flower, Phone } from 'lucide-react'
+import { SITE_URL } from '@/lib/constants'
 
 const offers = [
   'Transport zwłok z miejsca zgonu do domu pogrzebowego',
@@ -69,8 +70,21 @@ const ceremonyTypes = [
 export const metadata: Metadata = {
   title: 'Organizacja Pogrzebów Łódź',
   description:
-    'Kompleksowa organizacja pogrzebów w Łodzi – formalności, oprawa ceremonii, pomoc w uzyskaniu zasiłku pogrzebowego.',
-  keywords: ['organizacja pogrzebów łódź', 'formalności pogrzebowe', 'planowanie pogrzebu'],
+    'Kompleksowa organizacja pogrzebów w Łodzi – formalności, oprawa ceremonii, pomoc w uzyskaniu zasiłku pogrzebowego. Profesjonalne wsparcie 24/7.',
+  keywords: ['organizacja pogrzebów łódź', 'formalności pogrzebowe', 'planowanie pogrzebu', 'zasiłek pogrzebowy'],
+  alternates: {
+    canonical: `${SITE_URL}/uslugi/organizacja-pogrzebow-lodz`,
+  },
+  openGraph: {
+    title: 'Organizacja Pogrzebów Łódź - Nekrolog',
+    description: 'Kompleksowa organizacja pogrzebów – formalności, oprawa ceremonii, pomoc w uzyskaniu zasiłku.',
+    url: `${SITE_URL}/uslugi/organizacja-pogrzebow-lodz`,
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function OrganizacjaPogrzebowPage() {
