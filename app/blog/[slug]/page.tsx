@@ -260,19 +260,27 @@ export default async function BlogPostPage({
             )}
 
             <div 
-              className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl max-w-none text-foreground 
+              className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl max-w-none text-white
                 [&_a]:text-primary [&_a:hover]:text-primary/80 [&_a]:font-medium [&_a]:transition-colors
-                [&_ul]:list-disc [&_ol]:list-decimal [&_ul], [&_ol]:pl-6 
+                [&_ul]:list-disc [&_ul]:text-white [&_ul]:pl-6 [&_ul]:my-4
+                [&_ol]:list-decimal [&_ol]:text-white [&_ol]:pl-6 [&_ol]:my-4
+                [&_li]:text-white [&_li]:mb-2 [&_li]:leading-relaxed
+                [&_li_strong]:text-primary [&_li_strong]:font-semibold
+                [&_strong]:text-white [&_strong]:font-semibold
+                [&_em]:text-white/90 [&_em]:italic
                 [&_img]:rounded-lg [&_img]:shadow-md [&_img]:my-6 
-                [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:text-foreground [&_h1]:mt-10 [&_h1]:mb-6
-                [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-foreground [&_h2]:mt-8 [&_h2]:mb-4 
-                [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-foreground [&_h3]:mt-6 [&_h3]:mb-3
-                [&_h4]:text-lg [&_h4]:font-semibold [&_h4]:text-foreground [&_h4]:mt-5 [&_h4]:mb-2
-                [&_p]:text-foreground/90 [&_p]:mb-4 [&_p:last-child]:mb-0
-                [&_blockquote]:border-l-4 [&_blockquote]:border-primary [&_blockquote]:pl-4 [&_blockquote]:py-1 [&_blockquote]:my-4 [&_blockquote]:text-foreground/80
-                [&_table]:w-full [&_table]:border [&_table]:border-border [&_th]:bg-secondary/50 [&_th]:p-3 [&_th]:text-left [&_th]:text-foreground [&_td]:p-3 [&_td]:border [&_td]:border-border [&_td]:text-foreground/90
-                [&_code]:bg-secondary [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm [&_code]:text-foreground/90
-                [&_pre]:bg-secondary [&_pre]:p-4 [&_pre]:rounded-lg [&_pre]:overflow-x-auto [&_pre]:my-4"
+                [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:text-white [&_h1]:mt-10 [&_h1]:mb-6
+                [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-white [&_h2]:mt-8 [&_h2]:mb-4 
+                [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-white [&_h3]:mt-6 [&_h3]:mb-3
+                [&_h4]:text-lg [&_h4]:font-semibold [&_h4]:text-white [&_h4]:mt-5 [&_h4]:mb-2
+                [&_p]:text-white/90 [&_p]:mb-4 [&_p]:leading-relaxed [&_p:last-child]:mb-0
+                [&_blockquote]:border-l-4 [&_blockquote]:border-primary [&_blockquote]:pl-4 [&_blockquote]:py-2 [&_blockquote]:my-4 [&_blockquote]:text-white/80 [&_blockquote]:italic
+                [&_table]:w-full [&_table]:border [&_table]:border-white/20 [&_table]:my-6
+                [&_th]:bg-primary/20 [&_th]:p-3 [&_th]:text-left [&_th]:text-white [&_th]:font-semibold [&_th]:border [&_th]:border-white/20
+                [&_td]:p-3 [&_td]:border [&_td]:border-white/20 [&_td]:text-white/90
+                [&_code]:bg-black/40 [&_code]:px-2 [&_code]:py-1 [&_code]:rounded [&_code]:text-sm [&_code]:text-primary [&_code]:font-mono
+                [&_pre]:bg-black/40 [&_pre]:p-4 [&_pre]:rounded-lg [&_pre]:overflow-x-auto [&_pre]:my-4 [&_pre]:border [&_pre]:border-white/10
+                [&_hr]:border-white/20 [&_hr]:my-8"
               dangerouslySetInnerHTML={{ 
                 __html: post.content 
                   .replace(/<a(?!\s+target=)/g, '<a target="_blank" rel="noopener noreferrer"')

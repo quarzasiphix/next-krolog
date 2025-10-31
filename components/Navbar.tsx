@@ -252,6 +252,10 @@ const Navbar = () => {
                   <Link 
                     key={item.name}
                     href={item.path}
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      setActiveSubmenu(null);
+                    }}
                     className="text-gray-300 hover:text-primary transition-colors text-lg py-2 w-full text-left flex items-center"
                   >
                     <ChevronRight className="w-4 h-4 mr-2" />
@@ -277,6 +281,10 @@ const Navbar = () => {
                   <Link 
                     key={item.name}
                     href={item.path}
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      setActiveSubmenu(null);
+                    }}
                     className="text-gray-300 hover:text-primary transition-colors text-lg py-2 w-full text-left flex items-center"
                   >
                     <ChevronRight className="w-4 h-4 mr-2" />
@@ -309,6 +317,10 @@ const Navbar = () => {
                   <Link 
                     key={item.name}
                     href={item.path}
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      setActiveSubmenu(null);
+                    }}
                     className="text-gray-300 hover:text-primary transition-colors text-lg py-2 w-full text-left flex items-center"
                   >
                     <ChevronRight className="w-4 h-4 mr-2" />
