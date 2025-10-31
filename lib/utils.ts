@@ -14,7 +14,26 @@ export function cn(...inputs: ClassValue[]) {
 export function normalizeForUrl(str: string): string {
   if (!str) return '';
 
-  return str
+  // Polish character mappings (must be done before NFD normalization)
+  const polishMap: Record<string, string> = {
+    'ą': 'a', 'Ą': 'A',
+    'ć': 'c', 'Ć': 'C',
+    'ę': 'e', 'Ę': 'E',
+    'ł': 'l', 'Ł': 'L',
+    'ń': 'n', 'Ń': 'N',
+    'ó': 'o', 'Ó': 'O',
+    'ś': 's', 'Ś': 'S',
+    'ź': 'z', 'Ź': 'Z',
+    'ż': 'z', 'Ż': 'Z',
+  };
+
+  // Replace Polish characters first
+  let normalized = str;
+  for (const [polish, latin] of Object.entries(polishMap)) {
+    normalized = normalized.replace(new RegExp(polish, 'g'), latin);
+  }
+
+  return normalized
     // Break accented characters into base + diacritic
     .normalize('NFD')
     // Remove diacritic marks
