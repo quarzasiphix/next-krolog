@@ -27,8 +27,15 @@ interface BlogPost {
 
 // THIS IS CRITICAL FOR CLOUDFLARE PAGES SSG
 // Generate static params at build time - fetches all blog slugs
+// Returns empty array if Supabase unavailable (build-time on Cloudflare)
 export async function generateStaticParams() {
   try {
+    // Check if Supabase credentials are available
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+      console.log('[BUILD] Supabase credentials not available at build time, skipping blog static generation')
+      return []
+    }
+
     const supabase = createServerClient()
     
     const { data, error } = await supabase
@@ -37,7 +44,8 @@ export async function generateStaticParams() {
       .eq('published', true)
 
     if (error) {
-      console.error('Error generating static params:', error)
+      console.error('[BUILD] Error generating static params:', error)
+      return []
     }
 
     console.log(`[BUILD] Generating ${data?.length || 0} blog post pages`)
@@ -46,7 +54,12 @@ export async function generateStaticParams() {
       slug: normalizeForUrl(post.slug),
     }))
   } catch (err) {
-    console.error('Error in generateStaticParams:', err)
+    console.error('[BUILD] Error in generateStaticParams:', {
+      message: err instanceof Error ? err.message : String(err),
+      details: err instanceof Error ? err.stack : '',
+      hint: 'Supabase may not be accessible at build time',
+      code: ''
+    })
     return []
   }
 }
