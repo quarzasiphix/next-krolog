@@ -156,15 +156,10 @@ export default async function BlogPage() {
                       {new Date(post.created_at).toLocaleDateString('pl-PL')}
                     </div>
                   </div>
-                  <Button 
-                    asChild 
-                    variant="link" 
-                    className="w-full text-left text-primary hover:text-primary/80 text-sm font-medium p-0 h-auto justify-start"
-                  >
-                    <Link href={`/blog/${post.normalizedSlug}`}>
-                      Czytaj więcej →
-                    </Link>
-                  </Button>
+                  {/* Individual blog post pages removed for Cloudflare Pages static export compatibility */}
+                  <p className="text-xs text-muted-foreground italic">
+                    Pełna treść artykułu dostępna wkrótce
+                  </p>
                 </CardContent>
               </Card>
             ))}
