@@ -25,43 +25,13 @@ interface BlogPost {
   meta_keywords: string | null
 }
 
-// THIS IS CRITICAL FOR CLOUDFLARE PAGES SSG
-// Generate static params at build time - fetches all blog slugs
-// Returns empty array if Supabase unavailable (build-time on Cloudflare)
+// CLOUDFLARE PAGES STATIC EXPORT COMPATIBILITY
+// For static export with output: 'export', we cannot fetch from Supabase at build time
+// Blog pages will be rendered client-side at runtime instead
+// This prevents build failures on Cloudflare Pages where env vars are not available during build
 export async function generateStaticParams() {
-  try {
-    // Check if Supabase credentials are available
-    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
-      console.log('[BUILD] Supabase credentials not available at build time, skipping blog static generation')
-      return []
-    }
-
-    const supabase = createServerClient()
-    
-    const { data, error } = await supabase
-      .from('blogs')
-      .select('slug')
-      .eq('published', true)
-
-    if (error) {
-      console.error('[BUILD] Error generating static params:', error)
-      return []
-    }
-
-    console.log(`[BUILD] Generating ${data?.length || 0} blog post pages`)
-    
-    return (data || []).map((post) => ({
-      slug: normalizeForUrl(post.slug),
-    }))
-  } catch (err) {
-    console.error('[BUILD] Error in generateStaticParams:', {
-      message: err instanceof Error ? err.message : String(err),
-      details: err instanceof Error ? err.stack : '',
-      hint: 'Supabase may not be accessible at build time',
-      code: ''
-    })
-    return []
-  }
+  console.log('[BUILD] Skipping static blog generation for Cloudflare Pages - pages will render at runtime')
+  return []
 }
 
 async function getBlogPost(slug: string): Promise<BlogPost | null> {
