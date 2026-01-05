@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,16 +6,16 @@
 
 @layer base {
   :root {
-    --background: 0 0% 12%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 8%;
+    --foreground: 0 0% 96%;
 
-    --card: 0 0% 15%;
+    --card: 0 0% 10%;
     --card-foreground: 0 0% 98%;
 
     --popover: 0 0% 15%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 43 100% 50%;
+    --primary: 43 85% 55%;
     --primary-foreground: 0 0% 10%;
 
     --secondary: 0 0% 20%;
@@ -30,7 +30,7 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 30%;
+    --border: 0 0% 20%;
     --input: 0 0% 30%;
     --ring: 43 100% 50%;
 
@@ -44,49 +44,86 @@
   }
 
   body {
-    @apply bg-background text-foreground font-lato;
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-playfair tracking-wide;
+    @apply font-playfair;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
   }
 }
 
 @layer components {
   .glass-card {
-    @apply bg-black/90 backdrop-blur-sm border border-primary/30 shadow-md text-white;
+    @apply bg-black/40 backdrop-blur-md text-white;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+    border: none;
   }
   
   .section-container {
-    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24;
+    @apply w-full max-w-6xl mx-auto px-6 sm:px-8 py-24 md:py-32;
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl font-semibold mb-6 text-white;
+    @apply text-3xl md:text-4xl mb-8 text-white;
+    font-weight: 400;
+    letter-spacing: -0.02em;
   }
   
   .section-subtitle {
-    @apply text-xl md:text-2xl mb-10 text-gray-300 max-w-3xl mx-auto;
+    @apply text-lg md:text-xl mb-16 text-gray-400 max-w-2xl mx-auto;
+    line-height: 1.7;
   }
 
   .page-transition {
-    @apply transition-all duration-500 ease-in-out;
+    @apply transition-all duration-200 ease-out;
   }
   
   .hover-lift {
-    @apply transition-transform duration-300 ease-out hover:-translate-y-1;
+    transition: transform 180ms ease-out, opacity 180ms ease-out;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
   }
 
   .button-primary {
-    @apply px-6 py-3 bg-primary text-black rounded-md font-medium 
-    hover:bg-primary/90 transition-all duration-300 shadow-sm hover:shadow;
+    @apply px-8 text-black font-medium;
+    padding-top: 1.125rem;
+    padding-bottom: 1.125rem;
+    background: hsl(43 78% 52%);
+    border-radius: 6px;
+    transition: opacity 180ms ease-out;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  .button-primary:hover {
+    opacity: 0.92;
   }
   
   .button-secondary {
-    @apply px-6 py-3 bg-white/10 text-white rounded-md font-medium
-    hover:bg-white/20 transition-all duration-300 shadow-sm hover:shadow border border-white/20;
+    @apply px-8 py-4 text-white/80 font-medium;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    transition: all 180ms ease-out;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+  }
+  
+  .button-secondary:hover {
+    @apply text-white;
+    border-color: rgba(255, 255, 255, 0.25);
   }
 
   .cross-glow {
@@ -103,7 +140,14 @@
   }
   
   .feature-card {
-    @apply bg-black/60 p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all duration-300;
+    @apply bg-black/30 p-8 rounded-lg;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+    border: none;
+    transition: box-shadow 180ms ease-out;
+  }
+  
+  .feature-card:hover {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
   }
   
   /* Make the breadcrumb bar sticky when scrolling */

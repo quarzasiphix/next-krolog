@@ -15,10 +15,14 @@ const Hero = () => {
         }}
       />
 
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 mix-blend-overlay hero-overlay"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.03] mix-blend-overlay hero-overlay"
         style={{ backgroundImage: `url(${IMAGES.cross})` }}
       />
+
+      <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-black/40" style={{ backgroundImage: 'radial-gradient(circle at center, transparent 0%, transparent 60%, rgba(0,0,0,0.4) 100%)' }} />
 
       <div className="relative z-10 mb-8 flex items-center justify-center">
         <img
@@ -30,10 +34,8 @@ const Hero = () => {
 
       <HeroContent />
 
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex items-center justify-center">
-        <div className="flex items-center justify-center mx-3">
-          <Cross className="h-14 w-14 text-primary cross-glow" />
-        </div>
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center justify-center opacity-20">
+        <Cross className="h-12 w-12 text-primary/50" />
       </div>
     </section>
   );

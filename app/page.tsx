@@ -6,18 +6,17 @@ import type { BlogSummary } from '@/types/blog'
 import { BUSINESS_INFO, SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Nekrolog Łódź - Usługi Pogrzebowe Jolanta Kostowska | Całodobowo',
+  title: 'Zakład Pogrzebowy w Łodzi – Nekrolog Łódź | Jolanta Kostowska',
   description:
-    'Profesjonalny zakład pogrzebowy Nekrolog Łódź Jolanta Kostowska. Kompleksowe usługi pogrzebowe, organizacja ceremonii, kremacja, transport. Dostępni całodobowo. Tel: +48 602 274 661.',
+    'Zakład Pogrzebowy Nekrolog Łódź oferuje kompleksowe usługi pogrzebowe w Łodzi. Organizacja ceremonii, kremacja, transport. Doświadczenie 20+ lat. Dostępni całodobowo. Tel: +48 602 274 661.',
   keywords: [
-    'usługi pogrzebowe łódź',
     'zakład pogrzebowy łódź',
+    'usługi pogrzebowe łódź',
     'dom pogrzebowy łódź',
-    'nekrolog łódź',
-    'jolanta kostowska',
-    'pogrzeby łódź',
+    'organizacja pogrzebu łódź',
     'kremacja łódź',
-    'transport zwłok łódź',
+    'transport zmarłych łódź',
+    'pogrzeby łódź',
     'całodobowy zakład pogrzebowy',
   ],
 }
@@ -106,11 +105,15 @@ export default async function HomePage() {
           'Wednesday',
           'Thursday',
           'Friday',
-          'Saturday',
-          'Sunday',
         ],
-        opens: BUSINESS_INFO.openingHours.opens,
-        closes: BUSINESS_INFO.openingHours.closes,
+        opens: '08:00',
+        closes: '16:00',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Saturday'],
+        opens: '09:00',
+        closes: '13:00',
       },
     ],
     aggregateRating: {
@@ -136,8 +139,40 @@ export default async function HomePage() {
       {
         '@type': 'ContactPoint',
         telephone: BUSINESS_INFO.phone,
-        contactType: 'Customer Service',
-        availableLanguage: ['pl', 'en'],
+        contactType: 'customer service',
+        availableLanguage: ['pl'],
+        hoursAvailable: {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: [
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+            'Friday',
+          ],
+          opens: '08:00',
+          closes: '16:00',
+        },
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: BUSINESS_INFO.phone,
+        contactType: 'emergency',
+        availableLanguage: ['pl'],
+        hoursAvailable: {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: [
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+            'Friday',
+            'Saturday',
+            'Sunday',
+          ],
+          opens: '00:00',
+          closes: '23:59',
+        },
       },
     ],
     makesOffer: BUSINESS_INFO.services.map((service, index) => ({

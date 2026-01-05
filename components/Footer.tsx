@@ -79,24 +79,29 @@ const Footer = () => {
             <h3 className="text-xl font-playfair font-medium mb-6 text-white">Nawigacja</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#home" className="inline-block text-gray-300 hover:text-primary transition-colors">
+                <Link href="/" className="inline-block text-gray-300 hover:text-primary transition-colors">
                   Strona Główna
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#services" className="inline-block text-gray-300 hover:text-primary transition-colors">
+                <Link href="/zaklad-pogrzebowy-lodz" className="inline-block text-gray-300 hover:text-primary transition-colors">
+                  Zakład Pogrzebowy
+                </Link>
+              </li>
+              <li>
+                <Link href="/uslugi-pogrzebowe-lodz" className="inline-block text-gray-300 hover:text-primary transition-colors">
                   Usługi
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#about" className="inline-block text-gray-300 hover:text-primary transition-colors">
+                <Link href="/o-nas" className="inline-block text-gray-300 hover:text-primary transition-colors">
                   O nas
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#contact" className="inline-block text-gray-300 hover:text-primary transition-colors">
+                <Link href="/kontakt" className="inline-block text-gray-300 hover:text-primary transition-colors">
                   Kontakt
-                </a>
+                </Link>
               </li>
             </ul>
             <div className="mt-6 p-4 bg-white/5 rounded-lg border border-white/10">

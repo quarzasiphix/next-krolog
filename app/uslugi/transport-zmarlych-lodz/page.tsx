@@ -84,7 +84,7 @@ export default function TransportZmarlychPage() {
             </h2>
             <div className="prose prose-lg prose-invert max-w-none space-y-4">
               <p>
-                Dom Pogrzebowy Nekrolog Łódź dysponuje specjalistycznymi karawanami oraz doświadczonym personelem, który
+                Zakład Pogrzebowy Nekrolog Łódź dysponuje specjalistycznymi karawanami oraz doświadczonym personelem, który
                 zapewnia godny transport ciała na każdym etapie – od miejsca zgonu po miejsce pochówku lub kremację. Działamy
                 całodobowo, by rodzina otrzymała pomoc w chwili, gdy jest ona najbardziej potrzebna.
               </p>

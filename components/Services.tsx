@@ -50,7 +50,7 @@ const ServiceCard = ({
       ref={cardRef}
       className="glass-card p-8 rounded-xl flex flex-col items-center text-center opacity-0 translate-y-10 transition-all duration-200"
     >
-      <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-6 shadow-inner">
+      <div className="mb-6 text-primary/60">
         {icon}
       </div>
       <h3 className="text-xl font-playfair font-medium mb-4 text-white">{title}</h3>
@@ -105,7 +105,7 @@ const FeatureItem = ({
       className="opacity-0 translate-y-10 transition-all duration-200 feature-card hover:shadow-lg hover:scale-[1.01] transition-all duration-300"
     >
       <div className="flex items-start gap-4 mb-3">
-        <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+        <div className="text-primary/60 flex-shrink-0">
           {icon}
         </div>
         <h3 className="text-xl font-playfair font-medium text-primary">{title}</h3>
@@ -159,7 +159,7 @@ const Services = () => {
         >
           <h2 className="section-title">Kompleksowe Usługi Pogrzebowe</h2>
           <p className="section-subtitle">
-            Zapewniamy profesjonalne wsparcie dla rodzin w trudnych chwilach żałoby
+            Prowadzimy rodzinę przez każdy etap organizacji ceremonii z troską i doświadczeniem
           </p>
         </div>
         
@@ -168,13 +168,13 @@ const Services = () => {
           <ServiceCard 
             icon={<Heart className="w-8 h-8 text-primary" />}
             title="Kompleksowa Organizacja Ceremonii"
-            description="Przejmiemy wszelkie obowiązki i formalności związane z pożegnaniem zmarłej osoby, aby umożliwić rodzinie godne przeżywanie żałoby."
+            description="Przejmujemy na siebie wszystkie obowiązki i formalności, aby rodzina mogła skupić się na pożegnaniu."
             delay={10}
           />
           <ServiceCard 
             icon={<Truck className="w-8 h-8 text-primary" />}
             title="Przewóz Zwłok"
-            description="Zapewniamy profesjonalny przewóz ciał zmarłych, trumien oraz urn na terenie całego kraju i Europy."
+            description="Zajmujemy się transportem na terenie kraju i Europy z zachowaniem godności i dyskrecji."
             delay={20}
           />
           <ServiceCard 
@@ -218,7 +218,7 @@ const Services = () => {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-primary font-playfair text-lg mb-2">Zapewniamy kompleksowo:</h3>
+                  <h3 className="text-primary font-playfair text-lg mb-2">Zajmujemy się również:</h3>
                   <ul className="space-y-2">
                     <li className="flex items-start">
                       <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 mr-2 flex-shrink-0"></span>

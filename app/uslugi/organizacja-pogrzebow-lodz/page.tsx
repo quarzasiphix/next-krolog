@@ -102,7 +102,7 @@ export default function OrganizacjaPogrzebowPage() {
             </h2>
             <div className="prose prose-lg prose-invert max-w-none">
               <p>
-                Dom Pogrzebowy Nekrolog Łódź przejmuje wszystkie obowiązki związane z przygotowaniem ceremonii, aby bliscy
+                Zakład Pogrzebowy Nekrolog Łódź przejmuje wszystkie obowiązki związane z przygotowaniem ceremonii, aby bliscy
                 mogli skupić się na przeżywaniu żałoby. Zapewniamy wsparcie od pierwszego kontaktu aż do zakończenia uroczystości.
               </p>
               <p>
@@ -193,7 +193,7 @@ export default function OrganizacjaPogrzebowPage() {
               >
                 <Phone className="h-5 w-5" /> +48 602 274 661
               </a>
-              <p className="text-sm text-gray-400">Dom pogrzebowy Nekrolog Łódź – pewność dyskrecji i troski.</p>
+              <p className="text-sm text-gray-400">Zakład pogrzebowy Nekrolog Łódź – pewność dyskrecji i troski.</p>
             </CardContent>
           </Card>
         </aside>

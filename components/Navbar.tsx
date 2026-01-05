@@ -97,7 +97,7 @@ const Navbar = () => {
   };
   
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black shadow-md' : 'bg-black/95'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black/90 backdrop-blur-sm' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4 py-4 md:py-3 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
           <div className="flex items-center">
@@ -349,7 +349,7 @@ const Navbar = () => {
           </a>
 
           <div className="mt-8 glass-card p-4 rounded-lg text-center">
-            <h3 className="text-primary font-medium mb-1">Dom pogrzebowy w centrum Łodzi</h3>
+            <h3 className="text-primary font-medium mb-1">Zakład pogrzebowy w centrum Łodzi</h3>
             <address className="not-italic text-gray-300 text-sm">
               Legionów 48, 90-702 Łódź, Poland
             </address>

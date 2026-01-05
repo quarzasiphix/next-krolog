@@ -34,6 +34,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1,
     },
     {
+      url: `${baseUrl}/zaklad-pogrzebowy-lodz`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
       url: `${baseUrl}/uslugi-pogrzebowe-lodz`,
       lastModified: new Date(),
       changeFrequency: 'weekly',

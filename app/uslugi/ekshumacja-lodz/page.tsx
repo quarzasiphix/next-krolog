@@ -67,7 +67,7 @@ export default function EkshumacjaPage() {
             <h2 className="text-2xl sm:text-3xl font-playfair font-medium text-white">Ekshumacja z poszanowaniem prawa i tradycji</h2>
             <div className="prose prose-lg prose-invert max-w-none space-y-4">
               <p>
-                Ekshumacja to procedura wymagająca odpowiednich pozwoleń oraz specjalistycznej wiedzy. Dom Pogrzebowy
+                Ekshumacja to procedura wymagająca odpowiednich pozwoleń oraz specjalistycznej wiedzy. Zakład Pogrzebowy
                 Nekrolog Łódź przeprowadza ją z zachowaniem wszelkich przepisów sanitarnych i w duchu szacunku dla osoby zmarłej
                 oraz jej bliskich. Zapewniamy wsparcie na każdym etapie, tak by rodzina mogła przejść przez ten proces w spokoju.
               </p>

@@ -46,15 +46,15 @@ const ContactCard = ({
   return (
     <div 
       ref={cardRef}
-      className="glass-card p-8 rounded-xl flex flex-col opacity-0 translate-y-10 transition-all duration-300 h-full"
+      className="glass-card p-8 rounded-lg flex flex-col opacity-0 translate-y-10 transition-all duration-200 h-full"
     >
-      <div className="flex items-center mb-4">
-        <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mr-4">
+      <div className="flex items-start gap-3 mb-6">
+        <div className="text-primary/60 mt-1">
           {icon}
         </div>
-        <h3 className="text-xl font-playfair font-medium text-white">{title}</h3>
+        <h3 className="text-lg font-playfair text-white">{title}</h3>
       </div>
-      <div className="text-gray-300 leading-relaxed">
+      <div className="text-gray-400 leading-relaxed text-sm">
         {children}
       </div>
     </div>
@@ -121,9 +121,9 @@ const Contact = () => {
           ref={sectionRef}
           className="opacity-0 translate-y-10 transition-all duration-300 text-center mb-16"
         >
-          <h2 className="section-title">Kontakt z Zakładem Pogrzebowym</h2>
+          <h2 className="section-title">Kontakt</h2>
           <p className="section-subtitle">
-            Jesteśmy dostępni całodobowo, aby zapewnić Państwu wsparcie w trudnych chwilach
+            Jesteśmy dostępni całodobowo
           </p>
         </div>
         
@@ -133,9 +133,9 @@ const Contact = () => {
             title="Adres"
             delay={20}
           >
-            <p className="mb-2">Legionów 48</p>
-            <p className="mb-2">90-702 Łódź, Polska</p>
-            <a href="https://goo.gl/maps/123" className="text-primary hover:underline text-sm">Zobacz na mapie →</a>
+            <p className="mb-1">Legionów 48</p>
+            <p className="mb-3">90-702 Łódź</p>
+            <a href="https://maps.app.goo.gl/96nCspWXwt5VYqkp6" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-400 transition-colors duration-180">Zobacz na mapie</a>
           </ContactCard>
           
           <ContactCard 
@@ -143,10 +143,8 @@ const Contact = () => {
             title="Telefon"
             delay={40}
           >
-            <p className="mb-2">Całodobowo:</p>
-            <a href="tel:+48602274661" className="text-primary hover:underline">+48 602 274 661</a><br />
-            <a href="tel:+48602270050" className="text-gray-300 hover:text-primary/80 hover:underline text-sm">+48 602 270 050</a>
-            <p className="mt-4 text-sm">W nagłych przypadkach jesteśmy dostępni 24 godziny na dobę, 7 dni w tygodniu</p>
+            <a href="tel:+48602274661" className="text-white hover:text-gray-300 transition-colors duration-180 mb-2 block">+48 602 274 661</a>
+            <a href="tel:+48602270050" className="text-gray-500 hover:text-gray-400 transition-colors duration-180 block">+48 602 270 050</a>
           </ContactCard>
           
           <ContactCard 
@@ -154,9 +152,9 @@ const Contact = () => {
             title="Godziny otwarcia"
             delay={60}
           >
-            <p className="mb-2">Poniedziałek - Piątek: 8:00 - 16:00</p>
-            <p>Sobota: 9:00 - 13:00</p>
-            <p className="mt-3 text-sm font-medium bg-primary/10 p-2 rounded text-primary">* Dostępność telefoniczna: całodobowo</p>
+            <p className="mb-2">Pon–Pt: 8:00–16:00</p>
+            <p className="mb-3">Sobota: 9:00–13:00</p>
+            <p className="text-gray-500">Telefon: całodobowo</p>
           </ContactCard>
         </div>
         

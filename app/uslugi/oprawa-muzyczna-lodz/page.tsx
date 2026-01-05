@@ -113,7 +113,7 @@ export default function OprawaMuzycznaPage() {
                   </Link>
                 </Button>
                 <p className="text-gray-400 text-xs text-center">
-                  Dom Pogrzebowy Nekrolog Łódź – oprawa muzyczna z szacunkiem i profesjonalizmem.
+                  Zakład Pogrzebowy Nekrolog Łódź – oprawa muzyczna z szacunkiem i profesjonalizmem.
                 </p>
               </CardContent>
             </Card>

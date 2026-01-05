@@ -131,7 +131,7 @@ export default {
 			},
 			fontFamily: {
 				'playfair': ['Playfair Display', 'serif'],
-				'lato': ['Lato', 'sans-serif']
+				'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif']
 			}
 		}
 	},
