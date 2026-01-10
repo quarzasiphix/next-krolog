@@ -105,7 +105,7 @@ npm run preview
 1. **Edge Runtime:** Pages using Supabase queries must have `export const runtime = 'edge'`
 2. **Environment Variables:** Must be set in Cloudflare Pages dashboard
 3. **Node Version:** Uses Node.js 22.16.0 (specified in `.node-version`)
-4. **Next.js version:** 14.3.0 (compatible with @cloudflare/next-on-pages)
+4. **Next.js version:** 15.0.0 (compatible with @cloudflare/next-on-pages)
 5. **Build Output:** Uses `.vercel/output/static` directory
 
 ## Troubleshooting
