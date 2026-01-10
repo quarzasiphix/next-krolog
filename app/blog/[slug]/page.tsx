@@ -25,18 +25,7 @@ interface BlogPost {
   meta_keywords: string | null
 }
 
-// CLOUDFLARE PAGES STATIC EXPORT COMPATIBILITY
-// For static export with output: 'export', we cannot fetch from Supabase at build time
-// Blog pages will be rendered client-side at runtime instead
-// This prevents build failures on Cloudflare Pages where env vars are not available during build
-
-// Allow dynamic params at runtime even though we return empty array at build time
-export const dynamicParams = true
-
-export async function generateStaticParams() {
-  console.log('[BUILD] Skipping static blog generation for Cloudflare Pages - pages will render at runtime')
-  return []
-}
+export const runtime = 'edge'
 
 async function getBlogPost(slug: string): Promise<BlogPost | null> {
   try {

@@ -10,6 +10,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 
+export const runtime = 'edge'
+
 export const metadata: Metadata = {
   title: 'Blog - Artykuły i Poradniki',
   description:
@@ -156,10 +158,11 @@ export default async function BlogPage() {
                       {new Date(post.created_at).toLocaleDateString('pl-PL')}
                     </div>
                   </div>
-                  {/* Individual blog post pages removed for Cloudflare Pages static export compatibility */}
-                  <p className="text-xs text-muted-foreground italic">
-                    Pełna treść artykułu dostępna wkrótce
-                  </p>
+                  <Button asChild className="w-full">
+                    <Link href={`/blog/${post.normalizedSlug}`}>
+                      Czytaj więcej
+                    </Link>
+                  </Button>
                 </CardContent>
               </Card>
             ))}
