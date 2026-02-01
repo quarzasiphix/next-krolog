@@ -3,11 +3,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Add PostHog analytics to the config
-  experimental: {
-    instrumentationHook: true,
-  },
-  // Exclude blog directory from build
+    // Exclude blog directory from build
   pageExtensions: ['tsx', 'ts', 'jsx', 'js'].map(ext => {
     return ext;
   }),
