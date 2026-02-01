@@ -7,7 +7,7 @@ import { Toaster } from '@/components/ui/toaster'
 import { Toaster as Sonner } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { BreadcrumbProvider } from '@/components/breadcrumb-context'
-// import { PostHogProvider } from '@/components/providers/PostHogProvider'
+import { PostHogProvider } from '@/components/providers/PostHogProvider'
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(() => new QueryClient({
@@ -22,11 +22,13 @@ export function Providers({ children }: { children: React.ReactNode }) {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
         <TooltipProvider>
-          <BreadcrumbProvider>
-            {children}
-            <Toaster />
-            <Sonner />
-          </BreadcrumbProvider>
+          <PostHogProvider>
+            <BreadcrumbProvider>
+              {children}
+              <Toaster />
+              <Sonner />
+            </BreadcrumbProvider>
+          </PostHogProvider>
         </TooltipProvider>
       </ThemeProvider>
     </QueryClientProvider>

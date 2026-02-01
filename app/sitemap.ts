@@ -1,30 +1,7 @@
 import { MetadataRoute } from 'next'
-import { createServerClient } from '@/lib/supabase/server'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://nekrolog-lodz.com'
-  
-  // Fetch all published blog posts at build time
-  let blogUrls: MetadataRoute.Sitemap = []
-  
-  try {
-    const supabase = createServerClient()
-    const { data: posts } = await supabase
-      .from('blogs')
-      .select('slug, created_at, updated_at')
-      .eq('published', true)
-
-    blogUrls = (posts || []).map((post) => ({
-      url: `${baseUrl}/blog/${post.slug}`,
-      lastModified: new Date(post.updated_at || post.created_at),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    }))
-    
-    console.log(`[BUILD] Generated sitemap with ${blogUrls.length} blog posts`)
-  } catch (error) {
-    console.error('Error fetching blogs for sitemap:', error)
-  }
 
   return [
     {
@@ -111,13 +88,33 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
+    // New SEO Pages - Informational Content
     {
-      url: `${baseUrl}/blog`,
+      url: `${baseUrl}/poradnik/co-zrobic-po-smierci`,
       lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
+      changeFrequency: 'monthly',
+      priority: 0.95,
     },
-    ...blogUrls,
+    {
+      url: `${baseUrl}/poradnik/zasilek-pogrzebowy-zus`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.95,
+    },
+    // Unique Value Proposition Pages
+    {
+      url: `${baseUrl}/pogrzeb-bez-zaliczki`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    // Infrastructure Pages - Cemeteries
+    {
+      url: `${baseUrl}/cmentarze-lodz`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
     {
       url: `${baseUrl}/o-nas`,
       lastModified: new Date(),

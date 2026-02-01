@@ -40,7 +40,11 @@ const productsItems = [
 ];
 
 const aboutItems = [
-  { name: "Blog", id: "about", path: "/blog" }
+  { name: "O nas", id: "about", path: "/o-nas" },
+  { name: "Poradnik: Co zrobić po śmierci", id: "about", path: "/poradnik/co-zrobic-po-smierci" },
+  { name: "Zasiłek pogrzebowy ZUS", id: "about", path: "/poradnik/zasilek-pogrzebowy-zus" },
+  { name: "Pogrzeb bez zaliczki", id: "about", path: "/pogrzeb-bez-zaliczki" },
+  { name: "Cmentarze w Łodzi", id: "about", path: "/cmentarze-lodz" }
 ];
 
 const Navbar = () => {
@@ -176,7 +180,7 @@ const Navbar = () => {
                   O nas
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="bg-black border border-primary/20">
-                  <ul className="grid w-[200px] gap-1 p-2">
+                  <ul className="grid w-[320px] gap-1 p-2">
                     {aboutItems.map((item) => (
                       <li key={item.name}>
                         <NavigationMenuLink asChild>
@@ -306,13 +310,6 @@ const Navbar = () => {
             
             {activeSubmenu === 'about' && (
               <div className="pl-4 pb-2 space-y-2">
-                <button 
-                  onClick={() => scrollToSection('about')} 
-                  className="text-gray-300 hover:text-primary transition-colors text-lg py-2 w-full text-left flex items-center"
-                >
-                  <ChevronRight className="w-4 h-4 mr-2" />
-                  <span>O nas</span>
-                </button>
                 {aboutItems.map((item) => (
                   <Link 
                     key={item.name}

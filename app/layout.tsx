@@ -11,11 +11,6 @@ export const metadata: Metadata = {
   },
   description: 'Zakład Pogrzebowy Nekrolog Łódź oferuje kompleksowe usługi pogrzebowe w Łodzi. Organizacja ceremonii, kremacja, transport. Doświadczenie 20+ lat. Dostępni całodobowo. Tel: +48 602 274 661.',
   keywords: ['zakład pogrzebowy łódź', 'usługi pogrzebowe łódź', 'dom pogrzebowy łódź', 'organizacja pogrzebu łódź', 'kremacja łódź', 'transport zmarłych łódź', 'pogrzeby łódź'],
-  icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/favicon.ico',
-  },
   openGraph: {
     type: 'website',
     locale: 'pl_PL',
