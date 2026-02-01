@@ -107,7 +107,7 @@ const Breadcrumb = () => {
   }
 
   return (
-    <nav className="container mx-auto px-4 py-4 text-sm" aria-label="Nawigacja okruszkowa">
+    <nav className="container mx-auto px-4 py-4 text-sm mt-20" aria-label="Nawigacja okruszkowa">
       {breadcrumbJsonLd && (
         <script
           type="application/ld+json"

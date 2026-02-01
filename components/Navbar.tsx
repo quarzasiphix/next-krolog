@@ -39,12 +39,16 @@ const productsItems = [
   { name: "Odzież pogrzebowa Łódź", id: "products", path: "/asortyment/odziez-lodz" }
 ];
 
+const poradnikItems = [
+  { name: "Co zrobić po śmierci", id: "poradnik", path: "/poradnik/co-zrobic-po-smierci" },
+  { name: "Zasiłek pogrzebowy ZUS", id: "poradnik", path: "/poradnik/zasilek-pogrzebowy-zus" },
+  { name: "Pogrzeb bez zaliczki", id: "poradnik", path: "/pogrzeb-bez-zaliczki" },
+  { name: "Cmentarze w Łodzi", id: "poradnik", path: "/cmentarze-lodz" }
+];
+
 const aboutItems = [
   { name: "O nas", id: "about", path: "/o-nas" },
-  { name: "Poradnik: Co zrobić po śmierci", id: "about", path: "/poradnik/co-zrobic-po-smierci" },
-  { name: "Zasiłek pogrzebowy ZUS", id: "about", path: "/poradnik/zasilek-pogrzebowy-zus" },
-  { name: "Pogrzeb bez zaliczki", id: "about", path: "/pogrzeb-bez-zaliczki" },
-  { name: "Cmentarze w Łodzi", id: "about", path: "/cmentarze-lodz" }
+  { name: "Kontakt", id: "about", path: "/kontakt" }
 ];
 
 const Navbar = () => {
@@ -177,10 +181,36 @@ const Navbar = () => {
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-transparent text-white data-[state=open]:text-primary hover:text-primary/90 hover:bg-transparent focus:bg-transparent px-3 py-2">
+                  Poradnik
+                </NavigationMenuTrigger>
+                <NavigationMenuContent className="bg-black border border-primary/20">
+                  <ul className="grid w-[280px] gap-1 p-2">
+                    {poradnikItems.map((item) => (
+                      <li key={item.name}>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            href={item.path}
+                            className="w-full text-left block select-none space-y-1 rounded-md p-3 text-white hover:bg-primary/10 hover:text-primary"
+                          >
+                            <div>{item.name}</div>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="bg-transparent text-white data-[state=open]:text-primary hover:text-primary/90 hover:bg-transparent focus:bg-transparent px-3 py-2">
                   O nas
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="bg-black border border-primary/20">
-                  <ul className="grid w-[320px] gap-1 p-2">
+                  <ul className="grid w-[160px] gap-1 p-2">
                     {aboutItems.map((item) => (
                       <li key={item.name}>
                         <NavigationMenuLink asChild>
@@ -198,12 +228,6 @@ const Navbar = () => {
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
-          <button 
-            onClick={() => scrollToSection('contact')} 
-            className="text-white hover:text-primary transition-colors py-2"
-          >
-            Kontakt
-          </button>
         </nav>
         
         <div className="hidden md:flex flex-col items-end">
@@ -301,6 +325,35 @@ const Navbar = () => {
 
           <div className="border-b border-white/10">
             <button 
+              onClick={() => toggleSubmenu('poradnik')}
+              className="flex items-center justify-between text-white hover:text-primary transition-colors text-xl py-3 w-full"
+            >
+              <span>Poradnik</span>
+              <ChevronDown className={`w-5 h-5 transition-transform ${activeSubmenu === 'poradnik' ? 'rotate-180' : ''}`} />
+            </button>
+            
+            {activeSubmenu === 'poradnik' && (
+              <div className="pl-4 pb-2 space-y-2">
+                {poradnikItems.map((item) => (
+                  <Link 
+                    key={item.name}
+                    href={item.path}
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      setActiveSubmenu(null);
+                    }}
+                    className="text-gray-300 hover:text-primary transition-colors text-lg py-2 w-full text-left flex items-center"
+                  >
+                    <ChevronRight className="w-4 h-4 mr-2" />
+                    <span>{item.name}</span>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className="border-b border-white/10">
+            <button 
               onClick={() => toggleSubmenu('about')}
               className="flex items-center justify-between text-white hover:text-primary transition-colors text-xl py-3 w-full"
             >
@@ -327,14 +380,6 @@ const Navbar = () => {
               </div>
             )}
           </div>
-          
-          
-          <button 
-            onClick={() => scrollToSection('contact')} 
-            className="text-white hover:text-primary transition-colors text-xl py-3 border-b border-white/10 w-full text-left"
-          >
-            Kontakt
-          </button>
           
           <a href="tel:+48602274661" className="flex items-center justify-center text-primary mt-6 py-3 border border-primary rounded-md w-full">
             <Phone className="w-5 h-5 mr-2" />
