@@ -24,18 +24,18 @@ const Hero = () => {
 
       <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-black/40" style={{ backgroundImage: 'radial-gradient(circle at center, transparent 0%, transparent 60%, rgba(0,0,0,0.4) 100%)' }} />
 
-      <div className="relative z-10 mb-8 flex items-center justify-center">
+      <div className="relative z-10 mb-12 flex items-center justify-center">
         <img
           src="/lovable-uploads/cross.png"
           alt="Nekrolog Łódź"
-          className="h-32 mx-auto hero-logo"
+          className="h-28 mx-auto hero-logo opacity-90"
         />
       </div>
 
       <HeroContent />
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center justify-center opacity-20">
-        <Cross className="h-12 w-12 text-primary/50" />
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex items-center justify-center opacity-10">
+        <Cross className="h-10 w-10 text-primary/40" />
       </div>
     </section>
   );

@@ -5,14 +5,19 @@ import { TrackedPhoneLink } from './TrackedPhoneLink';
 const HeroContent = () => {
   return (
     <div className="relative z-10 container mx-auto px-4 flex flex-col items-center justify-center text-center text-white">
-      <div className="hero-copy max-w-2xl mx-auto">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair mb-6 leading-tight">
+      <div className="hero-copy max-w-[48ch] mx-auto">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair mb-4 leading-tight">
           Jolanta Usługi Pogrzebowe
         </h1>
-        <h2 className="text-xl md:text-2xl mb-8 leading-relaxed text-gray-300/90 font-normal">
-          Zakład pogrzebowy w Łodzi – całodobowa pomoc, bez kosztów z góry
+        
+        <div className="w-16 h-[1px] bg-primary/40 mx-auto mb-6"></div>
+        
+        <h2 className="text-xl md:text-2xl mb-12 leading-relaxed text-gray-300/90 font-normal">
+          Zakład pogrzebowy w Łodzi<br />
+          <span className="text-lg md:text-xl text-gray-400/90">całodobowa pomoc, bez kosztów z góry</span>
         </h2>
-        <p className="text-[17.5px] md:text-base mb-12 text-gray-400 leading-relaxed">
+        
+        <p className="text-[16px] md:text-[17px] mb-12 text-gray-400/80 leading-loose mt-8">
           Od ponad 20 lat prowadzimy rodziny przez organizację ceremonii pogrzebowych — spokojnie, z dyskrecją i doświadczeniem.
         </p>
 
