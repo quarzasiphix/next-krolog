@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { Phone, CheckCircle2, Shield, Clock, FileText, Heart, Euro } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
+import { BreadcrumbController } from '@/components/breadcrumb-context'
 
 export const metadata: Metadata = {
   title: 'Pogrzeb Bez Zaliczki w Łodzi - Organizacja Bez Kosztów Z Góry | Nekrolog',
@@ -19,7 +20,13 @@ export const metadata: Metadata = {
 
 export default function PogrzebBezZaliczkiPage() {
   return (
-    <div className="bg-black text-white min-h-screen">
+    <>
+      <BreadcrumbController
+        overrides={[
+          { segment: 'pogrzeb-bez-zaliczki', label: 'Pogrzeb Bez Zaliczki' },
+        ]}
+      />
+      <div className="bg-black text-white min-h-screen">
       <section className="relative pt-20 pb-12 bg-gradient-to-b from-black via-black/95 to-black/90">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
@@ -436,5 +443,6 @@ export default function PogrzebBezZaliczkiPage() {
         </div>
       </section>
     </div>
+    </>
   )
 }
