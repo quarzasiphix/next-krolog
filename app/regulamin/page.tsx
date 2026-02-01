@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Regulamin Serwisu',
-  description: 'Regulamin korzystania z serwisu nekrolog-lodz.pl.',
+  description: 'Regulamin korzystania z serwisu nekrolog-lodz.com.',
   keywords: ['regulamin', 'warunki korzystania', 'serwis'],
 }
 

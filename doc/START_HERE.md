@@ -149,7 +149,7 @@ export async function generateStaticParams() {
 ### What Happens at Runtime:
 
 ```
-1. User visits: https://nekrolog-lodz.pl/blog/your-post
+1. User visits: https://nekrolog-lodz.com/blog/your-post
 2. Cloudflare serves: /blog/your-post/index.html
 3. Pre-rendered HTML loads instantly
 4. No Node.js runtime needed

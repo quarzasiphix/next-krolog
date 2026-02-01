@@ -1,14 +1,18 @@
-export const SITE_URL = 'https://nekrolog-lodz.pl'
+export const SITE_URL = 'https://nekrolog-lodz.com'
 
 export const BUSINESS_INFO = {
   name: 'Jolanta Usługi Pogrzebowe',
   legalName: 'Nekrolog Łódź - Usługi Pogrzebowe Jolanta Kostowska',
+  nip: '7271089145',
   phone: '+48 602 274 661',
+  email: 'kontakt@nekrolog-lodz.com',
   mapUrl: 'https://maps.app.goo.gl/96nCspWXwt5VYqkp6',
   priceRange: '$$',
   reviewCount: 94,
   ratingValue: 5,
   imagePath: '/lovable-uploads/cross.png',
+  foundedYear: 2003,
+  yearsOfExperience: 20,
   geo: {
     latitude: 51.770918,
     longitude: 19.451932,
@@ -20,7 +24,7 @@ export const BUSINESS_INFO = {
     postalCode: '90-702',
     addressCountry: 'PL',
   },
-  areaServed: ['Łódź'],
+  areaServed: ['Łódź', 'Bałuty', 'Górna', 'Polesie', 'Śródmieście', 'Widzew', 'Aleksandrów Łódzki', 'Zgierz', 'Pabianice', 'Konstantynów Łódzki', 'Łowicz', 'Sieradz', 'Zduńska Wola'],
   services: [
     'Kompleksowa organizacja ceremonii pogrzebowej',
     'Transport zmarłych krajowy i międzynarodowy',

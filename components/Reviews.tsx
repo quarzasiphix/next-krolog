@@ -99,7 +99,7 @@ const Reviews = () => {
   };
 
   return (
-    <section className="py-16 bg-black/90" id="reviews">
+    <section className="py-10 bg-black/90" id="reviews">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-playfair font-medium text-white mb-4">

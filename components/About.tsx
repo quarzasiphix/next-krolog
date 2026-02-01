@@ -43,7 +43,7 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-black/95 to-black/90">
+    <section id="about" className="py-12 bg-gradient-to-b from-black/95 to-black/90">
       <div className="section-container">
         <div 
           ref={sectionRef}

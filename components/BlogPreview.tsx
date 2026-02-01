@@ -15,7 +15,7 @@ const BlogPreview = ({ blogPosts }: BlogPreviewProps) => {
   }
 
   return (
-    <section className="py-16 bg-gradient-to-br from-background to-secondary/20">
+    <section className="py-10 bg-gradient-to-br from-background to-secondary/20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">

@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Polityka Prywatności',
-  description: 'Polityka prywatności serwisu nekrolog-lodz.pl.',
+  description: 'Polityka prywatności serwisu nekrolog-lodz.com.',
   keywords: ['polityka prywatności', 'cookies', 'dane osobowe'],
 }
 

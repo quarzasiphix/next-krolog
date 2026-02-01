@@ -3,17 +3,11 @@ import Services from '@/components/Services';
 import Reviews from '@/components/Reviews';
 import ServicesCta from '@/components/ServicesCta';
 import ServicesTable from '@/components/ServicesTable';
-import BlogPreview from '@/components/BlogPreview';
 import FAQ from '@/components/FAQ';
 import About from '@/components/About';
 import Contact from '@/components/Contact';
-import type { BlogSummary } from '@/types/blog';
 
-interface HomePageClientProps {
-  blogPosts: BlogSummary[];
-}
-
-const HomePageClient = ({ blogPosts }: HomePageClientProps) => {
+const HomePageClient = () => {
   return (
     <>
       <Hero />
@@ -21,7 +15,6 @@ const HomePageClient = ({ blogPosts }: HomePageClientProps) => {
       <Reviews />
       <ServicesCta />
       <ServicesTable />
-      <BlogPreview blogPosts={blogPosts} />
       <FAQ />
       <About />
       <Contact />

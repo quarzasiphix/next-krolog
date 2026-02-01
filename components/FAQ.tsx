@@ -16,7 +16,7 @@ const faqJsonLd = {
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-16 bg-black/85 text-white">
+    <section id="faq" className="py-10 bg-black/85 text-white">
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-playfair font-medium mb-4">Najczęściej zadawane pytania</h2>

@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { createServerClient } from '@/lib/supabase/server'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://nekrolog-lodz.pl'
+  const baseUrl = 'https://nekrolog-lodz.com'
   
   // Fetch all published blog posts at build time
   let blogUrls: MetadataRoute.Sitemap = []

@@ -267,7 +267,7 @@ wrangler pages deploy out --project-name=nekrolog-lodz
 
 ### Runtime (User Visits Your Site):
 ```
-1. User requests: https://nekrolog-lodz.pl/blog/your-post
+1. User requests: https://nekrolog-lodz.com/blog/your-post
 2. Cloudflare serves pre-rendered HTML from CDN
 3. No Node.js runtime needed
 4. No database queries

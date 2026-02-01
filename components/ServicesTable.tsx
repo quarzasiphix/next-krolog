@@ -42,7 +42,7 @@ const ServicesTable = () => {
   ];
 
   return (
-    <section className="py-16 bg-black">
+    <section className="py-10 bg-black">
       <div className="section-container">
         <div
           ref={tableRef}

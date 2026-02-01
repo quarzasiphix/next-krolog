@@ -66,7 +66,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start">
                 <Mail className="w-5 h-5 mr-3 text-primary flex-shrink-0 mt-1" />
-                <span className="text-gray-300">kontakt@nekrolog-lodz.pl</span>
+                <span className="text-gray-300">kontakt@nekrolog-lodz.com</span>
               </li>
               <li className="flex items-start">
                 <Clock className="w-5 h-5 mr-3 text-primary flex-shrink-0 mt-1" />

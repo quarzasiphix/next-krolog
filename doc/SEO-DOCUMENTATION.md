@@ -77,7 +77,7 @@ next-krolog/
 #### Root Layout (`app/layout.tsx`)
 ```typescript
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nekrolog-lodz.pl'),
+  metadataBase: new URL('https://nekrolog-lodz.com'),
   title: {
     default: 'Nekrolog Łódź - Usługi Pogrzebowe Jolanta Kostowska | Całodobowo',
     template: '%s | Nekrolog Łódź'
@@ -126,7 +126,7 @@ export const metadata: Metadata = {
 ```json
 {
   "@type": "LocalBusiness",
-  "@id": "https://nekrolog-lodz.pl/#funeral-home",
+  "@id": "https://nekrolog-lodz.com/#funeral-home",
   "additionalType": "https://schema.org/FuneralHome",
   "name": "Jolanta Usługi Pogrzebowe",
   "legalName": "Nekrolog Łódź - Usługi Pogrzebowe Jolanta Kostowska",
@@ -470,7 +470,7 @@ export const metadata: Metadata = {
 
 ```typescript
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nekrolog-lodz.pl'),
+  metadataBase: new URL('https://nekrolog-lodz.com'),
   title: {
     default: 'Zakład Pogrzebowy w Łodzi – Nekrolog Łódź | Jolanta Kostowska',
     template: '%s | Zakład Pogrzebowy Łódź'
@@ -603,13 +603,13 @@ Implement BreadcrumbList schema on all pages:
       "@type": "ListItem",
       "position": 1,
       "name": "Zakład Pogrzebowy Łódź",
-      "item": "https://nekrolog-lodz.pl"
+      "item": "https://nekrolog-lodz.com"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Usługi",
-      "item": "https://nekrolog-lodz.pl/uslugi-pogrzebowe-lodz"
+      "item": "https://nekrolog-lodz.com/uslugi-pogrzebowe-lodz"
     }
   ]
 }
@@ -815,8 +815,8 @@ Ensure blog posts have proper Article schema with:
 Name: Zakład Pogrzebowy Nekrolog Łódź - Jolanta Kostowska
 Address: Legionów 48, 90-702 Łódź, Poland
 Phone: +48 602 274 661
-Email: kontakt@nekrolog-lodz.pl
-Website: https://nekrolog-lodz.pl
+Email: kontakt@nekrolog-lodz.com
+Website: https://nekrolog-lodz.com
 ```
 
 Use EXACTLY this format everywhere:

@@ -104,7 +104,7 @@ const ServicesCta = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-black/90 to-black/80">
+    <section className="py-12 bg-gradient-to-b from-black/90 to-black/80">
       <div className="section-container">
         <div 
           ref={headingRef}
