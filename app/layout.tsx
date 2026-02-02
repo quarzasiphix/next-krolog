@@ -4,6 +4,8 @@ import { Providers } from './providers'
 import ClientShell from '@/components/ClientShell'
 import { BreadcrumbProvider } from '@/components/breadcrumb-context'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://nekrolog-lodz.com'),
   title: {
