@@ -2,8 +2,6 @@ import { Metadata } from 'next'
 import HomePageClient from '@/components/HomePageClient'
 import { BUSINESS_INFO, SITE_URL } from '@/lib/constants'
 
-export const runtime = 'edge'
-
 export const metadata: Metadata = {
   title: 'Zakład Pogrzebowy w Łodzi – Nekrolog Łódź | Jolanta Kostowska',
   description:

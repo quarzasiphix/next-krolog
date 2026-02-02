@@ -10,7 +10,7 @@ export function PostHogPageView() {
 
   useEffect(() => {
     console.log('PostHogPageView: pathname changed to:', pathname)
-    if (pathname && posthog) {
+    if (pathname && posthog && typeof window !== 'undefined') {
       const url = window.origin + pathname
       console.log('PostHogPageView: capturing pageview for:', url)
       posthog.capture('$pageview', {
