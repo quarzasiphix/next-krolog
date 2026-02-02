@@ -1,5 +1,7 @@
 import { ImageResponse } from 'next/og'
 
+export const dynamic = 'force-static'
+
 export default function Icon() {
   return new ImageResponse(
     <div
