@@ -2,9 +2,6 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Providers } from './providers'
 import ClientShell from '@/components/ClientShell'
-import { BreadcrumbProvider } from '@/components/breadcrumb-context'
-
-export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://nekrolog-lodz.com'),
@@ -43,11 +40,9 @@ export default function RootLayout({
       <head />
       <body>
         <Providers>
-          <BreadcrumbProvider>
-            <ClientShell>
-              {children}
-            </ClientShell>
-          </BreadcrumbProvider>
+          <ClientShell>
+            {children}
+          </ClientShell>
         </Providers>
       </body>
     </html>
