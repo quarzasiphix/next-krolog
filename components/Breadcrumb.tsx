@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from 'react';
+import { useMemo, Suspense } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
@@ -34,7 +34,7 @@ const formatLabel = (segment: string) => {
     .join(' ');
 };
 
-const Breadcrumb = () => {
+function BreadcrumbContent() {
   const pathname = usePathname();
   const { overrides, hide } = useBreadcrumbContext();
 
@@ -141,6 +141,14 @@ const Breadcrumb = () => {
         })}
       </ol>
     </nav>
+  );
+}
+
+const Breadcrumb = () => {
+  return (
+    <Suspense fallback={null}>
+      <BreadcrumbContent />
+    </Suspense>
   );
 };
 

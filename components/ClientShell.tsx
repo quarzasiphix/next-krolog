@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode, Suspense } from 'react';
+import { ReactNode } from 'react';
 import Navbar from '@/components/Navbar';
 import Breadcrumb from '@/components/Breadcrumb';
 import Footer from '@/components/Footer';
@@ -21,9 +21,7 @@ const ClientShell = ({ children }: ClientShellProps) => {
       />
 
       <Navbar />
-      <Suspense fallback={null}>
-        <Breadcrumb />
-      </Suspense>
+      <Breadcrumb />
       <main className="flex-grow">{children}</main>
       <Footer />
     </div>
