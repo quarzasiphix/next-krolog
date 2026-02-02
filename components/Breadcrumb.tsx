@@ -12,7 +12,6 @@ const labelOverrides: Record<string, string> = {
   'urny-lodz': 'Urny',
   'wiazanki-lodz': 'Wiązanki',
   'wience-lodz': 'Wieńce',
-  'blog': 'Blog',
   'o-nas': 'O nas',
   'kontakt': 'Kontakt',
 };
