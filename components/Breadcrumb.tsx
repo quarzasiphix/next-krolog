@@ -1,6 +1,11 @@
+"use client";
+
+import { useMemo, Suspense } from 'react';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { normalizeForUrl } from '@/lib/utils';
+import { useBreadcrumbContext } from '@/components/breadcrumb-context';
 import { SITE_URL } from '@/lib/constants';
 
 const labelOverrides: Record<string, string> = {
@@ -29,51 +34,86 @@ const formatLabel = (segment: string) => {
     .join(' ');
 };
 
-// Simple static breadcrumb for static export
-const Breadcrumb = ({ pathname }: { pathname?: string } = {}) => {
-  const currentPath = pathname || '/';
+function BreadcrumbContent() {
+  const pathname = usePathname();
+  const { overrides, hide } = useBreadcrumbContext();
 
-  if (currentPath === '/') {
-    return null; // No breadcrumb on homepage
-  }
+  const crumbs = useMemo(() => {
+    if (!pathname) return [];
 
-  const segments = currentPath.split('/').filter(Boolean);
-  
-  const crumbs = segments.map((segment, index) => {
-    const pathAccumulator = '/' + segments.slice(0, index + 1).join('/');
-    const label = formatLabel(segment);
+    const segments = pathname.split('/').filter(Boolean);
+    const overrideMap = new Map<string, string>();
 
-    return {
-      href: pathAccumulator,
-      label,
-    };
-  });
+    overrides.forEach((override) => {
+      const key = override.href
+        ? normalizeForUrl(override.href)
+        : override.segment
+        ? normalizeForUrl(override.segment)
+        : '';
 
-  const breadcrumbJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
+      if (key) {
+        overrideMap.set(key, override.label);
+      }
+    });
+
+    let pathAccumulator = '';
+
+    return segments.map((segment) => {
+      pathAccumulator += `/${segment}`;
+      const normalizedHref = normalizeForUrl(pathAccumulator);
+      const normalizedSegment = normalizeForUrl(segment);
+
+      const label =
+        overrideMap.get(normalizedHref) ||
+        overrideMap.get(normalizedSegment) ||
+        formatLabel(segment);
+
+      return {
+        href: pathAccumulator,
+        label,
+      };
+    });
+  }, [pathname, overrides]);
+
+  const breadcrumbJsonLd = useMemo(() => {
+    if (crumbs.length === 0) {
+      return null;
+    }
+
+    const itemListElement = [
       {
-        '@type': 'ListItem',
+        '@type': 'ListItem' as const,
         position: 1,
         name: 'Strona główna',
         item: SITE_URL,
       },
       ...crumbs.map((crumb, index) => ({
-        '@type': 'ListItem',
+        '@type': 'ListItem' as const,
         position: index + 2,
         name: crumb.label,
         item: `${SITE_URL}${crumb.href}`,
       })),
-    ],
-  };
+    ];
+
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement,
+    };
+  }, [crumbs]);
+
+  if (hide || crumbs.length === 0) {
+    return null;
+  }
 
   return (
     <nav className="container mx-auto px-4 py-4 text-sm mt-20" aria-label="Nawigacja okruszkowa">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
+      {breadcrumbJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        />
+      )}
       <ol className="flex flex-wrap items-center text-muted-foreground">
         <li className="flex items-center">
           <Link href="/" className="text-primary hover:underline">
@@ -101,6 +141,14 @@ const Breadcrumb = ({ pathname }: { pathname?: string } = {}) => {
         })}
       </ol>
     </nav>
+  );
+}
+
+const Breadcrumb = () => {
+  return (
+    <Suspense fallback={null}>
+      <BreadcrumbContent />
+    </Suspense>
   );
 };
 
