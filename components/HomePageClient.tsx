@@ -1,4 +1,5 @@
 import Hero from '@/components/Hero';
+import NoUpfrontCosts from '@/components/NoUpfrontCosts';
 import Services from '@/components/Services';
 import Reviews from '@/components/Reviews';
 import ServicesCta from '@/components/ServicesCta';
@@ -11,6 +12,7 @@ const HomePageClient = () => {
   return (
     <>
       <Hero />
+      <NoUpfrontCosts />
       <Services />
       <Reviews />
       <ServicesCta />

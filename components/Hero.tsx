@@ -18,7 +18,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
 
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.03] mix-blend-overlay hero-overlay"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.015] mix-blend-overlay hero-overlay"
         style={{ backgroundImage: `url(${IMAGES.cross})` }}
       />
 
