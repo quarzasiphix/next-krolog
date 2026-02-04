@@ -41,6 +41,7 @@ const productsItems = [
 
 const poradnikItems = [
   { name: "Co zrobić po śmierci", id: "poradnik", path: "/poradnik/co-zrobic-po-smierci" },
+  { name: "Etapy żałoby", id: "poradnik", path: "/poradnik/etapy-zaloby-jak-uporac-sie-z-odejsciem-bliskiej-osoby" },
   { name: "Zasiłek pogrzebowy ZUS", id: "poradnik", path: "/poradnik/zasilek-pogrzebowy-zus" },
   { name: "Pogrzeb bez zaliczki", id: "poradnik", path: "/pogrzeb-bez-zaliczki" },
   { name: "Pogrzeb bez środków finansowych", id: "poradnik", path: "/poradnik/jak-zorganizowac-pogrzeb-bez-srodkow-finansowych" },

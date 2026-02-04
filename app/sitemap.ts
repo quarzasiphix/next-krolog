@@ -146,6 +146,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.85,
     },
     {
+      url: `${baseUrl}/poradnik/etapy-zaloby-jak-uporac-sie-z-odejsciem-bliskiej-osoby`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
       url: `${baseUrl}/poradnik/jak-zgodnie-z-przepisami-przewozic-zwloki`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
