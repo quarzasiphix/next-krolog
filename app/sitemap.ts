@@ -3,7 +3,7 @@ import { MetadataRoute } from 'next'
 export const dynamic = 'force-static'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://nekrolog-lodz.com'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://nekrolog-lodz.com'
 
   return [
     {
