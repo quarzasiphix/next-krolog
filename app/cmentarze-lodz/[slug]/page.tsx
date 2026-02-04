@@ -242,8 +242,9 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const cemetery = cemeteries[params.slug]
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const cemetery = cemeteries[slug]
   
   if (!cemetery) {
     return {
@@ -273,8 +274,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export default function CemeteryPage({ params }: { params: { slug: string } }) {
-  const cemetery = cemeteries[params.slug]
+export default async function CemeteryPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const cemetery = cemeteries[slug]
 
   if (!cemetery) {
     notFound()
