@@ -107,4 +107,9 @@ export const FAQ_ENTRIES = [
     answer:
       'Współpracujemy ze sprawdzonymi florystami i muzykami, aby zapewnić odpowiednią oprawę kwiatową i muzyczną dopasowaną do charakteru ceremonii.',
   },
+  {
+    question: 'Czy muszę posiadać środki finansowe na organizację pogrzebu?',
+    answer:
+      'Nie. W wielu przypadkach organizujemy ceremonię bez konieczności ponoszenia kosztów z góry. Pomagamy w rozliczeniu zasiłku pogrzebowego z ZUS lub KRUS, a wszelkie formalności finansowe bierzemy na siebie, aby rodzina nie musiała martwić się sprawami finansowymi w tym trudnym czasie.',
+  },
 ]

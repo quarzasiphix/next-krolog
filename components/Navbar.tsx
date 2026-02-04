@@ -197,7 +197,7 @@ const Navbar = () => {
                   Poradnik
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="bg-black border border-primary/20">
-                  <ul className="grid w-[280px] gap-1 p-2">
+                  <ul className="grid w-[280px] gap-1 p-2 max-h-[400px] overflow-y-auto">
                     {poradnikItems.map((item) => (
                       <li key={item.name}>
                         <NavigationMenuLink asChild>
