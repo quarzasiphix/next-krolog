@@ -289,6 +289,117 @@ export default function WyborZakladuPage() {
             </div>
 
             <div>
+              <h2 className="text-3xl font-playfair font-medium text-white mb-6 flex items-center gap-3">
+                <Shield className="w-8 h-8 text-primary" />
+                Wybierz Zakład Bez Opłat z Góry
+              </h2>
+              
+              <Card className="bg-black/30 border border-white/10 mb-6">
+                <CardContent className="p-6">
+                  <p className="text-gray-300 leading-relaxed mb-6">
+                    Jeśli nie masz środków finansowych w momencie śmierci bliskiej osoby, wybierz zakład pogrzebowy, 
+                    który oferuje organizację pogrzebu bez konieczności wpłaty z góry. To rozwiązanie, które pozwala 
+                    Ci skupić się na pożegnaniu, a nie na sprawach finansowych.
+                  </p>
+                  
+                  <div className="bg-primary/10 border border-primary/30 rounded-lg p-4 mb-6">
+                    <h3 className="text-lg font-medium text-white mb-3">Dlaczego To Ważne?</h3>
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2 text-gray-300">
+                        <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                        <span>Zasiłek pogrzebowy jest wypłacany dopiero po 2-3 miesiącach</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-gray-300">
+                        <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                        <span>Pogrzeb musi odbyć się w ciągu kilku dni</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-gray-300">
+                        <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                        <span>Nie musisz martwić się o pieniądze w trudnym czasie</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/30 rounded-lg p-6 mb-6">
+                    <h3 className="text-xl font-medium text-white mb-4 text-center">
+                      Nekrolog Łódź - Jolanta Kostowska
+                    </h3>
+                    <p className="text-gray-300 mb-4 text-center">
+                      Organizujemy pogrzeby bez żadnych kosztów z góry. Finansujemy wszystko i rozliczamy się 
+                      bezpośrednio z zasiłkiem pogrzebowym z ZUS lub KRUS.
+                    </p>
+                    
+                    <div className="space-y-3 mb-6">
+                      <div className="flex items-start gap-3">
+                        <div className="bg-primary/20 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">
+                          <span className="text-primary font-bold">1</span>
+                        </div>
+                        <p className="text-gray-300">
+                          <strong className="text-white">Zadzwoń do nas</strong> - dostępni całodobowo
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="bg-primary/20 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">
+                          <span className="text-primary font-bold">2</span>
+                        </div>
+                        <p className="text-gray-300">
+                          <strong className="text-white">My organizujemy pogrzeb</strong> - finansujemy wszystkie koszty
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="bg-primary/20 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">
+                          <span className="text-primary font-bold">3</span>
+                        </div>
+                        <p className="text-gray-300">
+                          <strong className="text-white">Rozliczamy się z zasiłkiem</strong> - Ty nie płacisz nic
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="text-center">
+                      <a
+                        href="tel:+48602274661"
+                        className="inline-flex items-center gap-2 bg-primary text-black px-6 py-3 rounded-md font-medium hover:bg-primary/90 transition"
+                      >
+                        <Phone className="w-5 h-5" />
+                        Zadzwoń: +48 602 274 661
+                      </a>
+                      <p className="text-sm text-gray-400 mt-3">
+                        Dostępni 24/7 • Bez zaliczki • Pełne wsparcie
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    <h3 className="text-lg font-medium text-white mb-3">Co Oferujemy:</h3>
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2 text-gray-300">
+                        <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                        <span>Organizacja pogrzebu bez żadnych kosztów z góry</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-gray-300">
+                        <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                        <span>Pomoc w wypełnieniu wniosku o zasiłek pogrzebowy</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-gray-300">
+                        <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                        <span>Załatwienie wszystkich formalności</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-gray-300">
+                        <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                        <span>Bezpośrednie rozliczenie z ZUS/KRUS</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-gray-300">
+                        <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                        <span>Godny pogrzeb w ramach zasiłku pogrzebowego</span>
+                      </li>
+                    </ul>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div>
               <h2 className="text-3xl font-playfair font-medium text-white mb-6">
                 Nekrolog Łódź - Nasz Model Obsługi
               </h2>
