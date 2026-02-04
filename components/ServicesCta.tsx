@@ -2,18 +2,17 @@
 
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { IMAGES } from '../assets/images';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, FileText, Music, Truck, Flame, Archive, Package } from 'lucide-react';
 
 interface ServiceCardProps {
   title: string;
   description: string;
-  image: string;
+  icon: React.ReactNode;
   link: string;
   delay: number;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, image, link, delay }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, link, delay }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
@@ -49,14 +48,22 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, image, li
       className="opacity-0 translate-y-10 transition-all duration-200 group"
     >
       <div className="glass-card h-full flex flex-col overflow-hidden rounded-xl">
-        <div className="relative h-48 overflow-hidden">
-          <img 
-            src={image} 
-            alt={title} 
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
-          <div className="absolute bottom-0 left-0 right-0 p-4">
+        <div className="relative h-48 overflow-hidden bg-gradient-to-br from-black/40 to-black/60 flex items-center justify-center">
+          {/* Subtle texture background */}
+          <div className="absolute inset-0 opacity-[0.03]">
+            <div className="w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-primary/10"></div>
+          </div>
+          
+          {/* Professional icon */}
+          <div className="relative z-10">
+            <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
+              <div className="text-primary">
+                {icon}
+              </div>
+            </div>
+          </div>
+          
+          <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
             <h3 className="text-xl font-playfair text-white">{title}</h3>
           </div>
         </div>
@@ -120,7 +127,7 @@ const ServicesCta = () => {
           <ServiceCard 
             title="Organizacja Pogrzebów"
             description="Kompleksowa organizacja ceremonii pogrzebowej, przejęcie wszystkich formalności oraz profesjonalna obsługa w trudnych chwilach."
-            image={IMAGES.services.funeral}
+            icon={<FileText className="w-8 h-8" />}
             link="/uslugi/organizacja-pogrzebow-lodz"
             delay={100}
           />
@@ -128,7 +135,7 @@ const ServicesCta = () => {
           <ServiceCard 
             title="Oprawa Muzyczna"
             description="Profesjonalna oprawa muzyczna ceremonii pogrzebowej, w tym śpiew, organy, trąbka oraz inne instrumenty, dostosowane do charakteru uroczystości."
-            image={IMAGES.services.music}
+            icon={<Music className="w-8 h-8" />}
             link="/uslugi/oprawa-muzyczna-lodz"
             delay={200}
           />
@@ -136,7 +143,7 @@ const ServicesCta = () => {
           <ServiceCard 
             title="Transport Zmarłych"
             description="Specjalistyczny transport zmarłych na terenie kraju i za granicą, zapewniający godne przewiezienie ciała z zachowaniem wszelkich procedur."
-            image={IMAGES.services.transport}
+            icon={<Truck className="w-8 h-8" />}
             link="/uslugi/transport-zmarlych-lodz"
             delay={300}
           />
@@ -144,7 +151,7 @@ const ServicesCta = () => {
           <ServiceCard 
             title="Kremacja"
             description="Organizacja kremacji w profesjonalnych krematoriach, wraz z kompleksową pomocą w przygotowaniu urny i ceremonii pogrzebowej po kremacji."
-            image={IMAGES.services.cremation}
+            icon={<Flame className="w-8 h-8" />}
             link="/uslugi/krematorium-lodz"
             delay={400}
           />
@@ -152,7 +159,7 @@ const ServicesCta = () => {
           <ServiceCard 
             title="Ekshumacja"
             description="Profesjonalne przeprowadzenie ekshumacji zgodnie z przepisami, wraz z załatwieniem wszelkich formalności i dokumentów urzędowych."
-            image={IMAGES.services.exhumation}
+            icon={<Archive className="w-8 h-8" />}
             link="/uslugi/ekshumacja-lodz"
             delay={500}
           />
@@ -160,7 +167,7 @@ const ServicesCta = () => {
           <ServiceCard 
             title="Pełen Asortyment"
             description="Bogaty wybór trumien, urn, wieńców, wiązanek oraz odzieży pogrzebowej, dostosowany do indywidualnych preferencji i potrzeb klienta."
-            image={IMAGES.interior}
+            icon={<Package className="w-8 h-8" />}
             link="/asortyment"
             delay={600}
           />

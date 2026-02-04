@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import { IMAGES } from '../assets/images';
-import { Clock, Award, Heart } from 'lucide-react';
+import { Clock, Award, Heart, Building, MapPin } from 'lucide-react';
 
 const About = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -60,18 +59,32 @@ const About = () => {
             ref={imageRef}
             className="opacity-0 translate-y-10 transition-all duration-300 delay-50"
           >
-            <div className="relative">
-              <div className="absolute -inset-4 bg-primary/10 rounded-tr-3xl rounded-bl-3xl -z-10"></div>
-              <img 
-                src={IMAGES.interior} 
-                alt="Wnętrze domu pogrzebowego Nekrolog Łódź" 
-                className="w-full h-auto rounded-md shadow-lg object-cover aspect-[4/3]"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent rounded-md"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-lg font-playfair font-medium text-primary">Zakład Pogrzebowy Nekrolog Łódź</h3>
-                <p className="text-sm text-gray-300">Legionów 48, 90-702 Łódź</p>
+            <div className="relative bg-gradient-to-br from-black/40 to-black/60 rounded-lg border border-primary/20 p-8 h-full min-h-[300px] flex flex-col items-center justify-center">
+              {/* Subtle texture background */}
+              <div className="absolute inset-0 opacity-[0.03]">
+                <div className="w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-primary/10"></div>
+              </div>
+              
+              {/* Professional icon system */}
+              <div className="relative z-10 text-center">
+                <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-6">
+                  <Building className="w-10 h-10 text-primary" />
+                </div>
+                
+                <h3 className="text-xl font-playfair font-medium text-white mb-3">
+                  Zakład Pogrzebowy Nekrolog Łódź
+                </h3>
+                
+                <div className="flex items-center justify-center gap-2 text-gray-300 mb-4">
+                  <MapPin className="w-4 h-4 text-primary" />
+                  <span className="text-sm">Legionów 48, 90-702 Łódź</span>
+                </div>
+                
+                <div className="w-16 h-[1px] bg-primary/30 mx-auto mb-4"></div>
+                
+                <p className="text-gray-400 text-sm leading-relaxed max-w-[250px] mx-auto">
+                  Profesjonalny zakład pogrzebowy z ponad 20-letnim doświadczeniem
+                </p>
               </div>
             </div>
           </div>

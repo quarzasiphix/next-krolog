@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
 import ServiceLayout from '@/components/ServiceLayout'
-import { IMAGES } from '@/assets/images'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Package, Box, Flower, Shirt } from 'lucide-react'
@@ -34,7 +33,6 @@ const assortmentCards = [
     description:
       'Szeroki wybór trumien wykonanych z różnych gatunków drewna – od ekonomicznych modeli po luksusowe wykończenia.',
     href: '/asortyment/trumny-lodz',
-    image: IMAGES.subpages.trumny ?? IMAGES.cemetery,
   },
   {
     icon: Box,
@@ -42,7 +40,6 @@ const assortmentCards = [
     description:
       'Urny metalowe, ceramiczne, drewniane, kryształowe i biodegradowalne, dostosowane do charakteru uroczystości.',
     href: '/asortyment/urny-lodz',
-    image: IMAGES.subpages.urny ?? IMAGES.candles,
   },
   {
     icon: Flower,
@@ -50,7 +47,6 @@ const assortmentCards = [
     description:
       'Kompozycje kwiatowe przygotowywane przez doświadczonych florystów – wieńce, wiązanki, kosze i dekoracje na trumnę.',
     href: '/asortyment/wiazanki-lodz',
-    image: IMAGES.subpages.wiazanki ?? IMAGES.hero,
   },
   {
     icon: Shirt,
@@ -58,7 +54,6 @@ const assortmentCards = [
     description:
       'Elegancka odzież żałobna dla kobiet i mężczyzn oraz specjalna odzież dla zmarłych, zapewniająca godne pożegnanie.',
     href: '/asortyment/odziez-lodz',
-    image: IMAGES.subpages.odziez ?? IMAGES.cross,
   },
   {
     icon: Flower,
@@ -66,7 +61,6 @@ const assortmentCards = [
     description:
       'Okazałe wieńce i ekskluzywne kompozycje kwiatowe z możliwością personalizacji szarf i dedykacji.',
     href: '/asortyment/wience-lodz',
-    image: IMAGES.subpages.wience ?? IMAGES.church,
   },
 ]
 
@@ -75,7 +69,6 @@ export default function AsortymentPage() {
     <ServiceLayout
       title="Asortyment"
       description="Szeroki wybór trumien, urn, odzieży pogrzebowej i kompozycji kwiatowych dopasowanych do potrzeb rodziny."
-      backgroundImage={IMAGES.cemetery}
     >
       <div className="space-y-12">
         <div className="text-center max-w-3xl mx-auto">
@@ -87,7 +80,7 @@ export default function AsortymentPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {assortmentCards.map(({ icon: Icon, title, description, href, image }) => (
+          {assortmentCards.map(({ icon: Icon, title, description, href }) => (
             <Card
               key={title}
               className="flex flex-col h-full bg-black/30 border border-white/10 hover:border-primary/50 transition-colors duration-300"
@@ -99,7 +92,11 @@ export default function AsortymentPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <img src={image} alt={title} className="w-full h-48 object-cover rounded-md" loading="lazy" />
+                <div className="w-full h-48 bg-gradient-to-br from-black/40 to-black/60 rounded-md flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
+                    <Icon className="w-8 h-8 text-primary" />
+                  </div>
+                </div>
                 <p className="text-gray-300 leading-relaxed">{description}</p>
               </CardContent>
               <CardFooter className="mt-auto">

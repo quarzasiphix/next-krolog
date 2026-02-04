@@ -9,7 +9,7 @@ type ServiceLayoutProps = {
   children?: ReactNode;
   title: string;
   description: string;
-  backgroundImage: string;
+  backgroundImage?: string;
 };
 
 const formatSegment = (segment: string) =>
@@ -34,10 +34,18 @@ const ServiceLayout = ({ children, title, description, backgroundImage }: Servic
   return (
     <div className="bg-black text-white">
       <section className="relative pt-20 pb-16 md:pb-20 min-h-[40vh] flex items-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
-          style={{ backgroundImage: `url(${backgroundImage})`, filter: 'brightness(0.2)' }}
-        />
+        {backgroundImage ? (
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+            style={{ backgroundImage: `url(${backgroundImage})`, filter: 'brightness(0.2)' }}
+          />
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-br from-black via-black/95 to-black/90 z-0">
+            <div className="absolute inset-0 opacity-[0.03]">
+              <div className="w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-primary/10"></div>
+            </div>
+          </div>
+        )}
 
         <div className="container mx-auto px-4 relative z-10 pt-16">
           <div className="text-center max-w-4xl mx-auto">

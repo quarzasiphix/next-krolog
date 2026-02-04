@@ -1,6 +1,5 @@
 import { Metadata } from 'next'
 import ServiceLayout from '@/components/ServiceLayout'
-import { IMAGES } from '@/assets/images'
 import { Card, CardContent } from '@/components/ui/card'
 import { Package, CheckCircle } from 'lucide-react'
 import { SITE_URL } from '@/lib/constants'
@@ -54,7 +53,6 @@ export default function TrumnyPage() {
     <ServiceLayout
       title="Trumny"
       description="Szeroki wybór trumien najwyższej jakości, dopasowanych do potrzeb rodziny i charakteru ceremonii."
-      backgroundImage={IMAGES.subpages.trumny}
     >
       <div className="space-y-12">
         <div className="text-center max-w-3xl mx-auto">

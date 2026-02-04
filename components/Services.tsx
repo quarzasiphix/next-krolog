@@ -3,7 +3,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Heart, Truck, Flame, Flower, Music, Calendar, Phone, Clock, MapPin } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { IMAGES } from '../assets/images';
 
 const ServiceCard = ({ 
   icon, 

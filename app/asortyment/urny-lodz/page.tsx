@@ -1,6 +1,5 @@
 import { Metadata } from 'next'
 import ServiceLayout from '@/components/ServiceLayout'
-import { IMAGES } from '@/assets/images'
 import { Card, CardContent } from '@/components/ui/card'
 import { Box, CheckCircle } from 'lucide-react'
 import { SITE_URL } from '@/lib/constants'
@@ -69,7 +68,6 @@ export default function UrnyPage() {
     <ServiceLayout
       title="Urny Pogrzebowe"
       description="Szeroki wybór urn dostosowanych do różnych potrzeb i preferencji."
-      backgroundImage={IMAGES.subpages.urny}
     >
       <div className="space-y-12">
         <div className="text-center max-w-3xl mx-auto">
@@ -106,24 +104,21 @@ export default function UrnyPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <img
-            src={IMAGES.subpages.urny}
-            alt="Wybór urn pogrzebowych"
-            className="w-full h-64 object-cover rounded-lg shadow-lg"
-            loading="lazy"
-          />
-          <img
-            src={IMAGES.candles}
-            alt="Symboliczna oprawa świec"
-            className="w-full h-64 object-cover rounded-lg shadow-lg"
-            loading="lazy"
-          />
-          <img
-            src={IMAGES.cross}
-            alt="Detal krzyża pogrzebowego"
-            className="w-full h-64 object-cover rounded-lg shadow-lg"
-            loading="lazy"
-          />
+          <div className="bg-gradient-to-br from-black/40 to-black/60 rounded-lg flex items-center justify-center h-64">
+            <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
+              <Box className="w-8 h-8 text-primary" />
+            </div>
+          </div>
+          <div className="bg-gradient-to-br from-black/40 to-black/60 rounded-lg flex items-center justify-center h-64">
+            <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
+              <CheckCircle className="w-8 h-8 text-primary" />
+            </div>
+          </div>
+          <div className="bg-gradient-to-br from-black/40 to-black/60 rounded-lg flex items-center justify-center h-64">
+            <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
+              <Box className="w-8 h-8 text-primary" />
+            </div>
+          </div>
         </div>
 
         <div className="glass-card p-8 rounded-xl space-y-6">
