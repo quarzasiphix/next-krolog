@@ -43,6 +43,19 @@ const poradnikItems = [
   { name: "Co zrobić po śmierci", id: "poradnik", path: "/poradnik/co-zrobic-po-smierci" },
   { name: "Zasiłek pogrzebowy ZUS", id: "poradnik", path: "/poradnik/zasilek-pogrzebowy-zus" },
   { name: "Pogrzeb bez zaliczki", id: "poradnik", path: "/pogrzeb-bez-zaliczki" },
+  { name: "Pogrzeb bez środków finansowych", id: "poradnik", path: "/poradnik/jak-zorganizowac-pogrzeb-bez-srodkow-finansowych" },
+  { name: "Dokumenty do pogrzebu", id: "poradnik", path: "/poradnik/jakie-dokumenty-sa-potrzebne-aby-zorganizowac-pogrzeb" },
+  { name: "Formalności w zastępstwie", id: "poradnik", path: "/poradnik/czy-zaklad-pogrzebowy-moze-dopelnic-formalnosci-pogrzebowych-w-zastepstwie-klienta" },
+  { name: "Urna w domu", id: "poradnik", path: "/poradnik/czy-urne-z-prochami-mozna-trzymac-w-domu" },
+  { name: "Jak wygląda kremacja", id: "poradnik", path: "/poradnik/jak-wyglada-kremacja-zwlok" },
+  { name: "Ubiór zmarłego", id: "poradnik", path: "/poradnik/w-co-ubrac-zmarlego-na-pogrzeb" },
+  { name: "Kosmetyka pośmiertna", id: "poradnik", path: "/poradnik/jakie-czynnosci-obejmuje-kosmetyka-posmiertna" },
+  { name: "Wybór zakładu pogrzebowego", id: "poradnik", path: "/poradnik/jak-wybrac-zaklad-do-organizacji-pogrzebu" },
+  { name: "Przewóz zwłok", id: "poradnik", path: "/poradnik/przewoz-zwlok" },
+  { name: "Przepisy przewozu zwłok", id: "poradnik", path: "/poradnik/jak-zgodnie-z-przepisami-przewozic-zwloki" },
+  { name: "Transport z zagranicy", id: "poradnik", path: "/poradnik/jak-przetransportowac-cialo-zmarlego-z-zagranicy" },
+  { name: "Ekshumacja", id: "poradnik", path: "/poradnik/o-jakiej-porze-roku-moze-byc-przeprowadzana-ekshumacja" },
+  { name: "Kwiaty na pogrzeb", id: "poradnik", path: "/poradnik/jakie-kwiaty-wybrac-na-oprawe-ceremonii-pogrzebowej" },
   { name: "Cmentarze w Łodzi", id: "poradnik", path: "/cmentarze-lodz" }
 ];
 
