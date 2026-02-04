@@ -157,9 +157,9 @@ const Services = () => {
           ref={sectionRef}
           className="opacity-0 translate-y-10 transition-all duration-200 text-center mb-16"
         >
-          <h2 className="section-title">Kompleksowe Usługi Pogrzebowe</h2>
+          <h2 className="section-title">Zakład Pogrzebowy Łódź - Kompleksowe Usługi</h2>
           <p className="section-subtitle">
-            Prowadzimy rodzinę przez każdy etap organizacji ceremonii z troską i doświadczeniem
+            Jako profesjonalny zakład pogrzebowy w Łodzi, prowadzimy rodziny przez każdy etap organizacji ceremonii z troską i doświadczeniem
           </p>
         </div>
         
@@ -270,7 +270,7 @@ const Services = () => {
         
         {/* Orange Section - Based on Screenshot */}
         <div className="bg-primary/90 rounded-xl p-8 md:p-12 shadow-lg text-black mb-16">
-          <h3 className="text-2xl font-playfair font-semibold mb-8 text-center">Kompleksowa Organizacja Pogrzebu w Jednym Miejscu</h3>
+          <h3 className="text-2xl font-playfair font-semibold mb-8 text-center">Zakład Pogrzebowy Łódź - Wszystko w Jednym Miejscu</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             <p className="text-black/90 leading-relaxed">
               Wystarczy zaledwie jedna wizyta w naszym zakładzie pogrzebowym w Łodzi, aby ustalić szczegóły ceremonii, 

@@ -6,9 +6,9 @@ import { Card, CardContent } from '@/components/ui/card'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Zakład Pogrzebowy w Łodzi',
+  title: 'Zakład Pogrzebowy Łódź • Nekrolog Łódź | 20+ Lat Doświadczenia',
   description:
-    'Zakład Pogrzebowy Nekrolog Łódź – kompleksowe usługi pogrzebowe, organizacja ceremonii, kremacja, transport. Doświadczenie od ponad 20 lat. Dostępni 24/7. Tel: +48 602 274 661.',
+    'Profesjonalny zakład pogrzebowy Łódź - Nekrolog Łódź. Kompleksowe usługi pogrzebowe, organizacja ceremonii, kremacja, transport 24/7. Doświadczenie od ponad 20 lat. Tel: +48 602 274 661.',
   keywords: [
     'zakład pogrzebowy łódź',
     'zakład pogrzebowy w łodzi',
@@ -16,6 +16,10 @@ export const metadata: Metadata = {
     'usługi pogrzebowe łódź',
     'pogrzeby łódź',
     'całodobowy zakład pogrzebowy łódź',
+    'nekrolog łódź',
+    'zakład pogrzebowy legionów łódź',
+    'pogrzeb bez zaliczki łódź',
+    'organizacja pogrzebu łódź',
   ],
   alternates: {
     canonical: `${SITE_URL}/zaklad-pogrzebowy-lodz`,
@@ -105,12 +109,15 @@ export default function ZakladPogrzebowyPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair font-medium mb-6 text-white leading-tight">
-              Zakład Pogrzebowy w Łodzi
+              Zakład Pogrzebowy Łódź
             </h1>
             <div className="w-24 h-1 bg-primary mx-auto mb-8" />
             <p className="text-xl md:text-2xl text-gray-200 mb-6 leading-relaxed">
-              Zakład Pogrzebowy Nekrolog Łódź oferuje kompleksowe usługi pogrzebowe dla rodzin w Łodzi i okolicach.
-              Zapewniamy profesjonalną organizację ceremonii, wsparcie w formalności oraz pełną opiekę w trudnych chwilach.
+              Zakład Pogrzebowy Nekrolog Łódź to profesjonalny zakład pogrzebowy w Łodzi z ponad 20-letnim doświadczeniem.
+              Oferujemy kompleksowe usługi pogrzebowe, organizację ceremonii, kremację i transport 24/7.
+            </p>
+            <p className="text-lg text-gray-300 mb-8">
+              Jako rzetelny zakład pogrzebowy w Łodzi, zapewniamy wsparcie w formalnościach i pełną opiekę w trudnych chwilach.
             </p>
             <p className="text-lg text-gray-300 mb-8">
               Prowadzony przez Jolantę Kostowską • Doświadczenie od ponad 20 lat
@@ -139,7 +146,7 @@ export default function ZakladPogrzebowyPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-playfair font-medium text-white mb-8 text-center">
-              Czym zajmuje się zakład pogrzebowy?
+              Zakład Pogrzebowy Łódź - Nasze Usługi
             </h2>
 
             <div className="prose prose-lg prose-invert max-w-none mb-12">
@@ -148,6 +155,11 @@ export default function ZakladPogrzebowyPage() {
                 oraz świadczeniu kompleksowych usług związanych z pochówkiem. Nasz zakład pogrzebowy w Łodzi
                 przejmuje wszystkie obowiązki i formalności, aby rodzina mogła skupić się na przeżywaniu żałoby
                 i godnym pożegnaniu bliskiej osoby.
+              </p>
+              <p className="text-gray-300 leading-relaxed">
+                Jako wiodący zakład pogrzebowy w Łodzi, oferujemy pełen zakres usług pogrzebowych - od transportu
+                zmarłych, przez organizację ceremonii, po wsparcie w uzyskaniu zasiłku pogrzebowego. Nasz
+                zakład pogrzebowy Nekrolog Łódź jest dostępny całodobowo, gotowy pomóc w każdej sytuacji.
               </p>
               <p className="text-gray-300 leading-relaxed">
                 Zapewniamy pełne wsparcie od pierwszego kontaktu, przez organizację ceremonii, aż po finalizację
@@ -324,6 +336,67 @@ export default function ZakladPogrzebowyPage() {
                 </div>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-gradient-to-b from-black/90 to-black">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-playfair font-medium text-white mb-12 text-center">
+              Najczęściej Zadawane Pytania o Zakład Pogrzebowy Łódź
+            </h2>
+
+            <div className="space-y-6">
+              <Card className="bg-black/30 border border-white/10">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-medium text-white mb-3">
+                    Jakie usługi oferuje zakład pogrzebowy w Łodzi?
+                  </h3>
+                  <p className="text-gray-300">
+                    Nasz zakład pogrzebowy w Łodzi oferuje kompleksowe usługi pogrzebowe: organizację ceremonii,
+                    transport zmarłych, kremację, oprawę muzyczną, dekoracje florystyczne, wsparcie w formalnościach
+                    oraz pomoc w uzyskaniu zasiłku pogrzebowego.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-black/30 border border-white/10">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-medium text-white mb-3">
+                    Czy zakład pogrzebowy jest dostępny całodobowo?
+                  </h3>
+                  <p className="text-gray-300">
+                    Tak, nasz zakład pogrzebowy w Łodzi jest dostępny 24/7 pod numerem +48 602 274 661.
+                    Jesteśmy gotowi natychmiast pomóc w każdej sytuacji, zarówno w dzień, jak i w nocy.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-black/30 border border-white/10">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-medium text-white mb-3">
+                    Czy organizujecie pogrzeby bez zaliczki?
+                  </h3>
+                  <p className="text-gray-300">
+                    Tak, jako zakład pogrzebowy w Łodzi oferujemy organizację pogrzebów bez wpłaty z góry.
+                    Finansujemy wszystkie koszty i rozliczamy się bezpośrednio z zasiłkiem pogrzebowym z ZUS/KRUS.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-black/30 border border-white/10">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-medium text-white mb-3">
+                    Jaki jest koszt usług zakładu pogrzebowego w Łodzi?
+                  </h3>
+                  <p className="text-gray-300">
+                    Koszt usług zakładu pogrzebowego zależy od wybranych usług. Oferujemy różne pakiety cenowe
+                    dostosowane do potrzeb i możliwości rodzin. Wiele usług możemy rozliczyć z zasiłkiem pogrzebowym.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
