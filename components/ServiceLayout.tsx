@@ -4,6 +4,8 @@ import { ReactNode } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ArrowRight } from 'lucide-react';
+import ServiceSchema from '@/components/structured-data/ServiceSchema';
+import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema';
 
 type ServiceLayoutProps = {
   children?: ReactNode;
@@ -31,8 +33,26 @@ const ServiceLayout = ({ children, title, description, backgroundImage }: Servic
     parentLabel = formatSegment(pathParts[0]);
   }
 
+  const breadcrumbs = [
+    { name: 'Strona Główna', url: '/' },
+    ...(pathParts.length > 1 ? [{ name: parentLabel, url: parentPath }] : []),
+    { name: title }
+  ];
+
   return (
-    <div className="bg-black text-white">
+    <>
+      <BreadcrumbSchema items={breadcrumbs} />
+      <ServiceSchema
+        serviceName={title}
+        description={description}
+        url={pathname}
+        phone="+48 602 274 661"
+        address="ul. Piotrkowska 270"
+        city="Łódź"
+        postalCode="90-361"
+        openingHours="Mo-Su 00:00-24:00"
+      />
+      <div className="bg-black text-white">
       <section className="relative pt-20 pb-16 md:pb-20 min-h-[40vh] flex items-center">
         {backgroundImage ? (
           <div
@@ -82,6 +102,7 @@ const ServiceLayout = ({ children, title, description, backgroundImage }: Servic
         </div>
       </section>
     </div>
+      </>
   );
 };
 

@@ -2,6 +2,10 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { Phone, FileText, Building2, Landmark, CheckCircle2, Clock } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
+import { generateCanonicalMetadata } from '@/lib/canonical'
+import ArticleSchema from '@/components/structured-data/ArticleSchema'
+import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema'
+import RelatedContent from '@/components/poradnik/RelatedContent'
 
 export const metadata: Metadata = {
   title: 'Co Zrobić Po Śmierci Bliskiej Osoby? Kompletny Poradnik Krok Po Kroku',
@@ -14,9 +18,16 @@ export const metadata: Metadata = {
     'dokumenty po śmierci',
     'procedury pogrzebowe',
   ],
+  ...generateCanonicalMetadata('/poradnik/co-zrobic-po-smierci'),
 }
 
 export default function CoZrobicPoSmierciPage() {
+  const breadcrumbs = [
+    { name: 'Strona Główna', url: '/' },
+    { name: 'Poradnik', url: '/poradnik' },
+    { name: 'Co Zrobić Po Śmierci' }
+  ]
+
   const steps = [
     {
       title: 'Wezwanie lekarza i stwierdzenie zgonu',
@@ -87,16 +98,25 @@ export default function CoZrobicPoSmierciPage() {
   ]
 
   return (
-    <div className="bg-black text-white min-h-screen">
-      <section className="relative pt-20 pb-12 bg-gradient-to-b from-black via-black/95 to-black/90">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-playfair font-medium mb-6 text-white">
-              Co Zrobić Po Śmierci Bliskiej Osoby?
-            </h1>
-            <p className="text-xl text-gray-300 mb-8">
-              Kompletny przewodnik krok po kroku - wszystkie formalności i procedury wyjaśnione prostym językiem
-            </p>
+    <>
+      <BreadcrumbSchema items={breadcrumbs} />
+      <ArticleSchema
+        title="Co Zrobić Po Śmierci Bliskiej Osoby? Kompletny Poradnik Krok Po Kroku"
+        description="Szczegółowy przewodnik: co zrobić po śmierci bliskiej osoby w Łodzi. Formalności, dokumenty, organizacja pogrzebu. Pomoc dostępna 24/7."
+        url="/poradnik/co-zrobic-po-smierci"
+        publishDate="2025-01-05T16:00:00Z"
+        author="Zakład Pogrzebowy Nekrolog Łódź"
+      />
+      <div className="min-h-screen">
+        <section className="py-20 relative pt-20 pb-12 bg-gradient-to-b from-black via-black/95 to-black/90">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="text-4xl md:text-5xl font-playfair font-medium mb-6 text-white">
+                Co Zrobić Po Śmierci Bliskiej Osoby?
+              </h1>
+              <p className="text-xl text-gray-300 mb-8">
+                Kompletny przewodnik krok po kroku - wszystkie formalności i procedury wyjaśnione prostym językiem
+              </p>
             <div className="bg-primary/10 border border-primary/30 rounded-lg p-6 mb-8">
               <p className="text-lg text-white mb-4">
                 <strong>Pomoc dostępna całodobowo</strong>
@@ -313,6 +333,35 @@ export default function CoZrobicPoSmierciPage() {
           </div>
         </div>
       </section>
+      
+      <RelatedContent 
+        currentSlug="co-zrobic-po-smierci"
+        relatedServices={[
+          {
+            title: 'Organizacja Pogrzebu',
+            href: '/uslugi/organizacja-pogrzebow-lodz',
+            description: 'Kompleksowa organizacja ceremonii pogrzebowej z formalnościami'
+          },
+          {
+            title: 'Transport Zmarłych',
+            href: '/uslugi/transport-zmarlych-lodz',
+            description: 'Całodobowy transport zmarłych na terenie Łodzi'
+          }
+        ]}
+        relatedArticles={[
+          {
+            title: 'Zasiłek pogrzebowy ZUS',
+            href: '/poradnik/zasilek-pogrzebowy-zus',
+            excerpt: 'Jak ubiegać się o zasiłek pogrzebowy i jakie dokumenty są potrzebne'
+          },
+          {
+            title: 'Jakie dokumenty są potrzebne?',
+            href: '/poradnik/jakie-dokumenty-sa-potrzebne-aby-zorganizowac-pogrzeb',
+            excerpt: 'Kompletna lista dokumentów potrzebnych do organizacji pogrzebu'
+          }
+        ]}
+      />
     </div>
+    </>
   )
 }
