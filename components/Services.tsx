@@ -4,19 +4,19 @@ import React, { useEffect, useRef } from 'react';
 import { Heart, Truck, Flame, Flower, Music, Calendar, Phone, Clock, MapPin } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-const ServiceCard = ({ 
-  icon, 
-  title, 
-  description, 
-  delay 
-}: { 
-  icon: React.ReactNode; 
-  title: string; 
-  description: string; 
+const ServiceCard = ({
+  icon,
+  title,
+  description,
+  delay
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
   delay: number;
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -32,11 +32,11 @@ const ServiceCard = ({
       },
       { threshold: 0.05, rootMargin: "0px 0px -2% 0px" }
     );
-    
+
     if (cardRef.current) {
       observer.observe(cardRef.current);
     }
-    
+
     return () => {
       if (cardRef.current) {
         observer.unobserve(cardRef.current);
@@ -45,7 +45,7 @@ const ServiceCard = ({
   }, [delay]);
 
   return (
-    <div 
+    <div
       ref={cardRef}
       className="glass-card p-8 rounded-xl flex flex-col items-center text-center opacity-0 translate-y-10 transition-all duration-200"
     >
@@ -70,7 +70,7 @@ const FeatureItem = ({
   delay: number;
 }) => {
   const itemRef = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -86,11 +86,11 @@ const FeatureItem = ({
       },
       { threshold: 0.05, rootMargin: "0px 0px -2% 0px" }
     );
-    
+
     if (itemRef.current) {
       observer.observe(itemRef.current);
     }
-    
+
     return () => {
       if (itemRef.current) {
         observer.unobserve(itemRef.current);
@@ -99,7 +99,7 @@ const FeatureItem = ({
   }, [delay]);
 
   return (
-    <div 
+    <div
       ref={itemRef}
       className="opacity-0 translate-y-10 transition-all duration-200 feature-card hover:shadow-lg hover:scale-[1.01] transition-all duration-300"
     >
@@ -118,7 +118,7 @@ const FeatureItem = ({
 
 const Services = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -132,11 +132,11 @@ const Services = () => {
       },
       { threshold: 0.05, rootMargin: "0px 0px -2% 0px" }
     );
-    
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-    
+
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
@@ -152,38 +152,38 @@ const Services = () => {
       itemType="https://schema.org/Service"
     >
       <div className="section-container">
-        <div 
+        <div
           ref={sectionRef}
           className="opacity-0 translate-y-10 transition-all duration-200 text-center mb-16"
         >
-          <h2 className="section-title">Zakład Pogrzebowy Łódź - Kompleksowe Usługi</h2>
+          <h1 className="section-title">Zakład Pogrzebowy Łódź - Kompleksowe Usługi</h1>
           <p className="section-subtitle">
             Jako profesjonalny zakład pogrzebowy w Łodzi, prowadzimy rodziny przez każdy etap organizacji ceremonii z troską i doświadczeniem
           </p>
         </div>
-        
+
         {/* Main Services */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <ServiceCard 
+          <ServiceCard
             icon={<Heart className="w-8 h-8 text-primary" />}
             title="Kompleksowa Organizacja Ceremonii"
             description="Przejmujemy na siebie wszystkie obowiązki i formalności, aby rodzina mogła skupić się na pożegnaniu."
             delay={10}
           />
-          <ServiceCard 
+          <ServiceCard
             icon={<Truck className="w-8 h-8 text-primary" />}
             title="Przewóz Zwłok"
             description="Zajmujemy się transportem na terenie kraju i Europy z zachowaniem godności i dyskrecji."
             delay={20}
           />
-          <ServiceCard 
+          <ServiceCard
             icon={<Flame className="w-8 h-8 text-primary" />}
             title="Kremacja"
             description="Zajmujemy się organizacją kremacji oraz przygotowaniem ceremonii, zgodnie z życzeniami rodziny."
             delay={30}
           />
         </div>
-        
+
         {/* Services Overview */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
           <div className="col-span-1 lg:col-span-2">
@@ -266,21 +266,21 @@ const Services = () => {
             </Card>
           </div>
         </div>
-        
+
         {/* Orange Section - Based on Screenshot */}
         <div className="bg-primary/90 rounded-xl p-8 md:p-12 shadow-lg text-black mb-16">
           <h3 className="text-2xl font-playfair font-semibold mb-8 text-center">Zakład Pogrzebowy Łódź - Wszystko w Jednym Miejscu</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             <p className="text-black/90 leading-relaxed">
-              Wystarczy zaledwie jedna wizyta w naszym zakładzie pogrzebowym w Łodzi, aby ustalić szczegóły ceremonii, 
+              Wystarczy zaledwie jedna wizyta w naszym zakładzie pogrzebowym w Łodzi, aby ustalić szczegóły ceremonii,
               wybrać trumnę lub urnę, wiązanki i wieńce pogrzebowe, oprawę muzyczną, a nawet odzież pogrzebową.
             </p>
             <p className="text-black/90 leading-relaxed">
-              W imieniu klienta załatwiamy wszelkie formalności, podejmujemy się opieki nad ciałem zmarłego, 
+              W imieniu klienta załatwiamy wszelkie formalności, podejmujemy się opieki nad ciałem zmarłego,
               oferujemy także różnorodne akcesoria pogrzebowe. Dbamy o pełen profesjonalizm i szacunek.
             </p>
           </div>
-          
+
           <div className="bg-black/10 p-6 rounded-lg">
             <h4 className="text-xl font-playfair font-medium mb-4 text-black">Oferujemy pełną obsługę pogrzebów:</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -311,19 +311,19 @@ const Services = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Detailed Services */}
         <div className="mb-16">
           <h3 className="text-2xl font-playfair font-medium text-white mb-12 text-center">Szczegółowy zakres naszych usług</h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
-            <FeatureItem 
-              icon={<Calendar className="w-5 h-5 text-primary" />} 
+            <FeatureItem
+              icon={<Calendar className="w-5 h-5 text-primary" />}
               title="Organizacja ceremonii"
               delay={10}
             >
               <p className="text-gray-300 mb-4">
-                Zapewniamy organizację ceremoni pogrzebowej dopasowanej do indywidualnych potrzeb i oczekiwań rodziny. 
+                Zapewniamy organizację ceremoni pogrzebowej dopasowanej do indywidualnych potrzeb i oczekiwań rodziny.
                 Oferujemy zarówno tradycyjne ceremonie religijne jak i pogrzeby świeckie.
               </p>
               <ul className="space-y-2 text-gray-400 list-inside">
@@ -341,14 +341,14 @@ const Services = () => {
                 </li>
               </ul>
             </FeatureItem>
-            
-            <FeatureItem 
-              icon={<Music className="w-5 h-5 text-primary" />} 
+
+            <FeatureItem
+              icon={<Music className="w-5 h-5 text-primary" />}
               title="Oprawa muzyczna"
               delay={20}
             >
               <p className="text-gray-300 mb-4">
-                Oferujemy profesjonalną oprawę muzyczną uroczystości pogrzebowych. Współpracujemy z doświadczonymi muzykami, którzy 
+                Oferujemy profesjonalną oprawę muzyczną uroczystości pogrzebowych. Współpracujemy z doświadczonymi muzykami, którzy
                 zapewnią odpowiedni nastrój podczas ceremonii.
               </p>
               <ul className="space-y-2 text-gray-400">
@@ -366,14 +366,14 @@ const Services = () => {
                 </li>
               </ul>
             </FeatureItem>
-            
-            <FeatureItem 
-              icon={<Flower className="w-5 h-5 text-primary" />} 
+
+            <FeatureItem
+              icon={<Flower className="w-5 h-5 text-primary" />}
               title="Dekoracje florystyczne"
               delay={30}
             >
               <p className="text-gray-300 mb-4">
-                Współpracujemy z profesjonalnymi kwiaciarniami, które przygotują odpowiednie wiązanki, wieńce i dekoracje kwiatowe 
+                Współpracujemy z profesjonalnymi kwiaciarniami, które przygotują odpowiednie wiązanki, wieńce i dekoracje kwiatowe
                 dopasowane do charakteru ceremonii.
               </p>
               <ul className="space-y-2 text-gray-400">
@@ -391,14 +391,14 @@ const Services = () => {
                 </li>
               </ul>
             </FeatureItem>
-            
-            <FeatureItem 
-              icon={<Truck className="w-5 h-5 text-primary" />} 
+
+            <FeatureItem
+              icon={<Truck className="w-5 h-5 text-primary" />}
               title="Transport zmarłych"
               delay={40}
             >
               <p className="text-gray-300 mb-4">
-                Dysponujemy specjalistycznymi pojazdami do przewozu zmarłych na terenie całego kraju oraz za granicą. 
+                Dysponujemy specjalistycznymi pojazdami do przewozu zmarłych na terenie całego kraju oraz za granicą.
                 Oferujemy transport z zachowaniem wszelkich standardów i przepisów.
               </p>
               <ul className="space-y-2 text-gray-400">
@@ -416,14 +416,14 @@ const Services = () => {
                 </li>
               </ul>
             </FeatureItem>
-            
-            <FeatureItem 
-              icon={<Flame className="w-5 h-5 text-primary" />} 
+
+            <FeatureItem
+              icon={<Flame className="w-5 h-5 text-primary" />}
               title="Kremacja"
               delay={50}
             >
               <p className="text-gray-300 mb-4">
-                Zajmujemy się organizacją kremacji oraz przygotowaniem ceremonii zgodnie z życzeniami rodziny. 
+                Zajmujemy się organizacją kremacji oraz przygotowaniem ceremonii zgodnie z życzeniami rodziny.
                 Oferujemy szeroki wybór urn oraz pomoc w organizacji ceremonii po kremacji.
               </p>
               <ul className="space-y-2 text-gray-400">
@@ -433,14 +433,14 @@ const Services = () => {
                 </li>
               </ul>
             </FeatureItem>
-            
-            <FeatureItem 
-              icon={<Heart className="w-5 h-5 text-primary" />} 
+
+            <FeatureItem
+              icon={<Heart className="w-5 h-5 text-primary" />}
               title="Ekshumacja"
               delay={60}
             >
               <p className="text-gray-300 mb-4">
-                Przeprowadzamy ekshumację zwłok zgodnie ze wszystkimi normami oraz procedurami, 
+                Przeprowadzamy ekshumację zwłok zgodnie ze wszystkimi normami oraz procedurami,
                 zapewniając godne traktowanie zmarłych i pomoc w załatwieniu wszelkich formalności.
               </p>
               <ul className="space-y-2 text-gray-400">
@@ -460,7 +460,7 @@ const Services = () => {
             </FeatureItem>
           </div>
         </div>
-        
+
         {/* Call to Action */}
         <div className="text-center">
           <div className="glass-card max-w-3xl mx-auto p-8 rounded-xl">

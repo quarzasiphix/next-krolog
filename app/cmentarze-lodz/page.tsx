@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { MapPin, Clock, Phone, CheckCircle2, Building2 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
+import FAQSchema from '@/components/structured-data/FAQSchema'
 
 export const metadata: Metadata = {
   title: 'Cmentarze w Łodzi - Przewodnik Po Cmentarzach | Nekrolog Łódź',
@@ -84,8 +85,28 @@ export default function CmentarzeLodzPage() {
     },
   ]
 
+  const faqData = [
+    {
+      question: 'Czy mogę wybrać dowolny cmentarz w Łodzi?',
+      answer: 'Tak, możesz wybrać dowolny cmentarz w Łodzi. Pomożemy w rezerwacji miejsca i załatwieniu wszystkich formalności na wybranym cmentarzu. Organizujemy pogrzeby na wszystkich cmentarzach komunalnych i parafialnych w Łodzi.'
+    },
+    {
+      question: 'Ile kosztuje miejsce na cmentarzu?',
+      answer: 'Koszty miejsca na cmentarzu różnią się w zależności od cmentarza i rodzaju grobu (tradycyjny, urnowy). Ceny ustala administracja cmentarza. Pomożemy w wyborze najlepszej opcji dla Twojej sytuacji i budżetu.'
+    },
+    {
+      question: 'Czy muszę płacić za pogrzeb z góry?',
+      answer: 'Nie. Organizujemy pogrzeb i finansujemy wszystkie koszty. Rozliczenie następuje bezpośrednio z zasiłkiem pogrzebowym ZUS/KRUS. Nie musisz martwić się o pieniądze w tym trudnym czasie.'
+    },
+    {
+      question: 'Jak długo trwa rezerwacja miejsca na cmentarzu?',
+      answer: 'Rezerwacja miejsca na cmentarzu zazwyczaj trwa 1-2 dni robocze. W pilnych przypadkach możemy przyspieszyć ten proces. Zajmujemy się całą procedurą - nie musisz osobiście kontaktować się z administracją cmentarza.'
+    }
+  ]
+
   return (
     <div className="bg-black text-white min-h-screen">
+      <FAQSchema faqs={faqData} />
       <section className="relative pt-20 pb-12 bg-gradient-to-b from-black via-black/95 to-black/90">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
@@ -228,8 +249,8 @@ export default function CmentarzeLodzPage() {
                     Czy mogę wybrać dowolny cmentarz w Łodzi?
                   </h3>
                   <p className="text-gray-300">
-                    Tak, możesz wybrać dowolny cmentarz w Łodzi. Pomożemy w rezerwacji miejsca i załatwieniu 
-                    wszystkich formalności na wybranym cmentarzu. Organizujemy pogrzeby na wszystkich cmentarzach 
+                    Tak, możesz wybrać dowolny cmentarz w Łodzi. Pomożemy w rezerwacji miejsca i załatwieniu
+                    wszystkich formalności na wybranym cmentarzu. Organizujemy pogrzeby na wszystkich cmentarzach
                     komunalnych i parafialnych w Łodzi.
                   </p>
                 </CardContent>
@@ -241,8 +262,8 @@ export default function CmentarzeLodzPage() {
                     Ile kosztuje miejsce na cmentarzu?
                   </h3>
                   <p className="text-gray-300">
-                    Koszty miejsca na cmentarzu różnią się w zależności od cmentarza i rodzaju grobu (tradycyjny, 
-                    urnowy). Ceny ustala administracja cmentarza. Pomożemy w wyborze najlepszej opcji dla Twojej 
+                    Koszty miejsca na cmentarzu różnią się w zależności od cmentarza i rodzaju grobu (tradycyjny,
+                    urnowy). Ceny ustala administracja cmentarza. Pomożemy w wyborze najlepszej opcji dla Twojej
                     sytuacji i budżetu.
                   </p>
                 </CardContent>
@@ -254,7 +275,7 @@ export default function CmentarzeLodzPage() {
                     Czy muszę płacić za pogrzeb z góry?
                   </h3>
                   <p className="text-gray-300">
-                    Nie. Organizujemy pogrzeb i finansujemy wszystkie koszty. Rozliczenie następuje bezpośrednio 
+                    Nie. Organizujemy pogrzeb i finansujemy wszystkie koszty. Rozliczenie następuje bezpośrednio
                     z zasiłkiem pogrzebowym ZUS/KRUS. Nie musisz martwić się o pieniądze w tym trudnym czasie.
                   </p>
                 </CardContent>
@@ -266,8 +287,8 @@ export default function CmentarzeLodzPage() {
                     Jak długo trwa rezerwacja miejsca na cmentarzu?
                   </h3>
                   <p className="text-gray-300">
-                    Rezerwacja miejsca na cmentarzu zazwyczaj trwa 1-2 dni robocze. W pilnych przypadkach możemy 
-                    przyspieszyć ten proces. Zajmujemy się całą procedurą - nie musisz osobiście kontaktować się 
+                    Rezerwacja miejsca na cmentarzu zazwyczaj trwa 1-2 dni robocze. W pilnych przypadkach możemy
+                    przyspieszyć ten proces. Zajmujemy się całą procedurą - nie musisz osobiście kontaktować się
                     z administracją cmentarza.
                   </p>
                 </CardContent>

@@ -36,6 +36,18 @@ export default async function HomePage() {
     image: `${SITE_URL}${BUSINESS_INFO.imagePath}`,
     hasMap: BUSINESS_INFO.mapUrl,
     sameAs: BUSINESS_INFO.sameAs,
+    slogan: 'Pogrzeb bez zaliczki - pełne wsparcie w trudnej chwili',
+    paymentAccepted: ['Cash', 'Bank Transfer', 'ZUS/KRUS Benefit'],
+    currenciesAccepted: 'PLN',
+    knowsAbout: [
+      'Funeral Services',
+      'Cremation Services',
+      'Cemetery Services',
+      'Grief Support',
+      'Funeral Planning',
+      'Transport of Deceased',
+      'Funeral Home Services'
+    ],
     geo: {
       '@type': 'GeoCoordinates',
       latitude: BUSINESS_INFO.geo.latitude,
@@ -148,6 +160,7 @@ export default async function HomePage() {
       },
     })),
   }
+
 
   return (
     <>

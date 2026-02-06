@@ -3,19 +3,19 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send, User } from 'lucide-react';
 
-const ContactCard = ({ 
-  icon, 
-  title, 
-  children, 
-  delay 
-}: { 
-  icon: React.ReactNode; 
-  title: string; 
-  children: React.ReactNode; 
+const ContactCard = ({
+  icon,
+  title,
+  children,
+  delay
+}: {
+  icon: React.ReactNode;
+  title: string;
+  children: React.ReactNode;
   delay: number;
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -31,11 +31,11 @@ const ContactCard = ({
       },
       { threshold: 0.1, rootMargin: "0px 0px -5% 0px" }
     );
-    
+
     if (cardRef.current) {
       observer.observe(cardRef.current);
     }
-    
+
     return () => {
       if (cardRef.current) {
         observer.unobserve(cardRef.current);
@@ -44,7 +44,7 @@ const ContactCard = ({
   }, [delay]);
 
   return (
-    <div 
+    <div
       ref={cardRef}
       className="glass-card p-8 rounded-lg flex flex-col opacity-0 translate-y-10 transition-all duration-200 h-full"
     >
@@ -70,7 +70,7 @@ const Contact = () => {
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const sectionRef = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -84,11 +84,11 @@ const Contact = () => {
       },
       { threshold: 0.1, rootMargin: "0px 0px -5% 0px" }
     );
-    
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-    
+
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
@@ -99,7 +99,7 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitSuccess(true);
@@ -107,7 +107,7 @@ const Contact = () => {
       setEmail('');
       setPhone('');
       setMessage('');
-      
+
       setTimeout(() => {
         setSubmitSuccess(false);
       }, 5000);
@@ -117,18 +117,18 @@ const Contact = () => {
   return (
     <section id="contact" className="py-12 bg-gradient-to-b from-black/90 to-black/80">
       <div className="section-container">
-        <div 
+        <div
           ref={sectionRef}
           className="opacity-0 translate-y-10 transition-all duration-300 text-center mb-16"
         >
-          <h2 className="section-title">Kontakt</h2>
+          <h1 className="section-title">Kontakt</h1>
           <p className="section-subtitle">
             Jesteśmy dostępni całodobowo
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <ContactCard 
+          <ContactCard
             icon={<MapPin className="w-6 h-6 text-primary" />}
             title="Adres"
             delay={20}
@@ -137,8 +137,8 @@ const Contact = () => {
             <p className="mb-3">90-702 Łódź</p>
             <a href="https://maps.app.goo.gl/96nCspWXwt5VYqkp6" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-400 transition-colors duration-180">Zobacz na mapie</a>
           </ContactCard>
-          
-          <ContactCard 
+
+          <ContactCard
             icon={<Phone className="w-6 h-6 text-primary" />}
             title="Telefon"
             delay={40}
@@ -146,8 +146,8 @@ const Contact = () => {
             <a href="tel:+48602274661" className="text-white hover:text-gray-300 transition-colors duration-180 mb-2 block">+48 602 274 661</a>
             <a href="tel:+48602270050" className="text-gray-500 hover:text-gray-400 transition-colors duration-180 block">+48 602 270 050</a>
           </ContactCard>
-          
-          <ContactCard 
+
+          <ContactCard
             icon={<Clock className="w-6 h-6 text-primary" />}
             title="Godziny otwarcia"
             delay={60}
@@ -157,11 +157,11 @@ const Contact = () => {
             <p className="text-gray-500">Telefon: całodobowo</p>
           </ContactCard>
         </div>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="glass-card p-8 rounded-xl">
             <h3 className="text-2xl font-playfair font-medium mb-6 text-white">Wyślij wiadomość</h3>
-            
+
             {submitSuccess ? (
               <div className="bg-green-900/20 border border-green-500/30 p-4 rounded-md text-white">
                 <p className="font-medium">Dziękujemy za wiadomość!</p>
@@ -186,7 +186,7 @@ const Contact = () => {
                       />
                     </div>
                   </div>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="email" className="block text-gray-300 mb-1">Email</label>
@@ -210,7 +210,7 @@ const Contact = () => {
                       />
                     </div>
                   </div>
-                  
+
                   <div>
                     <label htmlFor="message" className="block text-gray-300 mb-1">Wiadomość</label>
                     <textarea
@@ -221,7 +221,7 @@ const Contact = () => {
                       required
                     ></textarea>
                   </div>
-                  
+
                   <button
                     type="submit"
                     disabled={isSubmitting}
@@ -243,14 +243,14 @@ const Contact = () => {
               </form>
             )}
           </div>
-          
+
           <div className="glass-card p-0 rounded-xl overflow-hidden h-full">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2466.6458763215776!2d19.4554974!3d51.7776945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471a3497f9d406e7%3A0xb1c0f5dea0a8dd17!2sLegion%C3%B3w%2048%2C%2090-702%20%C5%81%C3%B3d%C5%BA%2C%20Polska!5e0!3m2!1spl!2spl!4v1625672582341!5m2!1spl!2spl" 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0, minHeight: "400px" }} 
-              allowFullScreen 
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2466.6458763215776!2d19.4554974!3d51.7776945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471a3497f9d406e7%3A0xb1c0f5dea0a8dd17!2sLegion%C3%B3w%2048%2C%2090-702%20%C5%81%C3%B3d%C5%BA%2C%20Polska!5e0!3m2!1spl!2spl!4v1625672582341!5m2!1spl!2spl"
+              width="100%"
+              height="100%"
+              style={{ border: 0, minHeight: "400px" }}
+              allowFullScreen
               loading="lazy"
               title="Google Maps - Nekrolog Łódź"
             ></iframe>
