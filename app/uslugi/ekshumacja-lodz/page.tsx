@@ -52,6 +52,9 @@ export const metadata: Metadata = {
   description:
     'Profesjonalna obsługa ekshumacji w Łodzi – formalności, transport szczątków, ponowny pochówek z pełnym poszanowaniem prawa i tradycji.',
   keywords: ['ekshumacja łódź', 'przeniesienie grobu', 'formalności ekshumacja'],
+  alternates: {
+    canonical: '/uslugi/ekshumacja-lodz',
+  },
 }
 
 export default function EkshumacjaPage() {

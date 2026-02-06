@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     'pogrzeby łódź',
     'całodobowy zakład pogrzebowy',
   ],
+  alternates: {
+    canonical: '/',
+  },
 }
 
 export default async function HomePage() {

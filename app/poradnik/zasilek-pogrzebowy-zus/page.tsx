@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     'dokumenty do zasiłku pogrzebowego',
     'pogrzeb bez zaliczki',
   ],
+  alternates: {
+    canonical: '/poradnik/zasilek-pogrzebowy-zus',
+  },
 }
 
 export default function ZasilekPogrzebowyZUSPage() {

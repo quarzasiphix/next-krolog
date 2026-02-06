@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Providers } from './providers'
 import ClientShell from '@/components/ClientShell'
-import FuneralHomeSchema from '@/components/structured-data/FuneralHomeSchema'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://nekrolog-lodz.com'),
@@ -40,15 +39,6 @@ export default function RootLayout({
     <html lang="pl" suppressHydrationWarning>
       <head />
       <body>
-        <FuneralHomeSchema
-          businessName="Zakład Pogrzebowy Nekrolog Łódź"
-          description="Profesjonalny zakład pogrzebowy w Łodzi oferujący kompleksowe usługi pogrzebowe, organizację ceremonii, kremację i transport zmarłych. Dostępni całodobowo 24/7."
-          phone="+48 602 274 661"
-          address="ul. Piotrkowska 270"
-          city="Łódź"
-          postalCode="90-361"
-          openingHours="Mo-Su 00:00-24:00"
-        />
         <Providers>
           <ClientShell>
             {children}

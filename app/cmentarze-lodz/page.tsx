@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     'pogrzeb łódź',
     'organizacja pogrzebu łódź',
   ],
+  alternates: {
+    canonical: '/cmentarze-lodz',
+  },
 }
 
 export default function CmentarzeLodzPage() {

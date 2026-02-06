@@ -3,6 +3,8 @@
 import { usePostHog } from 'posthog-js/react'
 import { useEffect } from 'react'
 
+// metadata must be in a separate layout or handled via robots.txt (this page is disallowed in robots.ts)
+
 export default function TestPostHogPage() {
   const posthog = usePostHog()
 

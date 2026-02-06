@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: 'RODO - Ochrona Danych Osobowych',
   description: 'Informacje na temat przetwarzania danych osobowych zgodnie z RODO.',
   keywords: ['rodo', 'ochrona danych osobowych', 'polityka prywatności'],
+  alternates: {
+    canonical: '/rodo',
+  },
 }
 
 export default function RodoPage() {

@@ -50,6 +50,9 @@ export const metadata: Metadata = {
   description:
     'Profesjonalna oprawa muzyczna ceremonii pogrzebowych w Łodzi – organista, wokaliści, trąbka i instrumenty smyczkowe.',
   keywords: ['oprawa muzyczna pogrzebu łódź', 'muzyka na pogrzeb', 'organista pogrzebowy', 'trąbka pogrzebowa'],
+  alternates: {
+    canonical: '/uslugi/oprawa-muzyczna-lodz',
+  },
 }
 
 export default function OprawaMuzycznaPage() {

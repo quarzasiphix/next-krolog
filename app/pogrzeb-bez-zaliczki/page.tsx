@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     'brak zaliczki na pogrzeb',
     'pogrzeb łódź bez zaliczki',
   ],
+  alternates: {
+    canonical: '/pogrzeb-bez-zaliczki',
+  },
 }
 
 export default function PogrzebBezZaliczkiPage() {

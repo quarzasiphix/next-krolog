@@ -17,9 +17,9 @@ const Footer = () => {
           <div>
             <Link href="/" className="flex items-center space-x-2 mb-4">
               <div className="flex items-center">
-                <h1 className="text-xl md:text-2xl font-playfair font-bold text-white">
+                <h2 className="text-xl md:text-2xl font-playfair font-bold text-white">
                   <span className="text-primary">Nekrolog</span> Łódź
-                </h1>
+                </h2>
               </div>
             </Link>
             <p className="text-gray-400 mb-6 leading-relaxed">
@@ -90,7 +90,22 @@ const Footer = () => {
               </li>
               <li>
                 <Link href="/uslugi-pogrzebowe-lodz" className="inline-block text-gray-300 hover:text-primary transition-colors">
-                  Usługi
+                  Usługi Pogrzebowe
+                </Link>
+              </li>
+              <li>
+                <Link href="/asortyment" className="inline-block text-gray-300 hover:text-primary transition-colors">
+                  Asortyment
+                </Link>
+              </li>
+              <li>
+                <Link href="/poradnik" className="inline-block text-gray-300 hover:text-primary transition-colors">
+                  Poradnik Pogrzebowy
+                </Link>
+              </li>
+              <li>
+                <Link href="/cmentarze-lodz" className="inline-block text-gray-300 hover:text-primary transition-colors">
+                  Cmentarze w Łodzi
                 </Link>
               </li>
               <li>

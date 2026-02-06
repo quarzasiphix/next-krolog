@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'Polityka Prywatności',
   description: 'Polityka prywatności serwisu nekrolog-lodz.com.',
   keywords: ['polityka prywatności', 'cookies', 'dane osobowe'],
+  alternates: {
+    canonical: '/polityka-prywatnosci',
+  },
 }
 
 export default function PolitykaPrywatnosciPage() {

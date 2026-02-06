@@ -1,0 +1,35 @@
+# Legacy asortyment URLs without -lodz suffix
+/asortyment/trumny /asortyment/trumny-lodz 301
+/asortyment/trumny/ /asortyment/trumny-lodz 301
+/asortyment/urny /asortyment/urny-lodz 301
+/asortyment/urny/ /asortyment/urny-lodz 301
+/asortyment/wiazanki /asortyment/wiazanki-lodz 301
+/asortyment/wiazanki/ /asortyment/wiazanki-lodz 301
+/asortyment/wience /asortyment/wience-lodz 301
+/asortyment/wience/ /asortyment/wience-lodz 301
+/asortyment/odziez /asortyment/odziez-lodz 301
+/asortyment/odziez/ /asortyment/odziez-lodz 301
+
+# Legacy service URLs
+/uslugi-pogrzebowe /uslugi-pogrzebowe-lodz 301
+/uslugi-pogrzebowe/ /uslugi-pogrzebowe-lodz 301
+
+# Legacy WordPress endpoints
+/feed/ /poradnik 301
+/feed /poradnik 301
+/tag/* /poradnik 301
+/category/* /poradnik 301
+/wp-login.php / 301
+/wp-admin/* / 301
+/wp-json/* / 301
+/xmlrpc.php / 301
+
+# Trailing slash normalization (Cloudflare handles via Pages settings, but explicit for safety)
+/zaklad-pogrzebowy-lodz/ /zaklad-pogrzebowy-lodz 301
+/uslugi-pogrzebowe-lodz/ /uslugi-pogrzebowe-lodz 301
+/pogrzeb-bez-zaliczki/ /pogrzeb-bez-zaliczki 301
+/asortyment/ /asortyment 301
+/poradnik/ /poradnik 301
+/cmentarze-lodz/ /cmentarze-lodz 301
+/kontakt/ /kontakt 301
+/o-nas/ /o-nas 301
