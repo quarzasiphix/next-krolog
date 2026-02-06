@@ -1,5 +1,29 @@
 User-agent: *
 Allow: /
+
 Disallow: /api/
+Disallow: /test-posthog
+Disallow: /_next/
+Disallow: /_error
+Disallow: /404
+Disallow: /_not-found
+Disallow: /wp-login.php
+Disallow: /wp-admin/
+Disallow: /wp-json/
+Disallow: /xmlrpc.php
+Disallow: /feed/
+Disallow: /tag/
+Disallow: /category/
+
+User-agent: Googlebot
+Allow: /
+
+Disallow: /api/
+Disallow: /test-posthog
+Disallow: /_next/
+Disallow: /_error
+Disallow: /404
+Disallow: /_not-found/
 
 Sitemap: https://nekrolog-lodz.com/sitemap.xml
+Host: https://nekrolog-lodz.com
