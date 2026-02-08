@@ -5,6 +5,8 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Flower, Leaf, CheckCircle } from 'lucide-react'
 import { SITE_URL } from '@/lib/constants'
 
+import { generateCanonicalMetadata } from '@/lib/canonical'
+
 const wreaths = [
   {
     name: 'Wieńce tradycyjne',
@@ -51,38 +53,32 @@ const wreaths = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Wieńce Pogrzebowe Łódź',
+  title: 'Wieńce Pogrzebowe Łódź - Żywe i Sztuczne Kwiaty',
   description:
-    'Wieńce i kompozycje kwiatowe na pogrzeb – tradycyjne, okolicznościowe i ekskluzywne aranżacje dostępne w Nekrolog Łódź. Możliwość personalizacji szarf.',
-  keywords: ['wieńce pogrzebowe łódź', 'wiązanki pogrzebowe', 'kwiaty na pogrzeb', 'wieńce z szarfami'],
-  alternates: {
-    canonical: `${SITE_URL}/asortyment/wience-lodz`,
-  },
+    'Piękne wieńce i wiązanki pogrzebowe w Łodzi. Kompozycje z kwiatów żywych i sztucznych. Dostawa na cmentarze w Łodzi i okolicach.',
+  keywords: ['wieńce pogrzebowe łódź', 'wiązanki pogrzebowe', 'kwiaty na pogrzeb łódź', 'wieńce z szarfami', 'kwiaciarnia pogrzebowa łódź'],
+  ...generateCanonicalMetadata('/asortyment/wience-lodz'),
   openGraph: {
     title: 'Wieńce Pogrzebowe Łódź - Nekrolog',
-    description: 'Wieńce i kompozycje kwiatowe – tradycyjne, okolicznościowe i ekskluzywne. Możliwość personalizacji.',
+    description: 'Wieńce i kompozycje kwiatowe – tradycyjne, okolicznościowe i ekskluzywne. Dostawa na terenie Łodzi.',
     url: `${SITE_URL}/asortyment/wience-lodz`,
     type: 'website',
-  },
-  robots: {
-    index: true,
-    follow: true,
   },
 }
 
 export default function WiencePage() {
   return (
     <ServiceLayout
-      title="Wieńce Pogrzebowe"
-      description="Przygotowujemy wieńce i kompozycje kwiatowe, które w taktowny sposób oddają hołd zmarłej osobie."
+      title="Wieńce Pogrzebowe - Łódź"
+      description="Przygotowujemy wieńce i kompozycje kwiatowe, które w taktowny sposób oddają hołd zmarłej osobie. Zapewniamy transport na cmentarze w Łodzi."
       backgroundImage={IMAGES.subpages.wience}
     >
       <div className="space-y-12">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl font-playfair font-semibold text-white mb-4">Wieńce i kompozycje kwiatowe</h2>
+          <h2 className="text-3xl font-playfair font-semibold text-white mb-4">Wieńce i kompozycje kwiatowe w Łodzi</h2>
           <p className="text-gray-300">
-            Oferujemy wieńce, wiązanki i dekoracje kwiatowe przygotowywane ze świeżych kwiatów przez doświadczonych
-            florystów. Każda kompozycja powstaje według indywidualnych wytycznych, tak aby podkreślić powagę i charakter uroczystości.
+            Oferujemy wieńce, wiązanki i dekoracje kwiatowe przygotowywane ze świeżych i sztucznych kwiatów przez doświadczonych
+            florystów z Łodzi. Każda kompozycja powstaje z dbałością o detale, a szarfy wypisujemy na miejscu zgodnie z życzeniem rodziny.
           </p>
         </div>
 

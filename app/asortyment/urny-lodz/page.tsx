@@ -3,78 +3,52 @@ import ServiceLayout from '@/components/ServiceLayout'
 import { Card, CardContent } from '@/components/ui/card'
 import { Box, CheckCircle } from 'lucide-react'
 import { SITE_URL } from '@/lib/constants'
+import { generateCanonicalMetadata } from '@/lib/canonical'
 
 const urns = [
   {
     name: 'Urna metalowa klasyczna',
-    description:
-      'Elegancka urna wykonana z metalu wysokiej jakości, dostępna w różnych kolorach i wykończeniach.',
-    features: ['Trwały materiał', 'Klasyczny wygląd', 'Różne kolory do wyboru'],
+    description: 'Tradycyjna urna metalowa dostępna w różnych kolorach i wykończeniach.',
+    features: ['Wytrzymały metal', 'Różne kolory', 'Klasyczny kształt', 'Przystępna cena'],
   },
   {
-    name: 'Urna drewniana zdobiona',
-    description:
-      'Tradycyjna urna wykonana z naturalnego drewna, starannie wykończona i ozdobiona delikatnymi wzorami.',
-    features: ['Naturalne drewno', 'Ręcznie zdobiona', 'Eleganckie wykończenie'],
+    name: 'Urna drewniana dębowa',
+    description: 'Ciepła i naturalna urna wykonana z drewna dębowego, idealna do pochówku tradycyjnego.',
+    features: ['Lite drewno dębowe', 'Ręczne wykonanie', 'Naturalny wygląd', 'Ekologiczna'],
   },
   {
-    name: 'Urna biodegradowalna',
-    description:
-      'Ekologiczna urna wykonana z materiałów przyjaznych środowisku, idealna do pochówku w ziemi lub rozsypania prochów.',
-    features: ['Ekologiczna', 'Biodegradowalna', 'Przyjazna środowisku'],
-  },
-  {
-    name: 'Urna ceramiczna artystyczna',
-    description:
-      'Wyjątkowa urna ceramiczna, ręcznie wykonana przez artystów, z możliwością personalizacji wzorów i kolorów.',
-    features: ['Ręcznie wykonana', 'Unikatowy wzór', 'Możliwość personalizacji'],
-  },
-  {
-    name: 'Miniaturowa urna pamiątkowa',
-    description:
-      'Mniejsza wersja urny służąca jako pamiątka, pozwalająca zachować niewielką ilość prochów bliskiej osoby.',
-    features: ['Kompaktowy rozmiar', 'Eleganckie wykonanie', 'Trwały materiał'],
-  },
-  {
-    name: 'Urna kryształowa',
-    description:
-      'Luksusowa urna wykonana z wysokiej jakości kryształu, dostępna z możliwością grawerowania personalizowanych napisów.',
-    features: ['Ekskluzywny wygląd', 'Możliwość grawerowania', 'Najwyższa jakość'],
+    name: 'Urna kompozytowa',
+    description: 'Nowoczesna urna wykonana z trwałych materiałów kompozytowych, odporna na warunki atmosferyczne.',
+    features: ['Nowoczesny design', 'Odporność na wilgoć', 'Lekka konstrukcja', 'Wiele wzorów'],
   },
 ]
 
 export const metadata: Metadata = {
-  title: 'Urny Pogrzebowe Łódź',
-  description:
-    'Szeroki wybór urn pogrzebowych w Łodzi. Urny metalowe, drewniane, kamienne, ceramiczne, biodegradowalne i pamiątkowe. Możliwość personalizacji.',
-  keywords: ['urny pogrzebowe łódź', 'urny na prochy', 'urna pogrzebowa', 'urny kremacyjne łódź', 'urna biodegradowalna'],
-  alternates: {
-    canonical: `${SITE_URL}/asortyment/urny-lodz`,
-  },
+  title: 'Urny Pogrzebowe Łódź - Kamienne, Drewniane, Metalowe',
+  description: 'Duży wybór urn pogrzebowych w Łodzi. Urny kamienne, drewniane, metalowe i kompozytowe. Dostępne od ręki w naszym zakładzie.',
+  keywords: ['urny łódź', 'urny pogrzebowe łódź', 'urna na prochy', 'urny kamienne łódź', 'urny drewniane'],
+  ...generateCanonicalMetadata('/asortyment/urny-lodz'),
   openGraph: {
     title: 'Urny Pogrzebowe Łódź - Nekrolog',
-    description: 'Szeroki wybór urn pogrzebowych. Urny metalowe, drewniane, ceramiczne, biodegradowalne i pamiątkowe.',
+    description: 'Ekskluzywne i tradycyjne urny pogrzebowe w Łodzi. Sprawdź naszą ofertę urn kamiennych, drewnianych i metalowych.',
     url: `${SITE_URL}/asortyment/urny-lodz`,
     type: 'website',
-  },
-  robots: {
-    index: true,
-    follow: true,
   },
 }
 
 export default function UrnyPage() {
   return (
     <ServiceLayout
-      title="Urny Pogrzebowe"
-      description="Szeroki wybór urn dostosowanych do różnych potrzeb i preferencji."
+      title="Urny - Łódź"
+      description="Szeroki wybór urn pogrzebowych wykonanych z różnych materiałów, dostępnych w naszym zakładzie w Łodzi."
     >
       <div className="space-y-12">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl font-playfair font-semibold text-white mb-4">Urny kremacyjne</h2>
+          <h2 className="text-3xl font-playfair font-semibold text-white mb-4">Urny Pogrzebowe Łódź</h2>
           <p className="text-gray-300">
-            Oferujemy urny wykonane z metalu, drewna, ceramiki, kryształu oraz materiałów biodegradowalnych. Każdy model
-            dobieramy indywidualnie, dbając o estetykę i trwałość, aby godnie upamiętnić bliską osobę.
+            Oferujemy szeroki wybór urn dostosowanych do różnych potrzeb i budżetów. W naszym asortymencie w Łodzi
+            znajdą Państwo urny wykonane z kamienia, metalu, drewna oraz nowoczesnych kompozytów.
+            Każdy produkt cechuje się wysoką estetyką i trwałością.
           </p>
         </div>
 

@@ -4,6 +4,8 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Package, CheckCircle } from 'lucide-react'
 import { SITE_URL } from '@/lib/constants'
 
+import { generateCanonicalMetadata } from '@/lib/canonical'
+
 const coffins = [
   {
     name: 'Trumna dębowa premium',
@@ -30,35 +32,30 @@ const coffins = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Trumny Łódź',
-  description: 'Szeroki wybór trumien w Łodzi. Modele dębowe, sosnowe, olchowe oraz ekonomiczne rozwiązania. Najwyższa jakość wykonania.',
-  keywords: ['trumny łódź', 'trumna dębowa', 'trumna sosnowa', 'trumny pogrzebowe', 'trumna olchowa'],
-  alternates: {
-    canonical: `${SITE_URL}/asortyment/trumny-lodz`,
-  },
+  title: 'Trumny Łódź - Sprzedaż Trumien',
+  description: 'Największy wybór trumien w Łodzi. Modele dębowe, sosnowe, olchowe. Trumny kremacyjne i tradycyjne. Ekspozycja przy ul. Legionów 48.',
+  keywords: ['trumny łódź', 'sprzedaż trumien łódź', 'producent trumien łódzkie', 'tanie trumny łódź', 'klasyczne trumny drewniane'],
+  ...generateCanonicalMetadata('/asortyment/trumny-lodz'),
   openGraph: {
     title: 'Trumny Łódź - Nekrolog',
-    description: 'Szeroki wybór trumien najwyższej jakości. Modele dębowe, sosnowe, olchowe oraz ekonomiczne.',
+    description: 'Szeroki wybór trumien najwyższej jakości w Łodzi. Modele dębowe, sosnowe i kremacyjne. Sprawdź naszą ofertę.',
     url: `${SITE_URL}/asortyment/trumny-lodz`,
     type: 'website',
-  },
-  robots: {
-    index: true,
-    follow: true,
   },
 }
 
 export default function TrumnyPage() {
   return (
     <ServiceLayout
-      title="Trumny"
-      description="Szeroki wybór trumien najwyższej jakości, dopasowanych do potrzeb rodziny i charakteru ceremonii."
+      title="Trumny - Łódź"
+      description="Szeroki wybór trumien najwyższej jakości dostępnych w Łodzi. Oferujemy modele tradycyjne i kremacyjne dopasowane do potrzeb rodziny."
     >
       <div className="space-y-12">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl font-playfair font-semibold text-white mb-4">Kompleksowa oferta trumien</h2>
+          <h2 className="text-3xl font-playfair font-semibold text-white mb-4">Trumny Łódź - Kompleksowa Oferta</h2>
           <p className="text-gray-300">
-            W naszej ofercie znajdują się klasyczne oraz nowoczesne trumny wykonane z najlepszych gatunków drewna. Każdy
+            W naszym zakładzie pogrzebowym w Łodzi przy ul. Legionów 48 posiadamy stałą ekspozycję trumien.
+            Oferujemy klasyczne oraz nowoczesne modele wykonane z najlepszych gatunków drewna. Każdy
             model dobieramy indywidualnie, aby oddać szacunek zmarłemu i zapewnić rodzinie poczucie godnego pożegnania.
           </p>
         </div>

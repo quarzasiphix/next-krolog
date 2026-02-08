@@ -5,6 +5,8 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Flower, CheckCircle } from 'lucide-react'
 import { SITE_URL } from '@/lib/constants'
 
+import { generateCanonicalMetadata } from '@/lib/canonical'
+
 const arrangements = [
   {
     name: 'Wieniec klasyczny',
@@ -39,38 +41,32 @@ const arrangements = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Wiązanki Pogrzebowe Łódź',
+  title: 'Wiązanki Pogrzebowe Łódź - Kwiaciarnia Pogrzebowa',
   description:
-    'Wiązanki, wieńce i kompozycje kwiatowe przygotowywane na ceremonie pogrzebowe w Łodzi przez dom pogrzebowy Nekrolog. Świeże kwiaty premium.',
-  keywords: ['wiązanki pogrzebowe łódź', 'wieńce pogrzebowe', 'kwiaty na pogrzeb łódź', 'kompozycje kwiatowe'],
-  alternates: {
-    canonical: `${SITE_URL}/asortyment/wiazanki-lodz`,
-  },
+    'Wiązanki i kompozycje kwiatowe na pogrzeb w Łodzi. Świeże kwiaty, profesjonalna florystyka pogrzebowa. Odbiór osobisty lub dostawa na cmentarz.',
+  keywords: ['wiązanki pogrzebowe łódź', 'kwiaty na pogrzeb łódź', 'kwiaciarnia przy cmentarzu łódź', 'wieńce i wiązanki'],
+  ...generateCanonicalMetadata('/asortyment/wiazanki-lodz'),
   openGraph: {
     title: 'Wiązanki Pogrzebowe Łódź - Nekrolog',
-    description: 'Wiązanki, wieńce i kompozycje kwiatowe na ceremonie pogrzebowe. Świeże kwiaty premium.',
+    description: 'Wiązanki i kompozycje kwiatowe na ceremonie pogrzebowe w Łodzi. Świeże kwiaty premium.',
     url: `${SITE_URL}/asortyment/wiazanki-lodz`,
     type: 'website',
-  },
-  robots: {
-    index: true,
-    follow: true,
   },
 }
 
 export default function WiazankiPage() {
   return (
     <ServiceLayout
-      title="Wiązanki Pogrzebowe"
-      description="Tworzymy kompozycje kwiatowe, które z szacunkiem podkreślają charakter uroczystości i pamięć o zmarłym."
+      title="Wiązanki Pogrzebowe - Łódź"
+      description="Tworzymy kompozycje kwiatowe, które z szacunkiem podkreślają charakter uroczystości i pamięć o zmarłym. Działamy na terenie całej Łodzi."
       backgroundImage={IMAGES.subpages.wiazanki}
     >
       <div className="space-y-12">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl font-playfair font-semibold text-white mb-4">Florystyka pogrzebowa</h2>
+          <h2 className="text-3xl font-playfair font-semibold text-white mb-4">Florystyka pogrzebowa w Łodzi</h2>
           <p className="text-gray-300">
-            Współpracujemy z florystami specjalizującymi się w ceremoniach żałobnych. Każdą kompozycję przygotowujemy na
-            indywidualne zamówienie, dbając o świeżość kwiatów, odpowiednią kolorystykę i personalizowane przesłanie.
+            Współpracujemy z najlepszymi florystami w Łodzi, specjalizującymi się w ceremoniach żałobnych. Każdą kompozycję przygotowujemy na
+            indywidualne zamówienie, dbając o świeżość kwiatów, odpowiednią kolorystykę i personalizowane przesłanie na szarfie.
           </p>
         </div>
 

@@ -5,6 +5,8 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Package, CheckCircle } from 'lucide-react'
 import { SITE_URL } from '@/lib/constants'
 
+import { generateCanonicalMetadata } from '@/lib/canonical'
+
 const clothingCategories = [
   {
     name: 'Garnitury pogrzebowe męskie',
@@ -45,38 +47,32 @@ const clothingCategories = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Odzież Pogrzebowa Łódź',
+  title: 'Odzież Pogrzebowa Łódź - Garnitury i Sukienki',
   description:
-    'Elegancka odzież żałobna dla kobiet i mężczyzn oraz komplety dla zmarłych dostępne w zakładzie pogrzebowym Nekrolog Łódź. Pełna rozmiarówka.',
-  keywords: ['odzież pogrzebowa łódź', 'ubrania dla zmarłych', 'garnitur żałobny', 'suknia żałobna', 'odzież żałobna'],
-  alternates: {
-    canonical: `${SITE_URL}/asortyment/odziez-lodz`,
-  },
+    'Elegancka odzież żałobna dostępna w Łodzi. Garnitury męskie, suknie damskie, obuwie oraz odzież dla zmarłych. Pełna rozmiarówka na miejscu.',
+  keywords: ['odzież pogrzebowa łódź', 'ubrania dla zmarłych łódź', 'garnitur żałobny łódź', 'suknia żałobna', 'sklep z odzieżą żałobną'],
+  ...generateCanonicalMetadata('/asortyment/odziez-lodz'),
   openGraph: {
     title: 'Odzież Pogrzebowa Łódź - Nekrolog',
-    description: 'Elegancka odzież żałobna dla kobiet i mężczyzn oraz komplety dla zmarłych. Pełna rozmiarówka.',
+    description: 'Elegancka odzież żałobna dla kobiet i mężczyzn oraz komplety dla zmarłych dostępna w Łodzi.',
     url: `${SITE_URL}/asortyment/odziez-lodz`,
     type: 'website',
-  },
-  robots: {
-    index: true,
-    follow: true,
   },
 }
 
 export default function OdziezPage() {
   return (
     <ServiceLayout
-      title="Odzież Pogrzebowa"
+      title="Odzież Pogrzebowa - Łódź"
       description="Zapewniamy elegancką odzież żałobną oraz komplety dla zmarłych, dbając o godny i stonowany charakter ceremonii."
       backgroundImage={IMAGES.subpages.odziez}
     >
       <div className="space-y-12">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl font-playfair font-semibold text-white mb-4">Kompleksowa oferta odzieży żałobnej</h2>
+          <h2 className="text-3xl font-playfair font-semibold text-white mb-4">Odzież żałobna w Łodzi</h2>
           <p className="text-gray-300">
-            W naszym domu pogrzebowym dostępna jest odzież dla wszystkich uczestników ceremonii – od klasycznych garniturów
-            po eleganckie suknie i dodatki. Pomagamy dobrać strój, który odzwierciedla powagę chwili, a jednocześnie zapewnia komfort.
+            W naszym domu pogrzebowym przy ul. Legionów 48 w Łodzi dostępna jest odzież dla wszystkich uczestników ceremonii.
+            Posiadamy pełną rozmiarówkę klasycznych garniturów, sukien oraz butów. Nasi pracownicy pomagają w doborze odpowiedniego stroju.
           </p>
         </div>
 

@@ -15,7 +15,7 @@ const CONTENT_LAST_MODIFIED = {
   homepage: '2025-01-15T10:00:00Z',
   about: '2025-01-10T15:30:00Z',
   contact: '2025-01-12T09:00:00Z',
-  
+
   // Service pages
   services: {
     main: '2025-01-08T14:00:00Z',
@@ -25,7 +25,7 @@ const CONTENT_LAST_MODIFIED = {
     krematorium: '2025-01-08T14:00:00Z',
     ekshumacja: '2025-01-08T14:00:00Z',
   },
-  
+
   // Asortyment pages
   asortyment: {
     main: '2025-01-09T11:00:00Z',
@@ -35,7 +35,7 @@ const CONTENT_LAST_MODIFIED = {
     wiazanki: '2025-01-09T11:00:00Z',
     wience: '2025-01-09T11:00:00Z',
   },
-  
+
   // Poradnik articles with individual last modified dates
   poradnik: {
     'co-zrobic-po-smierci': '2025-01-05T16:00:00Z',
@@ -55,7 +55,7 @@ const CONTENT_LAST_MODIFIED = {
     'czy-zaklad-pogrzebowy-moze-dopelnic-formalnosci-pogrzebowych-w-zastepstwie-klienta': '2025-01-09T14:00:00Z',
     'jak-zorganizowac-pogrzeb-bez-srodkow-finansowych': '2025-01-10T10:00:00Z',
   },
-  
+
   // Cemetery pages
   cmentarze: {
     main: '2025-01-11T16:00:00Z',
@@ -65,7 +65,7 @@ const CONTENT_LAST_MODIFIED = {
     zarzew: '2025-01-11T16:00:00Z',
     'komunalny-polnocny': '2025-01-11T16:00:00Z',
   },
-  
+
   // Legal pages (rarely change)
   legal: {
     rodo: '2024-12-01T00:00:00Z',
@@ -83,7 +83,7 @@ export const SLUGS = {
     'krematorium-lodz',
     'ekshumacja-lodz',
   ],
-  
+
   asortyment: [
     'trumny-lodz',
     'urny-lodz',
@@ -91,9 +91,9 @@ export const SLUGS = {
     'wiazanki-lodz',
     'wience-lodz',
   ],
-  
+
   poradnik: Object.keys(CONTENT_LAST_MODIFIED.poradnik),
-  
+
   cmentarze: [
     'doly',
     'radogoszcz',
@@ -101,12 +101,22 @@ export const SLUGS = {
     'zarzew',
     'komunalny-polnocny',
   ],
+
+  locations: [
+    'zaklad-pogrzebowy-pabianice',
+    'zaklad-pogrzebowy-zgierz',
+    'zaklad-pogrzebowy-aleksandrow-lodzki',
+    'zaklad-pogrzebowy-konstantynow-lodzki',
+    'zaklad-pogrzebowy-lowicz',
+    'zaklad-pogrzebowy-sieradz',
+    'zaklad-pogrzebowy-zdunska-wola',
+  ]
 }
 
 // Generate sitemap entries from registries
 export function generateSitemapEntries(baseUrl: string): SitemapEntry[] {
   const entries: SitemapEntry[] = []
-  
+
   // Core pages
   entries.push(
     {
@@ -146,7 +156,7 @@ export function generateSitemapEntries(baseUrl: string): SitemapEntry[] {
       priority: 0.8,
     }
   )
-  
+
   // Service pages
   entries.push({
     url: `${baseUrl}/uslugi`,
@@ -154,7 +164,7 @@ export function generateSitemapEntries(baseUrl: string): SitemapEntry[] {
     changeFrequency: 'monthly',
     priority: 0.8,
   })
-  
+
   SLUGS.services.forEach(slug => {
     const serviceKey = slug.split('-')[0] as keyof typeof CONTENT_LAST_MODIFIED.services
     entries.push({
@@ -164,7 +174,7 @@ export function generateSitemapEntries(baseUrl: string): SitemapEntry[] {
       priority: 0.8,
     })
   })
-  
+
   // Asortyment pages
   entries.push({
     url: `${baseUrl}/asortyment`,
@@ -172,7 +182,7 @@ export function generateSitemapEntries(baseUrl: string): SitemapEntry[] {
     changeFrequency: 'monthly',
     priority: 0.7,
   })
-  
+
   SLUGS.asortyment.forEach(slug => {
     const itemKey = slug.split('-')[0] as keyof typeof CONTENT_LAST_MODIFIED.asortyment
     entries.push({
@@ -182,7 +192,7 @@ export function generateSitemapEntries(baseUrl: string): SitemapEntry[] {
       priority: 0.7,
     })
   })
-  
+
   // Poradnik hub and articles
   entries.push({
     url: `${baseUrl}/poradnik`,
@@ -190,7 +200,7 @@ export function generateSitemapEntries(baseUrl: string): SitemapEntry[] {
     changeFrequency: 'monthly',
     priority: 0.9,
   })
-  
+
   SLUGS.poradnik.forEach(slug => {
     entries.push({
       url: `${baseUrl}/poradnik/${slug}`,
@@ -199,7 +209,7 @@ export function generateSitemapEntries(baseUrl: string): SitemapEntry[] {
       priority: 0.85,
     })
   })
-  
+
   // Cemetery hub and pages
   entries.push({
     url: `${baseUrl}/cmentarze-lodz`,
@@ -207,7 +217,7 @@ export function generateSitemapEntries(baseUrl: string): SitemapEntry[] {
     changeFrequency: 'monthly',
     priority: 0.9,
   })
-  
+
   SLUGS.cmentarze.forEach(slug => {
     entries.push({
       url: `${baseUrl}/cmentarze-lodz/${slug}`,
@@ -216,7 +226,7 @@ export function generateSitemapEntries(baseUrl: string): SitemapEntry[] {
       priority: 0.85,
     })
   })
-  
+
   // Legal pages
   Object.entries(CONTENT_LAST_MODIFIED.legal).forEach(([slug, lastModified]) => {
     entries.push({
@@ -226,25 +236,37 @@ export function generateSitemapEntries(baseUrl: string): SitemapEntry[] {
       priority: 0.3,
     })
   })
-  
+
+  // Location pages
+  if (SLUGS.locations) {
+    SLUGS.locations.forEach(slug => {
+      entries.push({
+        url: `${baseUrl}/${slug}`,
+        lastModified: CONTENT_LAST_MODIFIED.homepage, // Assuming same update freq as homepage
+        changeFrequency: 'weekly',
+        priority: 0.9,
+      })
+    })
+  }
+
   return entries
 }
 
 // Production domain validation
 export function validateProductionDomain(url: string): string {
   const PRODUCTION_DOMAIN = 'https://nekrolog-lodz.com'
-  
+
   // In production, always use the canonical domain
   if (process.env.NODE_ENV === 'production') {
     return PRODUCTION_DOMAIN
   }
-  
+
   // In development/staging, allow override but warn
   const allowedDomains = [PRODUCTION_DOMAIN, 'http://localhost:3000']
   if (allowedDomains.some(domain => url.startsWith(domain))) {
     return url
   }
-  
+
   console.warn(`⚠️  Unexpected domain detected: ${url}. Using production domain in production mode.`)
   return PRODUCTION_DOMAIN
 }
