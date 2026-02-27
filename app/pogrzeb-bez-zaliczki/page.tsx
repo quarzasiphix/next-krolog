@@ -43,6 +43,14 @@ export default function PogrzebBezZaliczkiPage() {
             <p className="text-xl text-gray-300 mb-8">
               Organizujemy pogrzeb i finansujemy wszystkie koszty. Rozliczenie następuje bezpośrednio z zasiłkiem pogrzebowym ZUS/KRUS. Nie musisz martwić się o pieniądze w tym trudnym czasie.
             </p>
+            <div className="bg-black/40 border border-white/10 rounded-lg p-5 mb-8 text-left">
+              <p className="text-white font-medium mb-2">Szybka odpowiedź</p>
+              <p className="text-gray-300">
+                Tak, w Nekrolog Łódź organizujemy pogrzeb bez wpłaty z góry. Rodzina nie musi mieć środków na start.
+                Pomagamy w formalnościach i rozliczamy usługę z zasiłku ZUS/KRUS.
+              </p>
+              <p className="text-xs text-gray-500 mt-3">Aktualizacja: 27 lutego 2026</p>
+            </div>
             <div className="bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/30 rounded-lg p-8">
               <h2 className="text-2xl font-playfair font-medium text-white mb-4">
                 Jak To Działa?
@@ -413,7 +421,7 @@ export default function PogrzebBezZaliczkiPage() {
                 <Card className="bg-black/30 border border-white/10 hover:border-primary/30 transition h-full">
                   <CardContent className="p-4">
                     <h3 className="text-lg font-medium text-white mb-2">Zasiłek Pogrzebowy ZUS</h3>
-                    <p className="text-gray-400 text-sm">Jak uzyskać zasiłek i ile wynosi w 2024 roku</p>
+                    <p className="text-gray-400 text-sm">Jak uzyskać zasiłek i ile wynosi obecnie</p>
                   </CardContent>
                 </Card>
               </Link>

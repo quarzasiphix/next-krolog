@@ -8,12 +8,14 @@ import { BookOpen, ArrowRight, Heart, FileText, HelpCircle } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Poradnik Pogrzebowy Łódź | Praktyczne Wskazówki',
-  description: 'Kompleksowy poradnik pogrzebowy. Praktyczne wskazówki co zrobić po śmierci, jak zorganizować pogrzeb, zasiłek pogrzebowy, kremacja i formalności pogrzebowe.',
+  description: 'Kompleksowy poradnik pogrzebowy. Praktyczne wskazówki co zrobić po śmierci, jak zorganizować pogrzeb, zasiłek pogrzebowy, kremacja, formalności oraz odzież żałobna.',
   keywords: [
     'poradnik pogrzebowy',
     'co zrobić po śmierci',
     'jak zorganizować pogrzeb',
     'zasiłek pogrzebowy',
+    'odzież żałobna',
+    'jak się ubrać na pogrzeb',
     'kremacja łódź',
     'formalności pogrzebowe',
     'ekshumacja',
@@ -74,6 +76,30 @@ const poradnikCategories = [
 ]
 
 const popularArticles = [
+  {
+    title: 'Jak wybrać trumnę na pogrzeb?',
+    excerpt: 'Praktyczny poradnik: materiały, rozmiary, koszt i wybór trumny do typu ceremonii.',
+    href: '/poradnik/jak-wybrac-trumne-na-pogrzeb',
+    category: 'Asortyment'
+  },
+  {
+    title: 'Jak się ubrać na pogrzeb? Kobieta, mężczyzna, dziecko',
+    excerpt: 'Praktyczne zasady stroju żałobnego dla całej rodziny. Co wypada i czego unikać.',
+    href: '/poradnik/jak-sie-ubrac-na-pogrzeb-kobieta-mezczyzna-dziecko',
+    category: 'Odzież żałobna'
+  },
+  {
+    title: 'Czy na pogrzeb trzeba ubrać się na czarno?',
+    excerpt: 'Sprawdź, czy czarny strój jest obowiązkowy i jakie kolory są akceptowane.',
+    href: '/poradnik/czy-na-pogrzeb-trzeba-ubrac-sie-na-czarno',
+    category: 'Odzież żałobna'
+  },
+  {
+    title: 'Jakie buty na pogrzeb i czego unikać?',
+    excerpt: 'Jak dobrać eleganckie i wygodne obuwie na ceremonię pogrzebową.',
+    href: '/poradnik/jakie-buty-na-pogrzeb-i-czego-unikac',
+    category: 'Odzież żałobna'
+  },
   {
     title: 'Co zrobić po śmierci bliskiej osoby?',
     excerpt: 'Praktyczny poradnik krok po kroku po śmierci bliskiej osoby. Wszystko co musisz wiedzieć.',

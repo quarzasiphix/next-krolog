@@ -4,11 +4,12 @@ import { Phone, FileText, Euro, CheckCircle2, AlertCircle, Clock, Building2 } fr
 import { Card, CardContent } from '@/components/ui/card'
 
 export const metadata: Metadata = {
-  title: 'Zasiłek Pogrzebowy ZUS 2024 - Ile Wynosi, Jak Uzyskać, Kto Może Otrzymać',
+  title: 'Zasiłek Pogrzebowy ZUS i KRUS - Ile Wynosi, Jak Uzyskać, Kto Może Otrzymać',
   description: 'Kompletny przewodnik o zasiłku pogrzebowym ZUS i KRUS. Wysokość zasiłku, wymagane dokumenty, procedura składania wniosku. Pomożemy w rozliczeniu bezpośrednio z ZUS - bez kosztów z góry.',
   keywords: [
     'zasiłek pogrzebowy zus',
-    'zasiłek pogrzebowy 2024',
+    'zasiłek pogrzebowy',
+    'zasiłek pogrzebowy 2026',
     'ile wynosi zasiłek pogrzebowy',
     'wniosek o zasiłek pogrzebowy',
     'zasiłek pogrzebowy krus',
@@ -27,18 +28,26 @@ export default function ZasilekPogrzebowyZUSPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-playfair font-medium mb-6 text-white">
-              Zasiłek Pogrzebowy ZUS i KRUS 2024
+              Zasiłek Pogrzebowy ZUS i KRUS
             </h1>
             <p className="text-xl text-gray-300 mb-8">
               Wszystko co musisz wiedzieć o zasiłku pogrzebowym - wysokość, wymagane dokumenty, procedura składania wniosku
             </p>
+            <div className="bg-black/40 border border-white/10 rounded-lg p-5 mb-8 text-left">
+              <p className="text-white font-medium mb-2">Szybka odpowiedź</p>
+              <p className="text-gray-300">
+                Zasiłek pogrzebowy wynosi 4000 zł. Wniosek składa się w ZUS/KRUS (zwykle do 12 miesięcy od pogrzebu)
+                z kompletem dokumentów. W Nekrolog Łódź pomagamy w formalnościach i rozliczeniu bez zaliczki.
+              </p>
+              <p className="text-xs text-gray-500 mt-3">Aktualizacja: 27 lutego 2026</p>
+            </div>
             <div className="bg-primary/10 border border-primary/30 rounded-lg p-6">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <Euro className="w-8 h-8 text-primary" />
                 <p className="text-3xl font-bold text-primary">4000 zł</p>
               </div>
               <p className="text-lg text-gray-300">
-                Wysokość zasiłku pogrzebowego w 2024 roku
+                Aktualna wysokość zasiłku pogrzebowego
               </p>
             </div>
           </div>

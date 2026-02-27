@@ -6,6 +6,7 @@ import Breadcrumb from '@/components/Breadcrumb';
 import Footer from '@/components/Footer';
 import { IMAGES } from '@/assets/images';
 import { PostHogPageView } from '@/components/analytics/PostHogPageView';
+import { PostHogPhoneClick } from '@/components/analytics/PostHogPhoneClick';
 
 interface ClientShellProps {
   children: ReactNode;
@@ -15,6 +16,7 @@ const ClientShell = ({ children }: ClientShellProps) => {
   return (
     <div className="min-h-screen flex flex-col bg-black relative">
       <PostHogPageView />
+      <PostHogPhoneClick />
       <div
         className="fixed inset-0 bg-contain bg-center bg-no-repeat opacity-[0.08] pointer-events-none"
         style={{ backgroundImage: `url(${IMAGES.cross})` }}

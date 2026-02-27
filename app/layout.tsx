@@ -6,11 +6,11 @@ import ClientShell from '@/components/ClientShell'
 export const metadata: Metadata = {
   metadataBase: new URL('https://nekrolog-lodz.com'),
   title: {
-    default: 'Zakład Pogrzebowy w Łodzi – Nekrolog Łódź | Jolanta Kostowska',
+    default: 'Nekrolog Łódź - Zakład Pogrzebowy w Łodzi | Jolanta Kostowska',
     template: '%s | Zakład Pogrzebowy Łódź'
   },
-  description: 'Zakład Pogrzebowy Nekrolog Łódź oferuje kompleksowe usługi pogrzebowe w Łodzi. Organizacja ceremonii, kremacja, transport. Doświadczenie 20+ lat. Dostępni całodobowo. Tel: +48 602 274 661.',
-  keywords: ['zakład pogrzebowy łódź', 'usługi pogrzebowe łódź', 'dom pogrzebowy łódź', 'organizacja pogrzebu łódź', 'kremacja łódź', 'transport zmarłych łódź', 'pogrzeby łódź'],
+  description: 'Nekrolog Łódź (nekrolog lodz) to całodobowy zakład pogrzebowy w Łodzi przy ul. Legionów 48. Kompleksowe usługi pogrzebowe i wsparcie bez zaliczki.',
+  keywords: ['zakład pogrzebowy łódź', 'zaklad pogrzebowy lodz', 'nekrolog łódź', 'nekrolog lodz', 'usługi pogrzebowe łódź', 'pogrzeb bez zaliczki łódź', 'dom pogrzebowy łódź', 'organizacja pogrzebu łódź', 'kremacja łódź', 'transport zmarłych łódź', 'pogrzeby łódź'],
   openGraph: {
     type: 'website',
     locale: 'pl_PL',

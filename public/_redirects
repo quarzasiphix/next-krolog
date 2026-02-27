@@ -24,8 +24,41 @@
 /wp-json/* / 301
 /xmlrpc.php / 301
 
+# Legacy article URLs moved under /poradnik
+/jak-wybrac-trumne-na-pogrzeb /poradnik/jak-wybrac-trumne-na-pogrzeb 301
+/jak-wybrac-trumne-na-pogrzeb/ /poradnik/jak-wybrac-trumne-na-pogrzeb 301
+/jak-wybrac-zaklad-do-organizacji-pogrzebu /poradnik/jak-wybrac-zaklad-do-organizacji-pogrzebu 301
+/jak-wybrac-zaklad-do-organizacji-pogrzebu/ /poradnik/jak-wybrac-zaklad-do-organizacji-pogrzebu 301
+/przewoz-zwlok /poradnik/przewoz-zwlok 301
+/przewoz-zwlok/ /poradnik/przewoz-zwlok 301
+/czy-urne-z-prochami-mozna-trzymac-w-domu /poradnik/czy-urne-z-prochami-mozna-trzymac-w-domu 301
+/czy-urne-z-prochami-mozna-trzymac-w-domu/ /poradnik/czy-urne-z-prochami-mozna-trzymac-w-domu 301
+/kremacja /uslugi/krematorium-lodz 301
+/kremacja/ /uslugi/krematorium-lodz 301
+/jakie-czynnosci-obejmuje-kosmetyka-posmiertna /poradnik/jakie-czynnosci-obejmuje-kosmetyka-posmiertna 301
+/jakie-czynnosci-obejmuje-kosmetyka-posmiertna/ /poradnik/jakie-czynnosci-obejmuje-kosmetyka-posmiertna 301
+/jak-wyglada-kremacja-zwlok /poradnik/jak-wyglada-kremacja-zwlok 301
+/jak-wyglada-kremacja-zwlok/ /poradnik/jak-wyglada-kremacja-zwlok 301
+/o-jakiej-porze-roku-moze-byc-przeprowadzana-ekshumacja /poradnik/o-jakiej-porze-roku-moze-byc-przeprowadzana-ekshumacja 301
+/o-jakiej-porze-roku-moze-byc-przeprowadzana-ekshumacja/ /poradnik/o-jakiej-porze-roku-moze-byc-przeprowadzana-ekshumacja 301
+/jak-zgodnie-z-przepisami-przewozic-zwloki /poradnik/jak-zgodnie-z-przepisami-przewozic-zwloki 301
+/jak-zgodnie-z-przepisami-przewozic-zwloki/ /poradnik/jak-zgodnie-z-przepisami-przewozic-zwloki 301
+/jak-przetransportowac-cialo-zmarlego-z-zagranicy /poradnik/jak-przetransportowac-cialo-zmarlego-z-zagranicy 301
+/jak-przetransportowac-cialo-zmarlego-z-zagranicy/ /poradnik/jak-przetransportowac-cialo-zmarlego-z-zagranicy 301
+/jakie-dokumenty-sa-potrzebne-aby-zorganizowac-pogrzeb /poradnik/jakie-dokumenty-sa-potrzebne-aby-zorganizowac-pogrzeb 301
+/jakie-dokumenty-sa-potrzebne-aby-zorganizowac-pogrzeb/ /poradnik/jakie-dokumenty-sa-potrzebne-aby-zorganizowac-pogrzeb 301
+/jakie-kwiaty-wybrac-na-oprawe-ceremonii-pogrzebowej /poradnik/jakie-kwiaty-wybrac-na-oprawe-ceremonii-pogrzebowej 301
+/jakie-kwiaty-wybrac-na-oprawe-ceremonii-pogrzebowej/ /poradnik/jakie-kwiaty-wybrac-na-oprawe-ceremonii-pogrzebowej 301
+/czy-zaklad-pogrzebowy-moze-dopelnic-formalnosci-pogrzebowych-w-zastepstwie-klienta /poradnik/czy-zaklad-pogrzebowy-moze-dopelnic-formalnosci-pogrzebowych-w-zastepstwie-klienta 301
+/czy-zaklad-pogrzebowy-moze-dopelnic-formalnosci-pogrzebowych-w-zastepstwie-klienta/ /poradnik/czy-zaklad-pogrzebowy-moze-dopelnic-formalnosci-pogrzebowych-w-zastepstwie-klienta 301
+
+# Legacy feed URLs for specific articles
+/etapy-zaloby-jak-uporac-sie-z-odejsciem-bliskiej-osoby/feed/ /poradnik/etapy-zaloby-jak-uporac-sie-z-odejsciem-bliskiej-osoby 301
+/o-jakiej-porze-roku-moze-byc-przeprowadzana-ekshumacja/feed/ /poradnik/o-jakiej-porze-roku-moze-byc-przeprowadzana-ekshumacja 301
+
 # Trailing slash normalization (Cloudflare handles via Pages settings, but explicit for safety)
 /zaklad-pogrzebowy-lodz/ /zaklad-pogrzebowy-lodz 301
+/nekrolog-lodz/ /nekrolog-lodz 301
 /uslugi-pogrzebowe-lodz/ /uslugi-pogrzebowe-lodz 301
 /pogrzeb-bez-zaliczki/ /pogrzeb-bez-zaliczki 301
 /asortyment/ /asortyment 301

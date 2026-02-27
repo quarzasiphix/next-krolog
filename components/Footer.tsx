@@ -11,7 +11,7 @@ const Footer = () => {
   const googleBusinessUrl = "https://g.co/kgs/bjTq537";
 
   return (
-    <footer className="bg-black text-white border-t border-white/10">
+    <footer className="bg-black text-white border-t border-white/10" data-nosnippet>
       <div className="container mx-auto px-4 pt-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
@@ -89,6 +89,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/nekrolog-lodz" className="inline-block text-gray-300 hover:text-primary transition-colors">
+                  Nekrolog Łódź
+                </Link>
+              </li>
+              <li>
                 <Link href="/uslugi-pogrzebowe-lodz" className="inline-block text-gray-300 hover:text-primary transition-colors">
                   Usługi Pogrzebowe
                 </Link>
@@ -106,6 +111,11 @@ const Footer = () => {
               <li>
                 <Link href="/cmentarze-lodz" className="inline-block text-gray-300 hover:text-primary transition-colors">
                   Cmentarze w Łodzi
+                </Link>
+              </li>
+              <li>
+                <Link href="/cmentarze-lodz/radogoszcz" className="inline-block text-gray-300 hover:text-primary transition-colors">
+                  Cmentarz Radogoszcz
                 </Link>
               </li>
               <li>

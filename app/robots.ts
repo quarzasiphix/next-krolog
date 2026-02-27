@@ -14,7 +14,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           '/api/',
           '/test-posthog',
-          '/_next/',
           '/_error',
           '/404',
           '/_not-found',
@@ -33,7 +32,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           '/api/',
           '/test-posthog',
-          '/_next/',
           '/_error',
           '/404',
           '/_not-found',

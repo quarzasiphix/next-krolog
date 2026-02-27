@@ -3,7 +3,6 @@ Allow: /
 
 Disallow: /api/
 Disallow: /test-posthog
-Disallow: /_next/
 Disallow: /_error
 Disallow: /404
 Disallow: /_not-found
@@ -20,10 +19,9 @@ Allow: /
 
 Disallow: /api/
 Disallow: /test-posthog
-Disallow: /_next/
 Disallow: /_error
 Disallow: /404
-Disallow: /_not-found/
+Disallow: /_not-found
 
 Sitemap: https://nekrolog-lodz.com/sitemap.xml
 Host: https://nekrolog-lodz.com

@@ -45,10 +45,14 @@ const poradnikItems = [
   { name: "Zasiłek pogrzebowy ZUS", id: "poradnik", path: "/poradnik/zasilek-pogrzebowy-zus" },
   { name: "Pogrzeb bez zaliczki", id: "poradnik", path: "/pogrzeb-bez-zaliczki" },
   { name: "Pogrzeb bez środków finansowych", id: "poradnik", path: "/poradnik/jak-zorganizowac-pogrzeb-bez-srodkow-finansowych" },
+  { name: "Jak wybrać trumnę na pogrzeb", id: "poradnik", path: "/poradnik/jak-wybrac-trumne-na-pogrzeb" },
   { name: "Dokumenty do pogrzebu", id: "poradnik", path: "/poradnik/jakie-dokumenty-sa-potrzebne-aby-zorganizowac-pogrzeb" },
   { name: "Formalności w zastępstwie", id: "poradnik", path: "/poradnik/czy-zaklad-pogrzebowy-moze-dopelnic-formalnosci-pogrzebowych-w-zastepstwie-klienta" },
   { name: "Urna w domu", id: "poradnik", path: "/poradnik/czy-urne-z-prochami-mozna-trzymac-w-domu" },
   { name: "Jak wygląda kremacja", id: "poradnik", path: "/poradnik/jak-wyglada-kremacja-zwlok" },
+  { name: "Jak się ubrać na pogrzeb", id: "poradnik", path: "/poradnik/jak-sie-ubrac-na-pogrzeb-kobieta-mezczyzna-dziecko" },
+  { name: "Czy na pogrzeb ubrać się na czarno", id: "poradnik", path: "/poradnik/czy-na-pogrzeb-trzeba-ubrac-sie-na-czarno" },
+  { name: "Jakie buty na pogrzeb", id: "poradnik", path: "/poradnik/jakie-buty-na-pogrzeb-i-czego-unikac" },
   { name: "Ubiór zmarłego", id: "poradnik", path: "/poradnik/w-co-ubrac-zmarlego-na-pogrzeb" },
   { name: "Kosmetyka pośmiertna", id: "poradnik", path: "/poradnik/jakie-czynnosci-obejmuje-kosmetyka-posmiertna" },
   { name: "Wybór zakładu pogrzebowego", id: "poradnik", path: "/poradnik/jak-wybrac-zaklad-do-organizacji-pogrzebu" },
@@ -61,6 +65,7 @@ const poradnikItems = [
 ];
 
 const aboutItems = [
+  { name: "Nekrolog Łódź", id: "about", path: "/nekrolog-lodz" },
   { name: "O nas", id: "about", path: "/o-nas" },
   { name: "Kontakt", id: "about", path: "/kontakt" }
 ];

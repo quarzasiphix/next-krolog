@@ -89,7 +89,7 @@ export default function CoZrobicPoSmierciPage() {
       icon: FileText,
       description: 'Pomoc w uzyskaniu zasiłku pogrzebowego - rozliczenie bezpośrednio z ZUS.',
       details: [
-        'Zasiłek wynosi 4000 zł (stan na 2024)',
+        'Zasiłek wynosi 4000 zł',
         'Pomożemy w kompletowaniu dokumentów',
         'Możliwość rozliczenia bezpośrednio z ZUS - bez kosztów z góry',
         'Wniosek można złożyć w ciągu 12 miesięcy',
@@ -117,6 +117,14 @@ export default function CoZrobicPoSmierciPage() {
               <p className="text-xl text-gray-300 mb-8">
                 Kompletny przewodnik krok po kroku - wszystkie formalności i procedury wyjaśnione prostym językiem
               </p>
+            <div className="bg-black/40 border border-white/10 rounded-lg p-5 mb-8 text-left">
+              <p className="text-white font-medium mb-2">Szybka odpowiedź</p>
+              <p className="text-gray-300">
+                Najpierw wezwij lekarza do stwierdzenia zgonu, potem skontaktuj się z zakładem pogrzebowym i uzyskaj akt zgonu w USC.
+                W Nekrolog Łódź przeprowadzamy rodzinę przez cały proces 24/7 i pomagamy w organizacji bez zaliczki.
+              </p>
+              <p className="text-xs text-gray-500 mt-3">Aktualizacja: 27 lutego 2026</p>
+            </div>
             <div className="bg-primary/10 border border-primary/30 rounded-lg p-6 mb-8">
               <p className="text-lg text-white mb-4">
                 <strong>Pomoc dostępna całodobowo</strong>

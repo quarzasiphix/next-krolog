@@ -282,8 +282,62 @@ export default async function CemeteryPage({ params }: { params: Promise<{ slug:
     notFound()
   }
 
+  const placeSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Place',
+    name: cemetery.name,
+    url: `${SITE_URL}/cmentarze-lodz/${cemetery.slug}`,
+    description: cemetery.description,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: cemetery.address,
+      addressLocality: 'Łódź',
+      addressCountry: 'PL',
+    },
+    geo: cemetery.coordinates
+      ? {
+          '@type': 'GeoCoordinates',
+          latitude: cemetery.coordinates.lat,
+          longitude: cemetery.coordinates.lng,
+        }
+      : undefined,
+  }
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Strona główna',
+        item: SITE_URL,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Cmentarze w Łodzi',
+        item: `${SITE_URL}/cmentarze-lodz`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: cemetery.name,
+        item: `${SITE_URL}/cmentarze-lodz/${cemetery.slug}`,
+      },
+    ],
+  }
+
   return (
     <div className="bg-black text-white min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(placeSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Header */}
       <section className="relative pt-20 pb-12 bg-gradient-to-b from-black via-black/95 to-black/90">
         <div className="container mx-auto px-4">

@@ -11,12 +11,14 @@ export const metadata: Metadata = {
     'Profesjonalny zakład pogrzebowy Łódź - Nekrolog Łódź. Kompleksowe usługi pogrzebowe, organizacja ceremonii, kremacja, transport 24/7. Doświadczenie od ponad 20 lat. Tel: +48 602 274 661.',
   keywords: [
     'zakład pogrzebowy łódź',
+    'zaklad pogrzebowy lodz',
     'zakład pogrzebowy w łodzi',
     'dom pogrzebowy łódź',
     'usługi pogrzebowe łódź',
     'pogrzeby łódź',
     'całodobowy zakład pogrzebowy łódź',
     'nekrolog łódź',
+    'nekrolog lodz',
     'zakład pogrzebowy legionów łódź',
     'pogrzeb bez zaliczki łódź',
     'organizacja pogrzebu łódź',
@@ -119,9 +121,21 @@ export default function ZakladPogrzebowyPage() {
             <p className="text-lg text-gray-300 mb-8">
               Jako rzetelny zakład pogrzebowy w Łodzi, zapewniamy wsparcie w formalnościach i pełną opiekę w trudnych chwilach.
             </p>
+            <p className="text-base text-gray-400 mb-8">
+              Jeśli szukasz także fraz bez polskich znaków: <strong className="text-white">zaklad pogrzebowy lodz</strong> lub <strong className="text-white">nekrolog lodz</strong>,
+              jesteś we właściwym miejscu.
+            </p>
             <p className="text-lg text-gray-300 mb-8">
               Prowadzony przez Jolantę Kostowską • Doświadczenie od ponad 20 lat
             </p>
+            <div className="bg-black/40 border border-white/10 rounded-lg p-5 mb-8 text-left">
+              <p className="text-white font-medium mb-2">Szybka odpowiedź</p>
+              <p className="text-gray-300">
+                Nekrolog Łódź to całodobowy zakład pogrzebowy przy ul. Legionów 48 w Łodzi.
+                Organizujemy pogrzeby tradycyjne i kremacyjne, pomagamy w formalnościach i oferujemy model bez zaliczki.
+              </p>
+              <p className="text-xs text-gray-500 mt-3">Aktualizacja: 27 lutego 2026</p>
+            </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
@@ -136,6 +150,11 @@ export default function ZakladPogrzebowyPage() {
                 className="inline-flex items-center justify-center rounded-md border border-primary/30 bg-black/50 px-8 py-4 text-lg font-medium text-white transition hover:bg-black/70 w-full sm:w-auto"
               >
                 Skontaktuj się z nami
+              </Link>
+            </div>
+            <div className="mt-5">
+              <Link href="/nekrolog-lodz" className="text-primary hover:text-primary/80 underline underline-offset-4">
+                Zobacz stronę marki: Nekrolog Łódź
               </Link>
             </div>
           </div>

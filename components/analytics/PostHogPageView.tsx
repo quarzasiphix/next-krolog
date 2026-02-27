@@ -9,16 +9,11 @@ export function PostHogPageView() {
   const pathname = usePathname()
 
   useEffect(() => {
-    console.log('PostHogPageView: pathname changed to:', pathname)
     if (pathname && posthog && typeof window !== 'undefined') {
       const url = window.origin + pathname
-      console.log('PostHogPageView: capturing pageview for:', url)
       posthog.capture('$pageview', {
         $current_url: url,
       })
-      console.log('PostHogPageView: pageview event sent')
-    } else {
-      console.log('PostHogPageView: posthog not available or pathname missing')
     }
   }, [pathname, posthog])
 

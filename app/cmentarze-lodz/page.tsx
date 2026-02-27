@@ -9,10 +9,12 @@ export const metadata: Metadata = {
   description: 'Kompletny przewodnik po cmentarzach w Łodzi. Adresy, godziny otwarcia, procedury pogrzebowe. Organizujemy pogrzeby na wszystkich cmentarzach w Łodzi bez kosztów z góry. Tel: +48 602 274 661.',
   keywords: [
     'cmentarze łódź',
+    'cmentarze lodz',
     'cmentarze w łodzi',
     'cmentarz łódź',
     'cmentarz doły',
     'cmentarz radogoszcz',
+    'cmentarz radogoszcz łódź',
     'pogrzeb łódź',
     'organizacja pogrzebu łódź',
   ],

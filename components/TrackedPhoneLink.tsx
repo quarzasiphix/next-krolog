@@ -1,6 +1,5 @@
 'use client'
 
-import { usePostHog } from 'posthog-js/react'
 import { Phone } from 'lucide-react'
 
 interface TrackedPhoneLinkProps {
@@ -16,24 +15,11 @@ export function TrackedPhoneLink({
   showIcon = true,
   children 
 }: TrackedPhoneLinkProps) {
-  const posthog = usePostHog()
-
-  const handleClick = () => {
-    if (posthog) {
-      posthog.capture('phone_cta_clicked', {
-        location,
-        phone_number: '+48602274661',
-        timestamp: new Date().toISOString(),
-      })
-      console.log(`PostHog: Phone CTA clicked from ${location}`)
-    }
-  }
-
   return (
     <a
       href="tel:+48602274661"
       className={className}
-      onClick={handleClick}
+      data-phone-location={location}
     >
       {showIcon && <Phone className="h-5 w-5 hidden md:inline" aria-hidden />}
       {children || <span>+48 602 274 661</span>}

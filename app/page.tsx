@@ -3,12 +3,16 @@ import HomePageClient from '@/components/HomePageClient'
 import { BUSINESS_INFO, SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Zakład Pogrzebowy w Łodzi – Nekrolog Łódź | Jolanta Kostowska',
+  title: 'Nekrolog Łódź - Zakład Pogrzebowy w Łodzi | Jolanta Kostowska',
   description:
-    'Zakład Pogrzebowy Nekrolog Łódź oferuje kompleksowe usługi pogrzebowe w Łodzi. Organizacja ceremonii, kremacja, transport. Doświadczenie 20+ lat. Dostępni całodobowo. Tel: +48 602 274 661.',
+    'Nekrolog Łódź (nekrolog lodz) to całodobowy zakład pogrzebowy w Łodzi przy ul. Legionów 48. Organizacja pogrzebu bez zaliczki, kremacja, transport i formalności. Tel: +48 602 274 661.',
   keywords: [
     'zakład pogrzebowy łódź',
+    'zaklad pogrzebowy lodz',
+    'nekrolog łódź',
+    'nekrolog lodz',
     'usługi pogrzebowe łódź',
+    'pogrzeb bez zaliczki łódź',
     'dom pogrzebowy łódź',
     'organizacja pogrzebu łódź',
     'kremacja łódź',
@@ -25,12 +29,13 @@ export default async function HomePage() {
 
   const businessSchema = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': 'FuneralHome',
     '@id': `${SITE_URL}/#funeral-home`,
-    name: BUSINESS_INFO.name,
+    name: 'Zakład Pogrzebowy Nekrolog Łódź',
+    alternateName: [BUSINESS_INFO.name, 'Nekrolog Łódź', 'Nekrolog Lodz'],
     legalName: BUSINESS_INFO.legalName,
+    taxID: BUSINESS_INFO.nip,
     url: SITE_URL,
-    additionalType: 'https://schema.org/FuneralHome',
     telephone: BUSINESS_INFO.phone,
     priceRange: BUSINESS_INFO.priceRange,
     image: `${SITE_URL}${BUSINESS_INFO.imagePath}`,

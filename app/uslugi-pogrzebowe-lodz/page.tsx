@@ -4,9 +4,9 @@ import { SITE_URL } from '@/lib/constants'
 import { BreadcrumbController } from '@/components/breadcrumb-context'
 
 export const metadata: Metadata = {
-  title: 'Usługi Pogrzebowe Łódź',
-  description: 'Kompleksowe usługi pogrzebowe w Łodzi. Organizacja ceremonii, kremacja, transport i więcej. Profesjonalna pomoc 24/7.',
-  keywords: ['usługi pogrzebowe łódź', 'zakład pogrzebowy łódź', 'dom pogrzebowy łódź', 'organizacja pogrzebu łódź'],
+  title: 'Usługi Pogrzebowe Łódź | Zakład Pogrzebowy Nekrolog Łódź',
+  description: 'Kompleksowe usługi pogrzebowe w Łodzi od Zakładu Pogrzebowego Nekrolog Łódź. Organizacja ceremonii, kremacja, transport i pomoc 24/7.',
+  keywords: ['usługi pogrzebowe łódź', 'zakład pogrzebowy łódź', 'zaklad pogrzebowy lodz', 'nekrolog łódź', 'nekrolog lodz', 'dom pogrzebowy łódź', 'organizacja pogrzebu łódź'],
   alternates: {
     canonical: `${SITE_URL}/uslugi-pogrzebowe-lodz`,
   },
