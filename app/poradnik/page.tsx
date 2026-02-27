@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { generateCanonicalMetadata } from '@/lib/canonical'
-import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema'
 import { BookOpen, ArrowRight, Heart, FileText, HelpCircle } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -126,16 +125,9 @@ const popularArticles = [
   }
 ]
 
-const breadcrumbs = [
-  { name: 'Strona Główna', url: '/' },
-  { name: 'Poradnik Pogrzebowy', url: '/poradnik' }
-]
-
 export default function PoradnikPage() {
   return (
     <>
-      <BreadcrumbSchema items={breadcrumbs} />
-      
       <div className="min-h-screen">
         <section className="py-20">
           <div className="container mx-auto px-4">

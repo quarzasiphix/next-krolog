@@ -1,35 +1,39 @@
 'use client'
 
+import { BUSINESS_INFO, SITE_URL } from '@/lib/constants'
+
 interface ServiceSchemaProps {
   serviceName: string
   description: string
   url: string
-  phone: string
-  address: string
-  city: string
-  postalCode: string
-  openingHours: string
+  phone?: string
+  address?: string
+  city?: string
+  postalCode?: string
+  openingHours?: string
 }
 
 const ServiceSchema = ({ 
   serviceName, 
   description, 
   url, 
-  phone, 
-  address, 
-  city, 
-  postalCode, 
-  openingHours 
+  phone = BUSINESS_INFO.phone,
+  address = BUSINESS_INFO.address.streetAddress,
+  city = BUSINESS_INFO.address.addressLocality,
+  postalCode = BUSINESS_INFO.address.postalCode,
+  openingHours = 'Mo-Su 00:00-23:59',
 }: ServiceSchemaProps) => {
+  const absoluteUrl = url.startsWith('http') ? url : `${SITE_URL}${url}`
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": serviceName,
     "description": description,
-    "url": `https://nekrolog-lodz.com${url}`,
+    "url": absoluteUrl,
     "provider": {
       "@type": "LocalBusiness",
-      "name": "Zakład Pogrzebowy Nekrolog Łódź",
+      "name": BUSINESS_INFO.legalName,
       "telephone": phone,
       "address": {
         "@type": "PostalAddress",
@@ -45,7 +49,7 @@ const ServiceSchema = ({
       },
       "openingHours": openingHours
     },
-    "areaServed": "Łódź",
+    "areaServed": city,
     "availableLanguage": ["Polish"]
   }
 

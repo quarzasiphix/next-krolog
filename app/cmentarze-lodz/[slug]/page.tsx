@@ -242,6 +242,9 @@ export async function generateStaticParams() {
   }))
 }
 
+export const dynamic = 'force-static'
+export const dynamicParams = false
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
   const cemetery = cemeteries[slug]
@@ -303,40 +306,11 @@ export default async function CemeteryPage({ params }: { params: Promise<{ slug:
       : undefined,
   }
 
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Strona główna',
-        item: SITE_URL,
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Cmentarze w Łodzi',
-        item: `${SITE_URL}/cmentarze-lodz`,
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: cemetery.name,
-        item: `${SITE_URL}/cmentarze-lodz/${cemetery.slug}`,
-      },
-    ],
-  }
-
   return (
     <div className="bg-black text-white min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(placeSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       {/* Header */}
       <section className="relative pt-20 pb-12 bg-gradient-to-b from-black via-black/95 to-black/90">

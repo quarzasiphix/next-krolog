@@ -122,7 +122,7 @@ export default function PogrzebBezSrodkowPage() {
                   
                   <div className="space-y-4">
                     <div className="bg-white/5 border border-white/10 rounded-lg p-4">
-                      <h3 className="text-lg font-medium text-white mb-2">Wysokość Zasiłku (2024):</h3>
+                      <h3 className="text-lg font-medium text-white mb-2">Aktualna wysokość zasiłku:</h3>
                       <ul className="space-y-2">
                         <li className="flex items-start gap-2 text-gray-300">
                           <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />

@@ -4,7 +4,6 @@ import { Phone, FileText, Building2, Landmark, CheckCircle2, Clock } from 'lucid
 import { Card, CardContent } from '@/components/ui/card'
 import { generateCanonicalMetadata } from '@/lib/canonical'
 import ArticleSchema from '@/components/structured-data/ArticleSchema'
-import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema'
 import RelatedContent from '@/components/poradnik/RelatedContent'
 
 export const metadata: Metadata = {
@@ -22,12 +21,6 @@ export const metadata: Metadata = {
 }
 
 export default function CoZrobicPoSmierciPage() {
-  const breadcrumbs = [
-    { name: 'Strona Główna', url: '/' },
-    { name: 'Poradnik', url: '/poradnik' },
-    { name: 'Co Zrobić Po Śmierci' }
-  ]
-
   const steps = [
     {
       title: 'Wezwanie lekarza i stwierdzenie zgonu',
@@ -99,7 +92,6 @@ export default function CoZrobicPoSmierciPage() {
 
   return (
     <>
-      <BreadcrumbSchema items={breadcrumbs} />
       <ArticleSchema
         title="Co Zrobić Po Śmierci Bliskiej Osoby? Kompletny Poradnik Krok Po Kroku"
         description="Szczegółowy przewodnik: co zrobić po śmierci bliskiej osoby w Łodzi. Formalności, dokumenty, organizacja pogrzebu. Pomoc dostępna 24/7."

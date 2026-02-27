@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { MapPin, Clock, Phone, CheckCircle2, Building2 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import FAQSchema from '@/components/structured-data/FAQSchema'
+import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Cmentarze w Łodzi - Przewodnik Po Cmentarzach | Nekrolog Łódź',
@@ -19,7 +20,13 @@ export const metadata: Metadata = {
     'organizacja pogrzebu łódź',
   ],
   alternates: {
-    canonical: '/cmentarze-lodz',
+    canonical: `${SITE_URL}/cmentarze-lodz`,
+  },
+  openGraph: {
+    title: 'Cmentarze w Łodzi - Przewodnik | Nekrolog Łódź',
+    description: 'Adresy, godziny i informacje o najważniejszych cmentarzach w Łodzi oraz pomoc w organizacji pogrzebu.',
+    url: `${SITE_URL}/cmentarze-lodz`,
+    type: 'website',
   },
 }
 

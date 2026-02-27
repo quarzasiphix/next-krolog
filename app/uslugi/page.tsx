@@ -81,11 +81,6 @@ export default function UslugiPage() {
         serviceName="Usługi Pogrzebowe"
         description="Kompleksowe usługi pogrzebowe w Łodzi obejmujące organizację pogrzebu, transport zmarłych, kremację, oprawę muzyczną i ekshumację."
         url="/uslugi"
-        phone="+48 602 274 661"
-        address="ul. Piotrkowska 270"
-        city="Łódź"
-        postalCode="90-361"
-        openingHours="Mo-Su 00:00-24:00"
       />
       
       <div className="min-h-screen">

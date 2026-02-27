@@ -70,6 +70,27 @@ SEO implementation includes:
 - Sitemap generation via `app/sitemap.ts` + `lib/sitemap-registry.ts`
 - Robots via `app/robots.ts`
 
+### SEO Priorities (Business-Critical)
+
+Primary ranking targets:
+
+- `zaklad pogrzebowy lodz`
+- `nekrolog lodz`
+- `odziez zalobna` (already strong - defend position)
+
+Supporting topical clusters:
+
+- `poradnik` (informational long-tail queries, FAQ-rich articles)
+- `cmentarze-lodz` + `/cmentarze-lodz/[slug]` (local cemetery intent)
+- local city pages (`/zaklad-pogrzebowy-*`) for nearby-service visibility
+
+When adding or updating pages:
+
+- Ensure canonical URL is present.
+- Ensure page is included in sitemap registry (`lib/sitemap-registry.ts`) when indexable.
+- Ensure breadcrumb structured data exists (especially on `poradnik/*` and `cmentarze-lodz/*`).
+- Keep NAP (name/address/phone) consistent with `lib/constants.ts`.
+
 ## Source-of-Truth Files (Use These First)
 
 When editing or auditing, prefer these files over older summary docs:
