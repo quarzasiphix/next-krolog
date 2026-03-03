@@ -1,6 +1,5 @@
 # Canonical host redirects (www/http -> https apex)
 http://www.nekrolog-lodz.com/* https://nekrolog-lodz.com/:splat 301
-https://www.nekrolog-lodz.com/* https://nekrolog-lodz.com/:splat 301
 http://nekrolog-lodz.com/* https://nekrolog-lodz.com/:splat 301
 
 # Legacy asortyment URLs without -lodz suffix
