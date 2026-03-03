@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import ServiceLayout from '@/components/ServiceLayout'
+import type { FAQItem } from '@/components/structured-data/FAQSchema'
 import { Card, CardContent } from '@/components/ui/card'
 import { Box, CheckCircle } from 'lucide-react'
 import { SITE_URL } from '@/lib/constants'
@@ -23,6 +24,24 @@ const urns = [
   },
 ]
 
+const faqData: FAQItem[] = [
+  {
+    question: 'Jaką urnę wybrać po kremacji?',
+    answer:
+      'Dobór urny zależy od miejsca pochówku, preferencji rodziny i charakteru ceremonii. Doradzamy na miejscu i pokazujemy dostępne modele.',
+  },
+  {
+    question: 'Czy urny są dostępne od ręki?',
+    answer:
+      'Tak. W ofercie mamy urny metalowe, drewniane i kompozytowe dostępne od ręki oraz modele na zamówienie.',
+  },
+  {
+    question: 'Czy można spersonalizować urnę?',
+    answer:
+      'Tak. W wielu modelach możliwe jest grawerowanie imienia, dat lub symboliki religijnej.',
+  },
+]
+
 export const metadata: Metadata = {
   title: 'Urny Pogrzebowe Łódź - Kamienne, Drewniane, Metalowe',
   description: 'Duży wybór urn pogrzebowych w Łodzi. Urny kamienne, drewniane, metalowe i kompozytowe. Dostępne od ręki w naszym zakładzie.',
@@ -41,6 +60,7 @@ export default function UrnyPage() {
     <ServiceLayout
       title="Urny - Łódź"
       description="Szeroki wybór urn pogrzebowych wykonanych z różnych materiałów, dostępnych w naszym zakładzie w Łodzi."
+      faqItems={faqData}
     >
       <div className="space-y-12">
         <div className="text-center max-w-3xl mx-auto">

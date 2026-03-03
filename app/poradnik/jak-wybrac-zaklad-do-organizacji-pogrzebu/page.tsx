@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { Phone, CheckCircle2, BookOpen, Search, Star, Shield } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { SITE_URL } from '@/lib/constants'
+import ArticleSchema from '@/components/structured-data/ArticleSchema'
+import FAQSchema, { FAQItem } from '@/components/structured-data/FAQSchema'
 
 export const metadata: Metadata = {
   title: 'Jak Wybrać Zakład Pogrzebowy? Praktyczny Przewodnik | Nekrolog Łódź',
@@ -26,8 +28,34 @@ export const metadata: Metadata = {
 }
 
 export default function WyborZakladuPage() {
+  const faqData: FAQItem[] = [
+    {
+      question: 'Na co zwrócić uwagę przy wyborze zakładu pogrzebowego?',
+      answer:
+        'Najważniejsze są: doświadczenie, transparentny kosztorys, zakres usług, dostępność 24/7 oraz opinie klientów.',
+    },
+    {
+      question: 'Czy można zorganizować pogrzeb bez zaliczki?',
+      answer:
+        'Tak, w wielu przypadkach możliwa jest organizacja bez kosztów z góry i rozliczenie z zasiłku pogrzebowego.',
+    },
+    {
+      question: 'Czy zakład pogrzebowy może przejąć formalności?',
+      answer:
+        'Tak. Profesjonalny zakład pomaga w dokumentach, urzędach i koordynacji całej ceremonii.',
+    },
+  ]
+
   return (
     <div className="bg-black text-white min-h-screen">
+      <ArticleSchema
+        title="Jak Wybrać Zakład Pogrzebowy? Praktyczny Przewodnik"
+        description="Dowiedz się, na co zwrócić uwagę przy wyborze zakładu pogrzebowego i jakie pytania warto zadać przed podjęciem decyzji."
+        url="/poradnik/jak-wybrac-zaklad-do-organizacji-pogrzebu"
+        publishDate="2025-03-01T12:00:00Z"
+        author="Zakład Pogrzebowy Nekrolog Łódź"
+      />
+      <FAQSchema faqs={faqData} />
       <section className="relative pt-20 pb-12 bg-gradient-to-b from-black via-black/95 to-black/90">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">

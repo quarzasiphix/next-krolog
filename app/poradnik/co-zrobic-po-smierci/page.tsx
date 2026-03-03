@@ -4,6 +4,7 @@ import { Phone, FileText, Building2, Landmark, CheckCircle2, Clock } from 'lucid
 import { Card, CardContent } from '@/components/ui/card'
 import { generateCanonicalMetadata } from '@/lib/canonical'
 import ArticleSchema from '@/components/structured-data/ArticleSchema'
+import FAQSchema, { FAQItem } from '@/components/structured-data/FAQSchema'
 import RelatedContent from '@/components/poradnik/RelatedContent'
 
 export const metadata: Metadata = {
@@ -21,6 +22,24 @@ export const metadata: Metadata = {
 }
 
 export default function CoZrobicPoSmierciPage() {
+  const faqData: FAQItem[] = [
+    {
+      question: 'Czy muszę płacić za pogrzeb z góry?',
+      answer:
+        'Nie. Organizujemy pogrzeb i rozliczamy koszty bezpośrednio z zasiłkiem pogrzebowym ZUS/KRUS.',
+    },
+    {
+      question: 'Ile czasu mam na organizację pogrzebu?',
+      answer:
+        'Najczęściej pogrzeb organizuje się w ciągu 3-7 dni. W praktyce termin zależy od formalności i ustaleń rodziny.',
+    },
+    {
+      question: 'Czy zakład pogrzebowy może pomóc we wszystkich formalnościach?',
+      answer:
+        'Tak. Pomagamy w dokumentach, kontakcie z USC, cmentarzem i organizacji całej ceremonii.',
+    },
+  ]
+
   const steps = [
     {
       title: 'Wezwanie lekarza i stwierdzenie zgonu',
@@ -99,6 +118,7 @@ export default function CoZrobicPoSmierciPage() {
         publishDate="2025-01-05T16:00:00Z"
         author="Zakład Pogrzebowy Nekrolog Łódź"
       />
+      <FAQSchema faqs={faqData} />
       <div className="min-h-screen">
         <section className="py-20 relative pt-20 pb-12 bg-gradient-to-b from-black via-black/95 to-black/90">
           <div className="container mx-auto px-4">

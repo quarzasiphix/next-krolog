@@ -26,31 +26,53 @@ const ServiceSchema = ({
   const absoluteUrl = url.startsWith('http') ? url : `${SITE_URL}${url}`
 
   const schema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": serviceName,
-    "description": description,
-    "url": absoluteUrl,
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": BUSINESS_INFO.legalName,
-      "telephone": phone,
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": address,
-        "addressLocality": city,
-        "postalCode": postalCode,
-        "addressCountry": "PL"
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${absoluteUrl}#service`,
+    name: serviceName,
+    serviceType: serviceName,
+    description,
+    url: absoluteUrl,
+    areaServed: BUSINESS_INFO.areaServed.map((servedCity) => ({
+      '@type': 'City',
+      name: servedCity,
+    })),
+    availableLanguage: ['pl'],
+    provider: {
+      '@type': 'FuneralHome',
+      '@id': `${SITE_URL}#organization`,
+      name: BUSINESS_INFO.legalName,
+      url: SITE_URL,
+      telephone: phone,
+      email: BUSINESS_INFO.email,
+      sameAs: BUSINESS_INFO.sameAs,
+      priceRange: BUSINESS_INFO.priceRange,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: address,
+        addressLocality: city,
+        postalCode,
+        addressCountry: 'PL',
       },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 51.7592,
-        "longitude": 19.4562
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: BUSINESS_INFO.geo.latitude,
+        longitude: BUSINESS_INFO.geo.longitude,
       },
-      "openingHours": openingHours
+      openingHours,
     },
-    "areaServed": city,
-    "availableLanguage": ["Polish"]
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': absoluteUrl,
+    },
+    offers: {
+      '@type': 'Offer',
+      url: absoluteUrl,
+      priceCurrency: 'PLN',
+      description:
+        'Indywidualna wycena usługi. W wielu przypadkach możliwa organizacja bez kosztów z góry.',
+      availability: 'https://schema.org/InStock',
+    },
   }
 
   return (

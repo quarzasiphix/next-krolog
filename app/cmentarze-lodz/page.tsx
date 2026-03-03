@@ -113,9 +113,55 @@ export default function CmentarzeLodzPage() {
     }
   ]
 
+  const cemeteriesItemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Cmentarze w Łodzi - lista cmentarzy',
+    itemListOrder: 'https://schema.org/ItemListOrderAscending',
+    numberOfItems: cemeteries.length,
+    itemListElement: cemeteries.map((cemetery, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Place',
+        name: cemetery.name,
+        description: cemetery.description,
+        url: `${SITE_URL}/cmentarze-lodz/${cemetery.slug}`,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: cemetery.address,
+          addressLocality: 'Łódź',
+          addressCountry: 'PL',
+        },
+      },
+    })),
+  }
+
+  const cemeteriesCollectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Cmentarze w Łodzi',
+    description:
+      'Przewodnik po cmentarzach w Łodzi z informacjami o adresach, dojeździe i organizacji pogrzebu.',
+    url: `${SITE_URL}/cmentarze-lodz`,
+    hasPart: cemeteries.map((cemetery) => ({
+      '@type': 'WebPage',
+      name: cemetery.name,
+      url: `${SITE_URL}/cmentarze-lodz/${cemetery.slug}`,
+    })),
+  }
+
   return (
     <div className="bg-black text-white min-h-screen">
       <FAQSchema faqs={faqData} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(cemeteriesItemListSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(cemeteriesCollectionSchema) }}
+      />
       <section className="relative pt-20 pb-12 bg-gradient-to-b from-black via-black/95 to-black/90">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">

@@ -3,7 +3,9 @@ import Link from 'next/link'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { generateCanonicalMetadata } from '@/lib/canonical'
+import FAQSchema, { FAQItem } from '@/components/structured-data/FAQSchema'
 import { BookOpen, ArrowRight, Heart, FileText, HelpCircle } from 'lucide-react'
+import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Poradnik Pogrzebowy Łódź | Praktyczne Wskazówki',
@@ -155,9 +157,67 @@ const allPoradnikArticles = [
   { title: 'Jak poinformować inne osoby o uroczystości pogrzebowej?', href: '/poradnik/jak-poinformowac-inne-osoby-o-uroczystosci-pogrzebowej' },
 ]
 
+const faqData: FAQItem[] = [
+  {
+    question: 'Co zrobić jako pierwsze po śmierci bliskiej osoby?',
+    answer:
+      'Najpierw skontaktować się z lekarzem w celu wystawienia karty zgonu, a następnie z zakładem pogrzebowym, który pomoże przejąć formalności i organizację.',
+  },
+  {
+    question: 'Czy poradnik obejmuje informacje o pogrzebie bez zaliczki?',
+    answer:
+      'Tak. W poradniku opisujemy możliwości organizacji pogrzebu bez kosztów z góry oraz rozliczenia zasiłku pogrzebowego ZUS/KRUS.',
+  },
+  {
+    question: 'Gdzie znajdę informacje o dokumentach i zasiłku pogrzebowym?',
+    answer:
+      'W sekcjach formalności i dokumenty znajdują się artykuły o wymaganych dokumentach, procedurach urzędowych i zasiłku pogrzebowym ZUS.',
+  },
+]
+
 export default function PoradnikPage() {
+  const poradnikItemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Poradnik pogrzebowy - lista artykułów',
+    itemListOrder: 'https://schema.org/ItemListOrderAscending',
+    numberOfItems: allPoradnikArticles.length,
+    itemListElement: allPoradnikArticles.map((article, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Article',
+        headline: article.title,
+        url: `${SITE_URL}${article.href}`,
+      },
+    })),
+  }
+
+  const poradnikCollectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Poradnik Pogrzebowy Łódź',
+    description:
+      'Zbiór artykułów poradnikowych o formalnościach pogrzebowych, organizacji ceremonii, kremacji, transporcie i wsparciu rodziny.',
+    url: `${SITE_URL}/poradnik`,
+    hasPart: allPoradnikArticles.map((article) => ({
+      '@type': 'Article',
+      headline: article.title,
+      url: `${SITE_URL}${article.href}`,
+    })),
+  }
+
   return (
     <>
+      <FAQSchema faqs={faqData} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(poradnikItemListSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(poradnikCollectionSchema) }}
+      />
       <div className="min-h-screen">
         <section className="py-20">
           <div className="container mx-auto px-4">
@@ -273,6 +333,22 @@ export default function PoradnikPage() {
                     </li>
                   ))}
                 </ul>
+              </div>
+            </div>
+
+            <div className="mb-16">
+              <h2 className="text-3xl font-playfair font-semibold text-white text-center mb-8">
+                Najczęściej Zadawane Pytania
+              </h2>
+              <div className="grid gap-4 max-w-4xl mx-auto">
+                {faqData.map((faq) => (
+                  <Card key={faq.question} className="bg-black/30 border border-white/10">
+                    <CardContent className="p-6">
+                      <h3 className="text-xl text-white mb-3">{faq.question}</h3>
+                      <p className="text-gray-300">{faq.answer}</p>
+                    </CardContent>
+                  </Card>
+                ))}
               </div>
             </div>
 

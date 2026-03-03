@@ -1,8 +1,27 @@
 import { Metadata } from 'next'
 import ServiceLayout from '@/components/ServiceLayout'
+import type { FAQItem } from '@/components/structured-data/FAQSchema'
 import { IMAGES } from '@/assets/images'
 import { Flame, CheckCircle, FileText, Heart, Clock, Box } from 'lucide-react'
 import { SITE_URL } from '@/lib/constants'
+
+const faqData: FAQItem[] = [
+  {
+    question: 'Jakie dokumenty są potrzebne do kremacji?',
+    answer:
+      'Najczęściej wymagane są: akt zgonu, karta zgonu do kremacji oraz zgoda osoby uprawnionej do pochówku. Pomagamy skompletować dokumenty.',
+  },
+  {
+    question: 'Czy pomagacie w wyborze urny po kremacji?',
+    answer:
+      'Tak. Doradzamy w wyborze urny i organizujemy dalszą ceremonię, w tym pochówek urnowy na cmentarzu lub w kolumbarium.',
+  },
+  {
+    question: 'Czy kremację można zorganizować bez kosztów z góry?',
+    answer:
+      'Tak, w wielu sytuacjach możliwa jest organizacja bez zaliczki i rozliczenie w oparciu o zasiłek pogrzebowy ZUS/KRUS.',
+  },
+]
 
 export const metadata: Metadata = {
   title: 'Krematorium w Łodzi',
@@ -29,6 +48,7 @@ export default function KrematoriumPage() {
       title="Krematorium w Łodzi"
       description="Profesjonalna usługa kremacji z zachowaniem godności i szacunku dla zmarłego"
       backgroundImage={IMAGES.services.cremation}
+      faqItems={faqData}
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         <div className="px-4 sm:px-6 lg:px-8">

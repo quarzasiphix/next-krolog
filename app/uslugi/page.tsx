@@ -93,6 +93,25 @@ const faqData = [
 ]
 
 export default function UslugiPage() {
+  const servicesItemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Usługi Pogrzebowe Łódź - Lista usług',
+    itemListOrder: 'https://schema.org/ItemListOrderAscending',
+    numberOfItems: services.length,
+    itemListElement: services.map((service, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Service',
+        name: service.title,
+        description: service.description,
+        url: `https://nekrolog-lodz.com${service.href}`,
+        areaServed: 'Łódź',
+      },
+    })),
+  }
+
   return (
     <>
       <BreadcrumbSchema items={breadcrumbs} />
@@ -101,6 +120,10 @@ export default function UslugiPage() {
         serviceName="Usługi Pogrzebowe"
         description="Kompleksowe usługi pogrzebowe w Łodzi obejmujące organizację pogrzebu, transport zmarłych, kremację, oprawę muzyczną i ekshumację."
         url="/uslugi"
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesItemListSchema) }}
       />
       
       <div className="min-h-screen">

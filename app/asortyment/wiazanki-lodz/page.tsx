@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import ServiceLayout from '@/components/ServiceLayout'
+import type { FAQItem } from '@/components/structured-data/FAQSchema'
 import { IMAGES } from '@/assets/images'
 import { Card, CardContent } from '@/components/ui/card'
 import { Flower, CheckCircle } from 'lucide-react'
@@ -40,6 +41,24 @@ const arrangements = [
   },
 ]
 
+const faqData: FAQItem[] = [
+  {
+    question: 'Czy wykonujecie wiązanki i wieńce na konkretną godzinę ceremonii?',
+    answer:
+      'Tak. Przygotowujemy kompozycje na wskazaną godzinę i możemy dostarczyć je bezpośrednio do kaplicy lub na cmentarz.',
+  },
+  {
+    question: 'Czy mogę zamówić indywidualny napis na szarfie?',
+    answer:
+      'Tak. Wykonujemy personalizowane szarfy z dedykacją od rodziny, znajomych lub firmy.',
+  },
+  {
+    question: 'Jakie kwiaty najczęściej wybierane są na pogrzeb?',
+    answer:
+      'Najczęściej wybierane są róże, lilie, goździki i chryzantemy. Doradzamy kompozycję zgodnie z charakterem uroczystości.',
+  },
+]
+
 export const metadata: Metadata = {
   title: 'Wiązanki Pogrzebowe Łódź - Kwiaciarnia Pogrzebowa',
   description:
@@ -60,6 +79,7 @@ export default function WiazankiPage() {
       title="Wiązanki Pogrzebowe - Łódź"
       description="Tworzymy kompozycje kwiatowe, które z szacunkiem podkreślają charakter uroczystości i pamięć o zmarłym. Działamy na terenie całej Łodzi."
       backgroundImage={IMAGES.subpages.wiazanki}
+      faqItems={faqData}
     >
       <div className="space-y-12">
         <div className="text-center max-w-3xl mx-auto">

@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import HomePageClient from '@/components/HomePageClient'
 import { BUSINESS_INFO, SITE_URL } from '@/lib/constants'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Nekrolog Łódź - Zakład Pogrzebowy w Łodzi | Jolanta Kostowska',
@@ -29,7 +30,8 @@ export default async function HomePage() {
 
   const businessSchema = {
     '@context': 'https://schema.org',
-    '@type': 'FuneralHome',
+    '@type': 'LocalBusiness',
+    additionalType: 'https://schema.org/FuneralHome',
     '@id': `${SITE_URL}/#funeral-home`,
     name: 'Zakład Pogrzebowy Nekrolog Łódź',
     alternateName: [BUSINESS_INFO.name, 'Nekrolog Łódź', 'Nekrolog Lodz'],
@@ -90,6 +92,13 @@ export default async function HomePage() {
         closes: '13:00',
       },
     ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: BUSINESS_INFO.ratingValue,
+      reviewCount: BUSINESS_INFO.reviewCount,
+      bestRating: 5,
+      worstRating: 1,
+    },
     contactPoint: [
       {
         '@type': 'ContactPoint',
@@ -154,6 +163,38 @@ export default async function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
       />
+      <section className="bg-black text-white pt-24 pb-12 border-b border-white/10">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-playfair mb-6">Zakład Pogrzebowy Łódź</h1>
+            <p className="text-xl text-gray-300 mb-8">
+              Nekrolog Łódź - całodobowa pomoc, organizacja pogrzebu bez kosztów z góry.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <a
+                href="tel:+48602274661"
+                className="inline-flex items-center justify-center bg-primary text-black px-8 py-4 rounded-md font-medium"
+              >
+                Zadzwoń: +48 602 274 661
+              </a>
+              <Link
+                href="/pogrzeb-bez-zaliczki"
+                className="inline-flex items-center justify-center border border-white/20 text-white px-8 py-4 rounded-md font-medium hover:bg-white/10 transition"
+              >
+                Pogrzeb bez zaliczki
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-left">
+              <Link href="/uslugi-pogrzebowe-lodz" className="text-gray-300 hover:text-white underline-offset-4 hover:underline">Usługi pogrzebowe Łódź</Link>
+              <Link href="/cmentarze-lodz" className="text-gray-300 hover:text-white underline-offset-4 hover:underline">Cmentarze w Łodzi</Link>
+              <Link href="/poradnik" className="text-gray-300 hover:text-white underline-offset-4 hover:underline">Poradnik pogrzebowy</Link>
+              <Link href="/zaklad-pogrzebowy-lodz" className="text-gray-300 hover:text-white underline-offset-4 hover:underline">Zakład Pogrzebowy Łódź</Link>
+              <Link href="/nekrolog-lodz" className="text-gray-300 hover:text-white underline-offset-4 hover:underline">Nekrolog Łódź</Link>
+              <Link href="/kontakt" className="text-gray-300 hover:text-white underline-offset-4 hover:underline">Kontakt</Link>
+            </div>
+          </div>
+        </div>
+      </section>
       <HomePageClient />
     </>
   )

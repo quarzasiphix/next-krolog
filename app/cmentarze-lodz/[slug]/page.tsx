@@ -323,6 +323,15 @@ export default async function CemeteryPage({ params }: { params: Promise<{ slug:
       answer:
         'Tak. Pomagamy w kontakcie z administracją cmentarza, rezerwacji miejsca i uzgodnieniu terminu ceremonii.',
     },
+    {
+      question: `Jak sprawdzić dojazd i godziny otwarcia ${cemetery.name}?`,
+      answer:
+        `${cemetery.name} znajduje się pod adresem ${cemetery.address}. ${
+          cemetery.hours
+            ? `Standardowe godziny otwarcia: ${cemetery.hours}. `
+            : ''
+        }Przed wizytą pomagamy potwierdzić aktualne informacje i ustalić szczegóły organizacyjne.`,
+    },
   ]
 
   const breadcrumbs = [

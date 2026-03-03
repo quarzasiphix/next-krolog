@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import ServiceLayout from '@/components/ServiceLayout'
+import type { FAQItem } from '@/components/structured-data/FAQSchema'
 import { IMAGES } from '@/assets/images'
 import { Card, CardContent } from '@/components/ui/card'
 import { CheckCircle, Clock, FileText, AlertTriangle } from 'lucide-react'
@@ -47,6 +48,24 @@ const additionalDocuments = [
   'W przypadku transportu za granicę – dodatkowe zezwolenia konsularne',
 ]
 
+const faqData: FAQItem[] = [
+  {
+    question: 'Kiedy można przeprowadzić ekshumację?',
+    answer:
+      'Ekshumacja jest możliwa po uzyskaniu wymaganych zgód, zwykle w okresie wskazanym przez przepisy sanitarne. Pomagamy w całej procedurze.',
+  },
+  {
+    question: 'Czy pomagacie uzyskać zgodę sanepidu i cmentarza?',
+    answer:
+      'Tak. Przygotowujemy dokumenty i wspieramy rodzinę w uzyskaniu wszystkich niezbędnych pozwoleń.',
+  },
+  {
+    question: 'Czy organizujecie ponowny pochówek po ekshumacji?',
+    answer:
+      'Tak. Po ekshumacji organizujemy transport i ponowny pochówek zgodnie z wolą rodziny oraz obowiązującym prawem.',
+  },
+]
+
 export const metadata: Metadata = {
   title: 'Ekshumacja Zwłok Łódź',
   description:
@@ -63,6 +82,7 @@ export default function EkshumacjaPage() {
       title="Ekshumacja Zwłok"
       description="Zapewniamy kompleksową pomoc w przeprowadzeniu ekshumacji – od formalności, przez proces techniczny, po ponowny pochówek."
       backgroundImage={IMAGES.services.exhumation}
+      faqItems={faqData}
     >
       <div className="space-y-12">
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-10">

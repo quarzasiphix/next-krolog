@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import ServiceLayout from '@/components/ServiceLayout'
+import type { FAQItem } from '@/components/structured-data/FAQSchema'
 import { IMAGES } from '@/assets/images'
 import { Card, CardContent } from '@/components/ui/card'
 import { CheckCircle, MapPin, Clock, Globe, AlertTriangle } from 'lucide-react'
@@ -49,6 +50,24 @@ const internationalSupport = [
   'Informowanie rodziny o postępie transportu i przewidywanym terminie pochówku',
 ]
 
+const faqData: FAQItem[] = [
+  {
+    question: 'Czy transport zmarłych w Łodzi jest dostępny całodobowo?',
+    answer:
+      'Tak. Transport zmarłych realizujemy 24/7 na terenie Łodzi i okolic, również w nocy, weekendy i święta.',
+  },
+  {
+    question: 'Czy organizujecie transport zmarłych z zagranicy?',
+    answer:
+      'Tak. Organizujemy transport międzynarodowy, pomagamy z dokumentami konsularnymi i koordynujemy cały proces do miejsca pochówku.',
+  },
+  {
+    question: 'Czy rodzina musi sama załatwiać formalności transportowe?',
+    answer:
+      'Nie. Przejmujemy formalności i dokumenty wymagane do transportu krajowego oraz międzynarodowego.',
+  },
+]
+
 export const metadata: Metadata = {
   title: 'Transport Zmarłych Łódź',
   description:
@@ -75,6 +94,7 @@ export default function TransportZmarlychPage() {
       title="Transport Zmarłych"
       description="Zapewniamy całodobowy, profesjonalny transport zmarłych na terenie kraju oraz międzynarodowo."
       backgroundImage={IMAGES.subpages.transport}
+      faqItems={faqData}
     >
       <div className="space-y-12">
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-10">

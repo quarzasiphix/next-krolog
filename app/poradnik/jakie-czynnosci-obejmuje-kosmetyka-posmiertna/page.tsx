@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Phone, CheckCircle2, BookOpen, Heart, Sparkles } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { SITE_URL } from '@/lib/constants'
+import FAQSchema, { FAQItem } from '@/components/structured-data/FAQSchema'
 
 export const metadata: Metadata = {
   title: 'Jakie Czynności Obejmuje Kosmetyka Pośmiertna? | Nekrolog Łódź',
@@ -27,8 +28,27 @@ export const metadata: Metadata = {
 }
 
 export default function KosmetykaPosmiernaPage() {
+  const faqData: FAQItem[] = [
+    {
+      question: 'Czy kosmetyka pośmiertna jest obowiązkowa?',
+      answer:
+        'Nie jest obowiązkowa, ale w praktyce pomaga godnie przygotować zmarłego do pożegnania i poprawia komfort psychiczny rodziny.',
+    },
+    {
+      question: 'Czy rodzina może przekazać własne ubranie dla zmarłego?',
+      answer:
+        'Tak. Rodzina może przekazać ubranie i dodatki, a personel zakładu pomoże w ich odpowiednim przygotowaniu.',
+    },
+    {
+      question: 'Czy kosmetyka pośmiertna obejmuje również przygotowanie twarzy i włosów?',
+      answer:
+        'Tak. Obejmuje m.in. higienę, ułożenie włosów, pielęgnację twarzy i delikatny makijaż korekcyjny.',
+    },
+  ]
+
   return (
     <div className="bg-black text-white min-h-screen">
+      <FAQSchema faqs={faqData} />
       <section className="relative pt-20 pb-12 bg-gradient-to-b from-black via-black/95 to-black/90">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">

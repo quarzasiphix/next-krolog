@@ -13,6 +13,7 @@ type ServiceLayoutProps = {
   title: string;
   description: string;
   backgroundImage?: string;
+  faqItems?: FAQItem[];
 };
 
 const formatSegment = (segment: string) =>
@@ -21,7 +22,7 @@ const formatSegment = (segment: string) =>
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join(' ');
 
-const ServiceLayout = ({ children, title, description, backgroundImage }: ServiceLayoutProps) => {
+const ServiceLayout = ({ children, title, description, backgroundImage, faqItems }: ServiceLayoutProps) => {
   const pathname = usePathname() || '/';
 
   const pathParts = pathname.split('/').filter(Boolean);
@@ -40,7 +41,7 @@ const ServiceLayout = ({ children, title, description, backgroundImage }: Servic
     { name: title }
   ];
 
-  const faqItems: FAQItem[] = [
+  const defaultFaqItems: FAQItem[] = [
     {
       question: `Czy ${title.toLowerCase()} obejmuje pełną organizację formalności?`,
       answer:
@@ -57,6 +58,7 @@ const ServiceLayout = ({ children, title, description, backgroundImage }: Servic
         'Jesteśmy dostępni całodobowo. Zadzwoń pod +48 602 274 661, a od razu przeprowadzimy Cię przez kolejne kroki.',
     },
   ];
+  const pageFaqItems = faqItems && faqItems.length > 0 ? faqItems : defaultFaqItems;
 
   return (
     <>
@@ -66,7 +68,7 @@ const ServiceLayout = ({ children, title, description, backgroundImage }: Servic
         description={description}
         url={pathname}
       />
-      <FAQSchema faqs={faqItems} />
+      <FAQSchema faqs={pageFaqItems} />
       <div className="bg-black text-white">
       <section className="relative pt-20 pb-16 md:pb-20 min-h-[40vh] flex items-center">
         {backgroundImage ? (
@@ -120,7 +122,7 @@ const ServiceLayout = ({ children, title, description, backgroundImage }: Servic
               Najczęściej Zadawane Pytania
             </h2>
             <div className="grid gap-4">
-              {faqItems.map((faq) => (
+              {pageFaqItems.map((faq) => (
                 <div key={faq.question} className="bg-black/40 border border-white/10 rounded-lg p-5">
                   <h3 className="text-lg text-white mb-2">{faq.question}</h3>
                   <p className="text-gray-300">{faq.answer}</p>

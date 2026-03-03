@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
 import ServiceLayout from '@/components/ServiceLayout'
+import type { FAQItem } from '@/components/structured-data/FAQSchema'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Package, Box, Flower, Shirt } from 'lucide-react'
@@ -64,50 +65,112 @@ const assortmentCards = [
   },
 ]
 
-export default function AsortymentPage() {
-  return (
-    <ServiceLayout
-      title="Asortyment"
-      description="Szeroki wybór trumien, urn, odzieży pogrzebowej i kompozycji kwiatowych dopasowanych do potrzeb rodziny."
-    >
-      <div className="space-y-12">
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl font-playfair font-semibold text-white mb-4">Kompleksowe artykuły pogrzebowe</h2>
-          <p className="text-gray-300">
-            Zapewniamy pełen asortyment niezbędny do organizacji ceremonii pogrzebowej. Wszystkie produkty dobieramy
-            z najwyższą starannością, łącząc elegancję, trwałość i szacunek dla tradycji.
-          </p>
-        </div>
+const faqData: FAQItem[] = [
+  {
+    question: 'Czy cały asortyment pogrzebowy jest dostępny w jednym miejscu?',
+    answer:
+      'Tak. W naszym zakładzie dostępne są trumny, urny, odzież żałobna oraz kompozycje kwiatowe.',
+  },
+  {
+    question: 'Czy pomagacie dobrać asortyment do budżetu rodziny?',
+    answer:
+      'Tak. Doradzamy warianty w różnych przedziałach cenowych, tak aby zachować godny charakter ceremonii i kontrolę kosztów.',
+  },
+  {
+    question: 'Czy można zorganizować pogrzeb bez kosztów z góry?',
+    answer:
+      'Tak. W wielu przypadkach pomagamy zorganizować usługę bez zaliczki i rozliczyć ją z zasiłku pogrzebowego ZUS/KRUS.',
+  },
+]
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {assortmentCards.map(({ icon: Icon, title, description, href }) => (
-            <Card
-              key={title}
-              className="flex flex-col h-full bg-black/30 border border-white/10 hover:border-primary/50 transition-colors duration-300"
-            >
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-white font-playfair text-xl">
-                  <Icon className="h-6 w-6 text-primary" />
-                  {title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="w-full h-48 bg-gradient-to-br from-black/40 to-black/60 rounded-md flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
-                    <Icon className="w-8 h-8 text-primary" />
+export default function AsortymentPage() {
+  const assortmentItemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Asortyment pogrzebowy Łódź - lista kategorii',
+    itemListOrder: 'https://schema.org/ItemListOrderAscending',
+    numberOfItems: assortmentCards.length,
+    itemListElement: assortmentCards.map((card, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'ProductCollection',
+        name: `${card.title} - Nekrolog Łódź`,
+        description: card.description,
+        url: `${SITE_URL}${card.href}`,
+      },
+    })),
+  }
+
+  const assortmentCollectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Asortyment Pogrzebowy Łódź',
+    description:
+      'Przegląd kategorii asortymentu pogrzebowego: trumny, urny, odzież pogrzebowa oraz kompozycje kwiatowe.',
+    url: `${SITE_URL}/asortyment`,
+    hasPart: assortmentCards.map((card) => ({
+      '@type': 'WebPage',
+      name: card.title,
+      url: `${SITE_URL}${card.href}`,
+    })),
+  }
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(assortmentItemListSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(assortmentCollectionSchema) }}
+      />
+
+      <ServiceLayout
+        title="Asortyment"
+        description="Szeroki wybór trumien, urn, odzieży pogrzebowej i kompozycji kwiatowych dopasowanych do potrzeb rodziny."
+        faqItems={faqData}
+      >
+        <div className="space-y-12">
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl font-playfair font-semibold text-white mb-4">Kompleksowe artykuły pogrzebowe</h2>
+            <p className="text-gray-300">
+              Zapewniamy pełen asortyment niezbędny do organizacji ceremonii pogrzebowej. Wszystkie produkty dobieramy
+              z najwyższą starannością, łącząc elegancję, trwałość i szacunek dla tradycji.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {assortmentCards.map(({ icon: Icon, title, description, href }) => (
+              <Card
+                key={title}
+                className="flex flex-col h-full bg-black/30 border border-white/10 hover:border-primary/50 transition-colors duration-300"
+              >
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-white font-playfair text-xl">
+                    <Icon className="h-6 w-6 text-primary" />
+                    {title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="w-full h-48 bg-gradient-to-br from-black/40 to-black/60 rounded-md flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
+                      <Icon className="w-8 h-8 text-primary" />
+                    </div>
                   </div>
-                </div>
-                <p className="text-gray-300 leading-relaxed">{description}</p>
-              </CardContent>
-              <CardFooter className="mt-auto">
-                <Button asChild className="w-full">
-                  <Link href={href}>Zobacz więcej</Link>
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
+                  <p className="text-gray-300 leading-relaxed">{description}</p>
+                </CardContent>
+                <CardFooter className="mt-auto">
+                  <Button asChild className="w-full">
+                    <Link href={href}>Zobacz więcej</Link>
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
         </div>
-      </div>
-    </ServiceLayout>
+      </ServiceLayout>
+    </>
   )
 }

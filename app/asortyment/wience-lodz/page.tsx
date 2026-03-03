@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import ServiceLayout from '@/components/ServiceLayout'
+import type { FAQItem } from '@/components/structured-data/FAQSchema'
 import { IMAGES } from '@/assets/images'
 import { Card, CardContent } from '@/components/ui/card'
 import { Flower, Leaf, CheckCircle } from 'lucide-react'
@@ -52,6 +53,24 @@ const wreaths = [
   },
 ]
 
+const faqData: FAQItem[] = [
+  {
+    question: 'Czym różni się wieniec od wiązanki pogrzebowej?',
+    answer:
+      'Wieniec jest zwykle większą, okrągłą kompozycją o charakterze oficjalnym, a wiązanka ma bardziej podłużną i kameralną formę.',
+  },
+  {
+    question: 'Czy dostarczacie wieńce bezpośrednio na cmentarz w Łodzi?',
+    answer:
+      'Tak. Realizujemy dostawy wieńców i kompozycji na cmentarze oraz do kaplic na terenie Łodzi.',
+  },
+  {
+    question: 'Czy można zamówić wieniec z dedykowaną szarfą?',
+    answer:
+      'Tak. Przygotowujemy personalizowane szarfy z dowolnym tekstem pożegnalnym.',
+  },
+]
+
 export const metadata: Metadata = {
   title: 'Wieńce Pogrzebowe Łódź - Żywe i Sztuczne Kwiaty',
   description:
@@ -72,6 +91,7 @@ export default function WiencePage() {
       title="Wieńce Pogrzebowe - Łódź"
       description="Przygotowujemy wieńce i kompozycje kwiatowe, które w taktowny sposób oddają hołd zmarłej osobie. Zapewniamy transport na cmentarze w Łodzi."
       backgroundImage={IMAGES.subpages.wience}
+      faqItems={faqData}
     >
       <div className="space-y-12">
         <div className="text-center max-w-3xl mx-auto">

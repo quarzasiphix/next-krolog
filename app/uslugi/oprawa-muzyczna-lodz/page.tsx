@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
 import ServiceLayout from '@/components/ServiceLayout'
+import type { FAQItem } from '@/components/structured-data/FAQSchema'
 import { IMAGES } from '@/assets/images'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -45,6 +46,24 @@ const repertoireReligious = ['Barka', 'Panie, mój Panie', 'Liczę na Ciebie, Oj
 
 const repertoireInstrumental = ['Ave Maria – F. Schubert', 'Cisza – utwór na trąbkę', 'Panis Angelicus', 'Amazing Grace', 'Time to Say Goodbye']
 
+const faqData: FAQItem[] = [
+  {
+    question: 'Czy można zamówić trębacza lub organistę na pogrzeb w Łodzi?',
+    answer:
+      'Tak. Organizujemy oprawę organową, trąbkę pogrzebową oraz oprawę wokalną i instrumentalną, dopasowaną do ceremonii.',
+  },
+  {
+    question: 'Czy repertuar muzyczny można ustalić indywidualnie?',
+    answer:
+      'Tak. Repertuar ustalamy wspólnie z rodziną, w tym również ulubione utwory osoby zmarłej.',
+  },
+  {
+    question: 'Czy oprawa muzyczna jest realizowana także na cmentarzu?',
+    answer:
+      'Tak. Muzycy mogą występować w kościele, kaplicy, domu pogrzebowym i na cmentarzu.',
+  },
+]
+
 export const metadata: Metadata = {
   title: 'Oprawa Muzyczna Pogrzebu Łódź',
   description:
@@ -61,6 +80,7 @@ export default function OprawaMuzycznaPage() {
       title="Oprawa Muzyczna Pogrzebu"
       description="Tworzymy oprawę muzyczną, która pomaga wyrazić emocje i nadaje ceremonii wyjątkowy, osobisty charakter."
       backgroundImage={IMAGES.subpages.oprawa}
+      faqItems={faqData}
     >
       <div className="space-y-12">
         <section className="grid grid-cols-1 lg:grid-cols-3 gap-12">

@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import ServiceLayout from '@/components/ServiceLayout'
+import type { FAQItem } from '@/components/structured-data/FAQSchema'
 import { IMAGES } from '@/assets/images'
 import { Card, CardContent } from '@/components/ui/card'
 import { Package, CheckCircle } from 'lucide-react'
@@ -46,6 +47,24 @@ const clothingCategories = [
   },
 ]
 
+const faqData: FAQItem[] = [
+  {
+    question: 'Czy pomagacie dobrać strój żałobny na pogrzeb?',
+    answer:
+      'Tak. Pomagamy dobrać odpowiedni ubiór dla bliskich oraz odzież dla zmarłego, zgodnie z charakterem ceremonii i tradycją.',
+  },
+  {
+    question: 'Czy odzież pogrzebowa jest dostępna od ręki w Łodzi?',
+    answer:
+      'Tak. Na miejscu dostępne są podstawowe rozmiary odzieży żałobnej dla kobiet i mężczyzn oraz dodatki.',
+  },
+  {
+    question: 'Czy oferujecie komplety odzieży dla zmarłych?',
+    answer:
+      'Tak. Oferujemy specjalne komplety odzieży dla zmarłych i pomagamy w ich dopasowaniu.',
+  },
+]
+
 export const metadata: Metadata = {
   title: 'Odzież Pogrzebowa Łódź - Garnitury i Sukienki',
   description:
@@ -66,6 +85,7 @@ export default function OdziezPage() {
       title="Odzież Pogrzebowa - Łódź"
       description="Zapewniamy elegancką odzież żałobną oraz komplety dla zmarłych, dbając o godny i stonowany charakter ceremonii."
       backgroundImage={IMAGES.subpages.odziez}
+      faqItems={faqData}
     >
       <div className="space-y-12">
         <div className="text-center max-w-3xl mx-auto">

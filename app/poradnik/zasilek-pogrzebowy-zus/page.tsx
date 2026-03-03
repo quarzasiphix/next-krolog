@@ -2,6 +2,8 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { Phone, FileText, Euro, CheckCircle2, AlertCircle, Clock, Building2 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
+import FAQSchema, { FAQItem } from '@/components/structured-data/FAQSchema'
+import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Zasiłek Pogrzebowy ZUS i KRUS - Ile Wynosi, Jak Uzyskać, Kto Może Otrzymać',
@@ -17,13 +19,32 @@ export const metadata: Metadata = {
     'pogrzeb bez zaliczki',
   ],
   alternates: {
-    canonical: '/poradnik/zasilek-pogrzebowy-zus',
+    canonical: `${SITE_URL}/poradnik/zasilek-pogrzebowy-zus`,
   },
 }
 
 export default function ZasilekPogrzebowyZUSPage() {
+  const faqData: FAQItem[] = [
+    {
+      question: 'Ile wynosi zasiłek pogrzebowy ZUS/KRUS?',
+      answer:
+        'Aktualnie zasiłek pogrzebowy wynosi 4000 zł. To stała kwota, niezależnie od pełnego kosztu ceremonii.',
+    },
+    {
+      question: 'W jakim terminie trzeba złożyć wniosek o zasiłek pogrzebowy?',
+      answer:
+        'Wniosek należy złożyć zwykle w ciągu 12 miesięcy od dnia pogrzebu, wraz z wymaganymi dokumentami.',
+    },
+    {
+      question: 'Czy można zorganizować pogrzeb bez zaliczki i rozliczyć go z zasiłku?',
+      answer:
+        'Tak. W wielu przypadkach pomagamy przeprowadzić organizację bez kosztów z góry i rozliczyć usługę z zasiłku pogrzebowego.',
+    },
+  ]
+
   return (
     <div className="bg-black text-white min-h-screen">
+      <FAQSchema faqs={faqData} />
       <section className="relative pt-20 pb-12 bg-gradient-to-b from-black via-black/95 to-black/90">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">

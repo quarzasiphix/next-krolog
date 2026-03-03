@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import ServiceLayout from '@/components/ServiceLayout'
+import type { FAQItem } from '@/components/structured-data/FAQSchema'
 import { IMAGES } from '@/assets/images'
 import { Card, CardContent } from '@/components/ui/card'
 import { Check, Calendar, FileText, Users, Flower, Phone } from 'lucide-react'
@@ -67,6 +68,24 @@ const ceremonyTypes = [
   },
 ]
 
+const faqData: FAQItem[] = [
+  {
+    question: 'Czy organizujecie pogrzeb bez zaliczki?',
+    answer:
+      'Tak. W wielu przypadkach organizujemy pogrzeb bez kosztów z góry i pomagamy rozliczyć usługę z zasiłku pogrzebowego ZUS/KRUS.',
+  },
+  {
+    question: 'Czy pomagacie we wszystkich formalnościach po zgonie?',
+    answer:
+      'Tak. Pomagamy z dokumentami, urzędami, rezerwacją terminów oraz koordynacją ceremonii od początku do końca.',
+  },
+  {
+    question: 'Jak szybko można rozpocząć organizację pogrzebu?',
+    answer:
+      'Działamy całodobowo. Po kontakcie telefonicznym od razu uruchamiamy procedurę i ustalamy najbliższe możliwe terminy.',
+  },
+]
+
 export const metadata: Metadata = {
   title: 'Organizacja Pogrzebów Łódź',
   description:
@@ -93,6 +112,7 @@ export default function OrganizacjaPogrzebowPage() {
       title="Organizacja Pogrzebów w Łodzi"
       description="Zajmujemy się każdym elementem ceremonii pogrzebowej, od formalności po oprawę uroczystości."
       backgroundImage={IMAGES.subpages.organizacja}
+      faqItems={faqData}
     >
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
         <div className="lg:col-span-2 space-y-12">

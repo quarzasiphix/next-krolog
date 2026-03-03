@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import ServiceLayout from '@/components/ServiceLayout'
+import type { FAQItem } from '@/components/structured-data/FAQSchema'
 import { Card, CardContent } from '@/components/ui/card'
 import { Package, CheckCircle } from 'lucide-react'
 import { SITE_URL } from '@/lib/constants'
@@ -31,6 +32,24 @@ const coffins = [
   },
 ]
 
+const faqData: FAQItem[] = [
+  {
+    question: 'Jak wybrać odpowiednią trumnę do pogrzebu?',
+    answer:
+      'Pomagamy dobrać trumnę do rodzaju ceremonii, budżetu i oczekiwań rodziny. Na miejscu pokazujemy dostępne modele i wykończenia.',
+  },
+  {
+    question: 'Czy trumny są dostępne od ręki w Łodzi?',
+    answer:
+      'Tak. Posiadamy stałą ekspozycję trumien i szybki dostęp do dodatkowych modeli na zamówienie.',
+  },
+  {
+    question: 'Czy można zamówić trumnę do kremacji?',
+    answer:
+      'Tak. Oferujemy również trumny kremacyjne zgodne z wymaganiami krematorium.',
+  },
+]
+
 export const metadata: Metadata = {
   title: 'Trumny Łódź - Sprzedaż Trumien',
   description: 'Największy wybór trumien w Łodzi. Modele dębowe, sosnowe, olchowe. Trumny kremacyjne i tradycyjne. Ekspozycja przy ul. Legionów 48.',
@@ -49,6 +68,7 @@ export default function TrumnyPage() {
     <ServiceLayout
       title="Trumny - Łódź"
       description="Szeroki wybór trumien najwyższej jakości dostępnych w Łodzi. Oferujemy modele tradycyjne i kremacyjne dopasowane do potrzeb rodziny."
+      faqItems={faqData}
     >
       <div className="space-y-12">
         <div className="text-center max-w-3xl mx-auto">
