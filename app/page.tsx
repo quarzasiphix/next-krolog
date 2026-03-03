@@ -6,7 +6,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Nekrolog Łódź - Zakład Pogrzebowy w Łodzi | Jolanta Kostowska',
   description:
-    'Nekrolog Łódź (nekrolog lodz) to całodobowy zakład pogrzebowy w Łodzi przy ul. Legionów 48. Organizacja pogrzebu bez zaliczki, kremacja, transport i formalności. Tel: +48 602 274 661.',
+    'Nekrolog Łódź to całodobowy zakład pogrzebowy w Łodzi przy ul. Legionów 48. Organizacja pogrzebu bez zaliczki, kremacja, transport i formalności. Tel: +48 602 274 661.',
   keywords: [
     'zakład pogrzebowy łódź',
     'zaklad pogrzebowy lodz',
@@ -27,6 +27,31 @@ export const metadata: Metadata = {
 }
 
 export default async function HomePage() {
+  const homepageServiceLinks = [
+    { label: 'Organizacja pogrzebu', href: '/uslugi/organizacja-pogrzebow-lodz' },
+    { label: 'Transport zmarłych', href: '/uslugi/transport-zmarlych-lodz' },
+    { label: 'Kremacja', href: '/uslugi/krematorium-lodz' },
+    { label: 'Oprawa muzyczna', href: '/uslugi/oprawa-muzyczna-lodz' },
+    { label: 'Ekshumacja', href: '/uslugi/ekshumacja-lodz' },
+  ]
+
+  const homepageFaq = [
+    {
+      question: 'Czy można zorganizować pogrzeb bez zaliczki?',
+      answer:
+        'Tak. W wielu przypadkach organizujemy pogrzeb bez kosztów z góry i pomagamy rozliczyć usługę z zasiłku pogrzebowego ZUS/KRUS.',
+    },
+    {
+      question: 'Czy działacie całodobowo?',
+      answer:
+        'Tak. Jesteśmy dostępni 24/7 i pomagamy od pierwszego telefonu, także w nocy, weekendy i święta.',
+    },
+    {
+      question: 'Czy pomagacie w formalnościach po śmierci bliskiej osoby?',
+      answer:
+        'Tak. Wspieramy w dokumentach, kontakcie z urzędami i cmentarzem oraz koordynujemy całą organizację ceremonii.',
+    },
+  ]
 
   const businessSchema = {
     '@context': 'https://schema.org',
@@ -168,7 +193,7 @@ export default async function HomePage() {
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-playfair mb-6">Zakład Pogrzebowy Łódź</h1>
             <p className="text-xl text-gray-300 mb-8">
-              Nekrolog Łódź - całodobowa pomoc, organizacja pogrzebu bez kosztów z góry.
+              Nekrolog Łódź - całodobowa pomoc i organizacja pogrzebu bez kosztów z góry.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <a
@@ -191,6 +216,73 @@ export default async function HomePage() {
               <Link href="/zaklad-pogrzebowy-lodz" className="text-gray-300 hover:text-white underline-offset-4 hover:underline">Zakład Pogrzebowy Łódź</Link>
               <Link href="/nekrolog-lodz" className="text-gray-300 hover:text-white underline-offset-4 hover:underline">Nekrolog Łódź</Link>
               <Link href="/kontakt" className="text-gray-300 hover:text-white underline-offset-4 hover:underline">Kontakt</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-black text-white py-12 border-b border-white/10">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-playfair mb-6">Usługi Pogrzebowe w Łodzi</h2>
+            <p className="text-gray-300 mb-8">
+              Zapewniamy kompleksowe wsparcie od momentu zgłoszenia po zakończenie ceremonii. Rodzina otrzymuje
+              jednego opiekuna, który prowadzi wszystkie etapy organizacji.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {homepageServiceLinks.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-black text-white py-12 border-b border-white/10">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-playfair mb-6">Jak Pomagamy Krok Po Kroku</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-black/40 border border-white/10 rounded-lg p-5">
+                <h3 className="text-xl mb-2">1. Pierwszy kontakt</h3>
+                <p className="text-gray-300">
+                  Odbieramy telefon całodobowo i od razu ustalamy pilne działania oraz bezpieczny transport.
+                </p>
+              </div>
+              <div className="bg-black/40 border border-white/10 rounded-lg p-5">
+                <h3 className="text-xl mb-2">2. Formalności</h3>
+                <p className="text-gray-300">
+                  Pomagamy z dokumentami, urzędami i rezerwacją terminów na cmentarzu lub w krematorium.
+                </p>
+              </div>
+              <div className="bg-black/40 border border-white/10 rounded-lg p-5">
+                <h3 className="text-xl mb-2">3. Ceremonia</h3>
+                <p className="text-gray-300">
+                  Koordynujemy przebieg uroczystości i oprawę, aby rodzina mogła spokojnie pożegnać bliską osobę.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-black text-white py-12 border-b border-white/10">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-playfair mb-6">Najczęściej Zadawane Pytania</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {homepageFaq.map((item) => (
+                <div key={item.question} className="bg-black/40 border border-white/10 rounded-lg p-5">
+                  <h3 className="text-lg mb-2">{item.question}</h3>
+                  <p className="text-gray-300">{item.answer}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

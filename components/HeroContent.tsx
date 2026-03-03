@@ -9,11 +9,11 @@ const HeroContent = () => {
         <div className="w-16 h-[1px] bg-primary/40 mx-auto mb-6"></div>
         
         <h2 className="text-xl md:text-2xl mb-12 leading-relaxed text-gray-300/90 font-normal">
-          Nekrolog Łódź – Jolanta Kostowska, całodobowa pomoc bez kosztów z góry
+          Całodobowa pomoc pogrzebowa w Łodzi i pełne wsparcie formalne bez kosztów z góry
         </h2>
         
         <p className="text-[16px] md:text-[17px] mb-12 text-gray-400/80 leading-loose mt-8">
-          Nekrolog Łódź (nekrolog lodz) od ponad 20 lat wspiera rodziny w organizacji pogrzebu – z empatią, dyskrecją i pełnym zaangażowaniem.
+          Od ponad 20 lat wspieramy rodziny w organizacji pogrzebu z empatią, dyskrecją i spokojnym prowadzeniem każdego etapu.
         </p>
 
         <div className="flex flex-col items-center justify-center gap-4 mb-20">
