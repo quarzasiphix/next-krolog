@@ -46,7 +46,7 @@ const ContactCard = ({
   return (
     <div
       ref={cardRef}
-      className="glass-card p-8 rounded-lg flex flex-col opacity-0 translate-y-10 transition-all duration-200 h-full"
+      className="glass-card p-8 rounded-lg flex flex-col opacity-100 translate-y-0 transition-all duration-200 h-full"
     >
       <div className="flex items-start gap-3 mb-6">
         <div className="text-primary/60 mt-1">
@@ -119,7 +119,7 @@ const Contact = () => {
       <div className="section-container">
         <div
           ref={sectionRef}
-          className="opacity-0 translate-y-10 transition-all duration-300 text-center mb-16"
+          className="opacity-100 translate-y-0 transition-all duration-300 text-center mb-16"
         >
           <h1 className="section-title">Kontakt</h1>
           <p className="section-subtitle">

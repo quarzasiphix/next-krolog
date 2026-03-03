@@ -1,3 +1,8 @@
+# Canonical host redirects (www/http -> https apex)
+http://www.nekrolog-lodz.com/* https://nekrolog-lodz.com/:splat 301
+https://www.nekrolog-lodz.com/* https://nekrolog-lodz.com/:splat 301
+http://nekrolog-lodz.com/* https://nekrolog-lodz.com/:splat 301
+
 # Legacy asortyment URLs without -lodz suffix
 /asortyment/trumny /asortyment/trumny-lodz 301
 /asortyment/trumny/ /asortyment/trumny-lodz 301
@@ -33,8 +38,8 @@
 /przewoz-zwlok/ /poradnik/przewoz-zwlok 301
 /czy-urne-z-prochami-mozna-trzymac-w-domu /poradnik/czy-urne-z-prochami-mozna-trzymac-w-domu 301
 /czy-urne-z-prochami-mozna-trzymac-w-domu/ /poradnik/czy-urne-z-prochami-mozna-trzymac-w-domu 301
-/kremacja /uslugi/krematorium-lodz 301
-/kremacja/ /uslugi/krematorium-lodz 301
+/kremacja /poradnik/jak-wyglada-kremacja-zwlok 301
+/kremacja/ /poradnik/jak-wyglada-kremacja-zwlok 301
 /jakie-czynnosci-obejmuje-kosmetyka-posmiertna /poradnik/jakie-czynnosci-obejmuje-kosmetyka-posmiertna 301
 /jakie-czynnosci-obejmuje-kosmetyka-posmiertna/ /poradnik/jakie-czynnosci-obejmuje-kosmetyka-posmiertna 301
 /jak-wyglada-kremacja-zwlok /poradnik/jak-wyglada-kremacja-zwlok 301
@@ -49,11 +54,15 @@
 /jakie-dokumenty-sa-potrzebne-aby-zorganizowac-pogrzeb/ /poradnik/jakie-dokumenty-sa-potrzebne-aby-zorganizowac-pogrzeb 301
 /jakie-kwiaty-wybrac-na-oprawe-ceremonii-pogrzebowej /poradnik/jakie-kwiaty-wybrac-na-oprawe-ceremonii-pogrzebowej 301
 /jakie-kwiaty-wybrac-na-oprawe-ceremonii-pogrzebowej/ /poradnik/jakie-kwiaty-wybrac-na-oprawe-ceremonii-pogrzebowej 301
+/jak-poinformowac-inne-osoby-o-uroczystosci-pogrzebowej /poradnik/jak-poinformowac-inne-osoby-o-uroczystosci-pogrzebowej 301
+/jak-poinformowac-inne-osoby-o-uroczystosci-pogrzebowej/ /poradnik/jak-poinformowac-inne-osoby-o-uroczystosci-pogrzebowej 301
 /czy-zaklad-pogrzebowy-moze-dopelnic-formalnosci-pogrzebowych-w-zastepstwie-klienta /poradnik/czy-zaklad-pogrzebowy-moze-dopelnic-formalnosci-pogrzebowych-w-zastepstwie-klienta 301
 /czy-zaklad-pogrzebowy-moze-dopelnic-formalnosci-pogrzebowych-w-zastepstwie-klienta/ /poradnik/czy-zaklad-pogrzebowy-moze-dopelnic-formalnosci-pogrzebowych-w-zastepstwie-klienta 301
 
 # Legacy feed URLs for specific articles
+/etapy-zaloby-jak-uporac-sie-z-odejsciem-bliskiej-osoby/feed /poradnik/etapy-zaloby-jak-uporac-sie-z-odejsciem-bliskiej-osoby 301
 /etapy-zaloby-jak-uporac-sie-z-odejsciem-bliskiej-osoby/feed/ /poradnik/etapy-zaloby-jak-uporac-sie-z-odejsciem-bliskiej-osoby 301
+/o-jakiej-porze-roku-moze-byc-przeprowadzana-ekshumacja/feed /poradnik/o-jakiej-porze-roku-moze-byc-przeprowadzana-ekshumacja 301
 /o-jakiej-porze-roku-moze-byc-przeprowadzana-ekshumacja/feed/ /poradnik/o-jakiej-porze-roku-moze-byc-przeprowadzana-ekshumacja 301
 
 # Trailing slash normalization (Cloudflare handles via Pages settings, but explicit for safety)

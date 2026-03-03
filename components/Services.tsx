@@ -47,7 +47,7 @@ const ServiceCard = ({
   return (
     <div
       ref={cardRef}
-      className="glass-card p-8 rounded-xl flex flex-col items-center text-center opacity-0 translate-y-10 transition-all duration-200"
+      className="glass-card p-8 rounded-xl flex flex-col items-center text-center opacity-100 translate-y-0 transition-all duration-200"
     >
       <div className="mb-6 text-primary/60">
         {icon}
@@ -101,7 +101,7 @@ const FeatureItem = ({
   return (
     <div
       ref={itemRef}
-      className="opacity-0 translate-y-10 transition-all duration-200 feature-card hover:shadow-lg hover:scale-[1.01] transition-all duration-300"
+      className="opacity-100 translate-y-0 transition-all duration-200 feature-card hover:shadow-lg hover:scale-[1.01] transition-all duration-300"
     >
       <div className="flex items-start gap-4 mb-3">
         <div className="text-primary/60 flex-shrink-0">
@@ -154,7 +154,7 @@ const Services = () => {
       <div className="section-container">
         <div
           ref={sectionRef}
-          className="opacity-0 translate-y-10 transition-all duration-200 text-center mb-16"
+          className="opacity-100 translate-y-0 transition-all duration-200 text-center mb-16"
         >
           <h1 className="section-title">Zakład Pogrzebowy Łódź - Kompleksowe Usługi</h1>
           <p className="section-subtitle">

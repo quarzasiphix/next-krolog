@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { ArrowRight } from 'lucide-react';
 import ServiceSchema from '@/components/structured-data/ServiceSchema';
 import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema';
+import FAQSchema, { FAQItem } from '@/components/structured-data/FAQSchema';
 
 type ServiceLayoutProps = {
   children?: ReactNode;
@@ -21,7 +22,7 @@ const formatSegment = (segment: string) =>
     .join(' ');
 
 const ServiceLayout = ({ children, title, description, backgroundImage }: ServiceLayoutProps) => {
-  const pathname = usePathname();
+  const pathname = usePathname() || '/';
 
   const pathParts = pathname.split('/').filter(Boolean);
 
@@ -39,6 +40,24 @@ const ServiceLayout = ({ children, title, description, backgroundImage }: Servic
     { name: title }
   ];
 
+  const faqItems: FAQItem[] = [
+    {
+      question: `Czy ${title.toLowerCase()} obejmuje pełną organizację formalności?`,
+      answer:
+        'Tak. Pomagamy w formalnościach urzędowych, organizacji ceremonii i koordynacji wszystkich etapów.',
+    },
+    {
+      question: 'Czy muszę opłacić usługę z góry?',
+      answer:
+        'Nie. W wielu przypadkach organizujemy usługę bez kosztów z góry i pomagamy w rozliczeniu zasiłku pogrzebowego ZUS/KRUS.',
+    },
+    {
+      question: 'Jak szybko mogę uzyskać pomoc?',
+      answer:
+        'Jesteśmy dostępni całodobowo. Zadzwoń pod +48 602 274 661, a od razu przeprowadzimy Cię przez kolejne kroki.',
+    },
+  ];
+
   return (
     <>
       <BreadcrumbSchema items={breadcrumbs} />
@@ -47,6 +66,7 @@ const ServiceLayout = ({ children, title, description, backgroundImage }: Servic
         description={description}
         url={pathname}
       />
+      <FAQSchema faqs={faqItems} />
       <div className="bg-black text-white">
       <section className="relative pt-20 pb-16 md:pb-20 min-h-[40vh] flex items-center">
         {backgroundImage ? (
@@ -94,6 +114,20 @@ const ServiceLayout = ({ children, title, description, backgroundImage }: Servic
       <section className="py-12 bg-black">
         <div className="container mx-auto px-4">
           {children}
+
+          <div className="mt-12">
+            <h2 className="text-2xl md:text-3xl font-playfair text-white mb-6 text-center">
+              Najczęściej Zadawane Pytania
+            </h2>
+            <div className="grid gap-4">
+              {faqItems.map((faq) => (
+                <div key={faq.question} className="bg-black/40 border border-white/10 rounded-lg p-5">
+                  <h3 className="text-lg text-white mb-2">{faq.question}</h3>
+                  <p className="text-gray-300">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     </div>

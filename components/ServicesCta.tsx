@@ -45,7 +45,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, lin
   return (
     <div 
       ref={cardRef}
-      className="opacity-0 translate-y-10 transition-all duration-200 group"
+      className="opacity-100 translate-y-0 transition-all duration-200 group"
     >
       <div className="glass-card h-full flex flex-col overflow-hidden rounded-xl">
         <div className="relative h-48 overflow-hidden bg-gradient-to-br from-black/40 to-black/60 flex items-center justify-center">
@@ -115,7 +115,7 @@ const ServicesCta = () => {
       <div className="section-container">
         <div 
           ref={headingRef}
-          className="text-center mb-16 opacity-0 translate-y-10 transition-all duration-200"
+          className="text-center mb-16 opacity-100 translate-y-0 transition-all duration-200"
         >
           <h2 className="section-title">Specjalistyczne Usługi Pogrzebowe</h2>
           <p className="section-subtitle">

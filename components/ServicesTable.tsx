@@ -46,7 +46,7 @@ const ServicesTable = () => {
       <div className="section-container">
         <div
           ref={tableRef}
-          className="opacity-0 translate-y-10 transition-all duration-300"
+          className="opacity-100 translate-y-0 transition-all duration-300"
         >
           <h2 className="section-title text-center mb-8">Podsumowanie Usług i Produktów</h2>
           <div className="overflow-x-auto glass-card rounded-xl p-4">

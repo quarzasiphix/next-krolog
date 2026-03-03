@@ -82,6 +82,12 @@ const popularArticles = [
     category: 'Asortyment'
   },
   {
+    title: 'Jak poinformować inne osoby o uroczystości pogrzebowej?',
+    excerpt: 'Gotowy schemat komunikacji: kogo poinformować najpierw, co napisać i jak przekazać termin pogrzebu.',
+    href: '/poradnik/jak-poinformowac-inne-osoby-o-uroczystosci-pogrzebowej',
+    category: 'Formalności'
+  },
+  {
     title: 'Jak się ubrać na pogrzeb? Kobieta, mężczyzna, dziecko',
     excerpt: 'Praktyczne zasady stroju żałobnego dla całej rodziny. Co wypada i czego unikać.',
     href: '/poradnik/jak-sie-ubrac-na-pogrzeb-kobieta-mezczyzna-dziecko',
@@ -123,6 +129,30 @@ const popularArticles = [
     href: '/poradnik/jak-zorganizowac-pogrzeb-bez-srodkow-finansowych',
     category: 'Formalności'
   }
+]
+
+const allPoradnikArticles = [
+  { title: 'Co zrobić po śmierci bliskiej osoby?', href: '/poradnik/co-zrobic-po-smierci' },
+  { title: 'Zasiłek pogrzebowy ZUS', href: '/poradnik/zasilek-pogrzebowy-zus' },
+  { title: 'Jakie dokumenty są potrzebne, aby zorganizować pogrzeb?', href: '/poradnik/jakie-dokumenty-sa-potrzebne-aby-zorganizowac-pogrzeb' },
+  { title: 'Jak zorganizować pogrzeb bez środków finansowych?', href: '/poradnik/jak-zorganizowac-pogrzeb-bez-srodkow-finansowych' },
+  { title: 'Czy zakład pogrzebowy może dopełnić formalności w zastępstwie klienta?', href: '/poradnik/czy-zaklad-pogrzebowy-moze-dopelnic-formalnosci-pogrzebowych-w-zastepstwie-klienta' },
+  { title: 'Jak wybrać zakład do organizacji pogrzebu?', href: '/poradnik/jak-wybrac-zaklad-do-organizacji-pogrzebu' },
+  { title: 'Jak wygląda kremacja zwłok?', href: '/poradnik/jak-wyglada-kremacja-zwlok' },
+  { title: 'Przewóz zwłok - najważniejsze zasady', href: '/poradnik/przewoz-zwlok' },
+  { title: 'Jak zgodnie z przepisami przewozić zwłoki?', href: '/poradnik/jak-zgodnie-z-przepisami-przewozic-zwloki' },
+  { title: 'Jak przetransportować ciało zmarłego z zagranicy?', href: '/poradnik/jak-przetransportowac-cialo-zmarlego-z-zagranicy' },
+  { title: 'Jak wybrać trumnę na pogrzeb?', href: '/poradnik/jak-wybrac-trumne-na-pogrzeb' },
+  { title: 'W co ubrać zmarłego na pogrzeb?', href: '/poradnik/w-co-ubrac-zmarlego-na-pogrzeb' },
+  { title: 'Jakie czynności obejmuje kosmetyka pośmiertna?', href: '/poradnik/jakie-czynnosci-obejmuje-kosmetyka-posmiertna' },
+  { title: 'Jak się ubrać na pogrzeb? Kobieta, mężczyzna, dziecko', href: '/poradnik/jak-sie-ubrac-na-pogrzeb-kobieta-mezczyzna-dziecko' },
+  { title: 'Czy na pogrzeb trzeba ubrać się na czarno?', href: '/poradnik/czy-na-pogrzeb-trzeba-ubrac-sie-na-czarno' },
+  { title: 'Jakie buty na pogrzeb i czego unikać?', href: '/poradnik/jakie-buty-na-pogrzeb-i-czego-unikac' },
+  { title: 'Etapy żałoby - jak uporać się z odejściem bliskiej osoby?', href: '/poradnik/etapy-zaloby-jak-uporac-sie-z-odejsciem-bliskiej-osoby' },
+  { title: 'Czy urnę z prochami można trzymać w domu?', href: '/poradnik/czy-urne-z-prochami-mozna-trzymac-w-domu' },
+  { title: 'O jakiej porze roku może być przeprowadzana ekshumacja?', href: '/poradnik/o-jakiej-porze-roku-moze-byc-przeprowadzana-ekshumacja' },
+  { title: 'Jakie kwiaty wybrać na oprawę ceremonii pogrzebowej?', href: '/poradnik/jakie-kwiaty-wybrac-na-oprawe-ceremonii-pogrzebowej' },
+  { title: 'Jak poinformować inne osoby o uroczystości pogrzebowej?', href: '/poradnik/jak-poinformowac-inne-osoby-o-uroczystosci-pogrzebowej' },
 ]
 
 export default function PoradnikPage() {
@@ -223,6 +253,26 @@ export default function PoradnikPage() {
                     </CardContent>
                   </Card>
                 ))}
+              </div>
+            </div>
+
+            <div className="mb-16">
+              <h2 className="text-3xl font-playfair font-semibold text-white text-center mb-8">
+                Wszystkie Artykuły Poradnika
+              </h2>
+              <div className="glass-card p-6 rounded-xl">
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {allPoradnikArticles.map((article) => (
+                    <li key={article.href}>
+                      <Link
+                        href={article.href}
+                        className="text-gray-200 hover:text-primary transition-colors underline-offset-4 hover:underline"
+                      >
+                        {article.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
 

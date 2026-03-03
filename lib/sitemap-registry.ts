@@ -56,6 +56,7 @@ const CONTENT_LAST_MODIFIED = {
     'jak-przetransportowac-cialo-zmarlego-z-zagranicy': '2025-01-06T11:00:00Z',
     'jakie-dokumenty-sa-potrzebne-aby-zorganizowac-pogrzeb': '2025-01-07T15:00:00Z',
     'jakie-kwiaty-wybrac-na-oprawe-ceremonii-pogrzebowej': '2025-01-08T12:00:00Z',
+    'jak-poinformowac-inne-osoby-o-uroczystosci-pogrzebowej': '2026-02-27T12:00:00Z',
     'czy-zaklad-pogrzebowy-moze-dopelnic-formalnosci-pogrzebowych-w-zastepstwie-klienta': '2025-01-09T14:00:00Z',
     'jak-zorganizowac-pogrzeb-bez-srodkow-finansowych': '2025-01-10T10:00:00Z',
   },

@@ -15,7 +15,7 @@ const formatSegment = (segment: string) =>
     .join(' ')
 
 export default function PathBreadcrumbSchema({ sectionRootPath, sectionRootName }: PathBreadcrumbSchemaProps) {
-  const pathname = usePathname()
+  const pathname = usePathname() || '/'
   const normalizedPath = pathname.replace(/\/+$/, '') || '/'
   const segments = normalizedPath.split('/').filter(Boolean)
 

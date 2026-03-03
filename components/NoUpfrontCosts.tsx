@@ -1,5 +1,3 @@
-'use client';
-
 import { Shield, Heart, Clock, Phone, CheckCircle2 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 

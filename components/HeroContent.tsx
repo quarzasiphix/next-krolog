@@ -1,7 +1,3 @@
-'use client'
-
-import { TrackedPhoneLink } from './TrackedPhoneLink';
-
 const HeroContent = () => {
   return (
     <div className="relative z-10 container mx-auto px-4 flex flex-col items-center justify-center text-center text-white">
@@ -21,7 +17,13 @@ const HeroContent = () => {
         </p>
 
         <div className="flex flex-col items-center justify-center gap-4 mb-20">
-          <TrackedPhoneLink location="hero" />
+          <a
+            href="tel:+48602274661"
+            className="button-primary flex items-center justify-center gap-3"
+            data-phone-location="hero"
+          >
+            <span>+48 602 274 661</span>
+          </a>
           <p className="text-sm text-white font-medium">Dostępni całodobowo</p>
         </div>
 

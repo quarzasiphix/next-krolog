@@ -1,7 +1,4 @@
-
-'use client';
-
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Star, Quote } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -15,7 +12,7 @@ interface Review {
 }
 
 const Reviews = () => {
-  const [reviews, setReviews] = useState<Review[]>([
+  const reviews: Review[] = [
     {
       author_name: "Andrzej Czyżyk",
       rating: 5,
@@ -58,7 +55,7 @@ const Reviews = () => {
       profile_photo_url: "",
       time: new Date('2022-10-29').getTime()
     }
-  ]);
+  ];
 
   // In a real implementation, you would fetch reviews from Google API
   // useEffect(() => {

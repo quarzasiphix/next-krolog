@@ -7,6 +7,7 @@ import ServicesTable from '@/components/ServicesTable';
 import FAQ from '@/components/FAQ';
 import About from '@/components/About';
 import Contact from '@/components/Contact';
+import Link from 'next/link';
 
 const HomePageClient = () => {
   return (
@@ -20,6 +21,22 @@ const HomePageClient = () => {
       <FAQ />
       <About />
       <Contact />
+
+      <section className="py-10 bg-black/95">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-playfair text-white text-center mb-8">Najważniejsze Strony</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <Link href="/zaklad-pogrzebowy-lodz" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">Zakład Pogrzebowy Łódź</Link>
+              <Link href="/nekrolog-lodz" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">Nekrolog Łódź</Link>
+              <Link href="/uslugi-pogrzebowe-lodz" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">Usługi Pogrzebowe Łódź</Link>
+              <Link href="/cmentarze-lodz" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">Cmentarze w Łodzi</Link>
+              <Link href="/poradnik" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">Poradnik Pogrzebowy</Link>
+              <Link href="/pogrzeb-bez-zaliczki" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">Pogrzeb bez zaliczki</Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <div className="bg-black py-12">
         <div className="container mx-auto text-center">

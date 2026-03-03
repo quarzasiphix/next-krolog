@@ -4,6 +4,8 @@ import { MapPin, Clock, Phone, CheckCircle2, Building2, ArrowLeft, Navigation } 
 import { Card, CardContent } from '@/components/ui/card'
 import { notFound } from 'next/navigation'
 import { SITE_URL } from '@/lib/constants'
+import FAQSchema from '@/components/structured-data/FAQSchema'
+import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema'
 
 interface Cemetery {
   name: string
@@ -306,8 +308,33 @@ export default async function CemeteryPage({ params }: { params: Promise<{ slug:
       : undefined,
   }
 
+  const faqData = [
+    {
+      question: `Czy organizujecie pogrzeby na ${cemetery.name}?`,
+      answer: `Tak. Organizujemy kompleksowe pogrzeby na ${cemetery.name}, łącznie z formalnościami, transportem i koordynacją ceremonii.`,
+    },
+    {
+      question: 'Czy muszę opłacić pogrzeb z góry?',
+      answer:
+        'Nie. Organizujemy pogrzeb bez kosztów z góry i pomagamy w rozliczeniu zasiłku pogrzebowego ZUS/KRUS.',
+    },
+    {
+      question: 'Czy pomagacie w formalnościach cmentarnych?',
+      answer:
+        'Tak. Pomagamy w kontakcie z administracją cmentarza, rezerwacji miejsca i uzgodnieniu terminu ceremonii.',
+    },
+  ]
+
+  const breadcrumbs = [
+    { name: 'Strona Główna', url: '/' },
+    { name: 'Cmentarze w Łodzi', url: '/cmentarze-lodz' },
+    { name: cemetery.name },
+  ]
+
   return (
     <div className="bg-black text-white min-h-screen">
+      <BreadcrumbSchema items={breadcrumbs} />
+      <FAQSchema faqs={faqData} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(placeSchema) }}
@@ -516,6 +543,27 @@ export default async function CemeteryPage({ params }: { params: Promise<{ slug:
                 </p>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-10 bg-black/95">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-playfair font-medium text-white mb-8 text-center">
+              Najczęściej Zadawane Pytania
+            </h2>
+            <div className="space-y-4">
+              {faqData.map((faq) => (
+                <Card key={faq.question} className="bg-black/30 border border-white/10">
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-medium text-white mb-3">{faq.question}</h3>
+                    <p className="text-gray-300">{faq.answer}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </section>

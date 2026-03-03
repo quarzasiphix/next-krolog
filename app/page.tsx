@@ -90,25 +90,6 @@ export default async function HomePage() {
         closes: '13:00',
       },
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: BUSINESS_INFO.ratingValue,
-      reviewCount: BUSINESS_INFO.reviewCount,
-    },
-    review: BUSINESS_INFO.reviews.map((review) => ({
-      '@type': 'Review',
-      author: {
-        '@type': 'Person',
-        name: review.authorName,
-      },
-      reviewRating: {
-        '@type': 'Rating',
-        ratingValue: review.ratingValue,
-        bestRating: 5,
-      },
-      reviewBody: review.reviewBody,
-      datePublished: review.datePublished,
-    })),
     contactPoint: [
       {
         '@type': 'ContactPoint',

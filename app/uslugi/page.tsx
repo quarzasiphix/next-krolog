@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { generateCanonicalMetadata } from '@/lib/canonical'
 import ServiceSchema from '@/components/structured-data/ServiceSchema'
 import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema'
+import FAQSchema from '@/components/structured-data/FAQSchema'
 import { 
   FileText, 
   Music, 
@@ -73,10 +74,29 @@ const breadcrumbs = [
   { name: 'Usługi Pogrzebowe', url: '/uslugi' }
 ]
 
+const faqData = [
+  {
+    question: 'Czy organizujecie pogrzeb bez zaliczki?',
+    answer:
+      'Tak. W wielu przypadkach organizujemy pogrzeb bez kosztów z góry i pomagamy w rozliczeniu zasiłku pogrzebowego ZUS/KRUS.',
+  },
+  {
+    question: 'Czy pomagacie w formalnościach urzędowych?',
+    answer:
+      'Tak. Pomagamy w kompletowaniu dokumentów, kontakcie z urzędami i administracją cmentarza.',
+  },
+  {
+    question: 'Jak szybko można uzyskać pomoc?',
+    answer:
+      'Jesteśmy dostępni całodobowo. Po kontakcie telefonicznym od razu ustalamy kolejne kroki i organizację pomocy.',
+  },
+]
+
 export default function UslugiPage() {
   return (
     <>
       <BreadcrumbSchema items={breadcrumbs} />
+      <FAQSchema faqs={faqData} />
       <ServiceSchema
         serviceName="Usługi Pogrzebowe"
         description="Kompleksowe usługi pogrzebowe w Łodzi obejmujące organizację pogrzebu, transport zmarłych, kremację, oprawę muzyczną i ekshumację."
@@ -174,6 +194,22 @@ export default function UslugiPage() {
                     </p>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            <div className="mt-16">
+              <h2 className="text-3xl font-playfair font-semibold text-white text-center mb-8">
+                Najczęściej Zadawane Pytania
+              </h2>
+              <div className="grid gap-4 max-w-4xl mx-auto">
+                {faqData.map((faq) => (
+                  <Card key={faq.question} className="bg-black/30 border border-white/10">
+                    <CardContent className="p-6">
+                      <h3 className="text-xl text-white mb-3">{faq.question}</h3>
+                      <p className="text-gray-300">{faq.answer}</p>
+                    </CardContent>
+                  </Card>
+                ))}
               </div>
             </div>
           </div>

@@ -46,7 +46,7 @@ const About = () => {
       <div className="section-container">
         <div 
           ref={sectionRef}
-          className="opacity-0 translate-y-10 transition-all duration-300 text-center mb-16"
+          className="opacity-100 translate-y-0 transition-all duration-300 text-center mb-16"
         >
           <h2 className="section-title">O Naszym Zakładzie Pogrzebowym</h2>
           <p className="section-subtitle">
@@ -57,7 +57,7 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div 
             ref={imageRef}
-            className="opacity-0 translate-y-10 transition-all duration-300 delay-50"
+            className="opacity-100 translate-y-0 transition-all duration-300 delay-50"
           >
             <div className="relative bg-gradient-to-br from-black/40 to-black/60 rounded-lg border border-primary/20 p-8 h-full min-h-[300px] flex flex-col items-center justify-center">
               {/* Subtle texture background */}
@@ -91,7 +91,7 @@ const About = () => {
           
           <div 
             ref={contentRef}
-            className="opacity-0 translate-y-10 transition-all duration-200 delay-50 flex flex-col space-y-6"
+            className="opacity-100 translate-y-0 transition-all duration-200 delay-50 flex flex-col space-y-6"
           >
             <h3 className="text-2xl font-playfair text-white mb-8">
               Prowadzimy rodziny przez najtrudniejsze chwile
