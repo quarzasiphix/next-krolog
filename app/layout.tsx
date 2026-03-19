@@ -18,18 +18,32 @@ export const metadata: Metadata = {
     siteName: 'Zakład Pogrzebowy Łódź - Nekrolog',
     title: 'Zakład Pogrzebowy w Łodzi – Nekrolog Łódź',
     description: 'Profesjonalny zakład pogrzebowy w Łodzi. Kompleksowe usługi pogrzebowe dostępne całodobowo.',
+<<<<<<< ours
     images: [{
       url: 'https://nekrolog-lodz.com/lovable-uploads/cross.png',
       width: 1200,
       height: 630,
       alt: 'Zakład Pogrzebowy Nekrolog Łódź',
     }],
+=======
+    images: [
+      {
+        url: '/lovable-uploads/cross.png',
+        alt: 'Nekrolog Łódź - Zakład pogrzebowy',
+      },
+    ],
+>>>>>>> theirs
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Zakład Pogrzebowy w Łodzi - Nekrolog Łódź',
+<<<<<<< ours
     description: 'Profesjonalny zakład pogrzebowy w Łodzi. Dostępni 24/7. Tel: +48 602 274 661',
     images: ['https://nekrolog-lodz.com/lovable-uploads/cross.png'],
+=======
+    description: 'Profesjonalny zakład pogrzebowy w Łodzi',
+    images: ['/lovable-uploads/cross.png'],
+>>>>>>> theirs
   },
   robots: {
     index: true,

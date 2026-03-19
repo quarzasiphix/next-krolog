@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { FAQ_ENTRIES, SITE_URL } from '@/lib/constants'
 
 const faqJsonLd = {
@@ -24,6 +25,26 @@ const FAQ = () => {
             Zebraliśmy odpowiedzi na najczęstsze pytania dotyczące formalności pogrzebowych i wsparcia, jakie
             oferujemy rodzinom w Łodzi.
           </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-sm">
+            <Link
+              href="/kontakt"
+              className="rounded-full border border-primary/60 px-4 py-2 text-primary hover:bg-primary/10 transition-colors"
+            >
+              Skontaktuj się z nami
+            </Link>
+            <Link
+              href="/uslugi-pogrzebowe-lodz"
+              className="rounded-full border border-white/20 px-4 py-2 text-gray-200 hover:border-primary/40 hover:text-white transition-colors"
+            >
+              Usługi pogrzebowe Łódź
+            </Link>
+            <Link
+              href="/poradnik/zasilek-pogrzebowy-zus"
+              className="rounded-full border border-white/20 px-4 py-2 text-gray-200 hover:border-primary/40 hover:text-white transition-colors"
+            >
+              Zasiłek pogrzebowy ZUS
+            </Link>
+          </div>
         </div>
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />

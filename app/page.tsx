@@ -22,7 +22,11 @@ export const metadata: Metadata = {
     'całodobowy zakład pogrzebowy',
   ],
   alternates: {
+<<<<<<< ours
     canonical: '/',
+=======
+    canonical: SITE_URL,
+>>>>>>> theirs
   },
 }
 

@@ -108,8 +108,39 @@ export const FAQ_ENTRIES = [
       'Współpracujemy ze sprawdzonymi florystami i muzykami, aby zapewnić odpowiednią oprawę kwiatową i muzyczną dopasowaną do charakteru ceremonii.',
   },
   {
+<<<<<<< ours
     question: 'Czy muszę posiadać środki finansowe na organizację pogrzebu?',
     answer:
       'Nie. W wielu przypadkach organizujemy ceremonię bez konieczności ponoszenia kosztów z góry. Pomagamy w rozliczeniu zasiłku pogrzebowego z ZUS lub KRUS, a wszelkie formalności finansowe bierzemy na siebie, aby rodzina nie musiała martwić się sprawami finansowymi w tym trudnym czasie.',
+=======
+    question: 'Jakie dokumenty są potrzebne do organizacji pogrzebu?',
+    answer:
+      'Najczęściej potrzebne są karta zgonu wystawiona przez lekarza, dowód osobisty zmarłego oraz dokumenty osoby zgłaszającej. Po naszej stronie wspieramy w uzyskaniu aktu zgonu w USC.',
+  },
+  {
+    question: 'Ile trwa organizacja pogrzebu w Łodzi?',
+    answer:
+      'Zwykle 2–4 dni robocze, w zależności od terminu w USC i na cmentarzu. Pilne sprawy realizujemy możliwie najszybciej, organizując wszystkie formalności.',
+  },
+  {
+    question: 'Czy organizujecie pogrzeby świeckie i wyznaniowe?',
+    answer:
+      'Tak, przygotowujemy ceremonie świeckie oraz religijne różnych wyznań. Dbamy o pełną oprawę i koordynację zgodnie z życzeniami rodziny.',
+  },
+  {
+    question: 'Czy oferujecie transport zmarłych z innych miast lub z zagranicy?',
+    answer:
+      'Tak, zapewniamy transport krajowy i międzynarodowy, pomagając również w formalnościach związanych ze sprowadzeniem zmarłego.',
+  },
+  {
+    question: 'Czy można zorganizować pogrzeb bez zaliczki?',
+    answer:
+      'Tak, oferujemy możliwość rozliczenia kosztów bez zaliczki, z rozliczeniem bezpośrednio z zasiłkiem pogrzebowym ZUS/KRUS.',
+  },
+  {
+    question: 'Jak wygląda wycena usług pogrzebowych?',
+    answer:
+      'Wycena jest indywidualna i zależy od zakresu usług, wybranych akcesoriów oraz rodzaju ceremonii. Przedstawiamy jasny kosztorys po krótkiej rozmowie.',
+>>>>>>> theirs
   },
 ]
