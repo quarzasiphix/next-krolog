@@ -12,38 +12,38 @@ const clothingCategories = [
   {
     name: 'Garnitury pogrzebowe męskie',
     description:
-      'Eleganckie garnitury w stonowanych kolorach, starannie dopasowane do uroczystości pożegnalnych.',
-    features: ['Klasyczny krój', 'Wysoka jakość tkanin', 'Pełna rozmiarówka'],
+      'Najczęściej wybierane są klasyczne garnitury w stonowanych kolorach, odpowiednie do uroczystości pożegnalnych.',
+    features: ['Klasyczny krój', 'Stonowana kolorystyka', 'Warto dobrać strój wcześniej'],
   },
   {
     name: 'Suknie i garsonki żałobne',
     description:
-      'Stonowane suknie i garsonki dla kobiet, łączące elegancję z komfortem podczas ceremonii.',
-    features: ['Eleganckie fasony', 'Delikatne materiały', 'Kolory: czerń, granat, grafit'],
+      'Dla kobiet najczęściej sprawdzają się proste, eleganckie fasony w ciemnych i spokojnych kolorach.',
+    features: ['Eleganckie fasony', 'Komfort podczas ceremonii', 'Kolory: czerń, granat, grafit'],
   },
   {
     name: 'Koszule i bluzki',
     description:
-      'Klasyczne koszule męskie oraz eleganckie bluzki damskie, idealne jako uzupełnienie stroju żałobnego.',
-    features: ['Oddychające tkaniny', 'Łatwe w prasowaniu', 'Uniwersalne kroje'],
+      'Klasyczne koszule męskie i eleganckie bluzki damskie są bezpiecznym wyborem jako uzupełnienie stroju żałobnego.',
+    features: ['Uniwersalne kroje', 'Stonowany charakter', 'Dobrze komponują się z ciemnym strojem'],
   },
   {
     name: 'Dodatki żałobne',
     description:
-      'Krawaty, poszetki, szale oraz rękawiczki, które dopełniają uroczystą stylizację.',
-    features: ['Spójne kolorystycznie', 'Stonowane wzory', 'Dostępne komplety rodzinne'],
+      'Krawaty, szale i inne dodatki powinny pozostać dyskretne i spójne z resztą stroju.',
+    features: ['Spójne kolorystycznie', 'Stonowane wzory', 'Minimalistyczny charakter'],
   },
   {
     name: 'Obuwie',
     description:
-      'Wygodne, czarne obuwie dla kobiet i mężczyzn, przystosowane do całodziennego uczestnictwa w uroczystości.',
-    features: ['Miękkie wykończenia', 'Stabilna podeszwa', 'Różne rozmiary'],
+      'Najlepiej sprawdza się wygodne, ciemne obuwie, odpowiednie do dłuższego uczestnictwa w uroczystości.',
+    features: ['Stabilna podeszwa', 'Spokojny wygląd', 'Wygoda na cały dzień'],
   },
   {
-    name: 'Odzież dla zmarłych',
+    name: 'Ubiór dla zmarłego',
     description:
-      'Specjalistyczne komplety dla zmarłych – suknie, garnitury i dodatki przygotowane z najwyższym szacunkiem.',
-    features: ['Delikatne podszycia', 'Tradycyjne kroje', 'Możliwość personalizacji'],
+      'Rodzina samodzielnie przygotowuje ubranie dla zmarłego. W razie potrzeby podpowiadamy, jaki strój będzie odpowiedni i zgodny z charakterem ceremonii.',
+    features: ['Szacunek do woli rodziny', 'Możemy podpowiedzieć odpowiedni wybór', 'Najczęściej wybierane są tradycyjne kroje'],
   },
 ]
 
@@ -51,29 +51,29 @@ const faqData: FAQItem[] = [
   {
     question: 'Czy pomagacie dobrać strój żałobny na pogrzeb?',
     answer:
-      'Tak. Pomagamy dobrać odpowiedni ubiór dla bliskich oraz odzież dla zmarłego, zgodnie z charakterem ceremonii i tradycją.',
+      'Tak. Możemy podpowiedzieć, jaki strój będzie odpowiedni dla bliskich i jaki ubiór rodzina może przygotować dla zmarłego, zgodnie z charakterem ceremonii i tradycją.',
   },
   {
-    question: 'Czy odzież pogrzebowa jest dostępna od ręki w Łodzi?',
+    question: 'Czy oferujecie sprzedaż odzieży żałobnej na miejscu?',
     answer:
-      'Tak. Na miejscu dostępne są podstawowe rozmiary odzieży żałobnej dla kobiet i mężczyzn oraz dodatki.',
+      'Nie. Nie prowadzimy sprzedaży odzieży żałobnej. Rodzina organizuje strój we własnym zakresie, a my możemy wskazać, jaki ubiór będzie stosowny na ceremonię.',
   },
   {
-    question: 'Czy oferujecie komplety odzieży dla zmarłych?',
+    question: 'Czy zapewniacie odzież dla zmarłych?',
     answer:
-      'Tak. Oferujemy specjalne komplety odzieży dla zmarłych i pomagamy w ich dopasowaniu.',
+      'Nie. Rodzina przygotowuje ubranie dla zmarłego samodzielnie. Jeśli potrzeba, podpowiadamy jakie elementy stroju warto przygotować.',
   },
 ]
 
 export const metadata: Metadata = {
-  title: 'Odzież Pogrzebowa Łódź - Garnitury i Sukienki',
+  title: 'Odzież na Pogrzeb Łódź - Jak Przygotować Odpowiedni Strój',
   description:
-    'Elegancka odzież żałobna dostępna w Łodzi. Garnitury męskie, suknie damskie, obuwie oraz odzież dla zmarłych. Pełna rozmiarówka na miejscu.',
-  keywords: ['odzież pogrzebowa łódź', 'ubrania dla zmarłych łódź', 'garnitur żałobny łódź', 'suknia żałobna', 'sklep z odzieżą żałobną'],
+    'Wskazówki, jak przygotować odpowiedni strój na pogrzeb w Łodzi. Podpowiadamy, jaki ubiór wybrać dla uczestników ceremonii i jaki strój rodzina może przygotować dla zmarłego.',
+  keywords: ['odzież na pogrzeb łódź', 'jak ubrać się na pogrzeb', 'ubrania dla zmarłych łódź', 'garnitur żałobny łódź', 'suknia żałobna'],
   ...generateCanonicalMetadata('/asortyment/odziez-lodz'),
   openGraph: {
-    title: 'Odzież Pogrzebowa Łódź - Nekrolog',
-    description: 'Elegancka odzież żałobna dla kobiet i mężczyzn oraz komplety dla zmarłych dostępna w Łodzi.',
+    title: 'Odzież na Pogrzeb Łódź - Nekrolog',
+    description: 'Praktyczne wskazówki dotyczące stroju na pogrzeb oraz ubioru przygotowywanego przez rodzinę dla zmarłego.',
     url: `${SITE_URL}/asortyment/odziez-lodz`,
     type: 'website',
   },
@@ -82,17 +82,18 @@ export const metadata: Metadata = {
 export default function OdziezPage() {
   return (
     <ServiceLayout
-      title="Odzież Pogrzebowa - Łódź"
-      description="Zapewniamy elegancką odzież żałobną oraz komplety dla zmarłych, dbając o godny i stonowany charakter ceremonii."
+      title="Odzież Na Pogrzeb - Łódź"
+      description="Podpowiadamy, jak przygotować stosowny strój na pogrzeb. Rodzina organizuje odzież samodzielnie, a my pomagamy wskazać odpowiedni kierunek."
       backgroundImage={IMAGES.subpages.odziez}
       faqItems={faqData}
     >
       <div className="space-y-12">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl font-playfair font-semibold text-white mb-4">Odzież żałobna w Łodzi</h2>
+          <h2 className="text-3xl font-playfair font-semibold text-white mb-4">Jak przygotować strój na pogrzeb</h2>
           <p className="text-gray-300">
-            W naszym domu pogrzebowym przy ul. Legionów 48 w Łodzi dostępna jest odzież dla wszystkich uczestników ceremonii.
-            Posiadamy pełną rozmiarówkę klasycznych garniturów, sukien oraz butów. Nasi pracownicy pomagają w doborze odpowiedniego stroju.
+            Nie prowadzimy sprzedaży odzieży żałobnej ani nie zapewniamy gotowych kompletów ubrań. Rodzina przygotowuje strój
+            samodzielnie, a my możemy podpowiedzieć, jaki ubiór będzie odpowiedni dla uczestników ceremonii oraz jaki strój
+            warto przygotować dla zmarłego.
           </p>
         </div>
 
