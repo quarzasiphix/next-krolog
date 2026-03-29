@@ -108,11 +108,11 @@ export const FAQ_ENTRIES = [
       'Współpracujemy ze sprawdzonymi florystami i muzykami, aby zapewnić odpowiednią oprawę kwiatową i muzyczną dopasowaną do charakteru ceremonii.',
   },
   {
-<<<<<<< ours
     question: 'Czy muszę posiadać środki finansowe na organizację pogrzebu?',
     answer:
       'Nie. W wielu przypadkach organizujemy ceremonię bez konieczności ponoszenia kosztów z góry. Pomagamy w rozliczeniu zasiłku pogrzebowego z ZUS lub KRUS, a wszelkie formalności finansowe bierzemy na siebie, aby rodzina nie musiała martwić się sprawami finansowymi w tym trudnym czasie.',
-=======
+  },
+  {
     question: 'Jakie dokumenty są potrzebne do organizacji pogrzebu?',
     answer:
       'Najczęściej potrzebne są karta zgonu wystawiona przez lekarza, dowód osobisty zmarłego oraz dokumenty osoby zgłaszającej. Po naszej stronie wspieramy w uzyskaniu aktu zgonu w USC.',
@@ -141,6 +141,5 @@ export const FAQ_ENTRIES = [
     question: 'Jak wygląda wycena usług pogrzebowych?',
     answer:
       'Wycena jest indywidualna i zależy od zakresu usług, wybranych akcesoriów oraz rodzaju ceremonii. Przedstawiamy jasny kosztorys po krótkiej rozmowie.',
->>>>>>> theirs
   },
 ]
