@@ -7,6 +7,12 @@ import { SITE_URL } from '@/lib/constants'
 import { useBreadcrumbContext } from '@/components/breadcrumb-context'
 
 const labelOverrides: Record<string, string> = {
+  pl: 'PL',
+  en: 'EN',
+  de: 'DE',
+  fr: 'FR',
+  nl: 'NL',
+  it: 'IT',
   'zaklad-pogrzebowy-lodz': 'Zakład Pogrzebowy',
   'nekrolog-lodz': 'Nekrolog Łódź',
   'uslugi-pogrzebowe-lodz': 'Usługi Pogrzebowe',
@@ -32,6 +38,7 @@ const labelOverrides: Record<string, string> = {
   'czy-zaklad-pogrzebowy-moze-dopelnic-formalnosci-pogrzebowych-w-zastepstwie-klienta': 'Formalności w Zastępstwie',
   'etapy-zaloby-jak-uporac-sie-z-odejsciem-bliskiej-osoby': 'Etapy Żałoby',
   'jak-przetransportowac-cialo-zmarlego-z-zagranicy': 'Transport z Zagranicy',
+  'sprowadzenie-zwlok-z-zagranicy': 'Sprowadzenie Zwłok z Zagranicy',
   'jak-sie-ubrac-na-pogrzeb-kobieta-mezczyzna-dziecko': 'Jak Się Ubrać na Pogrzeb',
   'jak-wybrac-zaklad-do-organizacji-pogrzebu': 'Jak Wybrać Zakład Pogrzebowy',
   'jak-wyglada-kremacja-zwlok': 'Jak Wygląda Kremacja',
@@ -74,6 +81,9 @@ const Breadcrumb = ({ pathname }: { pathname?: string } = {}) => {
   }
 
   const segments = currentPath.split('/').filter(Boolean)
+  const localeSegments = new Set(['pl', 'en', 'de', 'fr', 'nl', 'it'])
+  const locale = localeSegments.has(segments[0]) ? segments[0] : null
+  const contentSegments = locale ? segments.slice(1) : segments
 
   const getLabel = (segment: string, href: string) => {
     const overrideByHref = overrides.find((item) => item.href === href)
@@ -85,8 +95,9 @@ const Breadcrumb = ({ pathname }: { pathname?: string } = {}) => {
     return formatLabel(segment)
   }
 
-  const crumbs = segments.map((segment, index) => {
-    const pathAccumulator = '/' + segments.slice(0, index + 1).join('/')
+  const crumbs = contentSegments.map((segment, index) => {
+    const pathAccumulator =
+      '/' + [locale, ...contentSegments.slice(0, index + 1)].filter(Boolean).join('/')
     const label = getLabel(segment, pathAccumulator)
 
     return {
@@ -102,8 +113,8 @@ const Breadcrumb = ({ pathname }: { pathname?: string } = {}) => {
       {
         '@type': 'ListItem',
         position: 1,
-        name: 'Strona główna',
-        item: SITE_URL,
+        name: locale ? `Start ${locale.toUpperCase()}` : 'Strona główna',
+        item: locale ? `${SITE_URL}/${locale}` : SITE_URL,
       },
       ...crumbs.map((crumb, index) => ({
         '@type': 'ListItem',
@@ -122,8 +133,8 @@ const Breadcrumb = ({ pathname }: { pathname?: string } = {}) => {
       />
       <ol className="flex flex-wrap items-center text-muted-foreground">
         <li className="flex items-center">
-          <Link href="/" className="text-primary hover:underline">
-            Strona główna
+          <Link href={locale ? `/${locale}` : '/'} className="text-primary hover:underline">
+            {locale ? `Start ${locale.toUpperCase()}` : 'Strona główna'}
           </Link>
           <ChevronRight className="w-4 h-4 mx-2 text-muted-foreground" />
         </li>

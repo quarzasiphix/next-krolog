@@ -1,14 +1,13 @@
-'use client';
+'use client'
 
-import React from 'react';
-import Link from 'next/link';
-import { Phone, Mail, MapPin, Clock, Heart, Cross, ExternalLink } from 'lucide-react';
-import { IMAGES } from '../assets/images';
+import React from 'react'
+import Link from 'next/link'
+import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-  const facebookUrl = "https://www.facebook.com/people/Zak%C5%82ad-pogrzebowyNekrolog-Jolanta-Kostowska/100092232063111/";
-  const googleBusinessUrl = "https://g.co/kgs/bjTq537";
+  const currentYear = new Date().getFullYear()
+  const facebookUrl = 'https://www.facebook.com/people/Zak%C5%82ad-pogrzebowyNekrolog-Jolanta-Kostowska/100092232063111/'
+  const googleBusinessUrl = 'https://g.co/kgs/bjTq537'
 
   return (
     <footer className="bg-black text-white border-t border-white/10" data-nosnippet>
@@ -23,7 +22,8 @@ const Footer = () => {
               </div>
             </Link>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              Kompleksowe usługi pogrzebowe z pełnym wsparciem dla rodziny w trudnych chwilach. Zapewniamy profesjonalną i godną oprawę ceremonii.
+              Kompleksowe usługi pogrzebowe z pełnym wsparciem dla rodziny w trudnych chwilach. Zapewniamy profesjonalną
+              i godną oprawę ceremonii, transport krajowy i międzynarodowy oraz pomoc przy sprowadzeniu zmarłych z zagranicy.
             </p>
             <div className="flex space-x-4">
               <a
@@ -34,7 +34,7 @@ const Footer = () => {
                 aria-label="Facebook"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                 </svg>
               </a>
               <a
@@ -48,7 +48,7 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          
+
           <div>
             <h3 className="text-xl font-playfair font-medium mb-6 text-white">Kontakt</h3>
             <ul className="space-y-4">
@@ -58,15 +58,15 @@ const Footer = () => {
               </li>
               <li className="flex items-start">
                 <Phone className="w-5 h-5 mr-3 text-primary flex-shrink-0 mt-1" />
-                <span className="text-gray-300">+48 602 274 661 (całodobowo)</span>
+                <a href="tel:+48602274661" data-phone-location="footer_primary" className="text-gray-300 hover:text-primary transition-colors">+48 602 274 661 (calodobowo)</a>
               </li>
               <li className="flex items-start">
                 <Phone className="w-5 h-5 mr-3 text-primary/70 flex-shrink-0 mt-1" />
-                <span className="text-gray-300">+48 602 270 050</span>
+                <a href="tel:+48602270050" data-phone-location="footer_international" className="text-gray-300 hover:text-primary transition-colors">+48 602 270 050 (transport miedzynarodowy 24/7)</a>
               </li>
               <li className="flex items-start">
                 <Mail className="w-5 h-5 mr-3 text-primary flex-shrink-0 mt-1" />
-                <span className="text-gray-300">kontakt@nekrolog-lodz.com</span>
+                <a href="mailto:kontakt@nekrolog-lodz.com" className="text-gray-300 hover:text-primary transition-colors">kontakt@nekrolog-lodz.com</a>
               </li>
               <li className="flex items-start">
                 <Clock className="w-5 h-5 mr-3 text-primary flex-shrink-0 mt-1" />
@@ -74,7 +74,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          
+
           <div>
             <h3 className="text-xl font-playfair font-medium mb-6 text-white">Nawigacja</h3>
             <ul className="space-y-3">
@@ -96,6 +96,26 @@ const Footer = () => {
               <li>
                 <Link href="/uslugi-pogrzebowe-lodz" className="inline-block text-gray-300 hover:text-primary transition-colors">
                   Usługi Pogrzebowe
+                </Link>
+              </li>
+              <li>
+                <Link href="/uslugi/sprowadzenie-zwlok-z-zagranicy" className="inline-block text-gray-300 hover:text-primary transition-colors">
+                  Sprowadzenie zwłok z zagranicy
+                </Link>
+              </li>
+              <li>
+                <Link href="/pl/uslugi/miedzynarodowy-transport-zwlok" className="inline-block text-gray-300 hover:text-primary transition-colors">
+                  Międzynarodowy transport do Polski
+                </Link>
+              </li>
+              <li>
+                <Link href="/pl/kraje/niemcy" className="inline-block text-gray-300 hover:text-primary transition-colors">
+                  Niemcy - Polska
+                </Link>
+              </li>
+              <li>
+                <Link href="/pl/trasy/transport-zwlok-z-monachium-do-polski" className="inline-block text-gray-300 hover:text-primary transition-colors">
+                  Monachium - Polska
                 </Link>
               </li>
               <li>
@@ -138,7 +158,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="border-t border-white/10 mt-12 pt-8 text-center">
           <p className="text-gray-500 text-sm flex items-center justify-center">
             &copy; {currentYear} Nekrolog Łódź - Usługi Pogrzebowe Jolanta Kostowska. Wszelkie prawa zastrzeżone.
@@ -146,7 +166,10 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
+
+
+

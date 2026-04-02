@@ -7,21 +7,32 @@ export interface SitemapEntry {
 }
 
 // Build timestamp for static pages
-const BUILD_TIMESTAMP = new Date('2026-02-27T12:00:00Z') // Update this when you deploy major changes
+const BUILD_TIMESTAMP = new Date('2026-03-30T12:00:00Z') // Update this when you deploy major changes
 
 // Content last modified dates (update when content changes)
 const CONTENT_LAST_MODIFIED = {
   // Homepage and core pages
-  homepage: '2026-02-27T12:00:00Z',
+  homepage: '2026-03-30T12:00:00Z',
   about: '2025-01-10T15:30:00Z',
   contact: '2025-01-12T09:00:00Z',
 
   // Service pages
   services: {
-    main: '2025-01-08T14:00:00Z',
+    main: '2026-03-30T12:00:00Z',
     organizacja: '2025-01-08T14:00:00Z',
     oprawa: '2025-01-08T14:00:00Z',
-    transport: '2025-01-08T14:00:00Z',
+    transport: '2026-03-30T12:00:00Z',
+    sprowadzenie: '2026-03-29T12:00:00Z',
+    niemcy: '2026-03-29T12:00:00Z',
+    uk: '2026-03-29T12:00:00Z',
+    irlandii: '2026-03-29T12:00:00Z',
+    holandii: '2026-03-29T12:00:00Z',
+    skandynawii: '2026-03-29T12:00:00Z',
+    norwegii: '2026-03-29T12:00:00Z',
+    szwajcarii: '2026-03-29T12:00:00Z',
+    belgii: '2026-03-29T12:00:00Z',
+    francji: '2026-03-29T12:00:00Z',
+    austrii: '2026-03-29T12:00:00Z',
     krematorium: '2025-01-08T14:00:00Z',
     ekshumacja: '2025-01-08T14:00:00Z',
   },

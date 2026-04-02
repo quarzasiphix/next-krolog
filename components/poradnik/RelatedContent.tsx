@@ -32,6 +32,11 @@ const RelatedContent = ({
       description: 'Całodobowy transport zmarłych na terenie Łodzi i okolic'
     },
     {
+      title: 'Sprowadzenie Zwłok z Zagranicy',
+      href: '/uslugi/sprowadzenie-zwlok-z-zagranicy',
+      description: 'Transport zmarłych do Polski z krajów UE, UK i spoza UE'
+    },
+    {
       title: 'Kremacja',
       href: '/uslugi/krematorium-lodz',
       description: 'Profesjonalne usługi kremacyjne z godnym podejściem'

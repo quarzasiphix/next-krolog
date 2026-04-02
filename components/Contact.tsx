@@ -1,20 +1,20 @@
-'use client';
+'use client'
 
-import React, { useEffect, useRef, useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, User } from 'lucide-react';
+import React, { useEffect, useMemo, useRef, useState } from 'react'
+import { MapPin, Phone, Mail, Clock, Send, User } from 'lucide-react'
 
 const ContactCard = ({
   icon,
   title,
   children,
-  delay
+  delay,
 }: {
-  icon: React.ReactNode;
-  title: string;
-  children: React.ReactNode;
-  delay: number;
+  icon: React.ReactNode
+  title: string
+  children: React.ReactNode
+  delay: number
 }) => {
-  const cardRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -22,156 +22,161 @@ const ContactCard = ({
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setTimeout(() => {
-              entry.target.classList.add('opacity-100', 'translate-y-0');
-              entry.target.classList.remove('opacity-0', 'translate-y-10');
-            }, delay * 0.5);
-            observer.unobserve(entry.target);
+              entry.target.classList.add('opacity-100', 'translate-y-0')
+              entry.target.classList.remove('opacity-0', 'translate-y-10')
+            }, delay * 0.5)
+            observer.unobserve(entry.target)
           }
-        });
+        })
       },
-      { threshold: 0.1, rootMargin: "0px 0px -5% 0px" }
-    );
+      { threshold: 0.1, rootMargin: '0px 0px -5% 0px' }
+    )
 
     if (cardRef.current) {
-      observer.observe(cardRef.current);
+      observer.observe(cardRef.current)
     }
 
     return () => {
       if (cardRef.current) {
-        observer.unobserve(cardRef.current);
+        observer.unobserve(cardRef.current)
       }
-    };
-  }, [delay]);
+    }
+  }, [delay])
 
   return (
-    <div
-      ref={cardRef}
-      className="glass-card p-8 rounded-lg flex flex-col opacity-100 translate-y-0 transition-all duration-200 h-full"
-    >
+    <div ref={cardRef} className="glass-card p-8 rounded-lg flex flex-col opacity-100 translate-y-0 transition-all duration-200 h-full">
       <div className="flex items-start gap-3 mb-6">
-        <div className="text-primary/60 mt-1">
-          {icon}
-        </div>
+        <div className="text-primary/60 mt-1">{icon}</div>
         <h3 className="text-lg font-playfair text-white">{title}</h3>
       </div>
-      <div className="text-gray-400 leading-relaxed text-sm">
-        {children}
-      </div>
+      <div className="text-gray-400 leading-relaxed text-sm">{children}</div>
     </div>
-  );
-};
+  )
+}
 
 const Contact = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [message, setMessage] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [message, setMessage] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitSuccess, setSubmitSuccess] = useState(false)
 
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('opacity-100', 'translate-y-0');
-            entry.target.classList.remove('opacity-0', 'translate-y-10');
-            observer.unobserve(entry.target);
+            entry.target.classList.add('opacity-100', 'translate-y-0')
+            entry.target.classList.remove('opacity-0', 'translate-y-10')
+            observer.unobserve(entry.target)
           }
-        });
+        })
       },
-      { threshold: 0.1, rootMargin: "0px 0px -5% 0px" }
-    );
+      { threshold: 0.1, rootMargin: '0px 0px -5% 0px' }
+    )
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+      observer.observe(sectionRef.current)
     }
 
     return () => {
       if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+        observer.unobserve(sectionRef.current)
       }
-    };
-  }, []);
+    }
+  }, [])
+
+  const emailHref = useMemo(() => {
+    const subject = encodeURIComponent(`Kontakt ze strony nekrolog-lodz.com - ${name || 'nowe zgloszenie'}`)
+    const body = encodeURIComponent(
+      [
+        `Imie i nazwisko: ${name}`,
+        `Email: ${email}`,
+        `Telefon: ${phone}`,
+        '',
+        'Wiadomosc:',
+        message,
+      ].join('\n')
+    )
+
+    return `mailto:kontakt@nekrolog-lodz.com?subject=${subject}&body=${body}`
+  }, [name, email, phone, message])
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitSuccess(true);
-      setName('');
-      setEmail('');
-      setPhone('');
-      setMessage('');
-
-      setTimeout(() => {
-        setSubmitSuccess(false);
-      }, 5000);
-    }, 1500);
-  };
+    e.preventDefault()
+    setIsSubmitting(true)
+    window.location.href = emailHref
+    setIsSubmitting(false)
+    setSubmitSuccess(true)
+  }
 
   return (
     <section id="contact" className="py-12 bg-gradient-to-b from-black/90 to-black/80">
       <div className="section-container">
-        <div
-          ref={sectionRef}
-          className="opacity-100 translate-y-0 transition-all duration-300 text-center mb-16"
-        >
+        <div ref={sectionRef} className="opacity-100 translate-y-0 transition-all duration-300 text-center mb-16">
           <h1 className="section-title">Kontakt</h1>
-          <p className="section-subtitle">
-            Jesteśmy dostępni całodobowo
-          </p>
+          <p className="section-subtitle">Jestesmy dostepni calodobowo</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <ContactCard
-            icon={<MapPin className="w-6 h-6 text-primary" />}
-            title="Adres"
-            delay={20}
-          >
-            <p className="mb-1">Legionów 48</p>
-            <p className="mb-3">90-702 Łódź</p>
-            <a href="https://maps.app.goo.gl/96nCspWXwt5VYqkp6" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-400 transition-colors duration-180">Zobacz na mapie</a>
+          <ContactCard icon={<MapPin className="w-6 h-6 text-primary" />} title="Adres" delay={20}>
+            <p className="mb-1">Legionow 48</p>
+            <p className="mb-3">90-702 Lodz</p>
+            <a href="https://maps.app.goo.gl/96nCspWXwt5VYqkp6" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-400 transition-colors duration-180">
+              Zobacz na mapie
+            </a>
           </ContactCard>
 
-          <ContactCard
-            icon={<Phone className="w-6 h-6 text-primary" />}
-            title="Telefon"
-            delay={40}
-          >
-            <a href="tel:+48602274661" className="text-white hover:text-gray-300 transition-colors duration-180 mb-2 block">+48 602 274 661</a>
-            <a href="tel:+48602270050" className="text-gray-500 hover:text-gray-400 transition-colors duration-180 block">+48 602 270 050</a>
+          <ContactCard icon={<Phone className="w-6 h-6 text-primary" />} title="Telefon" delay={40}>
+            <a href="tel:+48602274661" data-phone-location="contact_primary" className="text-white hover:text-gray-300 transition-colors duration-180 mb-2 block">
+              +48 602 274 661
+            </a>
+            <a href="tel:+48602270050" data-phone-location="contact_international" className="text-gray-300 hover:text-primary transition-colors duration-180 block">
+              +48 602 270 050
+            </a>
           </ContactCard>
 
-          <ContactCard
-            icon={<Clock className="w-6 h-6 text-primary" />}
-            title="Godziny otwarcia"
-            delay={60}
-          >
-            <p className="mb-2">Pon–Pt: 8:00–16:00</p>
-            <p className="mb-3">Sobota: 9:00–13:00</p>
-            <p className="text-gray-500">Telefon: całodobowo</p>
+          <ContactCard icon={<Clock className="w-6 h-6 text-primary" />} title="Godziny otwarcia" delay={60}>
+            <p className="mb-2">Pon-Pt: 8:00-16:00</p>
+            <p className="mb-3">Sobota: 9:00-13:00</p>
+            <p className="text-gray-500">Telefon: calodobowo</p>
           </ContactCard>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="glass-card p-8 rounded-xl">
-            <h3 className="text-2xl font-playfair font-medium mb-6 text-white">Wyślij wiadomość</h3>
+            <h3 className="text-2xl font-playfair font-medium mb-6 text-white">Wyslij wiadomosc</h3>
+
+            <div className="mb-6 rounded-lg border border-primary/20 bg-primary/10 p-4 text-left">
+              <p className="text-sm font-medium text-white">Pilny transport lub sprowadzenie zmarlego do Polski</p>
+              <p className="mt-2 text-sm text-gray-300">
+                Jesli sprawa dotyczy pilnego transportu krajowego albo miedzynarodowego, najlepiej od razu zadzwonic lub napisac na WhatsApp. To bedzie szybsze niz sam formularz.
+              </p>
+              <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+                <a href="tel:+48602270050" data-phone-location="contact_urgent_transport" className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-3 font-medium text-black hover:bg-primary/90 transition-colors">
+                  +48 602 270 050
+                </a>
+                <a href="https://wa.me/48602270050" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-md border border-white/10 px-4 py-3 font-medium text-white hover:border-primary/40 hover:text-primary transition-colors">
+                  WhatsApp
+                </a>
+              </div>
+            </div>
 
             {submitSuccess ? (
               <div className="bg-green-900/20 border border-green-500/30 p-4 rounded-md text-white">
-                <p className="font-medium">Dziękujemy za wiadomość!</p>
-                <p className="text-gray-300 text-sm mt-1">Skontaktujemy się z Państwem w najkrótszym możliwym czasie.</p>
+                <p className="font-medium">Otworzylismy szkic wiadomosci.</p>
+                <p className="text-gray-300 text-sm mt-1">
+                  Jesli program pocztowy sie nie uruchomil, zadzwon albo napisz na WhatsApp. W pilnych sprawach telefon bedzie najszybszy.
+                </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
                 <div className="space-y-4">
                   <div>
-                    <label htmlFor="name" className="block text-gray-300 mb-1">Imię i nazwisko</label>
+                    <label htmlFor="name" className="block text-gray-300 mb-1">Imie i nazwisko</label>
                     <div className="relative">
                       <span className="absolute left-3 top-3 text-gray-400">
                         <User className="w-5 h-5" />
@@ -180,7 +185,7 @@ const Contact = () => {
                         id="name"
                         type="text"
                         value={name}
-                        onChange={e => setName(e.target.value)}
+                        onChange={(e) => setName(e.target.value)}
                         className="w-full bg-black/50 border border-white/10 rounded-md py-2 pl-10 pr-3 text-white focus:outline-none focus:border-primary/60"
                         required
                       />
@@ -194,7 +199,7 @@ const Contact = () => {
                         id="email"
                         type="email"
                         value={email}
-                        onChange={e => setEmail(e.target.value)}
+                        onChange={(e) => setEmail(e.target.value)}
                         className="w-full bg-black/50 border border-white/10 rounded-md py-2 px-3 text-white focus:outline-none focus:border-primary/60"
                         required
                       />
@@ -205,18 +210,18 @@ const Contact = () => {
                         id="phone"
                         type="tel"
                         value={phone}
-                        onChange={e => setPhone(e.target.value)}
+                        onChange={(e) => setPhone(e.target.value)}
                         className="w-full bg-black/50 border border-white/10 rounded-md py-2 px-3 text-white focus:outline-none focus:border-primary/60"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-gray-300 mb-1">Wiadomość</label>
+                    <label htmlFor="message" className="block text-gray-300 mb-1">Wiadomosc</label>
                     <textarea
                       id="message"
                       value={message}
-                      onChange={e => setMessage(e.target.value)}
+                      onChange={(e) => setMessage(e.target.value)}
                       className="w-full bg-black/50 border border-white/10 rounded-md py-2 px-3 text-white h-32 focus:outline-none focus:border-primary/60"
                       required
                     ></textarea>
@@ -230,12 +235,12 @@ const Contact = () => {
                     {isSubmitting ? (
                       <>
                         <span className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin"></span>
-                        <span>Wysyłanie...</span>
+                        <span>Otwieranie...</span>
                       </>
                     ) : (
                       <>
                         <Send className="w-5 h-5" />
-                        <span>Wyślij wiadomość</span>
+                        <span>Otworz szkic wiadomosci</span>
                       </>
                     )}
                   </button>
@@ -249,16 +254,16 @@ const Contact = () => {
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2466.6458763215776!2d19.4554974!3d51.7776945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471a3497f9d406e7%3A0xb1c0f5dea0a8dd17!2sLegion%C3%B3w%2048%2C%2090-702%20%C5%81%C3%B3d%C5%BA%2C%20Polska!5e0!3m2!1spl!2spl!4v1625672582341!5m2!1spl!2spl"
               width="100%"
               height="100%"
-              style={{ border: 0, minHeight: "400px" }}
+              style={{ border: 0, minHeight: '400px' }}
               allowFullScreen
               loading="lazy"
-              title="Google Maps - Nekrolog Łódź"
+              title="Google Maps - Nekrolog Lodz"
             ></iframe>
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact

@@ -5,6 +5,11 @@ import ClientShell from '@/components/ClientShell'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://nekrolog-lodz.com'),
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
+  },
   title: {
     default: 'Nekrolog Łódź - Zakład Pogrzebowy w Łodzi | Jolanta Kostowska',
     template: '%s | Zakład Pogrzebowy Łódź'
@@ -46,18 +51,29 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode
+  params?: Promise<{ locale?: string }>
 }) {
+  const resolvedParams = params ? await params : undefined
+  const localeLangScript = `
+    (function () {
+      var localeMap = { pl: 'pl', en: 'en', de: 'de', fr: 'fr', nl: 'nl', it: 'it' };
+      var firstSegment = window.location.pathname.split('/').filter(Boolean)[0];
+      document.documentElement.lang = localeMap[firstSegment] || 'pl';
+    })();
+  `
   return (
-    <html lang="pl" suppressHydrationWarning>
+    <html lang={resolvedParams?.locale || 'pl'} suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://maps.googleapis.com" />
         <link rel="dns-prefetch" href="https://maps.app.goo.gl" />
+        <script dangerouslySetInnerHTML={{ __html: localeLangScript }} />
       </head>
       <body>
         <Providers>

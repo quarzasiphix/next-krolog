@@ -2,6 +2,9 @@
 
 # dependencies
 /node_modules
+/.deps-fresh/
+/.deps-repair/
+/.npm-cache-local/
 /.pnp
 .pnp.js
 .yarn/install-state.gz

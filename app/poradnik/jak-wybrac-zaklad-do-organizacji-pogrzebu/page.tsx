@@ -473,10 +473,10 @@ export default function WyborZakladuPage() {
                     </div>
                     
                     <div className="bg-primary/10 border border-primary/30 rounded-lg p-4">
-                      <h3 className="text-lg font-medium text-white mb-2">Ponad 20 Lat Doświadczenia</h3>
+                      <h3 className="text-lg font-medium text-white mb-2">Ponad 30 Lat Doświadczenia</h3>
                       <p className="text-gray-300">
-                        Działamy w Łodzi od ponad 20 lat. Zorganizowaliśmy setki pogrzebów, zawsze z pełnym 
-                        profesjonalizmem i szacunkiem dla zmarłego i jego rodziny.
+                        Działamy w Łodzi jako firma rodzinna od ponad 30 lat. Zorganizowaliśmy setki pogrzebów, zawsze z pełnym 
+                        profesjonalizmem, szacunkiem dla zmarłego i uczciwym podejściem do kosztów.
                       </p>
                     </div>
                   </div>
@@ -551,7 +551,7 @@ export default function WyborZakladuPage() {
                   Zadzwoń: +48 602 274 661
                 </a>
                 <p className="text-sm text-gray-400 mt-6">
-                  Dostępni całodobowo • Ponad 20 lat doświadczenia
+                  Dostępni całodobowo • Ponad 30 lat doświadczenia
                 </p>
               </CardContent>
             </Card>

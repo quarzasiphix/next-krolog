@@ -83,7 +83,7 @@ const About = () => {
                 <div className="w-16 h-[1px] bg-primary/30 mx-auto mb-4"></div>
                 
                 <p className="text-gray-400 text-sm leading-relaxed max-w-[250px] mx-auto">
-                  Profesjonalny zakład pogrzebowy z ponad 20-letnim doświadczeniem
+                  Rodzinna firma pogrzebowa z ponad 30-letnim doświadczeniem
                 </p>
               </div>
             </div>
@@ -101,12 +101,11 @@ const About = () => {
               Zajmujemy się formalnościami, koordynacją i oprawą, aby rodzina mogła skupić się na pożegnaniu.
             </p>
             <p className="text-gray-400 leading-relaxed mb-6">
-              Działamy od ponad 20 lat. Znamy procedury, rozumiemy emocje, szanujemy tradycję.
-              Każda rodzina otrzymuje pełną uwagę i indywidualne podejście.
+              Jako ponad 30-letnia firma rodzinna znamy procedury, rozumiemy emocje i szanujemy tradycję.
+              Każda rodzina otrzymuje pełną uwagę, indywidualne podejście i uczciwie skalkulowaną ofertę.
             </p>
             <p className="text-gray-500 leading-relaxed text-sm">
-              Jesteśmy dostępni całodobowo. Nie spieszymy, nie naciskamy, nie sprzedajemy.
-              Prowadzimy.
+              Jesteśmy dostępni całodobowo. Najważniejsza jest dla nas pomoc rodzinie zmarłego, dlatego dbamy o spokojne prowadzenie spraw i konkurencyjne ceny bez niepotrzebnego zawyżania kosztów.
             </p>
           </div>
         </div>

@@ -1,45 +1,46 @@
-'use client';
+'use client'
 
-import React, { useEffect, useRef } from 'react';
-import Link from 'next/link';
+import React, { useEffect, useRef } from 'react'
+import Link from 'next/link'
 
 const ServicesTable = () => {
-  const tableRef = useRef<HTMLDivElement>(null);
+  const tableRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('opacity-100', 'translate-y-0');
-            entry.target.classList.remove('opacity-0', 'translate-y-10');
-            observer.unobserve(entry.target);
+            entry.target.classList.add('opacity-100', 'translate-y-0')
+            entry.target.classList.remove('opacity-0', 'translate-y-10')
+            observer.unobserve(entry.target)
           }
-        });
+        })
       },
       { threshold: 0.1, rootMargin: '0px 0px -5% 0px' }
-    );
+    )
 
     if (tableRef.current) {
-      observer.observe(tableRef.current);
+      observer.observe(tableRef.current)
     }
 
     return () => {
       if (tableRef.current) {
-        observer.unobserve(tableRef.current);
+        observer.unobserve(tableRef.current)
       }
-    };
-  }, []);
+    }
+  }, [])
 
   const tableData = [
     { service: 'Organizacja Pogrzebu', description: 'Kompleksowa organizacja ceremonii pogrzebowej z dopełnieniem formalności', link: '/uslugi/organizacja-pogrzebow-lodz' },
     { service: 'Kremacja', description: 'Przeprowadzenie kremacji w nowoczesnym krematorium', link: '/uslugi/krematorium-lodz' },
     { service: 'Ekshumacja', description: 'Procedura ekshumacji zgodna z obowiązującymi normami', link: '/uslugi/ekshumacja-lodz' },
     { service: 'Transport Zmarłych', description: 'Bezpieczny przewóz ciał, trumien i urn na terenie Polski i Europy', link: '/uslugi/transport-zmarlych-lodz' },
+    { service: 'Sprowadzenie Zwłok z Zagranicy', description: 'Transport do Polski z krajów UE, UK, Skandynawii oraz innych państw, także dla partnerów branżowych, z uczciwą wyceną i sprawną pomocą rodzinie', link: '/uslugi/sprowadzenie-zwlok-z-zagranicy' },
     { service: 'Oprawa Muzyczna', description: 'Zapewnienie oprawy muzycznej idealnie dopasowanej do ceremonii', link: '/uslugi/oprawa-muzyczna-lodz' },
     { service: 'Trumny, Urny, Wiązanki', description: 'Wysokiej jakości produkty pogrzebowe, w tym trumny i urny', link: '/asortyment/trumny-lodz' },
     { service: 'Wieńce Pogrzebowe', description: 'Tradycyjne wieńce, symboliczne wyrazy szacunku dla zmarłego', link: '/asortyment/wience-lodz' },
-  ];
+  ]
 
   return (
     <section className="py-10 bg-black">
@@ -49,6 +50,9 @@ const ServicesTable = () => {
           className="opacity-100 translate-y-0 transition-all duration-300"
         >
           <h2 className="section-title text-center mb-8">Podsumowanie Usług i Produktów</h2>
+          <p className="mx-auto mb-8 max-w-3xl text-center text-gray-300">
+            Jako rodzinna firma z ponad 30-letnim doświadczeniem stawiamy na spokojne prowadzenie spraw, konkurencyjne ceny i realną pomoc rodzinie od pierwszego telefonu.
+          </p>
           <div className="overflow-x-auto glass-card rounded-xl p-4">
             <table className="min-w-full divide-y divide-primary/20">
               <thead className="bg-white/5">
@@ -82,7 +86,7 @@ const ServicesTable = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default ServicesTable;
+export default ServicesTable

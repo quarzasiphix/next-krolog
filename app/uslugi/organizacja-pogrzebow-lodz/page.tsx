@@ -189,7 +189,7 @@ export default function OrganizacjaPogrzebowPage() {
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-primary mt-1" />
-                  <span>Ponad 20 lat doświadczenia w branży pogrzebowej.</span>
+                  <span>Ponad 30 lat doświadczenia rodzinnej firmy w branży pogrzebowej.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-primary mt-1" />

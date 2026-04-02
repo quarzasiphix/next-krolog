@@ -389,7 +389,7 @@ export default function PogrzebBezZaliczkiPage() {
                 <div className="grid md:grid-cols-3 gap-6 text-left mt-8 pt-8 border-t border-primary/20">
                   <div>
                     <h3 className="text-white font-medium mb-2">Doświadczenie</h3>
-                    <p className="text-gray-300 text-sm">Ponad 20 lat w branży pogrzebowej</p>
+                    <p className="text-gray-300 text-sm">Ponad 30 lat rodzinnego doświadczenia w branży pogrzebowej</p>
                   </div>
                   <div>
                     <h3 className="text-white font-medium mb-2">Zaufanie</h3>

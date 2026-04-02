@@ -6,9 +6,9 @@ import { Card, CardContent } from '@/components/ui/card'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Zakład Pogrzebowy Łódź • Nekrolog Łódź | 20+ Lat Doświadczenia',
+  title: 'Zakład Pogrzebowy Łódź • Nekrolog Łódź | Rodzinna Firma 30+ Lat',
   description:
-    'Profesjonalny zakład pogrzebowy Łódź - Nekrolog Łódź. Kompleksowe usługi pogrzebowe, organizacja ceremonii, kremacja, transport 24/7. Doświadczenie od ponad 20 lat. Tel: +48 602 274 661.',
+    'Profesjonalny zakład pogrzebowy Łódź - Nekrolog Łódź. Rodzinna firma z ponad 30-letnim doświadczeniem, kompleksowe usługi pogrzebowe, konkurencyjne ceny, kremacja i transport 24/7. Tel: +48 602 274 661.',
   keywords: [
     'zakład pogrzebowy łódź',
     'zaklad pogrzebowy lodz',
@@ -71,8 +71,8 @@ export default function ZakladPogrzebowyPage() {
   const whyChooseUs = [
     {
       icon: Award,
-      title: 'Ponad 20 lat doświadczenia',
-      description: 'Wieloletnie doświadczenie w organizacji ceremonii pogrzebowych w Łodzi',
+      title: 'Ponad 30 lat doświadczenia',
+      description: 'Wieloletnie doświadczenie rodzinnej firmy w organizacji ceremonii pogrzebowych w Łodzi',
     },
     {
       icon: Heart,
@@ -115,18 +115,18 @@ export default function ZakladPogrzebowyPage() {
             </h1>
             <div className="w-24 h-1 bg-primary mx-auto mb-8" />
             <p className="text-xl md:text-2xl text-gray-200 mb-6 leading-relaxed">
-              Zakład Pogrzebowy Nekrolog Łódź to profesjonalny zakład pogrzebowy w Łodzi z ponad 20-letnim doświadczeniem.
+              Zakład Pogrzebowy Nekrolog Łódź to profesjonalna, rodzinna firma z Łodzi z ponad 30-letnim doświadczeniem.
               Oferujemy kompleksowe usługi pogrzebowe, organizację ceremonii, kremację i transport 24/7.
             </p>
             <p className="text-lg text-gray-300 mb-8">
-              Jako rzetelny zakład pogrzebowy w Łodzi, zapewniamy wsparcie w formalnościach i pełną opiekę w trudnych chwilach.
+              Jako rzetelny zakład pogrzebowy w Łodzi, zapewniamy wsparcie w formalnościach, pełną opiekę w trudnych chwilach i uczciwe, konkurencyjne ceny.
             </p>
             <p className="text-base text-gray-400 mb-8">
               Jeśli szukasz także fraz bez polskich znaków: <strong className="text-white">zaklad pogrzebowy lodz</strong> lub <strong className="text-white">nekrolog lodz</strong>,
               jesteś we właściwym miejscu.
             </p>
             <p className="text-lg text-gray-300 mb-8">
-              Prowadzony przez Jolantę Kostowską • Doświadczenie od ponad 20 lat
+              Prowadzony przez Jolantę Kostowską • Rodzinna firma z ponad 30-letnim doświadczeniem
             </p>
             <div className="bg-black/40 border border-white/10 rounded-lg p-5 mb-8 text-left">
               <p className="text-white font-medium mb-2">Szybka odpowiedź</p>

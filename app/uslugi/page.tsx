@@ -6,27 +6,29 @@ import { generateCanonicalMetadata } from '@/lib/canonical'
 import ServiceSchema from '@/components/structured-data/ServiceSchema'
 import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema'
 import FAQSchema from '@/components/structured-data/FAQSchema'
-import { 
-  FileText, 
-  Music, 
-  Truck, 
-  Flame, 
-  Archive, 
+import {
+  FileText,
+  Music,
+  Truck,
+  Flame,
+  Archive,
   Package,
-  ArrowRight 
+  ArrowRight,
 } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Usługi Pogrzebowe Łódź | Zakład Pogrzebowy Nekrolog',
-  description: 'Kompleksowe usługi pogrzebowe w Łodzi. Organizacja pogrzebu, transport zmarłych, kremacja, oprawa muzyczna, ekshumacja. Profesjonalna pomoc 24/7.',
+  description:
+    'Kompleksowe usługi pogrzebowe w Łodzi. Organizacja pogrzebu, transport zmarłych, sprowadzenie zwłok z zagranicy, kremacja, oprawa muzyczna i ekshumacja. Profesjonalna pomoc 24/7.',
   keywords: [
     'usługi pogrzebowe łódź',
     'zakład pogrzebowy łódź',
     'organizacja pogrzebu łódź',
     'transport zmarłych łódź',
+    'sprowadzenie zwłok z zagranicy',
     'kremacja łódź',
     'oprawa muzyczna łódź',
-    'ekshumacja łódź'
+    'ekshumacja łódź',
   ],
   ...generateCanonicalMetadata('/uslugi'),
 }
@@ -34,44 +36,57 @@ export const metadata: Metadata = {
 const services = [
   {
     title: 'Organizacja Pogrzebu',
-    description: 'Kompleksowa organizacja ceremonii pogrzebowej od A do Z. Pomoc w formalnościach, koordynacja wszystkich elementów uroczystości.',
+    description:
+      'Kompleksowa organizacja ceremonii pogrzebowej od A do Z. Pomoc w formalnościach, koordynacja wszystkich elementów uroczystości.',
     href: '/uslugi/organizacja-pogrzebow-lodz',
     icon: FileText,
-    features: ['Pomoc w formalnościach', 'Koordynacja ceremonii', 'Kontakt z urzędami', 'Wsparcie rodzinie']
+    features: ['Pomoc w formalnościach', 'Koordynacja ceremonii', 'Kontakt z urzędami', 'Wsparcie rodzinie'],
   },
   {
     title: 'Transport Zmarłych',
-    description: 'Całodobowy transport zmarłych na terenie Łodzi i całej Polski. Nowoczesne karawany z odpowiednim wyposażeniem.',
+    description:
+      'Całodobowy transport zmarłych na terenie Łodzi i całej Polski. Nowoczesne karawany z odpowiednim wyposażeniem.',
     href: '/uslugi/transport-zmarlych-lodz',
     icon: Truck,
-    features: ['Transport 24/7', 'Nowoczesne karawany', 'Transport krajowy', 'Transport międzynarodowy']
+    features: ['Transport 24/7', 'Nowoczesne karawany', 'Transport krajowy', 'Transport międzynarodowy'],
+  },
+  {
+    title: 'Sprowadzenie Zwłok z Zagranicy',
+    description:
+      'Obsługa transportu z krajów UE, Wielkiej Brytanii, Skandynawii i państw spoza UE. Pomoc dla rodzin oraz partnerów branżowych.',
+    href: '/uslugi/sprowadzenie-zwlok-z-zagranicy',
+    icon: Package,
+    features: ['UE i poza UE', 'Dokumenty i tłumaczenia', 'Lotniczo lub drogowo', 'Wsparcie dla innych zakładów'],
   },
   {
     title: 'Kremacja',
-    description: 'Profesjonalne usługi kremacyjne z godnym podejściem. Pomoc w wyborze urny i organizacji ceremonii.',
+    description:
+      'Profesjonalne usługi kremacyjne z godnym podejściem. Pomoc w wyborze urny i organizacji ceremonii.',
     href: '/uslugi/krematorium-lodz',
     icon: Flame,
-    features: ['Nowoczesne krematorium', 'Pomoc w wyborze urny', 'Ceremonie kremacyjne', 'Dokumentacja']
+    features: ['Nowoczesne krematorium', 'Pomoc w wyborze urny', 'Ceremonie kremacyjne', 'Dokumentacja'],
   },
   {
     title: 'Oprawa Muzyczna',
-    description: 'Elegancka oprawa muzyczna ceremonii pogrzebowych. Trębacze, organiści i zespoły muzyczne.',
+    description:
+      'Elegancka oprawa muzyczna ceremonii pogrzebowych. Trębacze, organiści i zespoły muzyczne.',
     href: '/uslugi/oprawa-muzyczna-lodz',
     icon: Music,
-    features: ['Trębacze', 'Organiści', 'Zespoły muzyczne', 'Repertuar żałobny']
+    features: ['Trębacze', 'Organiści', 'Zespoły muzyczne', 'Repertuar żałobny'],
   },
   {
     title: 'Ekshumacja',
-    description: 'Profesjonalne przeprowadzanie ekshumacji z zachowaniem wszystkich procedur i wymogów prawnych.',
+    description:
+      'Profesjonalne przeprowadzanie ekshumacji z zachowaniem wszystkich procedur i wymogów prawnych.',
     href: '/uslugi/ekshumacja-lodz',
     icon: Archive,
-    features: ['Zgodnie z prawem', 'Wszystkie pozwolenia', 'Koordynacja z cmentarzem', 'Transport']
-  }
+    features: ['Zgodnie z prawem', 'Wszystkie pozwolenia', 'Koordynacja z cmentarzem', 'Transport'],
+  },
 ]
 
 const breadcrumbs = [
   { name: 'Strona Główna', url: '/' },
-  { name: 'Usługi Pogrzebowe', url: '/uslugi' }
+  { name: 'Usługi Pogrzebowe', url: '/uslugi' },
 ]
 
 const faqData = [
@@ -86,9 +101,9 @@ const faqData = [
       'Tak. Pomagamy w kompletowaniu dokumentów, kontakcie z urzędami i administracją cmentarza.',
   },
   {
-    question: 'Jak szybko można uzyskać pomoc?',
+    question: 'Czy zajmujecie się także sprowadzeniem zmarłych z zagranicy?',
     answer:
-      'Jesteśmy dostępni całodobowo. Po kontakcie telefonicznym od razu ustalamy kolejne kroki i organizację pomocy.',
+      'Tak. Organizujemy transport do Polski z krajów UE, Wielkiej Brytanii, Skandynawii i innych państw, a także pośredniczymy dla innych zakładów oraz instytucji.',
   },
 ]
 
@@ -118,14 +133,14 @@ export default function UslugiPage() {
       <FAQSchema faqs={faqData} />
       <ServiceSchema
         serviceName="Usługi Pogrzebowe"
-        description="Kompleksowe usługi pogrzebowe w Łodzi obejmujące organizację pogrzebu, transport zmarłych, kremację, oprawę muzyczną i ekshumację."
+        description="Kompleksowe usługi pogrzebowe w Łodzi obejmujące organizację pogrzebu, transport zmarłych, sprowadzenie zwłok z zagranicy, kremację, oprawę muzyczną i ekshumację."
         url="/uslugi"
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesItemListSchema) }}
       />
-      
+
       <div className="min-h-screen">
         <section className="py-20">
           <div className="container mx-auto px-4">
@@ -135,8 +150,8 @@ export default function UslugiPage() {
               </h1>
               <div className="w-24 h-1 bg-primary mx-auto mb-8" />
               <p className="text-xl text-gray-300 leading-relaxed mb-8">
-                Jako profesjonalny zakład pogrzebowy w Łodzi, oferujemy kompleksowe usługi pogrzebowe 
-                z zachowaniem najwyższych standardów. Działamy całodobowo, zapewniając wsparcie 
+                Jako profesjonalny zakład pogrzebowy w Łodzi, oferujemy kompleksowe usługi pogrzebowe
+                z zachowaniem najwyższych standardów. Działamy całodobowo, zapewniając wsparcie
                 rodzinom w najtrudniejszych chwilach.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -166,9 +181,7 @@ export default function UslugiPage() {
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
-                      <p className="text-gray-300 leading-relaxed">
-                        {service.description}
-                      </p>
+                      <p className="text-gray-300 leading-relaxed">{service.description}</p>
                       <ul className="space-y-2">
                         {service.features.map((feature, featureIndex) => (
                           <li key={featureIndex} className="flex items-center gap-2 text-gray-300 text-sm">
@@ -198,22 +211,22 @@ export default function UslugiPage() {
                   <div className="space-y-3">
                     <h3 className="text-lg font-semibold text-white">Doświadczenie</h3>
                     <p>
-                      Ponad 20 lat działalności w branży funeralnej. 
+                      Ponad 30 lat działalności rodzinnej firmy w branży funeralnej.
                       Znamy procedury i potrafimy pomóc w każdej sytuacji.
                     </p>
                   </div>
                   <div className="space-y-3">
                     <h3 className="text-lg font-semibold text-white">Dostępność 24/7</h3>
                     <p>
-                      Jesteśmy do dyspozycji przez całą dobę, 7 dni w tygodniu. 
+                      Jesteśmy do dyspozycji przez całą dobę, 7 dni w tygodniu.
                       Pomoc w nagłych sytuacjach gwarantowana.
                     </p>
                   </div>
                   <div className="space-y-3">
-                    <h3 className="text-lg font-semibold text-white">Kompleksowość</h3>
+                    <h3 className="text-lg font-semibold text-white">Uczciwe ceny</h3>
                     <p>
-                      Oferujemy pełen zakres usług pogrzebowych. 
-                      Od formalności po ceremonię - zajmiemy się wszystkim.
+                      Oferujemy pełen zakres usług pogrzebowych w konkurencyjnych cenach.
+                      Najważniejsza jest dla nas pomoc rodzinie, nie zawyżanie kosztów.
                     </p>
                   </div>
                 </div>

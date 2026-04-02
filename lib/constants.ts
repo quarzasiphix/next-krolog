@@ -11,8 +11,9 @@ export const BUSINESS_INFO = {
   reviewCount: 94,
   ratingValue: 5,
   imagePath: '/lovable-uploads/cross.png',
-  foundedYear: 2003,
-  yearsOfExperience: 20,
+  foundedYear: 1995,
+  yearsOfExperience: 30,
+  familyOwned: true,
   geo: {
     latitude: 51.770918,
     longitude: 19.451932,

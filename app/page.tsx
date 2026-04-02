@@ -3,22 +3,23 @@ import HomePageClient from '@/components/HomePageClient'
 import { BUSINESS_INFO, SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Nekrolog Łódź - Zakład Pogrzebowy w Łodzi | Jolanta Kostowska',
+  title: 'Nekrolog Lodz - Zaklad Pogrzebowy i miedzynarodowy transport zwlok | Jolanta Kostowska',
   description:
-    'Nekrolog Łódź to całodobowy zakład pogrzebowy w Łodzi przy ul. Legionów 48. Organizacja pogrzebu bez zaliczki, kremacja, transport i formalności. Tel: +48 602 274 661.',
+    'Nekrolog Lodz to calodobowy, rodzinny zaklad pogrzebowy w Lodzi oraz specjalista od krajowego i miedzynarodowego transportu zwlok. Organizacja pogrzebu, sprowadzanie zmarlych do Polski, formalnosci i pomoc 24/7 bez zaliczki.',
   keywords: [
-    'zakład pogrzebowy łódź',
     'zaklad pogrzebowy lodz',
-    'nekrolog łódź',
     'nekrolog lodz',
-    'usługi pogrzebowe łódź',
-    'pogrzeb bez zaliczki łódź',
-    'dom pogrzebowy łódź',
-    'organizacja pogrzebu łódź',
-    'kremacja łódź',
-    'transport zmarłych łódź',
-    'pogrzeby łódź',
-    'całodobowy zakład pogrzebowy',
+    'uslugi pogrzebowe lodz',
+    'pogrzeb bez zaliczki lodz',
+    'dom pogrzebowy lodz',
+    'organizacja pogrzebu lodz',
+    'kremacja lodz',
+    'transport zmarlych lodz',
+    'sprowadzenie zwlok z zagranicy',
+    'transport zmarlych z zagranicy do polski',
+    'miedzynarodowy transport zwlok do polski',
+    'sprowadzenie zmarlych do polski',
+    'calodobowy zaklad pogrzebowy',
   ],
   alternates: {
     canonical: '/',
@@ -31,8 +32,8 @@ export default async function HomePage() {
     '@type': 'LocalBusiness',
     additionalType: 'https://schema.org/FuneralHome',
     '@id': `${SITE_URL}/#funeral-home`,
-    name: 'Zakład Pogrzebowy Nekrolog Łódź',
-    alternateName: [BUSINESS_INFO.name, 'Nekrolog Łódź', 'Nekrolog Lodz'],
+    name: 'Zaklad Pogrzebowy Nekrolog Lodz',
+    alternateName: [BUSINESS_INFO.name, 'Nekrolog Lodz'],
     legalName: BUSINESS_INFO.legalName,
     taxID: BUSINESS_INFO.nip,
     url: SITE_URL,
@@ -41,7 +42,9 @@ export default async function HomePage() {
     image: `${SITE_URL}${BUSINESS_INFO.imagePath}`,
     hasMap: BUSINESS_INFO.mapUrl,
     sameAs: BUSINESS_INFO.sameAs,
-    slogan: 'Pogrzeb bez zaliczki - pełne wsparcie w trudnej chwili',
+    slogan: 'Pogrzeb bez zaliczki oraz miedzynarodowy transport zwlok do Polski 24/7',
+    foundingDate: String(BUSINESS_INFO.foundedYear),
+    description: 'Rodzinna firma pogrzebowa z Lodzi z ponad 30-letnim doswiadczeniem, organizacja ceremonii oraz krajowy i miedzynarodowy transport zwlok do Polski.',
     paymentAccepted: ['Cash', 'Bank Transfer', 'ZUS/KRUS Benefit'],
     currenciesAccepted: 'PLN',
     knowsAbout: [
@@ -51,7 +54,9 @@ export default async function HomePage() {
       'Grief Support',
       'Funeral Planning',
       'Transport of Deceased',
-      'Funeral Home Services'
+      'International Repatriation',
+      'Funeral Home Services',
+      'Bringing the deceased to Poland',
     ],
     geo: {
       '@type': 'GeoCoordinates',
@@ -73,13 +78,7 @@ export default async function HomePage() {
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
-        dayOfWeek: [
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-          'Friday',
-        ],
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
         opens: '08:00',
         closes: '16:00',
       },
@@ -102,36 +101,22 @@ export default async function HomePage() {
         '@type': 'ContactPoint',
         telephone: BUSINESS_INFO.phone,
         contactType: 'customer service',
-        availableLanguage: ['pl'],
+        availableLanguage: ['pl', 'en', 'de', 'fr'],
         hoursAvailable: {
           '@type': 'OpeningHoursSpecification',
-          dayOfWeek: [
-            'Monday',
-            'Tuesday',
-            'Wednesday',
-            'Thursday',
-            'Friday',
-          ],
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
           opens: '08:00',
           closes: '16:00',
         },
       },
       {
         '@type': 'ContactPoint',
-        telephone: BUSINESS_INFO.phone,
+        telephone: '+48 602 270 050',
         contactType: 'emergency',
-        availableLanguage: ['pl'],
+        availableLanguage: ['pl', 'en', 'de', 'fr'],
         hoursAvailable: {
           '@type': 'OpeningHoursSpecification',
-          dayOfWeek: [
-            'Monday',
-            'Tuesday',
-            'Wednesday',
-            'Thursday',
-            'Friday',
-            'Saturday',
-            'Sunday',
-          ],
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
           opens: '00:00',
           closes: '23:59',
         },
@@ -154,13 +139,9 @@ export default async function HomePage() {
     })),
   }
 
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }} />
       <HomePageClient />
     </>
   )
