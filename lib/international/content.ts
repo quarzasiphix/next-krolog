@@ -234,7 +234,7 @@ export function getPagePath(page: ResolvedIntlPage, locale: Locale) {
 
 export function getPageAlternates(page: ResolvedIntlPage) {
   const languages = Object.fromEntries(SUPPORTED_LOCALES.map((locale) => [locale, buildAbsoluteUrl(getPagePath(page, locale))]))
-  return { canonical: buildAbsoluteUrl(getPagePath(page, page.locale)), languages: { ...languages, 'x-default': buildAbsoluteUrl(getPagePath(page, 'en')) } }
+  return { canonical: buildAbsoluteUrl(getPagePath(page, page.locale)), languages: { ...languages, 'x-default': buildAbsoluteUrl(getPagePath(page, 'pl')) } }
 }
 
 export function getAllIntlParams() {

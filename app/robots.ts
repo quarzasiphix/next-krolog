@@ -1,10 +1,11 @@
 import { MetadataRoute } from 'next'
+import { SITEMAP_GROUP_KEYS } from '@/lib/sitemap-config'
 
 export const dynamic = 'force-static'
 
 export default function robots(): MetadataRoute.Robots {
-  // Always use production domain for sitemap
   const baseUrl = 'https://nekrolog-lodz.com'
+  const sitemapUrls = [`${baseUrl}/sitemap.xml`, ...SITEMAP_GROUP_KEYS.map((_, index) => `${baseUrl}/sitemap/${index}.xml`)]
   
   return {
     rules: [
@@ -38,15 +39,7 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: [
-      `${baseUrl}/sitemap.xml`,
-      `${baseUrl}/sitemap/0.xml`,
-      `${baseUrl}/sitemap/1.xml`,
-      `${baseUrl}/sitemap/2.xml`,
-      `${baseUrl}/sitemap/3.xml`,
-      `${baseUrl}/sitemap/4.xml`,
-      `${baseUrl}/sitemap/5.xml`,
-    ],
+    sitemap: sitemapUrls,
     host: baseUrl,
   }
 }

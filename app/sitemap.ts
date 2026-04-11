@@ -2,13 +2,12 @@ import { MetadataRoute } from 'next'
 import { type Locale, getIntlSitemapGroups, resolveIntlPage } from '@/lib/international/content'
 import { buildIntlSitemapEntry } from '@/lib/international/seo'
 import { generateSitemapEntries, validateProductionDomain } from '@/lib/sitemap-registry'
+import { SITEMAP_GROUP_KEYS } from '@/lib/sitemap-config'
 
 export const dynamic = 'force-static'
 
-const GROUP_KEYS = ['static', 'services', 'countries', 'cities', 'routes', 'legacy'] as const
-
 export async function generateSitemaps() {
-  return GROUP_KEYS.map((_, id) => ({ id }))
+  return SITEMAP_GROUP_KEYS.map((_, id) => ({ id }))
 }
 
 export default async function sitemap({
@@ -17,13 +16,13 @@ export default async function sitemap({
   id: number
 }): Promise<MetadataRoute.Sitemap> {
   const baseUrl = validateProductionDomain(process.env.NEXT_PUBLIC_SITE_URL || 'https://nekrolog-lodz.com')
-  const key = GROUP_KEYS[id]
+  const key = SITEMAP_GROUP_KEYS[id]
 
   if (!key) {
     return generateSitemapEntries(baseUrl)
   }
 
-  const priorities: Record<(typeof GROUP_KEYS)[number], number> = {
+  const priorities: Record<(typeof SITEMAP_GROUP_KEYS)[number], number> = {
     static: 0.9,
     services: 0.86,
     countries: 0.84,

@@ -1,7 +1,8 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { SITE_URL } from '@/lib/constants'
+import JsonLdScript from '@/components/structured-data/JsonLdScript'
+import { buildFaqJsonLd } from '@/lib/local-seo'
 
 export interface FAQItem {
   question: string
@@ -15,30 +16,7 @@ interface FAQSchemaProps {
 
 const FAQSchema = ({ faqs, name }: FAQSchemaProps) => {
   const pathname = usePathname() || '/'
-  const pageUrl = `${SITE_URL}${pathname}`
-
-  const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    '@id': `${pageUrl}#faq`,
-    name: name || `FAQ - ${pathname === '/' ? 'Strona główna' : pathname}`,
-    url: pageUrl,
-    mainEntity: faqs.map(faq => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
-    })),
-  }
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
-  )
+  return <JsonLdScript data={buildFaqJsonLd({ faqs, path: pathname, name })} />
 }
 
 export default FAQSchema

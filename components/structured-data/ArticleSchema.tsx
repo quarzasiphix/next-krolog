@@ -1,4 +1,4 @@
-'use client'
+import { BUSINESS_INFO, SITE_URL } from '@/lib/constants'
 
 interface ArticleSchemaProps {
   title: string
@@ -18,30 +18,31 @@ const ArticleSchema = ({
   image 
 }: ArticleSchemaProps) => {
   const schema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": title,
-    "description": description,
-    "url": `https://nekrolog-lodz.com${url}`,
-    "datePublished": publishDate,
-    "dateModified": publishDate,
-    "author": {
-      "@type": "Person",
-      "name": author
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: title,
+    description,
+    url: `${SITE_URL}${url}`,
+    datePublished: publishDate,
+    dateModified: publishDate,
+    author: {
+      '@type': 'Person',
+      name: author,
     },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Zakład Pogrzebowy Nekrolog Łódź",
-      "url": "https://nekrolog-lodz.com"
+    publisher: {
+      '@type': 'Organization',
+      '@id': `${SITE_URL}#funeral-home`,
+      name: BUSINESS_INFO.legalName,
+      url: SITE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}${BUSINESS_INFO.imagePath}`,
+      },
     },
-    "mainEntityOfPage": {
-      "@type": "Service",
-      "name": "Usługi Pogrzebowe",
-      "provider": {
-        "@type": "LocalBusiness",
-        "name": "Zakład Pogrzebowy Nekrolog Łódź"
-      }
-    }
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${SITE_URL}${url}`,
+    },
   }
 
   if (image) {

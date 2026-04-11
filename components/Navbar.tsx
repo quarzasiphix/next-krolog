@@ -14,15 +14,6 @@ import {
 import { useIsMobile } from '@/hooks/use-mobile'
 import Link from 'next/link'
 
-const internationalItems = [
-  { name: 'Miedzynarodowy transport zwlok', path: '/pl/uslugi/miedzynarodowy-transport-zwlok' },
-  { name: 'Sprowadzenie zmarlego do Polski', path: '/pl/uslugi/sprowadzenie-zmarlego-do-polski' },
-  { name: 'Niemcy -> Polska', path: '/pl/kraje/niemcy' },
-  { name: 'UK -> Polska', path: '/pl/kraje/wielka-brytania' },
-  { name: 'Holandia -> Polska', path: '/pl/kraje/holandia' },
-  { name: 'Kontakt 24/7 dla rodzin z zagranicy', path: '/pl/kontakt' },
-]
-
 const servicesItems = [
   { name: 'Uslugi Pogrzebowe Lodz', path: '/uslugi-pogrzebowe-lodz' },
   { name: 'Organizacja pogrzebow Lodz', path: '/uslugi/organizacja-pogrzebow-lodz' },
@@ -30,6 +21,12 @@ const servicesItems = [
   { name: 'Krematorium Lodz', path: '/uslugi/krematorium-lodz' },
   { name: 'Ekshumacja zwlok Lodz', path: '/uslugi/ekshumacja-lodz' },
   { name: 'Oprawa muzyczna pogrzebu Lodz', path: '/uslugi/oprawa-muzyczna-lodz' },
+  { name: 'Miedzynarodowy transport zwlok', path: '/pl/uslugi/miedzynarodowy-transport-zwlok' },
+  { name: 'Sprowadzenie zmarlego do Polski', path: '/pl/uslugi/sprowadzenie-zmarlego-do-polski' },
+  { name: 'Niemcy -> Polska', path: '/pl/kraje/niemcy' },
+  { name: 'UK -> Polska', path: '/pl/kraje/wielka-brytania' },
+  { name: 'Holandia -> Polska', path: '/pl/kraje/holandia' },
+  { name: 'Kontakt 24/7 dla rodzin z zagranicy', path: '/pl/kontakt' },
 ]
 
 const productsItems = [
@@ -140,33 +137,10 @@ const Navbar = () => {
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-transparent text-white data-[state=open]:text-primary hover:text-primary/90 hover:bg-transparent focus:bg-transparent px-3 py-2">
-                  Transport miedzynarodowy
-                </NavigationMenuTrigger>
-                <NavigationMenuContent className="bg-black border border-primary/20">
-                  <ul className="grid w-[360px] gap-1 p-2">
-                    {internationalItems.map((item) => (
-                      <li key={item.name}>
-                        <NavigationMenuLink asChild>
-                          <Link href={item.path} className="w-full text-left block select-none space-y-1 rounded-md p-3 text-white hover:bg-primary/10 hover:text-primary">
-                            <div>{item.name}</div>
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
-
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent text-white data-[state=open]:text-primary hover:text-primary/90 hover:bg-transparent focus:bg-transparent px-3 py-2">
                   Uslugi pogrzebowe
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="bg-black border border-primary/20">
-                  <ul className="grid w-[320px] gap-1 p-2">
+                  <ul className="grid w-[360px] gap-1 p-2">
                     {servicesItems.map((item) => (
                       <li key={item.name}>
                         <NavigationMenuLink asChild>
@@ -293,7 +267,6 @@ const Navbar = () => {
             <span className="font-semibold">Transport miedzynarodowy 24/7</span>
           </Link>
 
-          {renderMenuBlock('Transport miedzynarodowy', 'international', internationalItems)}
           {renderMenuBlock('Uslugi pogrzebowe', 'services', servicesItems)}
           {renderMenuBlock('Asortyment', 'products', productsItems)}
           {renderMenuBlock('Poradnik', 'poradnik', poradnikItems)}

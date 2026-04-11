@@ -2,10 +2,10 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { generateCanonicalMetadata } from '@/lib/canonical'
 import ServiceSchema from '@/components/structured-data/ServiceSchema'
 import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema'
 import FAQSchema from '@/components/structured-data/FAQSchema'
+import { buildLocalMetadata, buildMetaDescription } from '@/lib/local-seo'
 import {
   FileText,
   Music,
@@ -16,10 +16,14 @@ import {
   ArrowRight,
 } from 'lucide-react'
 
-export const metadata: Metadata = {
-  title: 'Usługi Pogrzebowe Łódź | Zakład Pogrzebowy Nekrolog',
-  description:
-    'Kompleksowe usługi pogrzebowe w Łodzi. Organizacja pogrzebu, transport zmarłych, sprowadzenie zwłok z zagranicy, kremacja, oprawa muzyczna i ekshumacja. Profesjonalna pomoc 24/7.',
+export const metadata: Metadata = buildLocalMetadata({
+  title: 'Usługi Pogrzebowe Łódź',
+  path: '/uslugi',
+  description: buildMetaDescription([
+    'Kompleksowe usługi pogrzebowe w Łodzi',
+    'organizacja pogrzebu, transport zmarłych, sprowadzenie zwłok z zagranicy, kremacja, oprawa muzyczna i ekshumacja',
+    'profesjonalna pomoc 24/7 dla rodzin z Łodzi i okolic',
+  ]),
   keywords: [
     'usługi pogrzebowe łódź',
     'zakład pogrzebowy łódź',
@@ -30,8 +34,8 @@ export const metadata: Metadata = {
     'oprawa muzyczna łódź',
     'ekshumacja łódź',
   ],
-  ...generateCanonicalMetadata('/uslugi'),
-}
+  ogTitle: 'Usługi Pogrzebowe Łódź | Nekrolog Łódź',
+})
 
 const services = [
   {

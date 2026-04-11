@@ -3,7 +3,7 @@ import ServiceLayout from '@/components/ServiceLayout'
 import type { FAQItem } from '@/components/structured-data/FAQSchema'
 import { IMAGES } from '@/assets/images'
 import { Flame, CheckCircle, FileText, Heart, Clock, Box } from 'lucide-react'
-import { SITE_URL } from '@/lib/constants'
+import { buildLocalMetadata, buildMetaDescription } from '@/lib/local-seo'
 
 const faqData: FAQItem[] = [
   {
@@ -23,24 +23,16 @@ const faqData: FAQItem[] = [
   },
 ]
 
-export const metadata: Metadata = {
-  title: 'Krematorium w Łodzi',
-  description: 'Profesjonalne usługi kremacji w Łodzi. Organizacja kremacji, urny, transport, dokumenty. Pełna pomoc w organizacji pogrzebu po kremacji. Dostępni 24/7.',
-  keywords: ['kremacja łódź', 'krematorium', 'spopielenie zwłok', 'pochówek urnowy', 'organizacja kremacji', 'urny kremacyjne'],
-  alternates: {
-    canonical: `${SITE_URL}/uslugi/krematorium-lodz`,
-  },
-  openGraph: {
-    title: 'Krematorium w Łodzi - Nekrolog',
-    description: 'Profesjonalne usługi kremacji. Organizacja kremacji, urny, transport, dokumenty. Pełna pomoc.',
-    url: `${SITE_URL}/uslugi/krematorium-lodz`,
-    type: 'website',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-}
+export const metadata: Metadata = buildLocalMetadata({
+  title: 'Kremacja Łódź',
+  path: '/uslugi/krematorium-lodz',
+  description: buildMetaDescription([
+    'Profesjonalne usługi kremacji w Łodzi',
+    'organizacja kremacji, urny, dokumenty i transport',
+    'pełna pomoc w organizacji pogrzebu po kremacji',
+  ]),
+  keywords: ['kremacja łódź', 'krematorium łódź', 'spopielenie zwłok łódź', 'pochówek urnowy łódź', 'organizacja kremacji łódź', 'urny kremacyjne łódź'],
+})
 
 export default function KrematoriumPage() {
   return (

@@ -5,8 +5,11 @@ export const BUSINESS_INFO = {
   legalName: 'Nekrolog Łódź - Usługi Pogrzebowe Jolanta Kostowska',
   nip: '7271089145',
   phone: '+48 602 274 661',
+  secondaryPhone: '+48 602 270 050',
   email: 'kontakt@nekrolog-lodz.com',
   mapUrl: 'https://maps.app.goo.gl/96nCspWXwt5VYqkp6',
+  googleBusinessUrl: 'https://g.co/kgs/MhdWuLg',
+  facebookUrl: 'https://www.facebook.com/people/Zak%C5%82ad-pogrzebowyNekrolog-Jolanta-Kostowska/100092232063111/',
   priceRange: '$$',
   reviewCount: 94,
   ratingValue: 5,
@@ -40,6 +43,7 @@ export const BUSINESS_INFO = {
   sameAs: [
     'https://maps.app.goo.gl/96nCspWXwt5VYqkp6',
     'https://g.co/kgs/MhdWuLg',
+    'https://www.facebook.com/people/Zak%C5%82ad-pogrzebowyNekrolog-Jolanta-Kostowska/100092232063111/',
   ],
   reviews: [
     {

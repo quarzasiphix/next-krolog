@@ -1,32 +1,39 @@
 import { Metadata } from 'next'
 import HomePageClient from '@/components/HomePageClient'
 import { BUSINESS_INFO, SITE_URL } from '@/lib/constants'
+import { buildLocalMetadata, buildMetaDescription, buildWebPageJsonLd, stringifyJsonLd } from '@/lib/local-seo'
 
-export const metadata: Metadata = {
-  title: 'Nekrolog Lodz - Zaklad Pogrzebowy i miedzynarodowy transport zwlok | Jolanta Kostowska',
-  description:
-    'Nekrolog Lodz to calodobowy, rodzinny zaklad pogrzebowy w Lodzi oraz specjalista od krajowego i miedzynarodowego transportu zwlok. Organizacja pogrzebu, sprowadzanie zmarlych do Polski, formalnosci i pomoc 24/7 bez zaliczki.',
+export const metadata: Metadata = buildLocalMetadata({
+  title: 'Zakład Pogrzebowy Łódź',
+  path: '/',
+  description: buildMetaDescription([
+    'Całodobowy, rodzinny zakład pogrzebowy w Łodzi przy ul. Legionów 48',
+    'organizacja pogrzebu, kremacja, formalności i pomoc 24/7',
+    'możliwość rozliczenia bez zaliczki',
+    'dodatkowo transport zmarłych i sprowadzenie zwłok do Polski',
+  ]),
   keywords: [
+    'zakład pogrzebowy łódź',
     'zaklad pogrzebowy lodz',
+    'nekrolog łódź',
     'nekrolog lodz',
-    'uslugi pogrzebowe lodz',
-    'pogrzeb bez zaliczki lodz',
-    'dom pogrzebowy lodz',
-    'organizacja pogrzebu lodz',
-    'kremacja lodz',
-    'transport zmarlych lodz',
-    'sprowadzenie zwlok z zagranicy',
-    'transport zmarlych z zagranicy do polski',
-    'miedzynarodowy transport zwlok do polski',
-    'sprowadzenie zmarlych do polski',
-    'calodobowy zaklad pogrzebowy',
+    'usługi pogrzebowe łódź',
+    'pogrzeb bez zaliczki łódź',
+    'dom pogrzebowy łódź',
+    'organizacja pogrzebu łódź',
+    'kremacja łódź',
+    'transport zmarłych łódź',
   ],
-  alternates: {
-    canonical: '/',
-  },
-}
+  ogTitle: 'Zakład Pogrzebowy Łódź | Nekrolog Łódź',
+})
 
 export default async function HomePage() {
+  const homepageSchema = buildWebPageJsonLd({
+    name: 'Zakład Pogrzebowy Łódź - Nekrolog Łódź',
+    description:
+      'Całodobowy zakład pogrzebowy w Łodzi z pomocą 24/7, możliwością rozliczenia bez zaliczki oraz dodatkowymi usługami transportu zmarłych.',
+    path: '/',
+  })
   const businessSchema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
@@ -42,9 +49,9 @@ export default async function HomePage() {
     image: `${SITE_URL}${BUSINESS_INFO.imagePath}`,
     hasMap: BUSINESS_INFO.mapUrl,
     sameAs: BUSINESS_INFO.sameAs,
-    slogan: 'Pogrzeb bez zaliczki oraz miedzynarodowy transport zwlok do Polski 24/7',
+    slogan: 'Calodobowy zaklad pogrzebowy w Lodzi i pomoc bez zaliczki',
     foundingDate: String(BUSINESS_INFO.foundedYear),
-    description: 'Rodzinna firma pogrzebowa z Lodzi z ponad 30-letnim doswiadczeniem, organizacja ceremonii oraz krajowy i miedzynarodowy transport zwlok do Polski.',
+    description: 'Rodzinna firma pogrzebowa z Lodzi z ponad 30-letnim doswiadczeniem, kompleksowa organizacja ceremonii, pomoc formalna oraz wsparcie rodzin 24/7.',
     paymentAccepted: ['Cash', 'Bank Transfer', 'ZUS/KRUS Benefit'],
     currenciesAccepted: 'PLN',
     knowsAbout: [
@@ -141,7 +148,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: stringifyJsonLd([homepageSchema, businessSchema]) }} />
       <HomePageClient />
     </>
   )

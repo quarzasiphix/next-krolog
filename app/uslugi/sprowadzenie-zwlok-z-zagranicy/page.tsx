@@ -4,7 +4,7 @@ import { CheckCircle, Globe, Landmark, Plane, ShieldCheck, Phone, Building2, Sta
 import ServiceLayout from '@/components/ServiceLayout'
 import { Card, CardContent } from '@/components/ui/card'
 import type { FAQItem } from '@/components/structured-data/FAQSchema'
-import { SITE_URL } from '@/lib/constants'
+import { buildLocalMetadata, buildMetaDescription } from '@/lib/local-seo'
 
 const priorityCountries = [
   'Wielka Brytania',
@@ -79,10 +79,14 @@ const faqData: FAQItem[] = [
   },
 ]
 
-export const metadata: Metadata = {
-  title: 'Sprowadzenie Zwłok z Zagranicy do Polski | Transport Międzynarodowy',
-  description:
-    'Sprowadzanie zwłok i prochów z zagranicy do Polski. Obsługa transportu z UK, Irlandii, Niemiec, Holandii, Belgii, Francji, Szwajcarii, Skandynawii i innych krajów UE oraz spoza UE.',
+export const metadata: Metadata = buildLocalMetadata({
+  title: 'Sprowadzenie Zwłok z Zagranicy do Polski',
+  path: '/uslugi/sprowadzenie-zwlok-z-zagranicy',
+  description: buildMetaDescription([
+    'Sprowadzanie zwłok i prochów z zagranicy do Polski przez zakład pogrzebowy z Łodzi',
+    'obsługa transportu z UK, Irlandii, Niemiec, Holandii, Belgii, Francji, Szwajcarii i Skandynawii',
+    'koordynacja formalności oraz wsparcie rodzin i partnerów branżowych',
+  ]),
   keywords: [
     'sprowadzenie zwłok z zagranicy',
     'transport zwłok z zagranicy do polski',
@@ -95,21 +99,8 @@ export const metadata: Metadata = {
     'transport zmarłych ze szwajcarii do polski',
     'transport zmarłych skandynawia polska',
   ],
-  alternates: {
-    canonical: `${SITE_URL}/uslugi/sprowadzenie-zwlok-z-zagranicy`,
-  },
-  openGraph: {
-    title: 'Sprowadzenie Zwłok z Zagranicy do Polski',
-    description:
-      'Kompleksowa organizacja transportu zmarłych z zagranicy do Polski. Kraje UE, Wielka Brytania, Skandynawia i państwa spoza UE.',
-    url: `${SITE_URL}/uslugi/sprowadzenie-zwlok-z-zagranicy`,
-    type: 'website',
-  },
-  robots: {
-    index: false,
-    follow: true,
-  },
-}
+  ogTitle: 'Sprowadzenie Zwłok z Zagranicy do Polski | Łódź',
+})
 
 export default function SprowadzenieZwlokZagranicaPage() {
   return (

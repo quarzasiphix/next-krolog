@@ -3,11 +3,10 @@
 import React from 'react'
 import Link from 'next/link'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
+import { BUSINESS_INFO } from '@/lib/constants'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
-  const facebookUrl = 'https://www.facebook.com/people/Zak%C5%82ad-pogrzebowyNekrolog-Jolanta-Kostowska/100092232063111/'
-  const googleBusinessUrl = 'https://g.co/kgs/bjTq537'
 
   return (
     <footer className="bg-black text-white border-t border-white/10" data-nosnippet>
@@ -27,7 +26,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href={facebookUrl}
+                href={BUSINESS_INFO.facebookUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary/80 transition-colors"
@@ -38,7 +37,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                href={googleBusinessUrl}
+                href={BUSINESS_INFO.googleBusinessUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary/80 transition-colors"
@@ -101,6 +100,11 @@ const Footer = () => {
               <li>
                 <Link href="/uslugi/sprowadzenie-zwlok-z-zagranicy" className="inline-block text-gray-300 hover:text-primary transition-colors">
                   Sprowadzenie zwłok z zagranicy
+                </Link>
+              </li>
+              <li>
+                <Link href="/pl/uslugi/sprowadzenie-zmarlego-do-polski" className="inline-block text-gray-300 hover:text-primary transition-colors">
+                  Sprowadzenie zmarłego do Polski
                 </Link>
               </li>
               <li>

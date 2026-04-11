@@ -1,12 +1,15 @@
 'use client';
 
-import { ReactNode } from 'react';
+import { Fragment, ReactNode } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ArrowRight } from 'lucide-react';
 import ServiceSchema from '@/components/structured-data/ServiceSchema';
 import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema';
 import FAQSchema, { FAQItem } from '@/components/structured-data/FAQSchema';
+import OrganizationSchema from '@/components/structured-data/OrganizationSchema';
+import RelatedLinks from '@/components/RelatedLinks';
+import { getBreadcrumbItems } from '@/lib/site-navigation';
 
 type ServiceLayoutProps = {
   children?: ReactNode;
@@ -16,30 +19,9 @@ type ServiceLayoutProps = {
   faqItems?: FAQItem[];
 };
 
-const formatSegment = (segment: string) =>
-  segment
-    .split('-')
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(' ');
-
 const ServiceLayout = ({ children, title, description, backgroundImage, faqItems }: ServiceLayoutProps) => {
   const pathname = usePathname() || '/';
-
-  const pathParts = pathname.split('/').filter(Boolean);
-
-  let parentPath = '/';
-  let parentLabel = 'Strona Główna';
-
-  if (pathParts.length > 1) {
-    parentPath = `/${pathParts[0]}`;
-    parentLabel = formatSegment(pathParts[0]);
-  }
-
-  const breadcrumbs = [
-    { name: 'Strona Główna', url: '/' },
-    ...(pathParts.length > 1 ? [{ name: parentLabel, url: parentPath }] : []),
-    { name: title }
-  ];
+  const breadcrumbs = getBreadcrumbItems(pathname, title);
 
   const defaultFaqItems: FAQItem[] = [
     {
@@ -62,6 +44,7 @@ const ServiceLayout = ({ children, title, description, backgroundImage, faqItems
 
   return (
     <>
+      <OrganizationSchema />
       <BreadcrumbSchema items={breadcrumbs} />
       <ServiceSchema
         serviceName={title}
@@ -100,14 +83,14 @@ const ServiceLayout = ({ children, title, description, backgroundImage, faqItems
               Strona Główna
             </Link>
             <ArrowRight className="mx-2 h-3 w-3" />
-            {pathParts.length > 1 && (
-              <>
-                <Link href={parentPath} className="hover:text-primary transition-colors">
-                  {parentLabel}
+            {breadcrumbs.slice(1, -1).map((item) => (
+              <Fragment key={item.url || item.name}>
+                <Link href={item.url || '/'} className="hover:text-primary transition-colors">
+                  {item.name}
                 </Link>
                 <ArrowRight className="mx-2 h-3 w-3" />
-              </>
-            )}
+              </Fragment>
+            ))}
             <span className="text-gray-300">{title}</span>
           </div>
         </div>
@@ -130,6 +113,12 @@ const ServiceLayout = ({ children, title, description, backgroundImage, faqItems
               ))}
             </div>
           </div>
+
+          <RelatedLinks
+            pathname={pathname}
+            heading="Powiązane usługi i poradniki"
+            intro="Te strony pomagają rodzinie przejść od informacji do działania: formalności, kontakt i usługi realizowane przez zakład pogrzebowy w Łodzi."
+          />
         </div>
       </section>
     </div>

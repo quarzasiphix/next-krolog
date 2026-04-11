@@ -187,6 +187,75 @@ export function generateSitemapEntries(baseUrl: string): SitemapEntry[] {
     priority: 0.8,
   })
 
+  entries.push(
+    {
+      url: `${baseUrl}/uslugi/sprowadzenie-zwlok-z-zagranicy`,
+      lastModified: CONTENT_LAST_MODIFIED.services.sprowadzenie,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/uslugi/sprowadzenie-zwlok-z-niemiec`,
+      lastModified: CONTENT_LAST_MODIFIED.services.niemcy,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/uslugi/sprowadzenie-zwlok-z-uk`,
+      lastModified: CONTENT_LAST_MODIFIED.services.uk,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/uslugi/sprowadzenie-zwlok-z-irlandii`,
+      lastModified: CONTENT_LAST_MODIFIED.services.irlandii,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/uslugi/sprowadzenie-zwlok-z-holandii`,
+      lastModified: CONTENT_LAST_MODIFIED.services.holandii,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/uslugi/sprowadzenie-zwlok-ze-skandynawii`,
+      lastModified: CONTENT_LAST_MODIFIED.services.skandynawii,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/uslugi/sprowadzenie-zwlok-z-norwegii`,
+      lastModified: CONTENT_LAST_MODIFIED.services.norwegii,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/uslugi/sprowadzenie-zwlok-ze-szwajcarii`,
+      lastModified: CONTENT_LAST_MODIFIED.services.szwajcarii,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/uslugi/sprowadzenie-zwlok-z-belgii`,
+      lastModified: CONTENT_LAST_MODIFIED.services.belgii,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/uslugi/sprowadzenie-zwlok-z-francji`,
+      lastModified: CONTENT_LAST_MODIFIED.services.francji,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/uslugi/sprowadzenie-zwlok-z-austrii`,
+      lastModified: CONTENT_LAST_MODIFIED.services.austrii,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    }
+  )
+
   SLUGS.services.forEach(slug => {
     const serviceKey = slug.split('-')[0] as keyof typeof CONTENT_LAST_MODIFIED.services
     entries.push({

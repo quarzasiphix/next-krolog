@@ -4,6 +4,9 @@ import { SITE_URL } from '@/lib/constants'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { BreadcrumbController } from '@/components/breadcrumb-context'
+import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema'
+import FAQSchema from '@/components/structured-data/FAQSchema'
+import FuneralHomeSchema from '@/components/structured-data/FuneralHomeSchema'
 
 export const metadata: Metadata = {
   title: 'Nekrolog Łódź (Nekrolog Lodz) - Zakład Pogrzebowy w Łodzi',
@@ -29,8 +32,35 @@ export const metadata: Metadata = {
 }
 
 export default function NekrologLodzPage() {
+  const breadcrumbs = [
+    { name: 'Strona Główna', url: '/' },
+    { name: 'Nekrolog Łódź' },
+  ]
+  const faqData = [
+    {
+      question: 'Czy Nekrolog Łódź to zakład pogrzebowy w Łodzi?',
+      answer:
+        'Tak. Nekrolog Łódź to zakład pogrzebowy przy ul. Legionów 48 w Łodzi, prowadzony przez Jolantę Kostowską.',
+    },
+    {
+      question: 'Czy mogę zadzwonić całodobowo?',
+      answer:
+        'Tak. Jesteśmy dostępni 24/7 pod numerem +48 602 274 661.',
+    },
+    {
+      question: 'Czy pomagacie także w formalnościach i transporcie zmarłych?',
+      answer:
+        'Tak. Pomagamy w formalnościach pogrzebowych, organizacji ceremonii oraz w krajowym i międzynarodowym transporcie zmarłych.',
+    },
+  ]
+
   return (
     <>
+      <BreadcrumbSchema items={breadcrumbs} />
+      <FuneralHomeSchema
+        description="Nekrolog Łódź to lokalny zakład pogrzebowy w Łodzi przy ul. Legionów 48. Kompleksowa organizacja pogrzebów, pomoc 24/7 i możliwość rozliczenia bez zaliczki."
+      />
+      <FAQSchema faqs={faqData} name="Nekrolog Łódź FAQ" />
       <BreadcrumbController overrides={[{ segment: 'nekrolog-lodz', label: 'Nekrolog Łódź' }]} />
 
       <section className="py-20">

@@ -1,7 +1,9 @@
 'use client'
 
 import React, { useEffect, useMemo, useRef, useState } from 'react'
+import Link from 'next/link'
 import { MapPin, Phone, Mail, Clock, Send, User } from 'lucide-react'
+import RelatedLinks from '@/components/RelatedLinks'
 
 const ContactCard = ({
   icon,
@@ -259,6 +261,32 @@ const Contact = () => {
               loading="lazy"
               title="Google Maps - Nekrolog Lodz"
             ></iframe>
+          </div>
+        </div>
+
+        <div className="mt-12 rounded-[1.75rem] border border-white/10 bg-black/30 p-6 md:p-8">
+          <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div>
+              <h2 className="text-2xl font-playfair text-white">Nie wiesz, od czego zacząć?</h2>
+              <p className="mt-3 text-sm leading-7 text-gray-300">
+                Po telefonie możemy od razu przejść do organizacji formalności, pogrzebu bez zaliczki albo transportu zmarłego.
+                Jeśli chcesz najpierw przeczytać najważniejsze informacje, przejdź do poniższych stron.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <Link href="/poradnik/co-zrobic-po-smierci" className="rounded-full border border-primary/30 px-4 py-2 text-sm text-white transition hover:border-primary hover:text-primary">
+                  Co zrobić po śmierci
+                </Link>
+                <Link href="/pogrzeb-bez-zaliczki" className="rounded-full border border-primary/30 px-4 py-2 text-sm text-white transition hover:border-primary hover:text-primary">
+                  Pogrzeb bez zaliczki
+                </Link>
+              </div>
+            </div>
+            <RelatedLinks
+              pathname="/kontakt"
+              heading="Najczęściej wybierane strony"
+              intro="Po kontakcie rodziny najczęściej przechodzą do tych usług i poradników."
+              className="mt-0 border-0 bg-transparent p-0"
+            />
           </div>
         </div>
       </div>

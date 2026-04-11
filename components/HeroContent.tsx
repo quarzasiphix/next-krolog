@@ -5,40 +5,40 @@ const HeroContent = () => {
         <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-black/35 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
           <span>Kontakt 24/7</span>
           <span className="h-1 w-1 rounded-full bg-primary/70" />
-          <span>Transport w Polsce, Europie i poza nia</span>
+          <span>Zaklad pogrzebowy Lodz i pomoc bez zaliczki</span>
         </div>
 
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair mb-4 leading-tight">
-          Zaklad Pogrzebowy Lodz i
-          <span className="mt-2 block text-primary">miedzynarodowy transport zwlok do Polski</span>
+          Zaklad Pogrzebowy Lodz
+          <span className="mt-2 block text-primary">calodobowa pomoc w organizacji pogrzebu</span>
         </h1>
 
         <div className="w-16 h-[1px] bg-primary/40 mx-auto mb-6"></div>
 
         <h2 className="mx-auto max-w-[54rem] text-xl md:text-2xl mb-8 leading-relaxed text-gray-300/90 font-normal">
-          Calodobowa organizacja pogrzebow, krajowego i miedzynarodowego transportu zmarlych oraz sprowadzania zmarlych do Polski z Europy i z zagranicy.
+          Organizujemy pogrzeby tradycyjne i kremacyjne w Lodzi i okolicach, pomagamy w formalnosciach oraz wspieramy rodziny 24/7 bez kosztow z gory.
         </h2>
 
         <p className="mx-auto max-w-[58rem] text-[16px] md:text-[17px] mb-10 text-gray-300/85 leading-loose mt-6">
-          Jako ponad 30-letnia firma rodzinna wspieramy rodziny z empatia, dyskrecja i spokojnym prowadzeniem kazdego etapu. Organizujemy pochowki w Lodzi i okolicach, ale rowniez specjalizujemy sie w ekspresowym transporcie zwlok oraz sprowadzaniu ciala do Polski bez kosztow z gory dla rodziny.
+          Jako ponad 30-letnia firma rodzinna wspieramy rodziny z empatia, dyskrecja i spokojnym prowadzeniem kazdego etapu. Nasza podstawowa rola to kompleksowa organizacja pogrzebu, a dodatkowo pomagamy takze w krajowym i miedzynarodowym transporcie zmarlych oraz sprowadzaniu ciala do Polski.
         </p>
 
         <div className="mx-auto mb-10 grid max-w-5xl gap-3 text-left md:grid-cols-4">
           <div className="glass-card rounded-lg p-4">
-            <p className="mb-2 text-xs uppercase tracking-[0.18em] text-primary/80">Specjalizacja</p>
-            <p className="text-sm leading-6 text-gray-200">Miedzynarodowy transport zwlok i sprowadzanie zmarlych do Polski.</p>
+            <p className="mb-2 text-xs uppercase tracking-[0.18em] text-primary/80">Ceremonia</p>
+            <p className="text-sm leading-6 text-gray-200">Kompleksowa organizacja pogrzebu, kremacji i oprawy ceremonii w Lodzi i okolicach.</p>
           </div>
           <div className="glass-card rounded-lg p-4">
-            <p className="mb-2 text-xs uppercase tracking-[0.18em] text-primary/80">Zasieg</p>
-            <p className="text-sm leading-6 text-gray-200">Polska, Europa oraz kierunki poza UE wymagajace indywidualnej organizacji.</p>
+            <p className="mb-2 text-xs uppercase tracking-[0.18em] text-primary/80">Formalnosci</p>
+            <p className="text-sm leading-6 text-gray-200">Pomoc w dokumentach, kontakcie z cmentarzem, krematorium, parafia i urzedami.</p>
           </div>
           <div className="glass-card rounded-lg p-4">
-            <p className="mb-2 text-xs uppercase tracking-[0.18em] text-primary/80">Dostepnosc</p>
-            <p className="text-sm leading-6 text-gray-200">Telefon i szybka reakcja 24/7 w sprawach pilnych.</p>
+            <p className="mb-2 text-xs uppercase tracking-[0.18em] text-primary/80">Rozliczenie</p>
+            <p className="text-sm leading-6 text-gray-200">Mozliwosc organizacji pogrzebu bez zaliczki i bez kosztow z gory dla rodziny.</p>
           </div>
           <div className="glass-card rounded-lg p-4">
-            <p className="mb-2 text-xs uppercase tracking-[0.18em] text-primary/80">Wsparcie</p>
-            <p className="text-sm leading-6 text-gray-200">Formalnosci, odbior z placowki, transport i przygotowanie do pochowku w Polsce.</p>
+            <p className="mb-2 text-xs uppercase tracking-[0.18em] text-primary/80">Transport</p>
+            <p className="text-sm leading-6 text-gray-200">Dodatkowo organizujemy transport zmarlych w Polsce oraz sprowadzenie zwlok z zagranicy do Polski.</p>
           </div>
         </div>
 
@@ -48,19 +48,19 @@ const HeroContent = () => {
               <span>+48 602 274 661</span>
             </a>
             <a
-              href="/pl/uslugi/miedzynarodowy-transport-zwlok"
+              href="/uslugi-pogrzebowe-lodz"
               className="inline-flex items-center justify-center rounded-md border border-primary/40 bg-black/35 px-6 py-4 font-medium text-white transition-all duration-200 hover:border-primary hover:bg-primary/10"
             >
-              Miedzynarodowy transport zwlok
+              Uslugi pogrzebowe Lodz
             </a>
             <a
-              href="/pl/uslugi/sprowadzenie-zmarlego-do-polski"
+              href="/uslugi/sprowadzenie-zwlok-z-zagranicy"
               className="inline-flex items-center justify-center rounded-md border border-white/20 bg-black/20 px-6 py-4 font-medium text-gray-100 transition-all duration-200 hover:border-primary/40 hover:text-white"
             >
-              Trasy i kraje - Polska
+              Transport i sprowadzenie zwlok
             </a>
           </div>
-          <p className="text-sm font-medium text-white">Dostepni calodobowo dla rodzin w Polsce i za granica</p>
+          <p className="text-sm font-medium text-white">Dostepni calodobowo dla rodzin w Lodzi, okolicach i w sprawach pilnego transportu</p>
         </div>
 
         <div className="glass-card p-8 rounded-lg mx-auto max-w-sm text-center">

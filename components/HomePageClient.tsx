@@ -8,18 +8,19 @@ import FAQ from '@/components/FAQ'
 import About from '@/components/About'
 import Contact from '@/components/Contact'
 import Link from 'next/link'
+import RelatedLinks from '@/components/RelatedLinks'
 
 const internationalHighlights = [
   {
     title: 'Miedzynarodowy transport zwlok',
-    description: 'Organizujemy odbior z placowki, formalnosci, przewoz i przekazanie w Polsce jako jedna z glownych specjalizacji firmy.',
+    description: 'Organizujemy odbior z placowki, formalnosci, przewoz i przekazanie w Polsce jako dodatkowa usluge dla rodzin potrzebujacych sprawnej pomocy.',
     href: '/pl/uslugi/miedzynarodowy-transport-zwlok',
     cta: 'Przejdz do uslugi',
   },
   {
     title: 'Sprowadzanie zmarlych do Polski',
     description: 'Pomagamy rodzinom w Europie i poza nia, gdy trzeba szybko i spokojnie sprowadzic cialo do Polski.',
-    href: '/pl/uslugi/miedzynarodowy-transport-zwlok',
+    href: '/pl/uslugi/sprowadzenie-zmarlego-do-polski',
     cta: 'Zobacz trasy i kraje',
   },
   {
@@ -49,13 +50,13 @@ const HomePageClient = () => {
           <div className="mx-auto max-w-6xl">
             <div className="mb-10 text-center">
               <div className="mb-4 inline-flex items-center rounded-full border border-primary/35 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-                Glowny filar marki
+                Dodatkowa specjalizacja
               </div>
               <h2 className="text-3xl md:text-4xl font-playfair text-white">
-                Miedzynarodowy transport zwlok i sprowadzanie zmarlych do Polski to jedna z naszych najmocniejszych specjalizacji
+                Pomagamy takze w transporcie zmarlych i sprowadzeniu zwlok do Polski
               </h2>
               <p className="mx-auto mt-4 max-w-4xl text-base leading-8 text-gray-300">
-                Ta usluga nie jest dodatkiem ukrytym gleboko w stronie. Pokazujemy ja od razu, bo wlasnie w tym obszarze chcemy byc rozpoznawalni: szybki kontakt 24/7, spokojna organizacja, formalnosci, transport w Polsce i za granica oraz realna pomoc rodzinie w stresie.
+                Oprocz kompleksowej organizacji pogrzebow prowadzimy rowniez sprawy transportowe. Jesli zgon nastapil poza miejscem planowanego pochowku, pomagamy w formalnosciach, odbiorze i bezpiecznym przewozie do Polski lub na terenie kraju.
               </p>
             </div>
 
@@ -79,9 +80,9 @@ const HomePageClient = () => {
               <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
                 <div>
                   <p className="text-xs uppercase tracking-[0.22em] text-primary/80 mb-3">Europa i zagranica</p>
-                  <h3 className="text-3xl font-playfair text-white">Rodzina ma od razu wiedziec: tak, zajmujemy sie tym i mozna dzwonic natychmiast</h3>
+                  <h3 className="text-3xl font-playfair text-white">Pomagamy w transporcie zmarlych do Polski z Europy i z zagranicy</h3>
                   <p className="mt-4 text-base leading-8 text-gray-300">
-                    Obslugujemy lokalne pogrzeby i ceremonie, ale rownie mocno budujemy rozpoznawalnosc jako partner od krajowego i miedzynarodowego transportu zmarlych. To ma byc widoczne na stronie glownej, w nawigacji i w najwazniejszych CTA.
+                    Organizujemy odbior z placowki, wspieramy w formalnosciach i koordynujemy bezpieczny przewoz do Polski. Jesli sprawa jest pilna, rodzina moze zadzwonic od razu i od pierwszej rozmowy otrzyma konkretne wsparcie.
                   </p>
                 </div>
                 <div className="grid gap-3 sm:grid-cols-2">
@@ -101,6 +102,16 @@ const HomePageClient = () => {
       <Services />
       <Reviews />
       <ServicesCta />
+      <section className="bg-black px-4">
+        <div className="container mx-auto">
+          <RelatedLinks
+            pathname="/"
+            heading="Najważniejsze strony dla rodziny"
+            intro="Łączymy stronę główną z usługami, formalnościami i kontaktem, żeby rodzina mogła szybko przejść do właściwej pomocy."
+            className="mt-0"
+          />
+        </div>
+      </section>
       <ServicesTable />
       <FAQ />
       <About />
@@ -122,6 +133,9 @@ const HomePageClient = () => {
               </Link>
               <Link href="/uslugi/sprowadzenie-zwlok-z-zagranicy" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">
                 Sprowadzenie zwlok z zagranicy
+              </Link>
+              <Link href="/pl/uslugi/sprowadzenie-zmarlego-do-polski" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">
+                Sprowadzenie zmarlego do Polski
               </Link>
               <Link href="/pl/uslugi/miedzynarodowy-transport-zwlok" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">
                 Miedzynarodowy transport zwlok do Polski

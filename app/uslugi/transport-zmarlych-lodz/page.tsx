@@ -5,7 +5,7 @@ import type { FAQItem } from '@/components/structured-data/FAQSchema'
 import { IMAGES } from '@/assets/images'
 import { Card, CardContent } from '@/components/ui/card'
 import { CheckCircle, MapPin, Clock, Globe, AlertTriangle, Plane, Building2, Star, Truck } from 'lucide-react'
-import { SITE_URL } from '@/lib/constants'
+import { buildLocalMetadata, buildMetaDescription } from '@/lib/local-seo'
 
 const transportServices = [
   'Transport zmarłych z miejsca zgonu do kostnicy lub chłodni',
@@ -78,34 +78,24 @@ const faqData: FAQItem[] = [
   },
 ]
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildLocalMetadata({
   title: 'Transport Zmarłych Łódź',
-  description:
-    'Całodobowy transport zmarłych w Łodzi i na terenie kraju oraz transport międzynarodowy. Własny specjalistyczny bus, pomoc formalna i bardzo dobra renoma.',
+  path: '/uslugi/transport-zmarlych-lodz',
+  description: buildMetaDescription([
+    'Całodobowy transport zmarłych w Łodzi i na terenie kraju',
+    'własny specjalistyczny bus, pomoc formalna i szybka organizacja 24/7',
+    'obsługa także dla transportu międzynarodowego i sprowadzenia do Polski',
+  ]),
   keywords: [
     'transport zmarłych łódź',
-    'przewóz zwłok',
+    'przewóz zwłok łódź',
     'karawan łódź',
     'transport międzynarodowy zmarłych',
     'transport zmarłych z zagranicy do polski',
     'transport zwłok niemcy polska',
     'transport zwłok uk polska',
   ],
-  alternates: {
-    canonical: `${SITE_URL}/uslugi/transport-zmarlych-lodz`,
-  },
-  openGraph: {
-    title: 'Transport Zmarłych Łódź - Nekrolog',
-    description:
-      'Całodobowy transport zmarłych w Łodzi, na terenie kraju i międzynarodowy. Profesjonalny transport, formalności i wsparcie 24/7.',
-    url: `${SITE_URL}/uslugi/transport-zmarlych-lodz`,
-    type: 'website',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-}
+})
 
 export default function TransportZmarlychPage() {
   return (

@@ -1,6 +1,6 @@
-'use client'
-
 import { BUSINESS_INFO, SITE_URL } from '@/lib/constants'
+import JsonLdScript from '@/components/structured-data/JsonLdScript'
+import { buildServiceJsonLd } from '@/lib/local-seo'
 
 interface ServiceSchemaProps {
   serviceName: string
@@ -11,6 +11,7 @@ interface ServiceSchemaProps {
   city?: string
   postalCode?: string
   openingHours?: string
+  availableLanguages?: string[]
 }
 
 const ServiceSchema = ({ 
@@ -22,64 +23,19 @@ const ServiceSchema = ({
   city = BUSINESS_INFO.address.addressLocality,
   postalCode = BUSINESS_INFO.address.postalCode,
   openingHours = 'Mo-Su 00:00-23:59',
+  availableLanguages = ['pl', 'en', 'de', 'fr', 'nl', 'it'],
 }: ServiceSchemaProps) => {
   const absoluteUrl = url.startsWith('http') ? url : `${SITE_URL}${url}`
-
-  const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    '@id': `${absoluteUrl}#service`,
+  const schema = buildServiceJsonLd({
     name: serviceName,
-    serviceType: serviceName,
     description,
-    url: absoluteUrl,
-    areaServed: BUSINESS_INFO.areaServed.map((servedCity) => ({
-      '@type': 'City',
-      name: servedCity,
-    })),
-    availableLanguage: ['pl'],
-    provider: {
-      '@type': 'FuneralHome',
-      '@id': `${SITE_URL}#organization`,
-      name: BUSINESS_INFO.legalName,
-      url: SITE_URL,
-      telephone: phone,
-      email: BUSINESS_INFO.email,
-      sameAs: BUSINESS_INFO.sameAs,
-      priceRange: BUSINESS_INFO.priceRange,
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: address,
-        addressLocality: city,
-        postalCode,
-        addressCountry: 'PL',
-      },
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: BUSINESS_INFO.geo.latitude,
-        longitude: BUSINESS_INFO.geo.longitude,
-      },
-      openingHours,
-    },
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': absoluteUrl,
-    },
-    offers: {
-      '@type': 'Offer',
-      url: absoluteUrl,
-      priceCurrency: 'PLN',
-      description:
-        'Indywidualna wycena usługi. W wielu przypadkach możliwa organizacja bez kosztów z góry.',
-      availability: 'https://schema.org/InStock',
-    },
-  }
+    path: absoluteUrl.replace(SITE_URL, ''),
+    areaServed: BUSINESS_INFO.areaServed,
+    availableLanguages,
+  })
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
+    <JsonLdScript data={schema} />
   )
 }
 

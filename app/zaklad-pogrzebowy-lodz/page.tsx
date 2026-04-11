@@ -4,6 +4,9 @@ import { BreadcrumbController } from '@/components/breadcrumb-context'
 import { Phone, Clock, MapPin, Check, Heart, Award, Users, Shield } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import Link from 'next/link'
+import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema'
+import ServiceSchema from '@/components/structured-data/ServiceSchema'
+import FAQSchema from '@/components/structured-data/FAQSchema'
 
 export const metadata: Metadata = {
   title: 'Zakład Pogrzebowy Łódź • Nekrolog Łódź | Rodzinna Firma 30+ Lat',
@@ -40,6 +43,27 @@ export const metadata: Metadata = {
 }
 
 export default function ZakladPogrzebowyPage() {
+  const breadcrumbs = [
+    { name: 'Strona Główna', url: '/' },
+    { name: 'Zakład Pogrzebowy Łódź' },
+  ]
+  const faqData = [
+    {
+      question: 'Czy zakład pogrzebowy w Łodzi działa całodobowo?',
+      answer:
+        'Tak. Jesteśmy dostępni 24/7 pod numerem +48 602 274 661 i pomagamy od pierwszego telefonu.',
+    },
+    {
+      question: 'Czy można zorganizować pogrzeb bez zaliczki?',
+      answer:
+        'Tak. W wielu przypadkach pomagamy zorganizować pogrzeb bez kosztów z góry i rozliczyć usługę z zasiłku pogrzebowego.',
+    },
+    {
+      question: 'Czy pomagacie także w transporcie zmarłych z zagranicy do Polski?',
+      answer:
+        'Tak. Oprócz organizacji ceremonii pomagamy również w krajowym i międzynarodowym transporcie zmarłych oraz w sprowadzeniu zwłok do Polski.',
+    },
+  ]
   const services = [
     {
       title: 'Organizacja Pogrzebów',
@@ -103,6 +127,13 @@ export default function ZakladPogrzebowyPage() {
 
   return (
     <>
+      <BreadcrumbSchema items={breadcrumbs} />
+      <ServiceSchema
+        serviceName="Zakład Pogrzebowy Łódź"
+        description="Całodobowy zakład pogrzebowy w Łodzi przy ul. Legionów 48. Organizacja pogrzebów, formalności, kremacja, transport zmarłych i pomoc bez zaliczki."
+        url="/zaklad-pogrzebowy-lodz"
+      />
+      <FAQSchema faqs={faqData} name="Zakład Pogrzebowy Łódź FAQ" />
       <BreadcrumbController
         overrides={[{ segment: 'zaklad-pogrzebowy-lodz', label: 'Zakład Pogrzebowy' }]}
       />
@@ -155,6 +186,14 @@ export default function ZakladPogrzebowyPage() {
             <div className="mt-5">
               <Link href="/nekrolog-lodz" className="text-primary hover:text-primary/80 underline underline-offset-4">
                 Zobacz stronę marki: Nekrolog Łódź
+              </Link>
+            </div>
+            <div className="mt-3 flex flex-col items-center justify-center gap-2 text-sm sm:flex-row sm:gap-5">
+              <Link href="/pogrzeb-bez-zaliczki" className="text-gray-300 underline underline-offset-4 hover:text-primary">
+                Pogrzeb bez zaliczki
+              </Link>
+              <Link href="/uslugi-pogrzebowe-lodz" className="text-gray-300 underline underline-offset-4 hover:text-primary">
+                Zobacz pełne usługi pogrzebowe
               </Link>
             </div>
           </div>

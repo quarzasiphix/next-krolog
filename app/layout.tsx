@@ -2,9 +2,14 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Providers } from './providers'
 import ClientShell from '@/components/ClientShell'
+import OrganizationSchema from '@/components/structured-data/OrganizationSchema'
+import FuneralHomeSchema from '@/components/structured-data/FuneralHomeSchema'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://nekrolog-lodz.com'),
+  alternates: {
+    canonical: '/',
+  },
   icons: {
     icon: '/icon.svg',
     shortcut: '/icon.svg',
@@ -77,6 +82,8 @@ export default async function RootLayout({
       </head>
       <body>
         <Providers>
+          <OrganizationSchema />
+          <FuneralHomeSchema description="Całodobowy zakład pogrzebowy w Łodzi przy ul. Legionów 48. Kompleksowe usługi pogrzebowe, wsparcie 24/7 i możliwość rozliczenia bez zaliczki." />
           <ClientShell>
             {children}
           </ClientShell>

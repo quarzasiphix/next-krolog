@@ -1,57 +1,43 @@
-'use client'
+import { BUSINESS_INFO, SITE_URL } from '@/lib/constants'
+import JsonLdScript from '@/components/structured-data/JsonLdScript'
+import { buildFuneralHomeJsonLd } from '@/lib/local-seo'
 
 interface FuneralHomeSchemaProps {
-  businessName: string
+  businessName?: string
   description: string
-  phone: string
-  address: string
-  city: string
-  postalCode: string
-  openingHours: string
+  phone?: string
+  address?: string
+  city?: string
+  postalCode?: string
+  openingHours?: string
+  path?: string
 }
 
-const FuneralHomeSchema = ({ 
-  businessName, 
-  description, 
-  phone, 
-  address, 
-  city, 
-  postalCode, 
-  openingHours 
+const FuneralHomeSchema = ({
+  businessName = BUSINESS_INFO.legalName,
+  description,
+  phone = BUSINESS_INFO.phone,
+  address = BUSINESS_INFO.address.streetAddress,
+  city = BUSINESS_INFO.address.addressLocality,
+  postalCode = BUSINESS_INFO.address.postalCode,
+  openingHours = 'Mo-Su 00:00-23:59',
+  path = '/',
 }: FuneralHomeSchemaProps) => {
   const schema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": businessName,
-    "description": description,
-    "url": "https://nekrolog-lodz.com",
-    "telephone": phone,
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": address,
-      "addressLocality": city,
-      "postalCode": postalCode,
-      "addressCountry": "PL"
+    ...buildFuneralHomeJsonLd({ description, path }),
+    name: businessName,
+    telephone: phone,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: address,
+      addressLocality: city,
+      postalCode,
+      addressCountry: 'PL',
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 51.7592,
-      "longitude": 19.4562
-    },
-    "openingHours": openingHours,
-    "priceRange": "$$",
-    "sameAs": [
-      "https://nekrolog-lodz.com",
-      "https://www.ekrolog-lodz.com"
-    ]
+    openingHours,
   }
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
-  )
+  return <JsonLdScript data={schema} />
 }
 
 export default FuneralHomeSchema

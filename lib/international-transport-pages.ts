@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import type { FAQItem } from '@/components/structured-data/FAQSchema'
-import { SITE_URL } from '@/lib/constants'
 import { InternationalTransportTemplate } from '@/lib/international-transport-template'
+import { buildLocalMetadata, buildMetaDescription } from '@/lib/local-seo'
 
 export type InternationalTransportPageConfig = {
   slug: string
@@ -466,24 +466,17 @@ export function getInternationalTransportConfig(slug: string) {
 }
 
 export function buildInternationalTransportMetadata(config: InternationalTransportPageConfig): Metadata {
-  return {
+  return buildLocalMetadata({
     title: config.metadataTitle,
-    description: config.description,
+    path: `/uslugi/${config.slug}`,
+    description: buildMetaDescription([
+      config.description,
+      'Obsługa prowadzona przez zakład pogrzebowy z Łodzi z koordynacją formalności i transportu do Polski',
+    ]),
     keywords: config.keywords,
-    alternates: {
-      canonical: `${SITE_URL}/uslugi/${config.slug}`,
-    },
-    openGraph: {
-      title: config.metadataTitle,
-      description: config.description,
-      url: `${SITE_URL}/uslugi/${config.slug}`,
-      type: 'website',
-    },
-    robots: {
-      index: false,
-      follow: true,
-    },
-  }
+    ogTitle: `${config.metadataTitle} | Łódź`,
+    index: true,
+  })
 }
 
 export { InternationalTransportTemplate }

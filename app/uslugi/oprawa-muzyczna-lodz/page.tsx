@@ -6,6 +6,7 @@ import { IMAGES } from '@/assets/images'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Music, Mic, BarChart4, Headphones, CheckCircle, Phone } from 'lucide-react'
+import { buildLocalMetadata, buildMetaDescription } from '@/lib/local-seo'
 
 const musicServices = [
   {
@@ -64,15 +65,16 @@ const faqData: FAQItem[] = [
   },
 ]
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildLocalMetadata({
   title: 'Oprawa Muzyczna Pogrzebu Łódź',
-  description:
-    'Profesjonalna oprawa muzyczna ceremonii pogrzebowych w Łodzi – organista, wokaliści, trąbka i instrumenty smyczkowe.',
-  keywords: ['oprawa muzyczna pogrzebu łódź', 'muzyka na pogrzeb', 'organista pogrzebowy', 'trąbka pogrzebowa'],
-  alternates: {
-    canonical: '/uslugi/oprawa-muzyczna-lodz',
-  },
-}
+  path: '/uslugi/oprawa-muzyczna-lodz',
+  description: buildMetaDescription([
+    'Profesjonalna oprawa muzyczna ceremonii pogrzebowych w Łodzi',
+    'organista, wokaliści, trąbka i instrumenty smyczkowe',
+    'dobór repertuaru dopasowany do charakteru uroczystości',
+  ]),
+  keywords: ['oprawa muzyczna pogrzebu łódź', 'muzyka na pogrzeb łódź', 'organista pogrzebowy łódź', 'trąbka pogrzebowa łódź'],
+})
 
 export default function OprawaMuzycznaPage() {
   return (

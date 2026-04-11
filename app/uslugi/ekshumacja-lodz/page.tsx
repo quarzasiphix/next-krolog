@@ -4,6 +4,7 @@ import type { FAQItem } from '@/components/structured-data/FAQSchema'
 import { IMAGES } from '@/assets/images'
 import { Card, CardContent } from '@/components/ui/card'
 import { CheckCircle, Clock, FileText, AlertTriangle } from 'lucide-react'
+import { buildLocalMetadata, buildMetaDescription } from '@/lib/local-seo'
 
 const exhumationReasons = [
   'Przeniesienie szczątków do innego grobu lub na inny cmentarz',
@@ -66,15 +67,16 @@ const faqData: FAQItem[] = [
   },
 ]
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildLocalMetadata({
   title: 'Ekshumacja Zwłok Łódź',
-  description:
-    'Profesjonalna obsługa ekshumacji w Łodzi – formalności, transport szczątków, ponowny pochówek z pełnym poszanowaniem prawa i tradycji.',
-  keywords: ['ekshumacja łódź', 'przeniesienie grobu', 'formalności ekshumacja'],
-  alternates: {
-    canonical: '/uslugi/ekshumacja-lodz',
-  },
-}
+  path: '/uslugi/ekshumacja-lodz',
+  description: buildMetaDescription([
+    'Profesjonalna obsługa ekshumacji w Łodzi',
+    'formalności, transport szczątków i ponowny pochówek',
+    'pełne poszanowanie prawa, procedur sanitarnych i tradycji',
+  ]),
+  keywords: ['ekshumacja łódź', 'ekshumacja zwłok łódź', 'przeniesienie grobu łódź', 'formalności ekshumacja łódź'],
+})
 
 export default function EkshumacjaPage() {
   return (
