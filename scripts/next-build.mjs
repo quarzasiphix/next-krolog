@@ -1,5 +1,5 @@
 import { spawnSync } from 'node:child_process'
-import { existsSync, readdirSync, writeFileSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 const root = process.cwd()
@@ -30,23 +30,37 @@ if ((result.status ?? 1) === 0) {
   const sitemapDir = join(outDir, 'sitemap')
   const sitemapIndexPath = join(outDir, 'sitemap.xml')
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://nekrolog-lodz.com'
+  const stylesheetLine = `<?xml-stylesheet type="text/xsl" href="${siteUrl}/sitemap.xsl"?>`
+
+  const injectStylesheet = (filePath) => {
+    if (!existsSync(filePath)) {
+      return
+    }
+
+    const source = readFileSync(filePath, 'utf8')
+
+    if (source.includes('<?xml-stylesheet')) {
+      return
+    }
+
+    const updated = source.replace(
+      '<?xml version="1.0" encoding="UTF-8"?>',
+      `<?xml version="1.0" encoding="UTF-8"?>\n${stylesheetLine}`
+    )
+
+    writeFileSync(filePath, updated, 'utf8')
+  }
+
+  injectStylesheet(sitemapIndexPath)
 
   if (existsSync(sitemapDir)) {
     const sitemapFiles = readdirSync(sitemapDir)
       .filter((file) => file.endsWith('.xml'))
       .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
 
-    if (sitemapFiles.length > 0) {
-      const sitemapIndex = [
-        '<?xml version="1.0" encoding="UTF-8"?>',
-        '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-        ...sitemapFiles.map((file) => `  <sitemap><loc>${siteUrl}/sitemap/${file}</loc></sitemap>`),
-        '</sitemapindex>',
-        '',
-      ].join('\n')
-
-      writeFileSync(sitemapIndexPath, sitemapIndex, 'utf8')
-    }
+    sitemapFiles.forEach((file) => {
+      injectStylesheet(join(sitemapDir, file))
+    })
   }
 }
 

@@ -37,31 +37,42 @@ export default function CmentarzeLodzPage() {
     { name: 'Cmentarze w Łodzi' },
   ]
 
-  const additionalCemeteries = [
-    'Cmentarz rzymskokatolicki w Aleksandrowie Łódzkim - Wojska Polskiego 95, Aleksandrów Łódzki',
-    'Cmentarz ewangelicki w Aleksandrowie Łódzkim - Wojska Polskiego 44, Aleksandrów Łódzki',
-    'Cmentarz w Bełdowie - Bełdów, woj. łódzkie, gm. Aleksandrów Łódzki',
-    'Cmentarz Rzymskokatolicki św. Wincentego "Doły" - Smutna, Łódź',
-    'Cmentarz Komunalny "Doły" - aleja Grzegorza Pałki, Łódź',
-    'Cmentarz Chrześcijan Baptystów "Doły" - Telefoniczna, Łódź',
-    'Cmentarz Prawosławny pw. św. Aleksandra Newskiego "Doły" - Telefoniczna 10, Łódź',
-    'Cmentarz Rzymskokatolicki pw. św. Anny "Zarzew" - Lodowa, Łódź',
-    'Cmentarz Komunalny "Zarzew" - Przybyszewskiego, Łódź',
-    'Cmentarz Rzymskokatolicki pw. św. Antoniego "Mania" - Solec 11, Łódź',
-    'Stary Cmentarz (ewangelicko-augsburski) - ulica Ogrodowa, Łódź',
-    'Stary Cmentarz (rzymskokatolicki) pw. św. Józefa - Ogrodowa, Łódź',
-    'Stary Cmentarz (prawosławny) pw. św. Aleksandra Newskiego - ulica Ogrodowa, Łódź',
-    'Cmentarz rzymskokatolicki Matki Boskiej Nieustającej Pomocy "Szczecińska" - Szczecińska 96, Łódź',
-    'Cmentarz komunalny "Szczecińska" - Hodowlana 28/30, Łódź',
-    'Kancelaria Cmentarza Rzymskokatolickiego św. Wojciecha - Kurczaki, Łódź',
-    'Cmentarz Rzymskokatolicki pw. św. Rocha - Zgierska, Łódź',
-    'Cmentarz Komunalny w Zgierzu - Konstantynowska, Zgierz',
-    'Cmentarz Rzymskokatolicki pw. św. Józefa i Wawrzyńca w Zgierzu - ks. Piotra Skargi 28, Zgierz',
-    'Cmentarz Katolicki Parafii Najświętszej Maryi Panny Nieustającej Pomocy w Andrespolu - Ziarnista, Łódź',
-    'Cmentarz Komunalny w Pabianicach - Kilińskiego 57/59, Pabianice',
-    'Cmentarz w Nowosolnej - Kasprowicza 1A, Nowosolna',
-    'Cmentarz pw. św. Bartłomieja w Lutomiersku - Lutomiersk, woj. łódzkie',
-    'Cmentarz Katolicki Narodzenia NMP - Łaska 61, Konstantynów Łódzki',
+  const cemeteryGroups = [
+    {
+      voivodeship: 'Województwo Łódzkie',
+      description: 'Cmentarze z Łodzi i okolicznych miejscowości, które najczęściej obsługujemy.',
+      cemeteries: [
+        'Cmentarz rzymskokatolicki w Aleksandrowie Łódzkim - Wojska Polskiego 95, Aleksandrów Łódzki',
+        'Cmentarz ewangelicki w Aleksandrowie Łódzkim - Wojska Polskiego 44, Aleksandrów Łódzki',
+        'Cmentarz w Bełdowie - Bełdów, gm. Aleksandrów Łódzki',
+        'Cmentarz Rzymskokatolicki św. Wincentego "Doły" - Smutna, Łódź',
+        'Cmentarz Komunalny "Doły" - aleja Grzegorza Pałki, Łódź',
+        'Cmentarz Chrześcijan Baptystów "Doły" - Telefoniczna, Łódź',
+        'Cmentarz Prawosławny pw. św. Aleksandra Newskiego "Doły" - Telefoniczna 10, Łódź',
+        'Cmentarz Rzymskokatolicki pw. św. Anny "Zarzew" - Lodowa, Łódź',
+        'Cmentarz Komunalny "Zarzew" - Przybyszewskiego, Łódź',
+        'Cmentarz Rzymskokatolicki pw. św. Antoniego "Mania" - Solec 11, Łódź',
+        'Stary Cmentarz (ewangelicko-augsburski) - ulica Ogrodowa, Łódź',
+        'Stary Cmentarz (rzymskokatolicki) pw. św. Józefa - Ogrodowa, Łódź',
+        'Stary Cmentarz (prawosławny) pw. św. Aleksandra Newskiego - ulica Ogrodowa, Łódź',
+        'Cmentarz rzymskokatolicki Matki Boskiej Nieustającej Pomocy "Szczecińska" - Szczecińska 96, Łódź',
+        'Cmentarz komunalny "Szczecińska" - Hodowlana 28/30, Łódź',
+        'Kancelaria Cmentarza Rzymskokatolickiego św. Wojciecha - Kurczaki, Łódź',
+        'Cmentarz Rzymskokatolicki pw. św. Rocha - Zgierska, Łódź',
+        'Cmentarz Komunalny w Zgierzu - Konstantynowska, Zgierz',
+        'Cmentarz Rzymskokatolicki pw. św. Józefa i Wawrzyńca w Zgierzu - ks. Piotra Skargi 28, Zgierz',
+        'Cmentarz Katolicki Parafii Najświętszej Maryi Panny Nieustającej Pomocy w Andrespolu - Ziarnista, Łódź',
+        'Cmentarz Komunalny w Pabianicach - Kilińskiego 57/59, Pabianice',
+        'Cmentarz w Nowosolnej - Kasprowicza 1A, Nowosolna',
+        'Cmentarz pw. św. Bartłomieja w Lutomiersku - Lutomiersk',
+        'Cmentarz Katolicki Narodzenia NMP - Łaska 61, Konstantynów Łódzki',
+      ],
+    },
+    {
+      voivodeship: 'Inne Województwa',
+      description: 'Ta sekcja jest przygotowana pod kolejne cmentarze spoza województwa łódzkiego.',
+      cemeteries: [],
+    },
   ]
 
   const cemeteries = [
@@ -339,7 +350,7 @@ export default function CmentarzeLodzPage() {
                   </p>
                 </div>
                 <Link
-                  href="/cmentarze-lodz/urzad-stanu-cywilnego-lodz"
+                  href="/urzad-stanu-cywilnego-lodz"
                   className="inline-flex items-center justify-center rounded-md border border-primary/30 bg-primary/10 px-6 py-3 font-medium text-white transition hover:bg-primary/20"
                 >
                   Zobacz stronę USC
@@ -349,13 +360,28 @@ export default function CmentarzeLodzPage() {
 
             <div className="mb-12 rounded-lg border border-white/10 bg-black/30 p-8">
               <h2 className="mb-6 text-center text-2xl font-playfair font-medium text-white">
-                Dodatkowe Cmentarze w Łodzi i Okolicy
+                Cmentarze Według Województwa
               </h2>
-              <div className="grid gap-3 md:grid-cols-2">
-                {additionalCemeteries.map((cemetery) => (
-                  <div key={cemetery} className="flex items-start gap-3 rounded-lg border border-white/10 bg-white/5 p-4">
-                    <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-primary" />
-                    <p className="text-sm leading-relaxed text-gray-300">{cemetery}</p>
+              <div className="space-y-8">
+                {cemeteryGroups.map((group) => (
+                  <div key={group.voivodeship} className="rounded-lg border border-white/10 bg-white/5 p-6">
+                    <h3 className="text-xl font-playfair font-medium text-white">{group.voivodeship}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-gray-400">{group.description}</p>
+
+                    {group.cemeteries.length > 0 ? (
+                      <div className="mt-5 grid gap-3 md:grid-cols-2">
+                        {group.cemeteries.map((cemetery) => (
+                          <div key={cemetery} className="flex items-start gap-3 rounded-lg border border-white/10 bg-black/20 p-4">
+                            <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-primary" />
+                            <p className="text-sm leading-relaxed text-gray-300">{cemetery}</p>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="mt-5 text-sm leading-relaxed text-gray-300">
+                        Wkrótce rozbudujemy tę sekcję o kolejne cmentarze z innych województw.
+                      </p>
+                    )}
                   </div>
                 ))}
               </div>

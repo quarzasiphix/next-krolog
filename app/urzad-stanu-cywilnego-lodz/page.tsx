@@ -25,13 +25,13 @@ export const metadata: Metadata = {
     'zakład pogrzebowy łódź usc',
   ],
   alternates: {
-    canonical: `${SITE_URL}/cmentarze-lodz/urzad-stanu-cywilnego-lodz`,
+    canonical: `${SITE_URL}/urzad-stanu-cywilnego-lodz`,
   },
   openGraph: {
     title: 'USC Łódź - Akt Zgonu, Karta Zgonu i Formalności',
     description:
       'Pomagamy rodzinie po śmierci bliskiej osoby w sprawach USC w Łodzi, przy karcie zgonu, akcie zgonu, ZUS i organizacji pogrzebu.',
-    url: `${SITE_URL}/cmentarze-lodz/urzad-stanu-cywilnego-lodz`,
+    url: `${SITE_URL}/urzad-stanu-cywilnego-lodz`,
     type: 'website',
   },
   robots: {
@@ -74,7 +74,7 @@ const faqData = [
 export default function UrzadStanuCywilnegoLodzPage() {
   const breadcrumbs = [
     { name: 'Strona Główna', url: '/' },
-    { name: 'Cmentarze w Łodzi', url: '/cmentarze-lodz' },
+    { name: 'Poradnik', url: '/poradnik' },
     { name: 'Urząd Stanu Cywilnego Łódź' },
   ]
 
@@ -82,7 +82,7 @@ export default function UrzadStanuCywilnegoLodzPage() {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: 'USC Łódź - akt zgonu, karta zgonu i pomoc rodziny po śmierci bliskiej osoby',
-    url: `${SITE_URL}/cmentarze-lodz/urzad-stanu-cywilnego-lodz`,
+    url: `${SITE_URL}/urzad-stanu-cywilnego-lodz`,
     description:
       'Strona informacyjna o formalnościach związanych z USC w Łodzi, kartą zgonu, aktem zgonu oraz o wsparciu, jakie zapewnia Nekrolog Łódź.',
   }
@@ -100,11 +100,11 @@ export default function UrzadStanuCywilnegoLodzPage() {
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl">
             <Link
-              href="/cmentarze-lodz"
+              href="/poradnik"
               className="mb-6 inline-flex items-center gap-2 text-primary transition hover:text-primary/80"
             >
               <ArrowLeft className="h-4 w-4" />
-              Powrót do cmentarzy i formalności
+              Powrót do poradnika
             </Link>
 
             <h1 className="mb-6 text-4xl font-playfair font-medium text-white md:text-5xl">

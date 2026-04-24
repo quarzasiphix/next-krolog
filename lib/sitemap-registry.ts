@@ -310,8 +310,15 @@ export function generateSitemapEntries(baseUrl: string): SitemapEntry[] {
   })
 
   entries.push({
-    url: `${baseUrl}/cmentarze-lodz/urzad-stanu-cywilnego-lodz`,
+    url: `${baseUrl}/urzad-stanu-cywilnego-lodz`,
     lastModified: CONTENT_LAST_MODIFIED.cmentarze.main,
+    changeFrequency: 'monthly',
+    priority: 0.82,
+  })
+
+  entries.push({
+    url: `${baseUrl}/zus-zasilek-pogrzebowy-lodz`,
+    lastModified: CONTENT_LAST_MODIFIED.services.main,
     changeFrequency: 'monthly',
     priority: 0.82,
   })

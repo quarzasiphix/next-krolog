@@ -41,7 +41,8 @@ const productsItems = [
 const poradnikItems = [
   { name: 'Poradnik', path: '/poradnik' },
   { name: 'Pogrzeb bez zaliczki', path: '/pogrzeb-bez-zaliczki' },
-  { name: 'USC Lodz i akt zgonu', path: '/cmentarze-lodz/urzad-stanu-cywilnego-lodz' },
+  { name: 'USC Lodz i akt zgonu', path: '/urzad-stanu-cywilnego-lodz' },
+  { name: 'ZUS i zasilek pogrzebowy', path: '/zus-zasilek-pogrzebowy-lodz' },
   { name: 'Przewoz zwlok', path: '/poradnik/przewoz-zwlok' },
   { name: 'Transport z zagranicy', path: '/poradnik/jak-przetransportowac-cialo-zmarlego-z-zagranicy' },
   { name: 'Cmentarze w Lodzi', path: '/cmentarze-lodz' },
@@ -86,14 +87,14 @@ const Navbar = () => {
   }
 
   const renderMenuBlock = (title: string, key: string, items: Array<{ name: string; path: string }>) => (
-    <div className="border-b border-white/10">
-      <button onClick={() => toggleSubmenu(key)} className="flex items-center justify-between text-white hover:text-primary transition-colors text-xl py-3 w-full">
+    <div className="rounded-lg border border-white/10 bg-black px-4">
+      <button onClick={() => toggleSubmenu(key)} className="flex items-center justify-between text-white hover:text-primary transition-colors text-xl py-4 w-full">
         <span>{title}</span>
         <ChevronDown className={`w-5 h-5 transition-transform ${activeSubmenu === key ? 'rotate-180' : ''}`} />
       </button>
 
       {activeSubmenu === key && (
-        <div className="pl-4 pb-2 space-y-2 max-h-[320px] overflow-y-auto">
+        <div className="space-y-2 border-t border-white/10 pb-4 pt-3 max-h-[320px] overflow-y-auto bg-black">
           {items.map((item) => (
             <Link
               key={item.name}
@@ -247,44 +248,46 @@ const Navbar = () => {
         </button>
       </div>
 
-      <div className={`md:hidden fixed inset-0 top-16 bg-black z-40 transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-        <div className="flex flex-col p-6 space-y-2">
-          <div className="border-b border-primary/30 pb-4 text-center">
+      <div className={`md:hidden fixed inset-0 top-16 z-[70] overflow-y-auto bg-black transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className="min-h-full bg-black px-6 pb-10 pt-6">
+          <div className="border-b border-primary/30 pb-4 text-center bg-black">
             <h2 className="text-xl font-playfair text-white mb-1">Nekrolog Lodz</h2>
             <p className="text-gray-300 text-sm">Pogrzeby, krajowy i miedzynarodowy transport zwlok</p>
             <p className="text-gray-400 text-xs mt-1">dostepne 24 godziny na dobe</p>
           </div>
 
-          <button onClick={() => scrollToSection('home')} className="text-white hover:text-primary transition-colors text-xl py-3 border-b border-white/10 w-full text-left">
-            Strona glowna
-          </button>
+          <div className="mt-4 flex flex-col space-y-3 bg-black">
+            <button onClick={() => scrollToSection('home')} className="rounded-lg border border-white/10 bg-black px-4 py-4 text-left text-xl text-white transition-colors hover:text-primary">
+              Strona glowna
+            </button>
 
-          <Link
-            href="/pl/uslugi/miedzynarodowy-transport-zwlok"
-            onClick={() => setIsMenuOpen(false)}
-            className="mt-2 flex items-center justify-center gap-2 rounded-md border border-primary/40 bg-primary/10 px-4 py-4 text-center text-primary"
-          >
-            <Globe2 className="h-5 w-5" />
-            <span className="font-semibold">Transport miedzynarodowy 24/7</span>
-          </Link>
+            <Link
+              href="/pl/uslugi/miedzynarodowy-transport-zwlok"
+              onClick={() => setIsMenuOpen(false)}
+              className="flex items-center justify-center gap-2 rounded-md border border-primary/40 bg-primary/10 px-4 py-4 text-center text-primary"
+            >
+              <Globe2 className="h-5 w-5" />
+              <span className="font-semibold">Transport miedzynarodowy 24/7</span>
+            </Link>
 
-          {renderMenuBlock('Uslugi pogrzebowe', 'services', servicesItems)}
-          {renderMenuBlock('Asortyment', 'products', productsItems)}
-          {renderMenuBlock('Poradnik', 'poradnik', poradnikItems)}
-          {renderMenuBlock('O nas', 'about', aboutItems)}
+            {renderMenuBlock('Uslugi pogrzebowe', 'services', servicesItems)}
+            {renderMenuBlock('Asortyment', 'products', productsItems)}
+            {renderMenuBlock('Poradnik', 'poradnik', poradnikItems)}
+            {renderMenuBlock('O nas', 'about', aboutItems)}
 
-          <a href="tel:+48602274661" data-phone-location="navbar_mobile_primary" className="flex items-center justify-center text-primary mt-6 py-3 border border-primary rounded-md w-full">
-            <Phone className="w-5 h-5 mr-2" />
-            <span className="font-medium">+48 602 274 661</span>
-          </a>
-          <a href="tel:+48602270050" data-phone-location="navbar_mobile_international" className="flex items-center justify-center text-gray-300 mt-2 py-3 border border-white/20 rounded-md w-full text-sm">
-            <Phone className="w-4 h-4 mr-2" />
-            <span className="font-medium">+48 602 270 050</span>
-          </a>
+            <a href="tel:+48602274661" data-phone-location="navbar_mobile_primary" className="flex items-center justify-center text-primary mt-3 py-3 border border-primary rounded-md w-full bg-black">
+              <Phone className="w-5 h-5 mr-2" />
+              <span className="font-medium">+48 602 274 661</span>
+            </a>
+            <a href="tel:+48602270050" data-phone-location="navbar_mobile_international" className="flex items-center justify-center text-gray-300 mt-2 py-3 border border-white/20 rounded-md w-full text-sm bg-black">
+              <Phone className="w-4 h-4 mr-2" />
+              <span className="font-medium">+48 602 270 050</span>
+            </a>
 
-          <div className="mt-8 glass-card p-4 rounded-lg text-center">
-            <h3 className="text-primary font-medium mb-1">Zaklad pogrzebowy i transport w centrum Lodzi</h3>
-            <address className="not-italic text-gray-300 text-sm">Legionow 48, 90-702 Lodz, Polska</address>
+            <div className="mt-5 rounded-lg border border-white/10 bg-black p-4 text-center">
+              <h3 className="text-primary font-medium mb-1">Zaklad pogrzebowy i transport w centrum Lodzi</h3>
+              <address className="not-italic text-gray-300 text-sm">Legionow 48, 90-702 Lodz, Polska</address>
+            </div>
           </div>
         </div>
       </div>

@@ -18,6 +18,10 @@ http://nekrolog-lodz.com/* https://nekrolog-lodz.com/:splat 301
 /uslugi-pogrzebowe /uslugi-pogrzebowe-lodz 301
 /uslugi-pogrzebowe/ /uslugi-pogrzebowe-lodz 301
 
+# USC page moved out of cemetery section
+/cmentarze-lodz/urzad-stanu-cywilnego-lodz /urzad-stanu-cywilnego-lodz 301
+/cmentarze-lodz/urzad-stanu-cywilnego-lodz/ /urzad-stanu-cywilnego-lodz 301
+
 # Legacy WordPress endpoints
 /feed/ /poradnik 301
 /feed /poradnik 301
