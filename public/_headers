@@ -12,6 +12,14 @@
   Cache-Control: public, max-age=3600
   Content-Type: application/xml
 
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+  Content-Type: application/xml; charset=utf-8
+
+/sitemap/*
+  Cache-Control: public, max-age=3600
+  Content-Type: application/xml; charset=utf-8
+
 /*.txt
   Cache-Control: public, max-age=3600
   Content-Type: text/plain
