@@ -1,11 +1,9 @@
 import { MetadataRoute } from 'next'
-import { SITEMAP_GROUP_KEYS } from '@/lib/sitemap-config'
 
 export const dynamic = 'force-static'
 
 export default function robots(): MetadataRoute.Robots {
   const baseUrl = 'https://nekrolog-lodz.com'
-  const sitemapUrls = [`${baseUrl}/sitemap.xml`, ...SITEMAP_GROUP_KEYS.map((_, index) => `${baseUrl}/sitemap/${index}.xml`)]
   
   return {
     rules: [
@@ -39,7 +37,7 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: sitemapUrls,
+    sitemap: `${baseUrl}/sitemap.xml`,
     host: baseUrl,
   }
 }

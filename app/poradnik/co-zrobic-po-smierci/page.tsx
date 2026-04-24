@@ -6,6 +6,7 @@ import { generateCanonicalMetadata } from '@/lib/canonical'
 import ArticleSchema from '@/components/structured-data/ArticleSchema'
 import FAQSchema, { FAQItem } from '@/components/structured-data/FAQSchema'
 import RelatedContent from '@/components/poradnik/RelatedContent'
+import FuneralChoiceNotice from '@/components/FuneralChoiceNotice'
 
 export const metadata: Metadata = {
   title: 'Co Zrobić Po Śmierci Bliskiej Osoby? Kompletny Poradnik Krok Po Kroku',
@@ -23,6 +24,11 @@ export const metadata: Metadata = {
 
 export default function CoZrobicPoSmierciPage() {
   const faqData: FAQItem[] = [
+    {
+      question: 'Czy jeśli ciało zostało zabrane ze szpitala do chłodni, na przykład Skrzydlewska, muszę organizować tam pogrzeb?',
+      answer:
+        'Nie. Jeśli ciało zostało przewiezione do chłodni współpracującej ze szpitalem, rodzina nadal może wybrać inny zakład pogrzebowy. Taki transport nie zobowiązuje do organizacji pogrzebu w tej firmie.',
+    },
     {
       question: 'Czy muszę płacić za pogrzeb z góry?',
       answer:
@@ -137,6 +143,9 @@ export default function CoZrobicPoSmierciPage() {
               </p>
               <p className="text-xs text-gray-500 mt-3">Aktualizacja: 27 lutego 2026</p>
             </div>
+            <div className="mb-8 text-left">
+              <FuneralChoiceNotice compact />
+            </div>
             <div className="bg-primary/10 border border-primary/30 rounded-lg p-6 mb-8">
               <p className="text-lg text-white mb-4">
                 <strong>Pomoc dostępna całodobowo</strong>
@@ -233,6 +242,18 @@ export default function CoZrobicPoSmierciPage() {
             </h2>
 
             <div className="space-y-4">
+              <Card className="bg-black/30 border border-white/10">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-medium text-white mb-3">
+                    Czy jeśli ciało zostało zabrane do chłodni współpracującej ze szpitalem, muszę zostać przy tej firmie?
+                  </h3>
+                  <p className="text-gray-300">
+                    Nie. Nawet jeśli ciało zostało przewiezione do chłodni wskazanej przez szpital, rodzina nadal może
+                    wybrać inny zakład pogrzebowy. Nie ma obowiązku organizacji pogrzebu w firmie, do której ciało zostało przewiezione.
+                  </p>
+                </CardContent>
+              </Card>
+
               <Card className="bg-black/30 border border-white/10">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-medium text-white mb-3">

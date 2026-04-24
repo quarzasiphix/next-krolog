@@ -2,45 +2,40 @@ import { MetadataRoute } from 'next'
 import { type Locale, getIntlSitemapGroups, resolveIntlPage } from '@/lib/international/content'
 import { buildIntlSitemapEntry } from '@/lib/international/seo'
 import { generateSitemapEntries, validateProductionDomain } from '@/lib/sitemap-registry'
-import { SITEMAP_GROUP_KEYS } from '@/lib/sitemap-config'
 
 export const dynamic = 'force-static'
 
-export async function generateSitemaps() {
-  return SITEMAP_GROUP_KEYS.map((_, id) => ({ id }))
-}
-
-export default async function sitemap({
-  id,
-}: {
-  id: number
-}): Promise<MetadataRoute.Sitemap> {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = validateProductionDomain(process.env.NEXT_PUBLIC_SITE_URL || 'https://nekrolog-lodz.com')
-  const key = SITEMAP_GROUP_KEYS[id]
-
-  if (!key) {
-    return generateSitemapEntries(baseUrl)
-  }
-
-  const priorities: Record<(typeof SITEMAP_GROUP_KEYS)[number], number> = {
+  const priorities = {
     static: 0.9,
     services: 0.86,
     countries: 0.84,
     cities: 0.83,
     routes: 0.88,
-    legacy: 0.8,
+  }
+  const intlEntries = Object.entries(getIntlSitemapGroups()).flatMap(([key, paths]) => {
+    const priority = priorities[key as keyof typeof priorities]
+
+    if (!priority) {
+      return []
+    }
+
+    return paths
+      .map((path) => {
+        const segments = path.split('/').filter(Boolean)
+        const locale = segments[0] as Locale
+        const page = resolveIntlPage(locale, segments.slice(1))
+        return page ? buildIntlSitemapEntry(page, path, priority) : null
+      })
+      .filter(Boolean) as MetadataRoute.Sitemap
+  })
+
+  const deduped = new Map<string, MetadataRoute.Sitemap[number]>()
+
+  for (const entry of [...generateSitemapEntries(baseUrl), ...intlEntries]) {
+    deduped.set(entry.url, entry)
   }
 
-  if (key === 'legacy') {
-    return generateSitemapEntries(baseUrl)
-  }
-
-  return getIntlSitemapGroups()[key]
-    .map((path) => {
-      const segments = path.split('/').filter(Boolean)
-      const locale = segments[0] as Locale
-      const page = resolveIntlPage(locale, segments.slice(1))
-      return page ? buildIntlSitemapEntry(page, path, priorities[key]) : null
-    })
-    .filter(Boolean) as MetadataRoute.Sitemap
+  return [...deduped.values()]
 }

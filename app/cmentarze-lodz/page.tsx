@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { MapPin, Clock, Phone, CheckCircle2, Building2 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import FAQSchema from '@/components/structured-data/FAQSchema'
+import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema'
 import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
@@ -31,6 +32,38 @@ export const metadata: Metadata = {
 }
 
 export default function CmentarzeLodzPage() {
+  const breadcrumbs = [
+    { name: 'Strona Główna', url: '/' },
+    { name: 'Cmentarze w Łodzi' },
+  ]
+
+  const additionalCemeteries = [
+    'Cmentarz rzymskokatolicki w Aleksandrowie Łódzkim - Wojska Polskiego 95, Aleksandrów Łódzki',
+    'Cmentarz ewangelicki w Aleksandrowie Łódzkim - Wojska Polskiego 44, Aleksandrów Łódzki',
+    'Cmentarz w Bełdowie - Bełdów, woj. łódzkie, gm. Aleksandrów Łódzki',
+    'Cmentarz Rzymskokatolicki św. Wincentego "Doły" - Smutna, Łódź',
+    'Cmentarz Komunalny "Doły" - aleja Grzegorza Pałki, Łódź',
+    'Cmentarz Chrześcijan Baptystów "Doły" - Telefoniczna, Łódź',
+    'Cmentarz Prawosławny pw. św. Aleksandra Newskiego "Doły" - Telefoniczna 10, Łódź',
+    'Cmentarz Rzymskokatolicki pw. św. Anny "Zarzew" - Lodowa, Łódź',
+    'Cmentarz Komunalny "Zarzew" - Przybyszewskiego, Łódź',
+    'Cmentarz Rzymskokatolicki pw. św. Antoniego "Mania" - Solec 11, Łódź',
+    'Stary Cmentarz (ewangelicko-augsburski) - ulica Ogrodowa, Łódź',
+    'Stary Cmentarz (rzymskokatolicki) pw. św. Józefa - Ogrodowa, Łódź',
+    'Stary Cmentarz (prawosławny) pw. św. Aleksandra Newskiego - ulica Ogrodowa, Łódź',
+    'Cmentarz rzymskokatolicki Matki Boskiej Nieustającej Pomocy "Szczecińska" - Szczecińska 96, Łódź',
+    'Cmentarz komunalny "Szczecińska" - Hodowlana 28/30, Łódź',
+    'Kancelaria Cmentarza Rzymskokatolickiego św. Wojciecha - Kurczaki, Łódź',
+    'Cmentarz Rzymskokatolicki pw. św. Rocha - Zgierska, Łódź',
+    'Cmentarz Komunalny w Zgierzu - Konstantynowska, Zgierz',
+    'Cmentarz Rzymskokatolicki pw. św. Józefa i Wawrzyńca w Zgierzu - ks. Piotra Skargi 28, Zgierz',
+    'Cmentarz Katolicki Parafii Najświętszej Maryi Panny Nieustającej Pomocy w Andrespolu - Ziarnista, Łódź',
+    'Cmentarz Komunalny w Pabianicach - Kilińskiego 57/59, Pabianice',
+    'Cmentarz w Nowosolnej - Kasprowicza 1A, Nowosolna',
+    'Cmentarz pw. św. Bartłomieja w Lutomiersku - Lutomiersk, woj. łódzkie',
+    'Cmentarz Katolicki Narodzenia NMP - Łaska 61, Konstantynów Łódzki',
+  ]
+
   const cemeteries = [
     {
       name: 'Cmentarz Doły',
@@ -153,6 +186,7 @@ export default function CmentarzeLodzPage() {
 
   return (
     <div className="bg-black text-white min-h-screen">
+      <BreadcrumbSchema items={breadcrumbs} />
       <FAQSchema faqs={faqData} />
       <script
         type="application/ld+json"
@@ -290,6 +324,40 @@ export default function CmentarzeLodzPage() {
                     </li>
                   </ul>
                 </div>
+              </div>
+            </div>
+
+            <div className="mb-12 rounded-lg border border-white/10 bg-black/30 p-8">
+              <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                <div>
+                  <h2 className="text-2xl font-playfair font-medium text-white">
+                    USC w Łodzi i pierwsze formalności
+                  </h2>
+                  <p className="mt-3 max-w-3xl text-gray-300">
+                    Pomagamy rodzinie przy karcie zgonu, akcie zgonu, organizacji miejsca pochówku,
+                    dokumentach do ZUS i dalszej organizacji ceremonii, aby odciążyć bliskich od spraw urzędowych.
+                  </p>
+                </div>
+                <Link
+                  href="/cmentarze-lodz/urzad-stanu-cywilnego-lodz"
+                  className="inline-flex items-center justify-center rounded-md border border-primary/30 bg-primary/10 px-6 py-3 font-medium text-white transition hover:bg-primary/20"
+                >
+                  Zobacz stronę USC
+                </Link>
+              </div>
+            </div>
+
+            <div className="mb-12 rounded-lg border border-white/10 bg-black/30 p-8">
+              <h2 className="mb-6 text-center text-2xl font-playfair font-medium text-white">
+                Dodatkowe Cmentarze w Łodzi i Okolicy
+              </h2>
+              <div className="grid gap-3 md:grid-cols-2">
+                {additionalCemeteries.map((cemetery) => (
+                  <div key={cemetery} className="flex items-start gap-3 rounded-lg border border-white/10 bg-white/5 p-4">
+                    <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-primary" />
+                    <p className="text-sm leading-relaxed text-gray-300">{cemetery}</p>
+                  </div>
+                ))}
               </div>
             </div>
 

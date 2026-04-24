@@ -41,6 +41,7 @@ const productsItems = [
 const poradnikItems = [
   { name: 'Poradnik', path: '/poradnik' },
   { name: 'Pogrzeb bez zaliczki', path: '/pogrzeb-bez-zaliczki' },
+  { name: 'USC Lodz i akt zgonu', path: '/cmentarze-lodz/urzad-stanu-cywilnego-lodz' },
   { name: 'Przewoz zwlok', path: '/poradnik/przewoz-zwlok' },
   { name: 'Transport z zagranicy', path: '/poradnik/jak-przetransportowac-cialo-zmarlego-z-zagranicy' },
   { name: 'Cmentarze w Lodzi', path: '/cmentarze-lodz' },

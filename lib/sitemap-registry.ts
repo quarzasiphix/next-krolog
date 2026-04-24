@@ -309,6 +309,13 @@ export function generateSitemapEntries(baseUrl: string): SitemapEntry[] {
     priority: 0.9,
   })
 
+  entries.push({
+    url: `${baseUrl}/cmentarze-lodz/urzad-stanu-cywilnego-lodz`,
+    lastModified: CONTENT_LAST_MODIFIED.cmentarze.main,
+    changeFrequency: 'monthly',
+    priority: 0.82,
+  })
+
   SLUGS.cmentarze.forEach(slug => {
     entries.push({
       url: `${baseUrl}/cmentarze-lodz/${slug}`,

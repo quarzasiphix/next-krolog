@@ -9,9 +9,9 @@ import FAQSchema from '@/components/structured-data/FAQSchema'
 import FuneralHomeSchema from '@/components/structured-data/FuneralHomeSchema'
 
 export const metadata: Metadata = {
-  title: 'Nekrolog Łódź (Nekrolog Lodz) - Zakład Pogrzebowy w Łodzi',
+  title: 'Nekrolog Łódź - Jolanta Kostowska | Zakład Pogrzebowy w Łodzi',
   description:
-    'Nekrolog Łódź to zakład pogrzebowy w Łodzi przy ul. Legionów 48. Kompleksowa organizacja pogrzebów, kremacja, transport zmarłych i pomoc 24/7.',
+    'Nekrolog Łódź - Jolanta Kostowska to zakład pogrzebowy w Łodzi przy ul. Legionów 48. Kompleksowa organizacja pogrzebów, kremacja, transport zmarłych i pomoc 24/7.',
   keywords: [
     'nekrolog łódź',
     'nekrolog lodz',
@@ -23,9 +23,9 @@ export const metadata: Metadata = {
     canonical: `${SITE_URL}/nekrolog-lodz`,
   },
   openGraph: {
-    title: 'Nekrolog Łódź - Zakład Pogrzebowy w Łodzi',
+    title: 'Nekrolog Łódź - Jolanta Kostowska',
     description:
-      'Poznaj Nekrolog Łódź: lokalny zakład pogrzebowy z całodobową pomocą i rozliczeniem bez zaliczki.',
+      'Poznaj Nekrolog Łódź - Jolantę Kostowską: lokalny zakład pogrzebowy z całodobową pomocą i rozliczeniem bez zaliczki.',
     url: `${SITE_URL}/nekrolog-lodz`,
     type: 'website',
   },
@@ -58,7 +58,7 @@ export default function NekrologLodzPage() {
     <>
       <BreadcrumbSchema items={breadcrumbs} />
       <FuneralHomeSchema
-        description="Nekrolog Łódź to lokalny zakład pogrzebowy w Łodzi przy ul. Legionów 48. Kompleksowa organizacja pogrzebów, pomoc 24/7 i możliwość rozliczenia bez zaliczki."
+        description="Nekrolog Łódź - Jolanta Kostowska to lokalny zakład pogrzebowy w Łodzi przy ul. Legionów 48. Kompleksowa organizacja pogrzebów, pomoc 24/7 i możliwość rozliczenia bez zaliczki."
       />
       <FAQSchema faqs={faqData} name="Nekrolog Łódź FAQ" />
       <BreadcrumbController overrides={[{ segment: 'nekrolog-lodz', label: 'Nekrolog Łódź' }]} />
@@ -67,18 +67,19 @@ export default function NekrologLodzPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto space-y-8">
             <h1 className="text-4xl md:text-5xl font-playfair font-medium text-white">
-              Nekrolog Łódź
+              Nekrolog Łódź - Jolanta Kostowska
             </h1>
             <p className="text-lg text-gray-300 leading-relaxed">
               <strong className="text-white">Nekrolog Łódź</strong> (często wyszukiwane także jako
-              <strong className="text-white"> nekrolog lodz</strong>) to lokalny zakład pogrzebowy przy ul. Legionów 48.
-              Zapewniamy całodobową pomoc rodzinom z Łodzi i okolic.
+              <strong className="text-white"> nekrolog lodz</strong>) to lokalny zakład pogrzebowy prowadzony przez
+              <strong className="text-white"> Jolantę Kostowską</strong> przy ul. Legionów 48.
+              Marka funkcjonuje jako <strong className="text-white">Nekrolog Łódź - Usługi Pogrzebowe Jolanta Kostowska</strong> i zapewnia całodobową pomoc rodzinom z Łodzi i okolic.
             </p>
             <div className="bg-black/40 border border-white/10 rounded-lg p-5">
               <p className="text-white font-medium mb-2">Szybka odpowiedź</p>
               <p className="text-gray-300">
-                Jeśli szukasz „nekrolog lodz”, chodzi o Zakład Pogrzebowy Nekrolog Łódź.
-                Adres: Legionów 48, 90-702 Łódź. NIP: 7271089145. Telefon całodobowy: +48 602 274 661.
+                Jeśli szukasz „nekrolog lodz”, chodzi o Zakład Pogrzebowy Nekrolog Łódź prowadzony przez Jolantę Kostowską.
+                Pełna nazwa: Nekrolog Łódź - Usługi Pogrzebowe Jolanta Kostowska. Adres: Legionów 48, 90-702 Łódź. NIP: 7271089145. Telefon całodobowy: +48 602 274 661.
               </p>
               <p className="text-xs text-gray-500 mt-3">Aktualizacja: 27 lutego 2026</p>
             </div>
