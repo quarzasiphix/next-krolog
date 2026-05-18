@@ -342,12 +342,28 @@ export function generateSitemapEntries(baseUrl: string): SitemapEntry[] {
     })
   })
 
+  // Directory pages
+  entries.push(
+    {
+      url: `${baseUrl}/zaklady-pogrzebowe-lodz`,
+      lastModified: '2026-05-19T12:00:00Z',
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/klepsydra-lodz`,
+      lastModified: '2026-05-19T12:00:00Z',
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+  )
+
   // Location pages
   if (SLUGS.locations) {
     SLUGS.locations.forEach(slug => {
       entries.push({
         url: `${baseUrl}/${slug}`,
-        lastModified: CONTENT_LAST_MODIFIED.homepage, // Assuming same update freq as homepage
+        lastModified: CONTENT_LAST_MODIFIED.homepage,
         changeFrequency: 'weekly',
         priority: 0.9,
       })

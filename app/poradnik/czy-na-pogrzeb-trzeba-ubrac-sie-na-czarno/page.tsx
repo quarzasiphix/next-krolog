@@ -27,7 +27,7 @@ const faqs: FAQItem[] = [
 export const metadata: Metadata = {
   title: 'Czy Na Pogrzeb Trzeba Ubrać Się na Czarno? Zasady i Praktyka | Nekrolog Łódź',
   description:
-    'Wyjaśniamy, czy czarny strój na pogrzeb jest obowiązkowy. Sprawdź, jakie kolory są akceptowane i jak ubrać się elegancko oraz z szacunkiem.',
+    'Czerń nie jest obowiązkowa – sprawdź, jakie stonowane kolory są dopuszczalne na pogrzebie, czego unikać i jak ubrać się elegancko z szacunkiem dla rodziny.',
   keywords: [
     'czy na pogrzeb trzeba ubrać się na czarno',
     'kolory na pogrzeb',

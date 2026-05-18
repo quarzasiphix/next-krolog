@@ -66,14 +66,14 @@ const faqData: FAQItem[] = [
 ]
 
 export const metadata: Metadata = buildLocalMetadata({
-  title: 'Oprawa Muzyczna Pogrzebu Łódź',
+  title: 'Oprawa Muzyczna Pogrzebu Łódź – Organista, Wokaliści, Trąbka',
   path: '/uslugi/oprawa-muzyczna-lodz',
   description: buildMetaDescription([
-    'Profesjonalna oprawa muzyczna ceremonii pogrzebowych w Łodzi',
-    'organista, wokaliści, trąbka i instrumenty smyczkowe',
-    'dobór repertuaru dopasowany do charakteru uroczystości',
+    'Oprawa muzyczna pogrzebu w Łodzi – organista, wokaliści, trąbka pogrzebowa, instrumenty smyczkowe',
+    'repertuar ustalany indywidualnie z rodziną, dostępni na terenie całej Łodzi',
+    'w kościele, kaplicy i na cmentarzu',
   ]),
-  keywords: ['oprawa muzyczna pogrzebu łódź', 'muzyka na pogrzeb łódź', 'organista pogrzebowy łódź', 'trąbka pogrzebowa łódź'],
+  keywords: ['oprawa muzyczna pogrzebu łódź', 'oprawa muzyczna pogrzebu', 'muzyka na pogrzeb łódź', 'organista pogrzebowy łódź', 'trąbka pogrzebowa łódź', 'muzyk pogrzebowy łódź', 'oprawa muzyczna ceremonii pogrzebowej'],
 })
 
 export default function OprawaMuzycznaPage() {

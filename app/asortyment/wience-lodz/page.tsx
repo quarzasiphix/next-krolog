@@ -72,10 +72,10 @@ const faqData: FAQItem[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Wieńce Pogrzebowe Łódź - Żywe i Sztuczne Kwiaty',
+  title: 'Wieńce Pogrzebowe Łódź – Zamów Wieniec na Pogrzeb z Szarfą',
   description:
-    'Piękne wieńce i wiązanki pogrzebowe w Łodzi. Kompozycje z kwiatów żywych i sztucznych. Dostawa na cmentarze w Łodzi i okolicach.',
-  keywords: ['wieńce pogrzebowe łódź', 'wiązanki pogrzebowe', 'kwiaty na pogrzeb łódź', 'wieńce z szarfami', 'kwiaciarnia pogrzebowa łódź'],
+    'Wieńce pogrzebowe w Łodzi – kompozycje z szarfami, wieńce tradycyjne i ekskluzywne. Dostawa na cmentarze Doły, Zarzew, Radogoszcz i inne. Zamów tel. +48 602 274 661.',
+  keywords: ['wieńce pogrzebowe łódź', 'wieniec pogrzebowy łódź', 'wieńce pogrzebowe z dostawą łódź', 'wieńce z szarfami łódź', 'zamów wieniec pogrzebowy', 'kwiaty na pogrzeb łódź', 'kwiaciarnia pogrzebowa łódź'],
   ...generateCanonicalMetadata('/asortyment/wience-lodz'),
   openGraph: {
     title: 'Wieńce Pogrzebowe Łódź - Nekrolog',

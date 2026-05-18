@@ -24,14 +24,14 @@ const faqData: FAQItem[] = [
 ]
 
 export const metadata: Metadata = buildLocalMetadata({
-  title: 'Kremacja Łódź',
+  title: 'Kremacja Łódź – Usługi Kremacyjne i Pogrzeb Kremacyjny',
   path: '/uslugi/krematorium-lodz',
   description: buildMetaDescription([
-    'Profesjonalne usługi kremacji w Łodzi',
-    'organizacja kremacji, urny, dokumenty i transport',
-    'pełna pomoc w organizacji pogrzebu po kremacji',
+    'Kremacja w Łodzi – organizacja pogrzebu kremacyjnego bez zaliczki',
+    'wybór urny, dokumenty, transport do krematorium, ceremonia 24/7',
+    'rodzinna firma pogrzebowa z 30-letnim doświadczeniem',
   ]),
-  keywords: ['kremacja łódź', 'krematorium łódź', 'spopielenie zwłok łódź', 'pochówek urnowy łódź', 'organizacja kremacji łódź', 'urny kremacyjne łódź'],
+  keywords: ['kremacja łódź', 'krematorium łódź', 'pogrzeb kremacyjny łódź', 'usługi kremacyjne łódź', 'spopielenie zwłok łódź', 'pochówek urnowy łódź', 'organizacja kremacji łódź', 'cena kremacji łódź'],
 })
 
 export default function KrematoriumPage() {

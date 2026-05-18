@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     default: 'Nekrolog Łódź - Zakład Pogrzebowy w Łodzi | Jolanta Kostowska',
     template: '%s | Zakład Pogrzebowy Łódź'
   },
-  description: 'Nekrolog Łódź (nekrolog lodz) to całodobowy zakład pogrzebowy w Łodzi przy ul. Legionów 48. Kompleksowe usługi pogrzebowe i wsparcie bez zaliczki.',
+  description: 'Całodobowy zakład pogrzebowy w Łodzi – ul. Legionów 48. Organizacja pogrzebów bez zaliczki, kremacja, transport 24/7. Rodzinna firma z 30-letnim doświadczeniem. Tel: +48 602 274 661.',
   keywords: ['zakład pogrzebowy łódź', 'zaklad pogrzebowy lodz', 'nekrolog łódź', 'nekrolog lodz', 'usługi pogrzebowe łódź', 'pogrzeb bez zaliczki łódź', 'dom pogrzebowy łódź', 'organizacja pogrzebu łódź', 'kremacja łódź', 'transport zmarłych łódź', 'pogrzeby łódź'],
   openGraph: {
     type: 'website',

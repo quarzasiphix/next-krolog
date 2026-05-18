@@ -161,8 +161,8 @@ const cemeteries: Record<string, Cemetery> = {
     address: 'ul. Traktorowa 84, 91-204 Łódź',
     phone: '+48 42 615 15 15',
     hours: 'Codziennie: 8:00 - 18:00 (lato), 8:00 - 16:00 (zima)',
-    description: 'Cmentarz komunalny na wschodzie Łodzi.',
-    longDescription: 'Cmentarz Zarzew to cmentarz komunalny położony we wschodniej części Łodzi, w spokojnej okolicy. Charakteryzuje się dobrze utrzymaną infrastrukturą i przyjazną atmosferą. Oferuje możliwość pochówków tradycyjnych i urnowych.',
+    description: 'Cmentarz komunalny Zarzew – wschodnia Łódź, ul. Traktorowa 84. Sekcje wyznaniowe, pochówki tradycyjne i urnowe, kaplica.',
+    longDescription: 'Cmentarz Zarzew to cmentarz komunalny położony we wschodniej części Łodzi przy ul. Traktorowej 84, w spokojnej okolicy dzielnicy Zarzew. Charakteryzuje się dobrze utrzymaną infrastrukturą i przyjazną atmosferą. Oferuje możliwość pochówków tradycyjnych i urnowych.',
     features: [
       'Spokojne położenie',
       'Sekcje wyznaniowe',
@@ -258,8 +258,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   return {
-    title: `${cemetery.name} - Informacje, Adres, Godziny Otwarcia | Nekrolog Łódź`,
-    description: `${cemetery.name} w Łodzi - ${cemetery.description} Adres: ${cemetery.address}. Organizujemy pogrzeby bez kosztów z góry. Tel: +48 602 274 661.`,
+    title: `${cemetery.name} – Godziny Otwarcia, Adres, Informacje | Nekrolog Łódź`,
+    description: `${cemetery.name} w Łodzi – ${cemetery.hours ? `Godziny otwarcia: ${cemetery.hours}. ` : ''}Adres: ${cemetery.address}. ${cemetery.description}`,
     keywords: [
       cemetery.name.toLowerCase(),
       `${cemetery.slug} łódź`,
