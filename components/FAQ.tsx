@@ -1,19 +1,6 @@
 import Link from 'next/link'
-import { FAQ_ENTRIES, SITE_URL } from '@/lib/constants'
-
-const faqJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  '@id': `${SITE_URL}/#faq`,
-  mainEntity: FAQ_ENTRIES.map((entry, index) => ({
-    '@type': 'Question',
-    name: entry.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: entry.answer,
-    },
-  })),
-}
+import FAQSchema from '@/components/structured-data/FAQSchema'
+import { FAQ_ENTRIES } from '@/lib/constants'
 
 const FAQ = () => {
   return (
@@ -46,8 +33,7 @@ const FAQ = () => {
             </Link>
           </div>
         </div>
-
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+        <FAQSchema faqs={FAQ_ENTRIES} name="FAQ - Nekrolog Łódź" />
 
         <div className="space-y-6">
           {FAQ_ENTRIES.map((entry, index) => (

@@ -31,6 +31,13 @@ type FaqItem = {
   answer: string
 }
 
+function normalizeText(value: string) {
+  return value
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
 export function buildCanonicalUrl(path = '/') {
   const normalized = !path || path === '/' ? '' : path.replace(/\/+$/, '')
   const prefixed = normalized.startsWith('/') || normalized === '' ? normalized : `/${normalized}`
@@ -237,18 +244,25 @@ export function buildFuneralHomeJsonLd({
 }
 
 export function buildBreadcrumbJsonLd(items: BreadcrumbItem[]) {
+  const normalizedItems = items.filter((item) => normalizeText(item.name).length > 0)
+
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    itemListElement: items.map((item, index) => {
+    itemListElement: normalizedItems.map((item, index) => {
+      const resolvedUrl = item.url ? buildCanonicalUrl(item.url) : undefined
+
       const listItem: Record<string, unknown> = {
         '@type': 'ListItem',
         position: index + 1,
-        name: item.name,
+        name: normalizeText(item.name),
       }
 
-      if (item.url) {
-        listItem.item = buildCanonicalUrl(item.url)
+      if (resolvedUrl) {
+        listItem.item = {
+          '@id': resolvedUrl,
+          name: normalizeText(item.name),
+        }
       }
 
       return listItem
@@ -266,6 +280,12 @@ export function buildFaqJsonLd({
   name?: string
 }) {
   const pageUrl = buildCanonicalUrl(path)
+  const normalizedFaqs = faqs
+    .map((faq) => ({
+      question: normalizeText(faq.question),
+      answer: normalizeText(faq.answer),
+    }))
+    .filter((faq) => faq.question.length > 0 && faq.answer.length > 0)
 
   return {
     '@context': 'https://schema.org',
@@ -273,7 +293,7 @@ export function buildFaqJsonLd({
     '@id': `${pageUrl}#faq`,
     name: name || `FAQ - ${path === '/' ? 'Strona główna' : path}`,
     url: pageUrl,
-    mainEntity: faqs.map((faq) => ({
+    mainEntity: normalizedFaqs.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
       acceptedAnswer: {

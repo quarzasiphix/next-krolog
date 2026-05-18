@@ -18,7 +18,7 @@ import {
 
 const shellCopy: Record<
   Locale,
-  { summary: string; address: string; mainLine: string; call: string; form: string }
+  { summary: string; address: string; mainLine: string; call: string; form: string; backToHub: string }
 > = {
   pl: {
     summary: 'Spokojne i pilne wsparcie dla rodzin organizujacych transport z zagranicy do Polski.',
@@ -26,6 +26,7 @@ const shellCopy: Record<
     mainLine: 'Glowna linia: +48 602 274 661',
     call: 'Zadzwon',
     form: 'Formularz',
+    backToHub: 'Powrot do strony transportu',
   },
   en: {
     summary: 'Calm and urgent support for families arranging transport from abroad to Poland.',
@@ -33,6 +34,7 @@ const shellCopy: Record<
     mainLine: 'Main line: +48 602 274 661',
     call: 'Call',
     form: 'Form',
+    backToHub: 'Back to transport hub',
   },
   de: {
     summary: 'Ruhige und schnelle Unterstuetzung fuer Familien, die eine Ueberfuehrung aus dem Ausland nach Polen organisieren.',
@@ -40,6 +42,7 @@ const shellCopy: Record<
     mainLine: 'Hauptleitung: +48 602 274 661',
     call: 'Anrufen',
     form: 'Formular',
+    backToHub: 'Zurueck zur Transportseite',
   },
   fr: {
     summary: 'Un accompagnement calme et urgent pour les familles qui organisent un transport depuis l etranger vers la Pologne.',
@@ -47,6 +50,7 @@ const shellCopy: Record<
     mainLine: 'Ligne principale : +48 602 274 661',
     call: 'Appeler',
     form: 'Formulaire',
+    backToHub: 'Retour a la page transport',
   },
   nl: {
     summary: 'Rustige en snelle ondersteuning voor families die vervoer vanuit het buitenland naar Polen regelen.',
@@ -54,6 +58,7 @@ const shellCopy: Record<
     mainLine: 'Hoofdlijn: +48 602 274 661',
     call: 'Bel',
     form: 'Formulier',
+    backToHub: 'Terug naar transportpagina',
   },
   it: {
     summary: 'Supporto rapido e rassicurante per le famiglie che organizzano il trasporto dall estero verso la Polonia.',
@@ -61,6 +66,7 @@ const shellCopy: Record<
     mainLine: 'Linea principale: +48 602 274 661',
     call: 'Chiama',
     form: 'Modulo',
+    backToHub: 'Torna alla pagina trasporti',
   },
 }
 
@@ -70,6 +76,7 @@ export default function InternationalShell({ locale, children }: { locale: Local
   const pathname = usePathname()
   const segments = pathname.split('/').filter(Boolean)
   const resolvedPage = useMemo(() => resolveIntlPage(locale, segments.slice(1)), [locale, pathname])
+  const showBackToHub = resolvedPage?.kind && resolvedPage.kind !== 'home'
   const switcherLinks = useMemo(
     () =>
       SUPPORTED_LOCALES.map((targetLocale) => ({
@@ -107,6 +114,14 @@ export default function InternationalShell({ locale, children }: { locale: Local
             </Link>
           </nav>
           <div className="flex items-center gap-3">
+            {showBackToHub ? (
+              <Link
+                href="/pl"
+                className="inline-flex items-center rounded-full border border-white/15 px-3 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-stone-200 transition hover:border-amber-300/40 hover:text-amber-300"
+              >
+                {ui.backToHub}
+              </Link>
+            ) : null}
             <div className="hidden flex-wrap items-center gap-2 xl:flex">
               {switcherLinks.map((link) => (
                 <Link

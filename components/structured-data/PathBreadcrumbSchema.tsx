@@ -2,47 +2,28 @@
 
 import { usePathname } from 'next/navigation'
 import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema'
+import { getBreadcrumbItems, getRouteLabel, normalizePath } from '@/lib/site-navigation'
 
 interface PathBreadcrumbSchemaProps {
   sectionRootPath: string
   sectionRootName: string
 }
 
-const formatSegment = (segment: string) =>
-  segment
-    .split('-')
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(' ')
-
 export default function PathBreadcrumbSchema({ sectionRootPath, sectionRootName }: PathBreadcrumbSchemaProps) {
   const pathname = usePathname() || '/'
-  const normalizedPath = pathname.replace(/\/+$/, '') || '/'
-  const segments = normalizedPath.split('/').filter(Boolean)
+  const normalizedPath = normalizePath(pathname)
+  const normalizedSectionRoot = normalizePath(sectionRootPath)
 
-  const items: Array<{ name: string; url?: string }> = [{ name: 'Strona Główna', url: '/' }]
-
-  if (!segments.length) {
-    return <BreadcrumbSchema items={items} />
+  if (!normalizedPath.startsWith(normalizedSectionRoot)) {
+    return null
   }
 
-  items.push({ name: sectionRootName, url: sectionRootPath })
+  const currentLabel = normalizedPath === normalizedSectionRoot ? sectionRootName : getRouteLabel(normalizedPath)
+  const items = getBreadcrumbItems(normalizedPath, currentLabel)
 
-  if (normalizedPath === sectionRootPath) {
-    return <BreadcrumbSchema items={items} />
+  if (items.length > 1) {
+    items[1] = { name: sectionRootName, url: normalizedSectionRoot }
   }
-
-  const sectionSegments = sectionRootPath.split('/').filter(Boolean).length
-  const remaining = segments.slice(sectionSegments)
-
-  remaining.forEach((segment, index) => {
-    const isLast = index === remaining.length - 1
-    const url = `/${segments.slice(0, sectionSegments + index + 1).join('/')}`
-
-    items.push({
-      name: formatSegment(segment),
-      ...(isLast ? {} : { url }),
-    })
-  })
 
   return <BreadcrumbSchema items={items} />
 }
