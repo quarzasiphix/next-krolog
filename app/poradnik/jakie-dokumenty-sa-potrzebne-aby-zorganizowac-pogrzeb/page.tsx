@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Jakie Dokumenty Są Potrzebne Aby Zorganizować Pogrzeb? Lista | Nekrolog Łódź',
+  title: { absolute: 'Jakie Dokumenty Są Potrzebne Aby Zorganizować Pogrzeb? Lista | Nekrolog Łódź' },
   description: 'Kompletna lista dokumentów potrzebnych do organizacji pogrzebu. Dowiedz się, kto wydaje każdy dokument i czego nie można zapomnieć. Praktyczny przewodnik.',
   keywords: [
     'dokumenty do pogrzebu',

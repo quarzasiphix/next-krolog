@@ -8,7 +8,7 @@ import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema'
 import { BreadcrumbController } from '@/components/breadcrumb-context'
 
 export const metadata: Metadata = {
-  title: 'Zakłady Pogrzebowe Łódź – Informator Lokalny | Lista Firm Pogrzebowych',
+  title: { absolute: 'Zakłady Pogrzebowe Łódź – Informator Lokalny | Lista Firm Pogrzebowych' },
   description:
     'Lista zakładów pogrzebowych w Łodzi. Informator lokalny – firmy pogrzebowe i domy pogrzebowe działające w Łodzi i okolicach. Dane informacyjne; weryfikuj szczegóły bezpośrednio z firmą.',
   keywords: [

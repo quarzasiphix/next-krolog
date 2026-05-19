@@ -6,7 +6,7 @@ import { SITE_URL } from '@/lib/constants'
 import FAQSchema, { FAQItem } from '@/components/structured-data/FAQSchema'
 
 export const metadata: Metadata = {
-  title: 'Jakie Czynności Obejmuje Kosmetyka Pośmiertna? | Nekrolog Łódź',
+  title: { absolute: 'Jakie Czynności Obejmuje Kosmetyka Pośmiertna? | Nekrolog Łódź' },
   description: 'Dowiedz się, czym jest kosmetyka pośmiertna i jakie czynności obejmuje. Wyjaśniamy proces przygotowania zmarłego do pogrzebu w sposób pełen szacunku i profesjonalizmu.',
   keywords: [
     'kosmetyka pośmiertna',

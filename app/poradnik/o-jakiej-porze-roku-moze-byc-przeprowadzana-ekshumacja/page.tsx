@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'O Jakiej Porze Roku Może Być Przeprowadzana Ekshumacja? | Nekrolog Łódź',
+  title: { absolute: 'O Jakiej Porze Roku Może Być Przeprowadzana Ekshumacja? | Nekrolog Łódź' },
   description: 'Dowiedz się, kiedy prawnie można przeprowadzić ekshumację w Polsce. Wyjaśniamy ograniczenia sezonowe, wymogi sanitarne i procedury administracyjne.',
   keywords: [
     'ekshumacja',

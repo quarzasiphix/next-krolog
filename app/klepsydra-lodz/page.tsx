@@ -8,7 +8,7 @@ import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema'
 import { BreadcrumbController } from '@/components/breadcrumb-context'
 
 export const metadata: Metadata = {
-  title: 'Klepsydra Łódź – Nekrologi i Ogłoszenia Pogrzebowe | Nekrolog Łódź',
+  title: { absolute: 'Klepsydra Łódź – Nekrologi i Ogłoszenia Pogrzebowe | Nekrolog Łódź' },
   description:
     'Klepsydra pogrzebowa w Łodzi – nekrolog i ogłoszenie o śmierci i pogrzebie. Zakład pogrzebowy Nekrolog Łódź pomaga w przygotowaniu klepsyder, nekrologów i zawiadomień. Tel: +48 602 274 661.',
   keywords: [

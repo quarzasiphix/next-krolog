@@ -25,7 +25,7 @@ const faqs: FAQItem[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Jak Wybrać Trumnę na Pogrzeb? Praktyczny Poradnik | Nekrolog Łódź',
+  title: { absolute: 'Jak Wybrać Trumnę na Pogrzeb? Praktyczny Poradnik | Nekrolog Łódź' },
   description:
     'Praktyczny poradnik jak wybrać trumnę na pogrzeb. Materiały, rozmiary, estetyka, kremacja i koszty. Sprawdź, na co zwrócić uwagę przed decyzją.',
   keywords: [

@@ -25,7 +25,7 @@ const faqs: FAQItem[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Czy Na Pogrzeb Trzeba Ubrać Się na Czarno? Zasady i Praktyka | Nekrolog Łódź',
+  title: { absolute: 'Czy Na Pogrzeb Trzeba Ubrać Się na Czarno? Zasady i Praktyka | Nekrolog Łódź' },
   description:
     'Czerń nie jest obowiązkowa – sprawdź, jakie stonowane kolory są dopuszczalne na pogrzebie, czego unikać i jak ubrać się elegancko z szacunkiem dla rodziny.',
   keywords: [

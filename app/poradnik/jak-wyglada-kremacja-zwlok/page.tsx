@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Jak Wygląda Kremacja Zwłok? Proces Krok Po Kroku | Nekrolog Łódź',
+  title: { absolute: 'Jak Wygląda Kremacja Zwłok? Proces Krok Po Kroku | Nekrolog Łódź' },
   description: 'Szczegółowy opis procesu kremacji zwłok. Dowiedz się, jak przebiega kremacja, ile trwa i co dzieje się podczas tego procesu. Informacje w sposób edukacyjny i pełen szacunku.',
   keywords: [
     'kremacja zwłok',

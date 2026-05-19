@@ -9,7 +9,7 @@ import RelatedContent from '@/components/poradnik/RelatedContent'
 import FuneralChoiceNotice from '@/components/FuneralChoiceNotice'
 
 export const metadata: Metadata = {
-  title: 'Co Zrobić Po Śmierci Bliskiej Osoby? Kompletny Poradnik Krok Po Kroku',
+  title: { absolute: 'Co Zrobić Po Śmierci Bliskiej Osoby? Kompletny Poradnik Krok Po Kroku' },
   description: 'Szczegółowy przewodnik: co zrobić po śmierci bliskiej osoby w Łodzi. Formalności, dokumenty, organizacja pogrzebu. Pomoc dostępna 24/7. Tel: +48 602 274 661.',
   keywords: [
     'co zrobić po śmierci',

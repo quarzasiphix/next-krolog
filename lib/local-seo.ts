@@ -95,7 +95,7 @@ export function buildLocalMetadata({
   const resolvedTitle = buildSeoTitle(title)
 
   return {
-    title: resolvedTitle,
+    title: { absolute: resolvedTitle },
     description,
     keywords,
     alternates: {

@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Jak Zgodnie z Przepisami Przewozić Zwłoki? Regulacje Prawne | Nekrolog Łódź',
+  title: { absolute: 'Jak Zgodnie z Przepisami Przewozić Zwłoki? Regulacje Prawne | Nekrolog Łódź' },
   description: 'Przepisy prawne i sanitarne dotyczące przewozu zwłok w Polsce. Wymagania dla transportu lokalnego i długodystansowego. Kompletny przewodnik prawny.',
   keywords: [
     'przepisy przewóz zwłok',

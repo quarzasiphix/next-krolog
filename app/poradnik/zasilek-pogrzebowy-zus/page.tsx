@@ -6,17 +6,17 @@ import FAQSchema, { FAQItem } from '@/components/structured-data/FAQSchema'
 import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Zasiłek Pogrzebowy ZUS i KRUS - Ile Wynosi, Jak Uzyskać, Kto Może Otrzymać',
-  description: 'Kompletny przewodnik o zasiłku pogrzebowym ZUS i KRUS. Wysokość zasiłku, wymagane dokumenty, procedura składania wniosku. Pomożemy w rozliczeniu bezpośrednio z ZUS - bez kosztów z góry.',
+  title: { absolute: 'Zasiłek Pogrzebowy ZUS i KRUS Łódź – Ile Wynosi i Jak Uzyskać w 2026' },
+  description: 'Zasiłek pogrzebowy w Łodzi – aktualna kwota, wymagane dokumenty i procedura krok po kroku. Pomagamy złożyć wniosek i rozliczyć koszty pogrzebu z ZUS lub KRUS bez angażowania własnych środków.',
   keywords: [
     'zasiłek pogrzebowy zus',
-    'zasiłek pogrzebowy',
+    'zasiłek pogrzebowy łódź',
+    'zus zasiłek pogrzebowy łódź',
     'zasiłek pogrzebowy 2026',
-    'ile wynosi zasiłek pogrzebowy',
-    'wniosek o zasiłek pogrzebowy',
+    'ile wynosi zasiłek pogrzebowy z zus',
     'zasiłek pogrzebowy krus',
-    'dokumenty do zasiłku pogrzebowego',
-    'pogrzeb bez zaliczki',
+    'wniosek o zasiłek pogrzebowy dokumenty',
+    'zasiłek pogrzebowy łódź pomoc',
   ],
   alternates: {
     canonical: `${SITE_URL}/poradnik/zasilek-pogrzebowy-zus`,

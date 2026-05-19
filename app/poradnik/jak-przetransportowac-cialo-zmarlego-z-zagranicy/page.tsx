@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Jak Przetransportować Ciało Zmarłego z Zagranicy? Repatriacja Zwłok | Nekrolog Łódź',
+  title: { absolute: 'Jak Przetransportować Ciało Zmarłego z Zagranicy? Repatriacja Zwłok | Nekrolog Łódź' },
   description: 'Przewodnik krok po kroku o transporcie zmarłego z zagranicy do Polski. Dokumenty, procedury, terminy i praktyczne porady dla rodzin w trudnej sytuacji.',
   keywords: [
     'transport zmarłego z zagranicy',

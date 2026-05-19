@@ -123,7 +123,7 @@ const HomePageClient = () => {
             <h2 className="text-3xl font-playfair text-white text-center mb-8">Najwazniejsze strony</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <Link href="/zaklad-pogrzebowy-lodz" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">
-                Zaklad Pogrzebowy Lodz
+                Zakład Pogrzebowy Łódź – całodobowy
               </Link>
               <Link href="/nekrolog-lodz" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">
                 Nekrolog Lodz

@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Jak Poinformować o Uroczystości Pogrzebowej? Praktyczny Poradnik | Nekrolog Łódź',
+  title: { absolute: 'Jak Poinformować o Uroczystości Pogrzebowej? Praktyczny Poradnik | Nekrolog Łódź' },
   description:
     'Praktyczny poradnik jak poinformować rodzinę i znajomych o pogrzebie. Wzory treści, kanały komunikacji, terminy i zasady taktu.',
   keywords: [

@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Etapy Żałoby - Jak Uporać Się z Odejściem Bliskiej Osoby | Nekrolog Łódź',
+  title: { absolute: 'Etapy Żałoby - Jak Uporać Się z Odejściem Bliskiej Osoby | Nekrolog Łódź' },
   description: 'Praktyczny przewodnik po etapach żałoby. Dowiedz się, jak przejść przez proces żałoby krok po kroku, gdzie szukać wsparcia i jak dbać o siebie w trudnym czasie.',
   keywords: ['etapy żałoby', 'jak uporać się ze śmiercią', 'przeżywanie żałoby', 'wsparcie w żałobie', 'fazy żałoby'],
   alternates: {

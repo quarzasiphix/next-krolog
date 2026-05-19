@@ -25,7 +25,7 @@ const faqs: FAQItem[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Jakie Buty na Pogrzeb i Czego Unikać? Praktyczne Zasady | Nekrolog Łódź',
+  title: { absolute: 'Jakie Buty na Pogrzeb i Czego Unikać? Praktyczne Zasady | Nekrolog Łódź' },
   description:
     'Sprawdź, jakie buty na pogrzeb będą odpowiednie dla kobiet i mężczyzn. Praktyczne zasady, czego unikać i jak dobrać wygodne, eleganckie obuwie.',
   keywords: [

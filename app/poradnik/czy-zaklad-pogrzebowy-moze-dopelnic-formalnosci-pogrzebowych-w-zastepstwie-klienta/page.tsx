@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Czy Zakład Pogrzebowy Może Dopełnić Formalności w Zastępstwie Klienta? | Nekrolog Łódź',
+  title: { absolute: 'Czy Zakład Pogrzebowy Może Dopełnić Formalności w Zastępstwie Klienta? | Nekrolog Łódź' },
   description: 'Dowiedz się, jakie formalności zakład pogrzebowy może załatwić za rodzinę. Pełnomocnictwo, dokumenty, zasiłek pogrzebowy - kompleksowa pomoc prawna.',
   keywords: ['formalności pogrzebowe', 'pełnomocnictwo zakład pogrzebowy', 'pomoc w formalnościach', 'zakład pogrzebowy formalności'],
   alternates: {

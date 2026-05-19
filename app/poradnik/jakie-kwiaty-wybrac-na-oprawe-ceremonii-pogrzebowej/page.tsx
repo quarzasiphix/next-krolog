@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Jakie Kwiaty Wybrać na Oprawę Ceremonii Pogrzebowej? | Nekrolog Łódź',
+  title: { absolute: 'Jakie Kwiaty Wybrać na Oprawę Ceremonii Pogrzebowej? | Nekrolog Łódź' },
   description: 'Przewodnik po kwiatach pogrzebowych - symbolika, znaczenie kolorów i praktyczne porady. Dowiedz się, jakie kwiaty wybrać na pogrzeb i kremację.',
   keywords: ['kwiaty na pogrzeb', 'kwiaty pogrzebowe', 'symbolika kwiatów', 'wiązanki pogrzebowe', 'wieńce pogrzebowe'],
   alternates: {

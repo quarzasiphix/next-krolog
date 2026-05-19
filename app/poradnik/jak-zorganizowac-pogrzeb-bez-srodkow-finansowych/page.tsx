@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Jak Zorganizować Pogrzeb Bez Środków Finansowych? Praktyczny Przewodnik | Nekrolog Łódź',
+  title: { absolute: 'Jak Zorganizować Pogrzeb Bez Środków Finansowych? Praktyczny Przewodnik | Nekrolog Łódź' },
   description: 'Kompleksowy przewodnik dla rodzin bez środków finansowych. Zasiłek pogrzebowy, pogrzeb bez zaliczki, pomoc zakładu pogrzebowego. Realistyczne i empatyczne porady.',
   keywords: ['pogrzeb bez pieniędzy', 'brak środków na pogrzeb', 'zasiłek pogrzebowy', 'pogrzeb bez zaliczki', 'pomoc finansowa pogrzeb'],
   alternates: {

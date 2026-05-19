@@ -5,16 +5,17 @@ import { Card, CardContent } from '@/components/ui/card'
 import { BreadcrumbController } from '@/components/breadcrumb-context'
 
 export const metadata: Metadata = {
-  title: 'Pogrzeb Bez Zaliczki w Łodzi - Organizacja Bez Kosztów Z Góry | Nekrolog',
-  description: 'Organizujemy pogrzeb bez zaliczki i płatności z góry. Rozliczenie bezpośrednio z zasiłkiem pogrzebowym ZUS/KRUS. Nie musisz martwić się o pieniądze w trudnym czasie. Tel: +48 602 274 661.',
+  title: { absolute: 'Pogrzeb w Łodzi Bez Kosztów Z Góry – Rozliczenie z ZUS i KRUS | Nekrolog Łódź' },
+  description: 'Organizujemy pogrzeby w Łodzi bez zaliczki – pokrywamy koszty i rozliczamy bezpośrednio z zasiłkiem pogrzebowym ZUS lub KRUS. Nie musisz mieć gotówki. Tel: +48 602 274 661.',
   keywords: [
-    'pogrzeb bez zaliczki',
-    'pogrzeb bez kosztów z góry',
-    'pogrzeb bez płacenia z góry',
-    'rozliczenie z zus',
-    'pogrzeb finansowany z zus',
-    'brak zaliczki na pogrzeb',
-    'pogrzeb łódź bez zaliczki',
+    'pogrzeb bez zaliczki łódź',
+    'tani pogrzeb łódź',
+    'pogrzeb łódź bez kosztów z góry',
+    'organizacja pogrzebu łódź bez zaliczki',
+    'pogrzeby łódź rozliczenie zus',
+    'pogrzeb finansowany z zasiłku pogrzebowego',
+    'pogrzeb bez płacenia z góry łódź',
+    'zakład pogrzebowy bez zaliczki łódź',
   ],
   alternates: {
     canonical: '/pogrzeb-bez-zaliczki',

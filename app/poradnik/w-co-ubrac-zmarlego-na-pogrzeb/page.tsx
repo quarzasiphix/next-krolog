@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'W Co Ubrać Zmarłego na Pogrzeb? Praktyczny Przewodnik | Nekrolog Łódź',
+  title: { absolute: 'W Co Ubrać Zmarłego na Pogrzeb? Praktyczny Przewodnik | Nekrolog Łódź' },
   description: 'Praktyczny przewodnik o ubiorze zmarłego na pogrzeb. Dowiedz się, w co ubrać bliską osobę, jakie są tradycje i co jest odpowiednie. Porady dla rodzin w trudnej chwili.',
   keywords: [
     'w co ubrać zmarłego',

@@ -4,14 +4,9 @@ import { BUSINESS_INFO, SITE_URL } from '@/lib/constants'
 import { buildLocalMetadata, buildMetaDescription, buildWebPageJsonLd, stringifyJsonLd } from '@/lib/local-seo'
 
 export const metadata: Metadata = buildLocalMetadata({
-  title: 'Zakład Pogrzebowy Łódź',
+  title: 'Nekrolog Łódź – Zakład Pogrzebowy Łódź | Bez Zaliczki 24/7',
   path: '/',
-  description: buildMetaDescription([
-    'Całodobowy, rodzinny zakład pogrzebowy w Łodzi przy ul. Legionów 48',
-    'organizacja pogrzebu, kremacja, formalności i pomoc 24/7',
-    'możliwość rozliczenia bez zaliczki',
-    'dodatkowo transport zmarłych i sprowadzenie zwłok do Polski',
-  ]),
+  description: 'Całodobowy zakład pogrzebowy w Łodzi – ul. Legionów 48. Organizacja pogrzebów, kremacja, transport 24/7, pogrzeb bez zaliczki. Tel: +48 602 274 661.',
   keywords: [
     'zakład pogrzebowy łódź',
     'zaklad pogrzebowy lodz',
@@ -24,7 +19,7 @@ export const metadata: Metadata = buildLocalMetadata({
     'kremacja łódź',
     'transport zmarłych łódź',
   ],
-  ogTitle: 'Zakład Pogrzebowy Łódź | Nekrolog Łódź',
+  ogTitle: 'Nekrolog Łódź – Całodobowy Zakład Pogrzebowy w Łodzi',
 })
 
 export default async function HomePage() {

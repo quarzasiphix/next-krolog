@@ -51,13 +51,13 @@ const faqData: FAQItem[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Trumny Łódź - Sprzedaż Trumien',
-  description: 'Największy wybór trumien w Łodzi. Modele dębowe, sosnowe, olchowe. Trumny kremacyjne i tradycyjne. Ekspozycja przy ul. Legionów 48.',
-  keywords: ['trumny łódź', 'sprzedaż trumien łódź', 'producent trumien łódzkie', 'tanie trumny łódź', 'klasyczne trumny drewniane'],
+  title: { absolute: 'Trumny Łódź – Kremacyjne, Dębowe, Sosnowe i Olchowe | Nekrolog Łódź' },
+  description: 'Trumny pogrzebowe w Łodzi – trumny kremacyjne, dębowe, sosnowe i olchowe. Dekoracje trumien, trumny dla dzieci i dorosłych. Ekspozycja: ul. Legionów 48. Tel: +48 602 274 661.',
+  keywords: ['trumny łódź', 'trumny kremacyjne łódź', 'trumna dębowa łódź', 'dekoracje trumien łódź', 'trumny dla dzieci łódź', 'trumna olchowa łódź', 'trumny sosnowe łódź', 'tanie trumny łódź'],
   ...generateCanonicalMetadata('/asortyment/trumny-lodz'),
   openGraph: {
-    title: 'Trumny Łódź - Nekrolog',
-    description: 'Szeroki wybór trumien najwyższej jakości w Łodzi. Modele dębowe, sosnowe i kremacyjne. Sprawdź naszą ofertę.',
+    title: 'Trumny Łódź – Kremacyjne, Dębowe, Sosnowe i Olchowe | Nekrolog Łódź',
+    description: 'Trumny kremacyjne, dębowe, sosnowe i olchowe w Łodzi. Dekoracje trumien i szeroki wybór modeli. Ekspozycja: ul. Legionów 48.',
     url: `${SITE_URL}/asortyment/trumny-lodz`,
     type: 'website',
   },

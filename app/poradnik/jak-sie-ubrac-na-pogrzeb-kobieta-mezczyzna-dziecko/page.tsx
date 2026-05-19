@@ -30,7 +30,7 @@ const faqs: FAQItem[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Jak Się Ubrać na Pogrzeb? Kobieta, Mężczyzna, Dziecko | Nekrolog Łódź',
+  title: { absolute: 'Jak Się Ubrać na Pogrzeb? Kobieta, Mężczyzna, Dziecko | Nekrolog Łódź' },
   description:
     'Praktyczny poradnik jak ubrać się na pogrzeb. Zasady stroju dla kobiet, mężczyzn i dzieci. Co wypada, czego unikać i jak zachować elegancję oraz szacunek.',
   keywords: [

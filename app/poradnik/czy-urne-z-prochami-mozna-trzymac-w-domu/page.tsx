@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Czy Urnę z Prochami Można Trzymać w Domu? Prawo i Praktyka | Nekrolog Łódź',
+  title: { absolute: 'Czy Urnę z Prochami Można Trzymać w Domu? Prawo i Praktyka | Nekrolog Łódź' },
   description: 'Dowiedz się, czy można trzymać urnę z prochami w domu. Wyjaśniamy polskie prawo, praktyki religijne i emocjonalne aspekty przechowywania urny ze szczątkami bliskiej osoby.',
   keywords: [
     'urna z prochami w domu',

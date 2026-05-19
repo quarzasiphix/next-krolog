@@ -9,19 +9,20 @@ import ServiceSchema from '@/components/structured-data/ServiceSchema'
 import FAQSchema from '@/components/structured-data/FAQSchema'
 
 export const metadata: Metadata = {
-  title: 'Zakład Pogrzebowy Łódź • Nekrolog Łódź | Rodzinna Firma 30+ Lat',
+  title: { absolute: 'Całodobowy Zakład Pogrzebowy Łódź 24h – Nekrolog Łódź' },
   description:
-    'Profesjonalny zakład pogrzebowy Łódź - Nekrolog Łódź. Rodzinna firma z ponad 30-letnim doświadczeniem, kompleksowe usługi pogrzebowe, konkurencyjne ceny, kremacja i transport 24/7. Tel: +48 602 274 661.',
+    'Całodobowy zakład pogrzebowy w Łodzi – tel. +48 602 274 661. Organizacja pogrzebów 24h bez zaliczki, kremacja i transport. Ul. Legionów 48. Rodzinna firma, 30 lat doświadczenia.',
   keywords: [
     'zakład pogrzebowy łódź',
     'zaklad pogrzebowy lodz',
     'zakład pogrzebowy w łodzi',
+    'całodobowy zakład pogrzebowy łódź',
+    'zakład pogrzebowy całodobowy łódź',
+    'zakład pogrzebowy 24h łódź',
     'dom pogrzebowy łódź',
     'usługi pogrzebowe łódź',
     'pogrzeby łódź',
-    'całodobowy zakład pogrzebowy łódź',
     'nekrolog łódź',
-    'nekrolog lodz',
     'zakład pogrzebowy legionów łódź',
     'pogrzeb bez zaliczki łódź',
     'organizacja pogrzebu łódź',
@@ -142,19 +143,18 @@ export default function ZakladPogrzebowyPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair font-medium mb-6 text-white leading-tight">
-              Zakład Pogrzebowy Łódź
+              Całodobowy Zakład Pogrzebowy Łódź
             </h1>
             <div className="w-24 h-1 bg-primary mx-auto mb-8" />
             <p className="text-xl md:text-2xl text-gray-200 mb-6 leading-relaxed">
-              Zakład Pogrzebowy Nekrolog Łódź to profesjonalna, rodzinna firma z Łodzi z ponad 30-letnim doświadczeniem.
-              Oferujemy kompleksowe usługi pogrzebowe, organizację ceremonii, kremację i transport 24/7.
+              Nekrolog Łódź to całodobowy zakład pogrzebowy działający 24h na dobę, 7 dni w tygodniu.
+              Rodzinna firma z ponad 30-letnim doświadczeniem – organizacja pogrzebów, kremacja i transport.
             </p>
             <p className="text-lg text-gray-300 mb-8">
-              Jako rzetelny zakład pogrzebowy w Łodzi, zapewniamy wsparcie w formalnościach, pełną opiekę w trudnych chwilach i uczciwe, konkurencyjne ceny.
+              Jako całodobowy zakład pogrzebowy w Łodzi jesteśmy dostępni o każdej porze doby – w dzień i w nocy, w weekend i w święta. Nasz numer alarmowy jest czynny 24/7.
             </p>
             <p className="text-base text-gray-400 mb-8">
-              Jeśli szukasz także fraz bez polskich znaków: <strong className="text-white">zaklad pogrzebowy lodz</strong> lub <strong className="text-white">nekrolog lodz</strong>,
-              jesteś we właściwym miejscu.
+              Jeśli szukasz zakładu pogrzebowego całodobowego lub zakładu pogrzebowego 24h w Łodzi – <strong className="text-white">zaklad pogrzebowy lodz</strong> – jesteś we właściwym miejscu.
             </p>
             <p className="text-lg text-gray-300 mb-8">
               Prowadzony przez Jolantę Kostowską • Rodzinna firma z ponad 30-letnim doświadczeniem
@@ -204,7 +204,7 @@ export default function ZakladPogrzebowyPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-playfair font-medium text-white mb-8 text-center">
-              Zakład Pogrzebowy Łódź - Nasze Usługi
+              Całodobowy Zakład Pogrzebowy Łódź – Nasze Usługi
             </h2>
 
             <div className="prose prose-lg prose-invert max-w-none mb-12">

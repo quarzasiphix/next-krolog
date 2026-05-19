@@ -8,8 +8,8 @@ import { BookOpen, ArrowRight, Heart, FileText, HelpCircle } from 'lucide-react'
 import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Poradnik Pogrzebowy Łódź | Praktyczne Wskazówki',
-  description: 'Kompleksowy poradnik pogrzebowy. Praktyczne wskazówki co zrobić po śmierci, jak zorganizować pogrzeb, zasiłek pogrzebowy, kremacja, formalności oraz odzież żałobna.',
+  title: { absolute: 'Poradnik Pogrzebowy – Co Zrobić Po Śmierci Bliskiej Osoby | Nekrolog Łódź' },
+  description: 'Praktyczny poradnik: co zrobić zaraz po śmierci, jak zorganizować pogrzeb w Łodzi, zasiłek pogrzebowy ZUS/KRUS, kremacja, formalności i odzież żałobna. Bezpłatne wskazówki krok po kroku.',
   keywords: [
     'poradnik pogrzebowy',
     'co zrobić po śmierci',
