@@ -7,13 +7,14 @@ import { BreadcrumbController } from '@/components/breadcrumb-context'
 import JsonLdScript from '@/components/structured-data/JsonLdScript'
 import { BUSINESS_INFO, SITE_URL } from '@/lib/constants'
 
-const GENERATOR_URL = 'https://klepsydra.nekrolog-lodz.com/generator'
 const APP_URL = 'https://klepsydra.nekrolog-lodz.com'
+const GENERATOR_URL = `${APP_URL}/generator`
+const PRICING_URL = `${APP_URL}/cennik`
 
 export const metadata: Metadata = {
   title: { absolute: 'Klepsydra online - darmowy generator klepsydr | Nekrolog Łódź' },
   description:
-    'Darmowy generator klepsydry online od Nekrolog Łódź. Przygotuj e-klepsydrę z podglądem A4 i wydrukuj zawiadomienie pogrzebowe.',
+    'Darmowy generator klepsydry online od Nekrolog Łódź. Przygotuj e-klepsydrę z podglądem A4 albo aktywuj konto zakładu pogrzebowego za 20 zł miesięcznie.',
   keywords: [
     'klepsydra online',
     'generator klepsydry',
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Klepsydra online - darmowy generator klepsydr',
     description:
-      'Przejdź do generatora klepsydry Nekrolog Łódź, uzupełnij dane i przygotuj zawiadomienie do wydruku.',
+      'Przejdź do generatora klepsydry Nekrolog Łódź albo sprawdź konto zakładu z własnym brandingiem za 20 zł miesięcznie.',
     url: `${SITE_URL}/klepsydra`,
     type: 'website',
   },
@@ -48,6 +49,13 @@ const benefits = [
   'Możliwość szybkiego kontaktu z zakładem pogrzebowym, jeśli potrzebna jest pomoc',
 ]
 
+const funeralHomeBenefits = [
+  'Własna nazwa zakładu pogrzebowego na klepsydrze',
+  'Własny telefon, adres, strona internetowa i logo',
+  'Dane zakładu zapisywane na koncie i używane automatycznie',
+  'Klepsydry z własnym brandingiem za 20 zł miesięcznie',
+]
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -64,9 +72,9 @@ const jsonLd = {
         url: SITE_URL,
       },
     },
-    {
-      '@type': 'WebApplication',
-      name: 'Klepsydra online - generator klepsydry',
+      {
+        '@type': 'WebApplication',
+        name: 'Klepsydra online - generator klepsydry',
       applicationCategory: 'BusinessApplication',
       operatingSystem: 'Web',
       url: GENERATOR_URL,
@@ -85,10 +93,27 @@ const jsonLd = {
           postalCode: BUSINESS_INFO.address.postalCode,
           addressCountry: BUSINESS_INFO.address.addressCountry,
         },
+        },
       },
-    },
-  ],
-}
+      {
+        '@type': 'Product',
+        name: 'Konto zakładu pogrzebowego w generatorze klepsydry',
+        description:
+          'Miesięczne konto dla zakładów pogrzebowych, które pozwala generować klepsydry z własną nazwą, telefonem, adresem, stroną internetową i logo.',
+        brand: {
+          '@type': 'Brand',
+          name: 'Nekrolog Łódź',
+        },
+        offers: {
+          '@type': 'Offer',
+          price: '20.00',
+          priceCurrency: 'PLN',
+          availability: 'https://schema.org/InStock',
+          url: PRICING_URL,
+        },
+      },
+    ],
+  }
 
 export default function KlepsydraPage() {
   return (
@@ -118,6 +143,11 @@ export default function KlepsydraPage() {
                   organizacji pogrzebu w Łodzi, jesteśmy dostępni całodobowo. Pogrzeb możemy
                   zorganizować bez zaliczki, z rozliczeniem przez zasiłek pogrzebowy ZUS/KRUS.
                 </p>
+                <p className="mt-5 text-lg leading-relaxed text-gray-300">
+                  Dla zakładów pogrzebowych dostępne jest też konto firmowe za{' '}
+                  <strong className="text-white">20 zł miesięcznie</strong>. Pozwala generować
+                  klepsydry z własną nazwą zakładu, telefonem, adresem, stroną internetową i logo.
+                </p>
                 <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                   <a
                     href={GENERATOR_URL}
@@ -126,6 +156,15 @@ export default function KlepsydraPage() {
                     className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-8 py-4 text-lg font-medium text-black transition hover:bg-primary/90 sm:w-auto"
                   >
                     Przejdź do generatora
+                    <ExternalLink className="h-5 w-5" />
+                  </a>
+                  <a
+                    href={PRICING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-8 py-4 text-lg font-medium text-primary transition hover:bg-primary/20 sm:w-auto"
+                  >
+                    Konto zakładu 20 zł
                     <ExternalLink className="h-5 w-5" />
                   </a>
                   <a
@@ -189,6 +228,38 @@ export default function KlepsydraPage() {
               </CardContent>
             </Card>
 
+            <Card className="border border-primary/20 bg-black/30">
+              <CardContent className="p-6 md:p-8">
+                <h2 className="text-2xl font-playfair font-medium text-white">
+                  Konto dla zakładu pogrzebowego
+                </h2>
+                <p className="mt-4 leading-relaxed text-gray-300">
+                  Jeśli przygotowujesz klepsydry jako zakład pogrzebowy, możesz aktywować konto za
+                  20 zł miesięcznie. Wtedy generator drukuje na klepsydrach dane Twojego zakładu
+                  zamiast domyślnego brandingu Nekrolog Łódź.
+                </p>
+                <ul className="mt-5 space-y-3">
+                  {funeralHomeBenefits.map((benefit) => (
+                    <li key={benefit} className="flex items-start gap-3 text-gray-300">
+                      <Check className="mt-1 h-5 w-5 flex-shrink-0 text-primary" />
+                      <span>{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={PRICING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center gap-2 font-medium text-primary transition hover:text-primary/80"
+                >
+                  Sprawdź cennik konta zakładu
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="mx-auto mt-6 max-w-5xl">
             <Card className="border border-white/10 bg-black/30">
               <CardContent className="p-6 md:p-8">
                 <h2 className="text-2xl font-playfair font-medium text-white">
