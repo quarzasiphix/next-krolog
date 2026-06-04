@@ -72,9 +72,9 @@ const jsonLd = {
         url: SITE_URL,
       },
     },
-      {
-        '@type': 'WebApplication',
-        name: 'Klepsydra online - generator klepsydry',
+    {
+      '@type': 'WebApplication',
+      name: 'Klepsydra online - generator klepsydry',
       applicationCategory: 'BusinessApplication',
       operatingSystem: 'Web',
       url: GENERATOR_URL,
@@ -93,27 +93,27 @@ const jsonLd = {
           postalCode: BUSINESS_INFO.address.postalCode,
           addressCountry: BUSINESS_INFO.address.addressCountry,
         },
-        },
       },
-      {
-        '@type': 'Product',
-        name: 'Konto zakładu pogrzebowego w generatorze klepsydry',
-        description:
-          'Miesięczne konto dla zakładów pogrzebowych, które pozwala generować klepsydry z własną nazwą, telefonem, adresem, stroną internetową i logo.',
-        brand: {
-          '@type': 'Brand',
-          name: 'Nekrolog Łódź',
-        },
-        offers: {
-          '@type': 'Offer',
-          price: '20.00',
-          priceCurrency: 'PLN',
-          availability: 'https://schema.org/InStock',
-          url: PRICING_URL,
-        },
+    },
+    {
+      '@type': 'Product',
+      name: 'Konto zakładu pogrzebowego w generatorze klepsydry',
+      description:
+        'Miesięczne konto dla zakładów pogrzebowych, które pozwala generować klepsydry z własną nazwą, telefonem, adresem, stroną internetową i logo.',
+      brand: {
+        '@type': 'Brand',
+        name: 'Nekrolog Łódź',
       },
-    ],
-  }
+      offers: {
+        '@type': 'Offer',
+        price: '20.00',
+        priceCurrency: 'PLN',
+        availability: 'https://schema.org/InStock',
+        url: PRICING_URL,
+      },
+    },
+  ],
+}
 
 export default function KlepsydraPage() {
   return (
@@ -135,45 +135,47 @@ export default function KlepsydraPage() {
                   Klepsydra online
                 </h1>
                 <p className="mt-6 text-xl leading-relaxed text-gray-200">
-                  Przygotuj darmową e-klepsydrę w osobnym generatorze Nekrolog Łódź. Uzupełnij
-                  dane, sprawdź podgląd A4 i wydrukuj zawiadomienie pogrzebowe.
+                  Przygotuj darmową e-klepsydrę, sprawdź podgląd A4 i wydrukuj zawiadomienie
+                  pogrzebowe w osobnym generatorze Nekrolog Łódź.
                 </p>
                 <p className="mt-5 text-lg leading-relaxed text-gray-300">
-                  Jeśli rodzina potrzebuje pomocy przy treści klepsydry, formalnościach albo
-                  organizacji pogrzebu w Łodzi, jesteśmy dostępni całodobowo. Pogrzeb możemy
-                  zorganizować bez zaliczki, z rozliczeniem przez zasiłek pogrzebowy ZUS/KRUS.
+                  W pilnych sprawach pomagamy też przy treści klepsydry, formalnościach i
+                  organizacji pogrzebu w Łodzi, także bez zaliczki.
                 </p>
-                <p className="mt-5 text-lg leading-relaxed text-gray-300">
-                  Dla zakładów pogrzebowych dostępne jest też konto firmowe za{' '}
-                  <strong className="text-white">20 zł miesięcznie</strong>. Pozwala generować
-                  klepsydry z własną nazwą zakładu, telefonem, adresem, stroną internetową i logo.
-                </p>
-                <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
                   <a
                     href={GENERATOR_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-8 py-4 text-lg font-medium text-black transition hover:bg-primary/90 sm:w-auto"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-6 py-4 text-base font-semibold text-black transition hover:bg-primary/90 sm:w-auto sm:min-w-[230px] md:text-lg"
                   >
                     Przejdź do generatora
                     <ExternalLink className="h-5 w-5" />
                   </a>
                   <a
-                    href={PRICING_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-8 py-4 text-lg font-medium text-primary transition hover:bg-primary/20 sm:w-auto"
-                  >
-                    Konto zakładu 20 zł
-                    <ExternalLink className="h-5 w-5" />
-                  </a>
-                  <a
                     href={`tel:${BUSINESS_INFO.phone.replace(/\s/g, '')}`}
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-white/15 bg-black/40 px-8 py-4 text-lg font-medium text-white transition hover:border-primary/40 hover:text-primary sm:w-auto"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-white/15 bg-black/40 px-6 py-4 text-base font-semibold text-white transition hover:border-primary/40 hover:text-primary sm:w-auto md:text-lg"
                   >
                     <Phone className="h-5 w-5" />
                     {BUSINESS_INFO.phone}
                   </a>
+                </div>
+                <div className="mt-5 rounded-md border border-primary/20 bg-primary/10 p-4">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <p className="text-sm leading-relaxed text-gray-200 md:text-base">
+                      Dla zakładów pogrzebowych: personalizowane klepsydry z własnym logo i danymi
+                      za <strong className="text-white">20 zł miesięcznie</strong>.
+                    </p>
+                    <a
+                      href={PRICING_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex shrink-0 items-center justify-center gap-2 rounded-md border border-primary/30 px-4 py-2.5 text-sm font-semibold text-primary transition hover:bg-primary/15"
+                    >
+                      Cennik dla zakładów
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
+                  </div>
                 </div>
               </div>
 
