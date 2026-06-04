@@ -4,7 +4,7 @@ import type { FAQItem } from '@/components/structured-data/FAQSchema'
 import { IMAGES } from '@/assets/images'
 import { Card, CardContent } from '@/components/ui/card'
 import { CheckCircle, Clock, FileText, AlertTriangle } from 'lucide-react'
-import { buildLocalMetadata, buildMetaDescription } from '@/lib/local-seo'
+import { generateCanonicalMetadata } from '@/lib/canonical'
 
 const exhumationReasons = [
   'Przeniesienie szczątków do innego grobu lub na inny cmentarz',
@@ -67,16 +67,12 @@ const faqData: FAQItem[] = [
   },
 ]
 
-export const metadata: Metadata = buildLocalMetadata({
-  title: 'Ekshumacja Zwłok Łódź',
-  path: '/uslugi/ekshumacja-lodz',
-  description: buildMetaDescription([
-    'Profesjonalna obsługa ekshumacji w Łodzi',
-    'formalności, transport szczątków i ponowny pochówek',
-    'pełne poszanowanie prawa, procedur sanitarnych i tradycji',
-  ]),
-  keywords: ['ekshumacja łódź', 'ekshumacja zwłok łódź', 'przeniesienie grobu łódź', 'formalności ekshumacja łódź'],
-})
+export const metadata: Metadata = {
+  title: { absolute: 'Ekshumacja Łódź – Pozwolenia, Transport Szczątków, Ponowny Pochówek' },
+  description: 'Ekshumacja zwłok w Łodzi – kompleksowa obsługa: pozwolenia sanepid i zarządcy cmentarza, przeniesienie szczątków, ponowny pochówek. Zakład Pogrzebowy Nekrolog. Tel: +48 602 274 661.',
+  keywords: ['ekshumacja łódź', 'ekshumacja zwłok łódź', 'ekshumacje na cmentarzu łódź', 'przeniesienie grobu łódź', 'formalności ekshumacja łódź'],
+  ...generateCanonicalMetadata('/uslugi/ekshumacja-lodz'),
+}
 
 export default function EkshumacjaPage() {
   return (

@@ -25,9 +25,9 @@ const faqs: FAQItem[] = [
 ]
 
 export const metadata: Metadata = {
-  title: { absolute: 'Jakie Buty na Pogrzeb i Czego Unikać? Praktyczne Zasady | Nekrolog Łódź' },
+  title: { absolute: 'Jakie Buty na Pogrzeb? Czarne Zamknięte, Czółenka – Czego Unikać' },
   description:
-    'Sprawdź, jakie buty na pogrzeb będą odpowiednie dla kobiet i mężczyzn. Praktyczne zasady, czego unikać i jak dobrać wygodne, eleganckie obuwie.',
+    'Ciemne, zamknięte buty – najlepszy wybór. Czego unikać: sportowe modele, jasne kolory, bardzo wysokie obcasy. Krótki poradnik dla kobiet i mężczyzn na każdą ceremonię.',
   keywords: [
     'jakie buty na pogrzeb',
     'obuwie na pogrzeb',

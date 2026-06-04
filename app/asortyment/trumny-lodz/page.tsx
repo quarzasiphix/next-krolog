@@ -51,8 +51,8 @@ const faqData: FAQItem[] = [
 ]
 
 export const metadata: Metadata = {
-  title: { absolute: 'Trumny Łódź – Kremacyjne, Dębowe, Sosnowe i Olchowe | Nekrolog Łódź' },
-  description: 'Trumny pogrzebowe w Łodzi – trumny kremacyjne, dębowe, sosnowe i olchowe. Dekoracje trumien, trumny dla dzieci i dorosłych. Ekspozycja: ul. Legionów 48. Tel: +48 602 274 661.',
+  title: { absolute: 'Trumny Łódź – Dekoracje Trumien, Kremacyjne, Dębowe i Sosnowe | Nekrolog' },
+  description: 'Trumny i dekoracje trumien w Łodzi – kremacyjne, dębowe, sosnowe, olchowe, dla dorosłych i dzieci. Ekspozycja na miejscu: ul. Legionów 48. Doradztwo i szybka realizacja. Tel: +48 602 274 661.',
   keywords: ['trumny łódź', 'trumny kremacyjne łódź', 'trumna dębowa łódź', 'dekoracje trumien łódź', 'trumny dla dzieci łódź', 'trumna olchowa łódź', 'trumny sosnowe łódź', 'tanie trumny łódź'],
   ...generateCanonicalMetadata('/asortyment/trumny-lodz'),
   openGraph: {

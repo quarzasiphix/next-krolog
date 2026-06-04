@@ -60,9 +60,9 @@ const faqData: FAQItem[] = [
 ]
 
 export const metadata: Metadata = {
-  title: { absolute: 'Wiązanki Pogrzebowe Łódź – Bukiety i Kompozycje na Pogrzeb' },
+  title: { absolute: 'Wiązanki Pogrzebowe Łódź – Bukiety, Wieńce i Szarfy na Pogrzeb' },
   description:
-    'Wiązanki pogrzebowe w Łodzi – bukiety, kompozycje na trumnę i kondolencyjne. Świeże kwiaty, personalizowane szarfy. Dostawa na cmentarz lub odbiór. Tel. +48 602 274 661.',
+    'Wiązanki i wieńce pogrzebowe w Łodzi – bukiety, kompozycje na trumnę, szarfy z dedykacją. Świeże kwiaty premium, dostawa na cmentarz. Zakład Pogrzebowy Nekrolog. Tel: +48 602 274 661.',
   keywords: ['wiązanki pogrzebowe łódź', 'kwiaty na pogrzeb łódź', 'kwiaciarnia przy cmentarzu łódź', 'wieńce i wiązanki'],
   ...generateCanonicalMetadata('/asortyment/wiazanki-lodz'),
   openGraph: {

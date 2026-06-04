@@ -66,10 +66,10 @@ const faqData: FAQItem[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Odzież na Pogrzeb Łódź - Jak Przygotować Odpowiedni Strój',
+  title: { absolute: 'Odzież na Pogrzeb Łódź – Poradnik Stroju Żałobnego i Ubioru Dla Zmarłego' },
   description:
-    'Wskazówki, jak przygotować odpowiedni strój na pogrzeb w Łodzi. Podpowiadamy, jaki ubiór wybrać dla uczestników ceremonii i jaki strój rodzina może przygotować dla zmarłego.',
-  keywords: ['odzież na pogrzeb łódź', 'jak ubrać się na pogrzeb', 'ubrania dla zmarłych łódź', 'garnitur żałobny łódź', 'suknia żałobna'],
+    'Poradnik doboru odzieży na pogrzeb – garnitury, suknie, garsonki dla uczestników ceremonii oraz strój dla osoby zmarłej. Zakład pogrzebowy Nekrolog Łódź doradza i pomaga w ramach organizacji pogrzebu.',
+  keywords: ['odzież żałobna łódź', 'ubrania pogrzebowe damskie łódź', 'garnitury na pogrzeb łódź', 'odzież pogrzebowa łódź', 'strój na pogrzeb łódź'],
   ...generateCanonicalMetadata('/asortyment/odziez-lodz'),
   openGraph: {
     title: 'Odzież na Pogrzeb Łódź - Nekrolog',

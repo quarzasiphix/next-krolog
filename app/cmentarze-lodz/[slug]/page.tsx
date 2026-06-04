@@ -194,6 +194,67 @@ const cemeteries: Record<string, Cemetery> = {
       lng: 19.5234,
     },
   },
+  'mania': {
+    name: 'Cmentarz Mania',
+    slug: 'mania',
+    address: 'ul. Smutna 2, 91-729 Łódź',
+    phone: '+48 42 674 88 88',
+    hours: 'Codziennie: 8:00 - 18:00 (lato), 8:00 - 16:00 (zima)',
+    description: 'Cmentarz Mania – część kompleksu cmentarnego Doły w Łodzi, obejmująca sekcje wyznaniowe.',
+    longDescription: 'Cmentarz Mania to potoczna nazwa używana dla części cmentarza komunalnego w rejonie ul. Smutnej w Łodzi, wchodzącej w skład kompleksu cmentarnego Doły. Cmentarz jest miejscem pochówku mieszkańców Łodzi i okolicznych miejscowości, dysponuje kancelarią obsługującą rodziny i administrację grobów.',
+    features: [
+      'Sekcje katolickie i wyznaniowe',
+      'Pochówki tradycyjne i urnowe',
+      'Kancelaria cmentarza na miejscu',
+      'Parking dla odwiedzających',
+    ],
+    sections: [
+      'Sekcja katolicka',
+      'Sekcja prawosławna',
+    ],
+    facilities: [
+      'Kancelaria cmentarza',
+      'Parking',
+      'Punkt sprzedaży zniczy i kwiatów',
+    ],
+    access: {
+      publicTransport: [
+        'Autobus: 55, 70, 78, 83 - przystanek Cmentarz Doły',
+        'Tramwaj: 6, 16 - przystanek Smutna',
+      ],
+      parking: 'Parking przy głównym wejściu kompleksu cmentarnego',
+    },
+    coordinates: {
+      lat: 51.7461,
+      lng: 19.5047,
+    },
+  },
+  'kurczaki': {
+    name: 'Cmentarz Kurczaki',
+    slug: 'kurczaki',
+    address: 'ul. Kurczaki, Łódź',
+    hours: 'Codziennie: 8:00 - 18:00 (lato), 8:00 - 16:00 (zima)',
+    description: 'Cmentarz parafialny Kurczaki w Łodzi – cmentarz wyznaniowy w dzielnicy Kurczaki.',
+    longDescription: 'Cmentarz Kurczaki to cmentarz parafialny położony w dzielnicy Kurczaki w Łodzi. Obsługuje mieszkańców tej i sąsiednich dzielnic, oferując pochówki tradycyjne i urnowe. Kancelaria cmentarza działa w ustalonych godzinach otwarcia.',
+    features: [
+      'Cmentarz parafialny',
+      'Pochówki tradycyjne i urnowe',
+      'Kancelaria cmentarna',
+    ],
+    sections: [
+      'Sekcja katolicka',
+    ],
+    facilities: [
+      'Kancelaria cmentarza',
+      'Parking',
+    ],
+    access: {
+      publicTransport: [
+        'Autobus: linie obsługujące dzielnicę Kurczaki',
+      ],
+      parking: 'Parking przy wejściu na cmentarz',
+    },
+  },
   'komunalny-polnocny': {
     name: 'Cmentarz Komunalny Północny',
     slug: 'komunalny-polnocny',
@@ -258,8 +319,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   return {
-    title: `${cemetery.name} – Godziny Otwarcia, Adres, Informacje | Nekrolog Łódź`,
-    description: `${cemetery.name} w Łodzi – ${cemetery.hours ? `Godziny otwarcia: ${cemetery.hours}. ` : ''}Adres: ${cemetery.address}. ${cemetery.description}`,
+    title: `${cemetery.name} – Godziny Otwarcia, Adres | Pogrzeby Bez Zaliczki · Łódź`,
+    description: `${cemetery.hours ? `Godziny otwarcia: ${cemetery.hours}. ` : ''}${cemetery.name}, ${cemetery.address}. Organizujemy pogrzeby bez kosztów z góry – formalności, transport, rezerwacja miejsca. Tel: +48 602 274 661.`,
     keywords: [
       cemetery.name.toLowerCase(),
       `${cemetery.slug} łódź`,

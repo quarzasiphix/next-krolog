@@ -7,12 +7,12 @@ export interface SitemapEntry {
 }
 
 // Build timestamp for static pages
-const BUILD_TIMESTAMP = new Date('2026-03-30T12:00:00Z') // Update this when you deploy major changes
+const BUILD_TIMESTAMP = new Date('2026-06-04T12:00:00Z') // Update this when you deploy major changes
 
 // Content last modified dates (update when content changes)
 const CONTENT_LAST_MODIFIED = {
   // Homepage and core pages
-  homepage: '2026-03-30T12:00:00Z',
+  homepage: '2026-06-04T12:00:00Z',
   about: '2025-01-10T15:30:00Z',
   contact: '2025-01-12T09:00:00Z',
 
@@ -34,25 +34,25 @@ const CONTENT_LAST_MODIFIED = {
     francji: '2026-03-29T12:00:00Z',
     austrii: '2026-03-29T12:00:00Z',
     krematorium: '2025-01-08T14:00:00Z',
-    ekshumacja: '2025-01-08T14:00:00Z',
+    ekshumacja: '2026-06-04T12:00:00Z',
   },
 
   // Asortyment pages
   asortyment: {
     main: '2025-01-09T11:00:00Z',
-    trumny: '2025-01-09T11:00:00Z',
+    trumny: '2026-06-04T12:00:00Z',
     urny: '2025-01-09T11:00:00Z',
-    odziez: '2025-01-09T11:00:00Z',
-    wiazanki: '2025-01-09T11:00:00Z',
-    wience: '2025-01-09T11:00:00Z',
+    odziez: '2026-06-04T12:00:00Z',
+    wiazanki: '2026-06-04T12:00:00Z',
+    wience: '2026-06-04T12:00:00Z',
   },
 
   // Poradnik articles with individual last modified dates
   poradnik: {
     'jak-wybrac-trumne-na-pogrzeb': '2026-02-27T12:00:00Z',
     'jak-sie-ubrac-na-pogrzeb-kobieta-mezczyzna-dziecko': '2026-02-27T12:00:00Z',
-    'czy-na-pogrzeb-trzeba-ubrac-sie-na-czarno': '2026-02-27T12:00:00Z',
-    'jakie-buty-na-pogrzeb-i-czego-unikac': '2026-02-27T12:00:00Z',
+    'czy-na-pogrzeb-trzeba-ubrac-sie-na-czarno': '2026-06-04T12:00:00Z',
+    'jakie-buty-na-pogrzeb-i-czego-unikac': '2026-06-04T12:00:00Z',
     'co-zrobic-po-smierci': '2025-01-05T16:00:00Z',
     'zasilek-pogrzebowy-zus': '2025-01-06T12:00:00Z',
     'czy-urne-z-prochami-mozna-trzymac-w-domu': '2025-01-07T14:00:00Z',
@@ -74,12 +74,14 @@ const CONTENT_LAST_MODIFIED = {
 
   // Cemetery pages
   cmentarze: {
-    main: '2026-02-27T12:00:00Z',
-    doly: '2026-02-27T12:00:00Z',
-    radogoszcz: '2026-02-27T12:00:00Z',
-    stary: '2026-02-27T12:00:00Z',
-    zarzew: '2026-02-27T12:00:00Z',
-    'komunalny-polnocny': '2026-02-27T12:00:00Z',
+    main: '2026-06-04T12:00:00Z',
+    doly: '2026-06-04T12:00:00Z',
+    radogoszcz: '2026-06-04T12:00:00Z',
+    stary: '2026-06-04T12:00:00Z',
+    zarzew: '2026-06-04T12:00:00Z',
+    'komunalny-polnocny': '2026-06-04T12:00:00Z',
+    'mania': '2026-06-04T12:00:00Z',
+    'kurczaki': '2026-06-04T12:00:00Z',
   },
 
   // Legal pages (rarely change)
@@ -116,6 +118,8 @@ export const SLUGS = {
     'stary',
     'zarzew',
     'komunalny-polnocny',
+    'mania',
+    'kurczaki',
   ],
 
   locations: [
@@ -347,6 +351,32 @@ export function generateSitemapEntries(baseUrl: string): SitemapEntry[] {
       priority: 0.3,
     })
   })
+
+  // High-intent service/info pages
+  entries.push(
+    {
+      url: `${baseUrl}/formalnosci-pogrzebowe-lodz`,
+      lastModified: '2026-06-04T12:00:00Z',
+      changeFrequency: 'monthly',
+      priority: 0.88,
+    },
+  )
+
+  // Synonym landing pages
+  entries.push(
+    {
+      url: `${baseUrl}/dom-pogrzebowy-lodz`,
+      lastModified: '2026-06-04T12:00:00Z',
+      changeFrequency: 'monthly',
+      priority: 0.88,
+    },
+    {
+      url: `${baseUrl}/firma-pogrzebowa-lodz`,
+      lastModified: '2026-06-04T12:00:00Z',
+      changeFrequency: 'monthly',
+      priority: 0.88,
+    },
+  )
 
   // Directory pages
   entries.push(

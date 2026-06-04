@@ -7,8 +7,8 @@ import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema'
 import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Cmentarze w Łodzi - Przewodnik Po Cmentarzach | Nekrolog Łódź',
-  description: 'Kompletny przewodnik po cmentarzach w Łodzi. Adresy, godziny otwarcia, procedury pogrzebowe. Organizujemy pogrzeby na wszystkich cmentarzach w Łodzi bez kosztów z góry. Tel: +48 602 274 661.',
+  title: { absolute: 'Cmentarze w Łodzi – Godziny Otwarcia, Adresy | Pogrzeby bez Zaliczki' },
+  description: 'Godziny otwarcia i adresy cmentarzy w Łodzi – Doły, Zarzew, Radogoszcz, Stary i inne. Organizujemy pogrzeby na każdym cmentarzu bez kosztów z góry. Tel: +48 602 274 661.',
   keywords: [
     'cmentarze łódź',
     'cmentarze lodz',

@@ -582,11 +582,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   if (!isSupportedLocale(locale)) return {}
   const page = resolveIntlPage(locale, slug)
   if (!page) return {}
-  return buildIntlMetadata(page, {
+  const base = buildIntlMetadata(page, {
     title: pageTitle(page),
     description: pageDescription(page),
     path: getPagePath(page, locale),
   })
+  if (locale !== 'pl') return { ...base, robots: { index: false, follow: false } }
+  return base
 }
 
 export default async function InternationalDynamicPage({ params }: { params: Promise<{ locale: string; slug: string[] }> }) {
