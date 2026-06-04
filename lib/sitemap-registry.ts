@@ -154,6 +154,12 @@ export function generateSitemapEntries(baseUrl: string): SitemapEntry[] {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/klepsydra`,
+      lastModified: '2026-06-04T12:00:00Z',
+      changeFrequency: 'monthly',
+      priority: 0.88,
+    },
+    {
       url: `${baseUrl}/uslugi-pogrzebowe-lodz`,
       lastModified: CONTENT_LAST_MODIFIED.services.main,
       changeFrequency: 'monthly',

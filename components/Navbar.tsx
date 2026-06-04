@@ -51,6 +51,7 @@ const poradnikItems = [
 
 const aboutItems = [
   { name: 'Nekrolog Lodz', path: '/nekrolog-lodz' },
+  { name: 'Klepsydra online', path: '/klepsydra' },
   { name: 'O nas', path: '/o-nas' },
   { name: 'Kontakt', path: '/kontakt' },
 ]
