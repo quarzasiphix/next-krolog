@@ -17,6 +17,7 @@ import Link from 'next/link'
 
 const servicesItems = [
   { name: 'Uslugi Pogrzebowe Lodz', path: '/uslugi-pogrzebowe-lodz' },
+  { name: 'Klepsydra online', path: '/klepsydra' },
   { name: 'Organizacja pogrzebow Lodz', path: '/uslugi/organizacja-pogrzebow-lodz' },
   { name: 'Transport zmarlych Lodz', path: '/uslugi/transport-zmarlych-lodz' },
   { name: 'Krematorium Lodz', path: '/uslugi/krematorium-lodz' },
@@ -41,6 +42,7 @@ const productsItems = [
 
 const poradnikItems = [
   { name: 'Poradnik', path: '/poradnik' },
+  { name: 'Klepsydra online', path: '/klepsydra' },
   { name: 'Pogrzeb bez zaliczki', path: '/pogrzeb-bez-zaliczki' },
   { name: 'USC Lodz i akt zgonu', path: '/urzad-stanu-cywilnego-lodz' },
   { name: 'ZUS i zasilek pogrzebowy', path: '/zus-zasilek-pogrzebowy-lodz' },
