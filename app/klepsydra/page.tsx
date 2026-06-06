@@ -14,15 +14,17 @@ const PRICING_URL = `${APP_URL}/cennik`
 export const metadata: Metadata = {
   title: { absolute: 'Klepsydra online - darmowy generator klepsydr | Nekrolog Łódź' },
   description:
-    'Darmowy generator klepsydry online od Nekrolog Łódź. Przygotuj e-klepsydrę z podglądem A4 albo aktywuj konto zakładu pogrzebowego za 20 zł miesięcznie.',
+    'Darmowy generator klepsydry pogrzebowej od Jolanta Kostowska Nekrolog Łódź. Wzór klepsydry, tekst i podgląd A4 — wydrukuj w kilka minut. Konto dla zakładu pogrzebowego za 20 zł miesięcznie.',
   keywords: [
     'klepsydra online',
+    'klepsydra pogrzebowa',
     'generator klepsydry',
     'darmowy generator klepsydr',
-    'e-klepsydra',
-    'klepsydra pogrzebowa',
+    'wzór klepsydry',
+    'jak napisać klepsydrę',
+    'tekst klepsydry',
     'klepsydra łódź',
-    'nekrolog łódź',
+    'jolanta kostowska nekrolog łódź',
   ],
   alternates: {
     canonical: `${SITE_URL}/klepsydra`,
@@ -96,6 +98,15 @@ const jsonLd = {
       },
     },
     {
+      '@type': 'FAQPage',
+      mainEntity: [
+        { '@type': 'Question', name: 'Co powinna zawierać klepsydra pogrzebowa?', acceptedAnswer: { '@type': 'Answer', text: 'Klepsydra powinna zawierać: imię i nazwisko osoby zmarłej, daty urodzenia i śmierci, datę i godzinę ceremonii pogrzebowej, adres kościoła lub miejsca ceremonii, nazwę cmentarza oraz podpis rodziny.' } },
+        { '@type': 'Question', name: 'Jak napisać klepsydrę pogrzebową?', acceptedAnswer: { '@type': 'Answer', text: 'Zacznij od formuły żałobnej ("Z głębokim żalem zawiadamiamy…"), następnie podaj imię, nazwisko i daty życia, informacje o ceremonii i zakończ podpisem rodziny. Generator Nekrolog Łódź prowadzi przez każde pole krok po kroku.' } },
+        { '@type': 'Question', name: 'Czy generator klepsydry jest bezpłatny?', acceptedAnswer: { '@type': 'Answer', text: 'Tak, generator klepsydry jest bezpłatny dla rodzin. Zakłady pogrzebowe mogą aktywować konto z własnym brandingiem za 20 zł miesięcznie.' } },
+        { '@type': 'Question', name: 'Czym różni się klepsydra od nekrologu?', acceptedAnswer: { '@type': 'Answer', text: 'Klepsydra to fizyczne zawiadomienie wywieszane w miejscach publicznych. Nekrolog to ogłoszenie prasowe lub internetowe. Oba słowa są często używane wymiennie.' } },
+      ],
+    },
+    {
       '@type': 'Product',
       name: 'Konto zakładu pogrzebowego w generatorze klepsydry',
       description:
@@ -127,20 +138,20 @@ export default function KlepsydraPage() {
           <div className="mx-auto max-w-5xl">
             <div className="mb-6 inline-flex items-center gap-2 rounded-md border border-primary/25 bg-primary/10 px-3 py-2 text-sm font-medium text-primary">
               <FileText className="h-4 w-4" />
-              Generator klepsydry od Nekrolog Łódź
+              Zakład pogrzebowy Jolanta Kostowska Nekrolog Łódź
             </div>
             <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
               <div>
                 <h1 className="text-4xl font-playfair font-medium leading-tight text-white md:text-5xl lg:text-6xl">
-                  Klepsydra online
+                  Klepsydra pogrzebowa online
                 </h1>
                 <p className="mt-6 text-xl leading-relaxed text-gray-200">
-                  Przygotuj darmową e-klepsydrę, sprawdź podgląd A4 i wydrukuj zawiadomienie
-                  pogrzebowe w osobnym generatorze Nekrolog Łódź.
+                  Przygotuj darmową klepsydrę pogrzebową, sprawdź układ w formacie A4 i wydrukuj
+                  w kilka minut — w osobnym generatorze od zakładu <strong className="text-white">Jolanta Kostowska Nekrolog Łódź</strong>.
                 </p>
                 <p className="mt-5 text-lg leading-relaxed text-gray-300">
-                  W pilnych sprawach pomagamy też przy treści klepsydry, formalnościach i
-                  organizacji pogrzebu w Łodzi, także bez zaliczki.
+                  Znajdziesz tu też gotowe wzory klepsydry, przykładowe teksty i poradnik jak napisać
+                  klepsydrę. Jeśli potrzebujesz pomocy przy pogrzebie — działamy całą dobę, bez zaliczki.
                 </p>
                 <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
                   <a
@@ -290,6 +301,81 @@ export default function KlepsydraPage() {
             <p className="mt-3 text-gray-300">
               W pilnych sprawach pogrzebowych zadzwoń całodobowo: {BUSINESS_INFO.phone}.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 3-step how-to */}
+      <section className="bg-black py-16">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-5xl">
+            <h2 className="text-3xl font-playfair font-medium text-white md:text-4xl">
+              Jak zrobić klepsydrę w 3 krokach?
+            </h2>
+            <div className="mt-8 grid gap-6 md:grid-cols-3">
+              {[
+                ['1', 'Wpisz dane pogrzebu', 'Imię i nazwisko osoby zmarłej, daty, godzinę i miejsce ceremonii, cmentarz oraz podpis rodziny.'],
+                ['2', 'Sprawdź układ', 'Generator pokazuje podgląd klepsydry w formacie A4. Możesz edytować dane do momentu, aż wszystko się zgadza.'],
+                ['3', 'Wydrukuj lub zapisz PDF', 'Drukujesz bezpośrednio z przeglądarki na zwykłej drukarce domowej lub zapisujesz jako PDF.'],
+              ].map(([num, title, text]) => (
+                <div key={num} className="rounded-md border border-white/10 bg-black/30 p-6">
+                  <span className="text-4xl font-bold text-primary">{num}</span>
+                  <h3 className="mt-3 text-lg font-semibold text-white">{title}</h3>
+                  <p className="mt-2 leading-relaxed text-gray-400">{text}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8">
+              <a
+                href={GENERATOR_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-4 text-base font-semibold text-black transition hover:bg-primary/90"
+              >
+                Przejdź do generatora klepsydry
+                <ArrowRight className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-black/95 py-16">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-5xl">
+            <h2 className="text-3xl font-playfair font-medium text-white md:text-4xl">
+              Najczęstsze pytania o klepsydrę
+            </h2>
+            <div className="mt-8 grid gap-4">
+              {[
+                {
+                  q: 'Co powinna zawierać klepsydra pogrzebowa?',
+                  a: 'Klepsydra powinna zawierać: imię i nazwisko osoby zmarłej, daty urodzenia i śmierci, datę i godzinę ceremonii pogrzebowej, pełny adres kościoła lub miejsca ceremonii, nazwę cmentarza oraz podpis rodziny.',
+                },
+                {
+                  q: 'Jak napisać klepsydrę — od czego zacząć?',
+                  a: 'Zacznij od formuły żałobnej, np. "Z głębokim żalem zawiadamiamy, że odszedł od nas…". Następnie podaj imię i nazwisko, daty życia, informacje o ceremonii i zakończ podpisem rodziny. Nasz generator prowadzi przez każde pole krok po kroku.',
+                },
+                {
+                  q: 'Czy generator klepsydry jest bezpłatny?',
+                  a: 'Tak, generator klepsydry jest całkowicie bezpłatny dla rodzin. Zakłady pogrzebowe mogą odblokować generowanie klepsydry z własnym logo i danymi kontaktowymi za 20 zł miesięcznie.',
+                },
+                {
+                  q: 'Czym różni się klepsydra od nekrologu?',
+                  a: 'Klepsydra to fizyczne zawiadomienie wywieszane na klatkach schodowych i tablicach. Nekrolog to ogłoszenie w prasie lub internecie. W praktyce oba słowa są często używane wymiennie.',
+                },
+                {
+                  q: 'Czy Nekrolog Łódź – Jolanta Kostowska pomaga napisać klepsydrę?',
+                  a: 'Tak. Zakład pogrzebowy Jolanta Kostowska Nekrolog Łódź pomaga rodzinom zarówno z klepsydrą, jak i z pełną organizacją pogrzebu. Kontakt całodobowy: ' + BUSINESS_INFO.phone + '.',
+                },
+              ].map(({ q, a }) => (
+                <div key={q} className="rounded-md border border-white/10 bg-black/30 p-6">
+                  <h3 className="text-lg font-semibold text-white">{q}</h3>
+                  <p className="mt-3 leading-relaxed text-gray-400">{a}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
