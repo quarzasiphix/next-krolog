@@ -10,10 +10,13 @@ import { BreadcrumbController } from '@/components/breadcrumb-context'
 export const metadata: Metadata = {
   title: { absolute: 'Klepsydra Łódź – Nekrologi i Ogłoszenia Pogrzebowe | Nekrolog Łódź' },
   description:
-    'Klepsydra pogrzebowa w Łodzi – nekrolog i ogłoszenie o śmierci i pogrzebie. Zakład pogrzebowy Nekrolog Łódź pomaga w przygotowaniu klepsyder, nekrologów i zawiadomień. Tel: +48 602 274 661.',
+    'Klepsydra pogrzebowa w Łodzi – darmowy generator klepsydry online od Nekrolog Łódź – Jolanta Kostowska. Wygeneruj klepsydrę A4 bez rejestracji lub zadzwoń po pomoc całodobową. Tel: +48 602 274 661.',
   keywords: [
     'klepsydra łódź',
     'klepsydra pogrzebowa łódź',
+    'program do klepsydry łódź',
+    'generator klepsydry łódź',
+    'darmowa klepsydra łódź',
     'klepsydry łódź nekrologi',
     'nekrolog łódź',
     'nekrologi łódź',
@@ -60,6 +63,11 @@ const faqData = [
     question: 'Czy nekrolog w Łodzi można zamieścić online?',
     answer:
       'Tak. Poza tradycyjnymi klepsydrami pomagamy też w zamieszczeniu informacji o pogrzebie w formie elektronicznej. Skontaktuj się z nami, by omówić szczegóły.',
+  },
+  {
+    question: 'Czy istnieje darmowy program do tworzenia klepsydry online?',
+    answer:
+      'Tak. Zakład pogrzebowy Nekrolog Łódź – Jolanta Kostowska udostępnia bezpłatny generator klepsydry online pod adresem klepsydra.nekrolog-lodz.com. Program działa w przeglądarce — bez instalacji, bez rejestracji, bezpłatnie. Wystarczy wpisać imię i nazwisko osoby zmarłej, datę i miejsce pogrzebu, a generator przygotuje klepsydrę gotową do wydruku w formacie A4. Zakłady pogrzebowe mogą aktywować konto z własnym logo i danymi kontaktowymi za 20 zł miesięcznie.',
   },
 ]
 
@@ -221,6 +229,55 @@ export default function KlepsydraLodzPage() {
                 Pełna oferta usług pogrzebowych
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Generator promo */}
+      <section className="py-16 bg-black">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <Card className="border border-primary/25 bg-black/40">
+              <CardContent className="p-8 md:p-10">
+                <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+                  <div className="max-w-xl">
+                    <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
+                      Program do klepsydry online
+                    </p>
+                    <h2 className="mb-3 text-2xl font-playfair font-medium text-white md:text-3xl">
+                      Zrób klepsydrę samodzielnie — bezpłatnie
+                    </h2>
+                    <p className="leading-relaxed text-gray-300">
+                      Zakład pogrzebowy <strong className="text-white">Jolanta Kostowska Nekrolog Łódź</strong> udostępnia
+                      darmowy generator klepsydry online. Działa w przeglądarce — bez instalacji, bez
+                      rejestracji. Wpisz dane pogrzebu, sprawdź układ A4 i wydrukuj.
+                    </p>
+                    <p className="mt-3 text-sm text-gray-400">
+                      Adres: <span className="text-primary">klepsydra.nekrolog-lodz.com</span>
+                      {' · '}Zakłady pogrzebowe: własne logo i dane za 20 zł/miesiąc.
+                    </p>
+                  </div>
+                  <div className="flex flex-col gap-3 md:flex-shrink-0">
+                    <a
+                      href="https://klepsydra.nekrolog-lodz.com/generator"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-semibold text-black transition hover:bg-primary/90"
+                    >
+                      Otwórz generator klepsydry
+                    </a>
+                    <a
+                      href="https://klepsydra.nekrolog-lodz.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center rounded-md border border-primary/30 px-6 py-3 text-sm font-medium text-primary transition hover:bg-primary/10"
+                    >
+                      klepsydra.nekrolog-lodz.com
+                    </a>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
