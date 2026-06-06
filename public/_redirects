@@ -11,12 +11,34 @@ http://nekrolog-lodz.com/* https://nekrolog-lodz.com/:splat 301
 /asortyment/wiazanki/ /asortyment/wiazanki-lodz 301
 /asortyment/wience /asortyment/wience-lodz 301
 /asortyment/wience/ /asortyment/wience-lodz 301
+/asortyment/wience-pogrzebowe /asortyment/wience-lodz 301
+/asortyment/wience-pogrzebowe/ /asortyment/wience-lodz 301
 /asortyment/odziez /asortyment/odziez-lodz 301
 /asortyment/odziez/ /asortyment/odziez-lodz 301
 
 # Legacy service URLs
 /uslugi-pogrzebowe /uslugi-pogrzebowe-lodz 301
 /uslugi-pogrzebowe/ /uslugi-pogrzebowe-lodz 301
+/uslugi/transport-zmarlych /uslugi/transport-zmarlych-lodz 301
+/uslugi/transport-zmarlych/ /uslugi/transport-zmarlych-lodz 301
+/uslugi/organizacja-pogrzebow /uslugi/organizacja-pogrzebow-lodz 301
+/uslugi/organizacja-pogrzebow/ /uslugi/organizacja-pogrzebow-lodz 301
+/uslugi/krematorium /uslugi/krematorium-lodz 301
+/uslugi/krematorium/ /uslugi/krematorium-lodz 301
+/uslugi/oprawa-muzyczna /uslugi/oprawa-muzyczna-lodz 301
+/uslugi/oprawa-muzyczna/ /uslugi/oprawa-muzyczna-lodz 301
+/uslugi/ekshumacja /uslugi/ekshumacja-lodz 301
+/uslugi/ekshumacja/ /uslugi/ekshumacja-lodz 301
+/ekshumacja-zwlok /uslugi/ekshumacja-lodz 301
+/ekshumacja-zwlok/ /uslugi/ekshumacja-lodz 301
+
+# Legacy asortyment variant slugs
+/asortyment/odziez-pogrzebowa /asortyment/odziez-lodz 301
+/asortyment/odziez-pogrzebowa/ /asortyment/odziez-lodz 301
+
+# Legacy poradnik short slugs
+/poradnik/dokumenty-do-pogrzebu /poradnik/jakie-dokumenty-sa-potrzebne-aby-zorganizowac-pogrzeb 301
+/poradnik/dokumenty-do-pogrzebu/ /poradnik/jakie-dokumenty-sa-potrzebne-aby-zorganizowac-pogrzeb 301
 
 # USC page moved out of cemetery section
 /cmentarze-lodz/urzad-stanu-cywilnego-lodz /urzad-stanu-cywilnego-lodz 301
@@ -63,6 +85,8 @@ http://nekrolog-lodz.com/* https://nekrolog-lodz.com/:splat 301
 /czy-zaklad-pogrzebowy-moze-dopelnic-formalnosci-pogrzebowych-w-zastepstwie-klienta/ /poradnik/czy-zaklad-pogrzebowy-moze-dopelnic-formalnosci-pogrzebowych-w-zastepstwie-klienta 301
 
 # Legacy feed URLs for specific articles
+/etapy-zaloby-jak-uporac-sie-z-odejsciem-bliskiej-osoby /poradnik/etapy-zaloby-jak-uporac-sie-z-odejsciem-bliskiej-osoby 301
+/etapy-zaloby-jak-uporac-sie-z-odejsciem-bliskiej-osoby/ /poradnik/etapy-zaloby-jak-uporac-sie-z-odejsciem-bliskiej-osoby 301
 /etapy-zaloby-jak-uporac-sie-z-odejsciem-bliskiej-osoby/feed /poradnik/etapy-zaloby-jak-uporac-sie-z-odejsciem-bliskiej-osoby 301
 /etapy-zaloby-jak-uporac-sie-z-odejsciem-bliskiej-osoby/feed/ /poradnik/etapy-zaloby-jak-uporac-sie-z-odejsciem-bliskiej-osoby 301
 /o-jakiej-porze-roku-moze-byc-przeprowadzana-ekshumacja/feed /poradnik/o-jakiej-porze-roku-moze-byc-przeprowadzana-ekshumacja 301
