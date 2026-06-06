@@ -75,14 +75,26 @@ const jsonLd = {
       },
     },
     {
-      '@type': 'WebApplication',
-      name: 'Klepsydra online - generator klepsydry',
-      applicationCategory: 'BusinessApplication',
+      '@type': 'SoftwareApplication',
+      name: 'Generator klepsydry online — klepsydra.nekrolog-lodz.com',
+      alternateName: ['darmowy generator klepsydry', 'generator klepsydr', 'program do klepsydry'],
+      applicationCategory: 'UtilitiesApplication',
       operatingSystem: 'Web',
-      url: GENERATOR_URL,
+      url: APP_URL,
       isAccessibleForFree: true,
       inLanguage: 'pl-PL',
-      publisher: {
+      description: 'Darmowa aplikacja internetowa do generowania klepsydry pogrzebowej w formacie A4. Działa bez rejestracji i bez instalacji. Przygotowana przez zakład pogrzebowy Jolanta Kostowska Nekrolog Łódź.',
+      featureList: [
+        'Bezpłatne generowanie klepsydry bez rejestracji',
+        'Podgląd klepsydry w formacie A4 przed wydrukiem',
+        'Druk bezpośrednio z przeglądarki lub zapis PDF',
+        'Własne logo i dane zakładu pogrzebowego (konto B2B za 20 zł/miesiąc)',
+      ],
+      offers: [
+        { '@type': 'Offer', name: 'Generator klepsydry — bezpłatny', price: '0', priceCurrency: 'PLN', availability: 'https://schema.org/InStock' },
+        { '@type': 'Offer', name: 'Konto zakładu pogrzebowego', price: '20', priceCurrency: 'PLN', availability: 'https://schema.org/InStock' },
+      ],
+      creator: {
         '@type': 'Organization',
         name: BUSINESS_INFO.legalName,
         url: SITE_URL,
@@ -96,6 +108,17 @@ const jsonLd = {
           addressCountry: BUSINESS_INFO.address.addressCountry,
         },
       },
+    },
+    {
+      '@type': 'HowTo',
+      name: 'Jak wygenerować klepsydrę online krok po kroku',
+      description: 'Instrukcja jak bezpłatnie wygenerować i wydrukować klepsydrę pogrzebową w formacie A4 na stronie klepsydra.nekrolog-lodz.com.',
+      tool: { '@type': 'HowToTool', name: 'Generator klepsydry — klepsydra.nekrolog-lodz.com' },
+      step: [
+        { '@type': 'HowToStep', position: 1, name: 'Wpisz dane pogrzebu', text: 'Uzupełnij formularz: imię i nazwisko osoby zmarłej, daty urodzenia i śmierci, datę, godzinę i miejsce ceremonii pogrzebowej, cmentarz oraz podpis rodziny.' },
+        { '@type': 'HowToStep', position: 2, name: 'Sprawdź podgląd klepsydry', text: 'Generator pokazuje podgląd klepsydry w poziomym formacie A4. Możesz edytować dane i wybierać styl klepsydry.' },
+        { '@type': 'HowToStep', position: 3, name: 'Wydrukuj lub zapisz jako PDF', text: 'Wydrukuj klepsydrę bezpośrednio z przeglądarki lub wybierz "Zapisz jako PDF" w opcjach drukowania.' },
+      ],
     },
     {
       '@type': 'FAQPage',
