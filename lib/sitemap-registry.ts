@@ -182,6 +182,12 @@ export function generateSitemapEntries(baseUrl: string): SitemapEntry[] {
       priority: 0.6,
     },
     {
+      url: `${baseUrl}/tovernet`,
+      lastModified: '2026-08-18T12:00:00Z',
+      changeFrequency: 'monthly',
+      priority: 0.4,
+    },
+    {
       url: `${baseUrl}/kontakt`,
       lastModified: CONTENT_LAST_MODIFIED.contact,
       changeFrequency: 'weekly',
