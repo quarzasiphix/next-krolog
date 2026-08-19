@@ -1,12 +1,24 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 import { BUSINESS_INFO } from '@/lib/constants'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
+  const tovernetMountRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const mount = tovernetMountRef.current
+    if (!mount || mount.querySelector('script')) return
+
+    const script = document.createElement('script')
+    script.src = 'https://tovernet.online/embed/footer-strip.js'
+    script.async = true
+    script.dataset.client = 'nekrolog-lodz'
+    mount.appendChild(script)
+  }, [])
 
   return (
     <footer className="bg-black text-white border-t border-white/10" data-nosnippet>
@@ -148,6 +160,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/tovernet" className="inline-block text-gray-300 hover:text-primary transition-colors">
+                  Partner technologiczny
+                </Link>
+              </li>
+              <li>
                 <Link href="/kontakt" className="inline-block text-gray-300 hover:text-primary transition-colors">
                   Kontakt
                 </Link>
@@ -169,6 +186,9 @@ const Footer = () => {
           </p>
         </div>
       </div>
+
+      {/* Tovernet Strip (embedded from tovernet.online, edit centrally there) */}
+      <div ref={tovernetMountRef} />
     </footer>
   )
 }
