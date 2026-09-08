@@ -3,6 +3,16 @@ import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 const root = process.cwd()
+
+// Refresh the Google rating before building (writes lib/data/google-rating.json).
+// Never fails the build — the script keeps the last good value on any error.
+const ratingResult = spawnSync(process.execPath, [join(root, 'scripts', 'fetch-google-rating.mjs')], {
+  stdio: 'inherit',
+})
+if (ratingResult.status !== 0) {
+  console.warn('[next-build] fetch-google-rating exited non-zero; continuing with cached rating.')
+}
+
 const primaryNodeModules = join(root, 'node_modules')
 const fallbackNodeModules = join(root, '.deps-fresh', 'node_modules')
 const activeNodeModules = existsSync(join(primaryNodeModules, 'next', 'package.json'))

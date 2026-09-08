@@ -44,6 +44,14 @@ http://nekrolog-lodz.com/* https://nekrolog-lodz.com/:splat 301
 /cmentarze-lodz/urzad-stanu-cywilnego-lodz /urzad-stanu-cywilnego-lodz 301
 /cmentarze-lodz/urzad-stanu-cywilnego-lodz/ /urzad-stanu-cywilnego-lodz 301
 
+# Cemetery slug aliases (common search terms -> canonical page)
+/cmentarze-lodz/szczecinska /cmentarze-lodz/komunalny-polnocny 301
+/cmentarze-lodz/szczecinska/ /cmentarze-lodz/komunalny-polnocny 301
+/cmentarze-lodz/sw-rocha /cmentarze-lodz/radogoszcz 301
+/cmentarze-lodz/ogrodowa /cmentarze-lodz/stary 301
+/cmentarze-lodz/sw-antoniego /cmentarze-lodz/mania 301
+/cmentarze-lodz/sw-wojciecha /cmentarze-lodz/kurczaki 301
+
 # Legacy WordPress endpoints
 /feed/ /poradnik 301
 /feed /poradnik 301

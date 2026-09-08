@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import FAQSchema from '@/components/structured-data/FAQSchema'
 import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema'
 import { SITE_URL } from '@/lib/constants'
+import { cemeteries as cemeteryData, cemeterySlugs } from '@/lib/cemeteries'
 
 export const metadata: Metadata = {
   title: { absolute: 'Cmentarze w Łodzi – Godziny Otwarcia, Adresy | Pogrzeby bez Zaliczki' },
@@ -75,86 +76,46 @@ export default function CmentarzeLodzPage() {
     },
   ]
 
-  const cemeteries = [
-    {
-      name: 'Cmentarz Doły',
-      address: 'ul. Smutna 2, 91-729 Łódź',
-      description: 'Największy cmentarz komunalny w Łodzi, założony w 1892 roku. Ponad 180 hektarów powierzchni.',
+  const cemeteries = cemeterySlugs.map((slug) => {
+    const c = cemeteryData[slug]
+    const weekday = c.office.hours.find((row) => /piątek/i.test(row.days)) || c.office.hours[0]
+    return {
+      slug,
+      name: c.name,
+      address: c.address,
+      description: c.summary,
+      officeHours: weekday ? `${weekday.days}: ${weekday.hours}` : 'w dni robocze',
+      officePhone: c.office.phone,
       features: [
-        'Największy cmentarz w Łodzi',
-        'Sekcje katolickie, prawosławne, ewangelickie',
-        'Możliwość pochówku tradycyjnego i urnowego',
-        'Kolumbarium',
+        c.typeLabel,
+        c.foundedYear ? `Rok założenia: ${c.foundedYear}` : 'Cmentarz czynny',
+        `Zarządca: ${c.manager}`,
+        `Godziny kancelarii: ${c.office.hours.map((row) => `${row.days} ${row.hours}`).join('; ')}`,
       ],
-      slug: 'doly',
-    },
-    {
-      name: 'Cmentarz Radogoszcz',
-      address: 'ul. Zgierska 205, 91-520 Łódź',
-      description: 'Cmentarz komunalny na północy Łodzi, otwarty w 1971 roku.',
-      features: [
-        'Nowoczesna infrastruktura',
-        'Sekcje wyznaniowe',
-        'Pochówki tradycyjne i urnowe',
-        'Dobre połączenia komunikacyjne',
-      ],
-      slug: 'radogoszcz',
-    },
-    {
-      name: 'Stary Cmentarz',
-      address: 'ul. Ogrodowa 43, 91-065 Łódź',
-      description: 'Zabytkowy cmentarz w centrum Łodzi, założony w 1855 roku.',
-      features: [
-        'Zabytkowy cmentarz',
-        'Sekcje katolicka, ewangelicka, prawosławna',
-        'Historyczne nagrobki',
-        'Centralna lokalizacja',
-      ],
-      slug: 'stary',
-    },
-    {
-      name: 'Cmentarz Zarzew',
-      address: 'ul. Traktorowa 84, 91-204 Łódź',
-      description: 'Cmentarz komunalny na wschodzie Łodzi.',
-      features: [
-        'Spokojne położenie',
-        'Sekcje wyznaniowe',
-        'Pochówki tradycyjne i urnowe',
-        'Łatwy dojazd',
-      ],
-      slug: 'zarzew',
-    },
-    {
-      name: 'Cmentarz Komunalny Północny',
-      address: 'ul. Szczecińska 40, 91-479 Łódź',
-      description: 'Nowoczesny cmentarz komunalny na północy miasta.',
-      features: [
-        'Nowoczesna infrastruktura',
-        'Kolumbarium',
-        'Pochówki tradycyjne i urnowe',
-        'Parking dla odwiedzających',
-      ],
-      slug: 'komunalny-polnocny',
-    },
-  ]
+    }
+  })
 
   const faqData = [
     {
-      question: 'Czy mogę wybrać dowolny cmentarz w Łodzi?',
-      answer: 'Tak, możesz wybrać dowolny cmentarz w Łodzi. Pomożemy w rezerwacji miejsca i załatwieniu wszystkich formalności na wybranym cmentarzu. Organizujemy pogrzeby na wszystkich cmentarzach komunalnych i parafialnych w Łodzi.'
+      question: 'Jakie są godziny otwarcia kancelarii cmentarzy komunalnych w Łodzi?',
+      answer:
+        'Kancelarie cmentarzy komunalnych „Doły”, „Zarzew” i „Szczecińska”, prowadzonych przez Zarząd Zieleni Miejskiej w Łodzi, są czynne w dni robocze w godzinach 7:30 – 15:00. Kancelarie cmentarzy parafialnych działają według godzin ustalonych przez poszczególne parafie. Bramy cmentarzy są zwykle otwarte od 7:00 do 20:00 w sezonie letnim i od 8:00 do 17:00 w sezonie zimowym.',
     },
     {
-      question: 'Ile kosztuje miejsce na cmentarzu?',
-      answer: 'Koszty miejsca na cmentarzu różnią się w zależności od cmentarza i rodzaju grobu (tradycyjny, urnowy). Ceny ustala administracja cmentarza. Pomożemy w wyborze najlepszej opcji dla Twojej sytuacji i budżetu.'
+      question: 'Czy mogę wybrać dowolny cmentarz w Łodzi?',
+      answer:
+        'Tak. Organizujemy pogrzeby na wszystkich cmentarzach komunalnych i parafialnych w Łodzi oraz w okolicznych miejscowościach. Pomagamy w rezerwacji miejsca i w kontakcie z kancelarią wybranego cmentarza.',
+    },
+    {
+      question: 'Ile kosztuje miejsce na cmentarzu w Łodzi?',
+      answer:
+        'Opłaty za miejsce pochówku ustala administracja danego cmentarza i zależą one od rodzaju grobu (ziemny, murowany, urnowy) oraz okresu opłaty. Na cmentarzach komunalnych cennik ustala Zarząd Zieleni Miejskiej w Łodzi, na parafialnych – zarządzająca parafia. Pomagamy dobrać opcję do sytuacji rodziny.',
     },
     {
       question: 'Czy muszę płacić za pogrzeb z góry?',
-      answer: 'Nie. Organizujemy pogrzeb i finansujemy wszystkie koszty. Rozliczenie następuje bezpośrednio z zasiłkiem pogrzebowym ZUS/KRUS. Nie musisz martwić się o pieniądze w tym trudnym czasie.'
+      answer:
+        'Nie. Organizujemy pogrzeb bez kosztów z góry – rozliczenie następuje bezpośrednio z zasiłku pogrzebowego ZUS lub KRUS.',
     },
-    {
-      question: 'Jak długo trwa rezerwacja miejsca na cmentarzu?',
-      answer: 'Rezerwacja miejsca na cmentarzu zazwyczaj trwa 1-2 dni robocze. W pilnych przypadkach możemy przyspieszyć ten proces. Zajmujemy się całą procedurą - nie musisz osobiście kontaktować się z administracją cmentarza.'
-    }
   ]
 
   const cemeteriesItemListSchema = {
@@ -392,56 +353,14 @@ export default function CmentarzeLodzPage() {
             </h2>
 
             <div className="space-y-4 mb-12">
-              <Card className="bg-black/30 border border-white/10">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-medium text-white mb-3">
-                    Czy mogę wybrać dowolny cmentarz w Łodzi?
-                  </h3>
-                  <p className="text-gray-300">
-                    Tak, możesz wybrać dowolny cmentarz w Łodzi. Pomożemy w rezerwacji miejsca i załatwieniu
-                    wszystkich formalności na wybranym cmentarzu. Organizujemy pogrzeby na wszystkich cmentarzach
-                    komunalnych i parafialnych w Łodzi.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-black/30 border border-white/10">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-medium text-white mb-3">
-                    Ile kosztuje miejsce na cmentarzu?
-                  </h3>
-                  <p className="text-gray-300">
-                    Koszty miejsca na cmentarzu różnią się w zależności od cmentarza i rodzaju grobu (tradycyjny,
-                    urnowy). Ceny ustala administracja cmentarza. Pomożemy w wyborze najlepszej opcji dla Twojej
-                    sytuacji i budżetu.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-black/30 border border-white/10">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-medium text-white mb-3">
-                    Czy muszę płacić za pogrzeb z góry?
-                  </h3>
-                  <p className="text-gray-300">
-                    Nie. Organizujemy pogrzeb i finansujemy wszystkie koszty. Rozliczenie następuje bezpośrednio
-                    z zasiłkiem pogrzebowym ZUS/KRUS. Nie musisz martwić się o pieniądze w tym trudnym czasie.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-black/30 border border-white/10">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-medium text-white mb-3">
-                    Jak długo trwa rezerwacja miejsca na cmentarzu?
-                  </h3>
-                  <p className="text-gray-300">
-                    Rezerwacja miejsca na cmentarzu zazwyczaj trwa 1-2 dni robocze. W pilnych przypadkach możemy
-                    przyspieszyć ten proces. Zajmujemy się całą procedurą - nie musisz osobiście kontaktować się
-                    z administracją cmentarza.
-                  </p>
-                </CardContent>
-              </Card>
+              {faqData.map((faq) => (
+                <Card key={faq.question} className="bg-black/30 border border-white/10">
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-medium text-white mb-3">{faq.question}</h3>
+                    <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </div>

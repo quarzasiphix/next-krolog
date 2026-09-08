@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { BUSINESS_INFO, SITE_URL } from '@/lib/constants'
+import { buildAggregateRating, buildReviewNodes } from '@/lib/reputation'
 
 type JsonLdObject = Record<string, unknown>
 
@@ -142,7 +143,7 @@ export function buildWebPageJsonLd({
       '@id': `${SITE_URL}/#funeral-home`,
     },
     isPartOf: {
-      '@type': 'WebSite',
+      // Full WebSite node is emitted once site-wide from the layout.
       '@id': `${SITE_URL}/#website`,
       url: SITE_URL,
       name: 'Nekrolog Łódź',
@@ -198,7 +199,7 @@ export function buildFuneralHomeJsonLd({
 
   return {
     '@context': 'https://schema.org',
-    '@type': 'FuneralHome',
+    '@type': ['FuneralHome', 'LocalBusiness'],
     '@id': `${SITE_URL}/#funeral-home`,
     name: BUSINESS_INFO.name,
     alternateName: ['Nekrolog Łódź', 'Zakład Pogrzebowy Nekrolog Łódź'],
@@ -240,6 +241,41 @@ export function buildFuneralHomeJsonLd({
         closes: BUSINESS_INFO.openingHours.closes,
       },
     ],
+    foundingDate: String(BUSINESS_INFO.foundedYear),
+    slogan: 'Pogrzeb bez zaliczki – rozliczenie z zasiłku pogrzebowego ZUS/KRUS',
+    paymentAccepted: ['Gotówka', 'Przelew bankowy', 'Rozliczenie z zasiłku pogrzebowego ZUS/KRUS'],
+    currenciesAccepted: 'PLN',
+    knowsAbout: [
+      'organizacja pogrzebu',
+      'kremacja',
+      'transport zmarłych',
+      'międzynarodowy transport zwłok',
+      'ekshumacja',
+      'formalności pogrzebowe',
+      'zasiłek pogrzebowy ZUS i KRUS',
+      'oprawa florystyczna i muzyczna ceremonii',
+    ],
+    makesOffer: BUSINESS_INFO.services.map((service) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name: service },
+      priceCurrency: 'PLN',
+      availability: 'https://schema.org/InStock',
+    })),
+    aggregateRating: buildAggregateRating(),
+    review: buildReviewNodes(),
+  }
+}
+
+export function buildWebSiteJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE_URL}/#website`,
+    url: SITE_URL,
+    name: 'Nekrolog Łódź',
+    alternateName: BUSINESS_INFO.legalName,
+    inLanguage: 'pl-PL',
+    publisher: { '@id': `${SITE_URL}/#organization` },
   }
 }
 
@@ -327,29 +363,9 @@ export function buildServiceJsonLd({
       name: city,
     })),
     availableLanguage: availableLanguages,
-    provider: {
-      '@type': 'FuneralHome',
-      '@id': `${SITE_URL}/#funeral-home`,
-      name: BUSINESS_INFO.legalName,
-      url: SITE_URL,
-      telephone: BUSINESS_INFO.phone,
-      email: BUSINESS_INFO.email,
-      sameAs: BUSINESS_INFO.sameAs,
-      priceRange: BUSINESS_INFO.priceRange,
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: BUSINESS_INFO.address.streetAddress,
-        addressLocality: BUSINESS_INFO.address.addressLocality,
-        postalCode: BUSINESS_INFO.address.postalCode,
-        addressCountry: 'PL',
-      },
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: BUSINESS_INFO.geo.latitude,
-        longitude: BUSINESS_INFO.geo.longitude,
-      },
-      openingHours: 'Mo-Su 00:00-23:59',
-    },
+    // Reference the single canonical business entity defined in the site @graph
+    // instead of re-embedding its address/geo/hours on every service page.
+    provider: { '@id': `${SITE_URL}/#funeral-home` },
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': url,
