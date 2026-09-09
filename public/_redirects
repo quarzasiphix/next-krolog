@@ -1,6 +1,7 @@
 # Canonical host redirects (www/http -> https apex)
-http://www.nekrolog-lodz.com/* https://nekrolog-lodz.com/:splat 301
-http://nekrolog-lodz.com/* https://nekrolog-lodz.com/:splat 301
+https://www.nekrolog-lodz.com/* https://nekrolog-lodz.com/:splat 301!
+http://www.nekrolog-lodz.com/* https://nekrolog-lodz.com/:splat 301!
+http://nekrolog-lodz.com/* https://nekrolog-lodz.com/:splat 301!
 
 # Legacy asortyment URLs without -lodz suffix
 /asortyment/trumny /asortyment/trumny-lodz 301
@@ -103,6 +104,11 @@ http://nekrolog-lodz.com/* https://nekrolog-lodz.com/:splat 301
 # Trailing slash normalization (Cloudflare handles via Pages settings, but explicit for safety)
 /zaklad-pogrzebowy-lodz/ /zaklad-pogrzebowy-lodz 301
 /nekrolog-lodz/ /nekrolog-lodz 301
+/nekrologi-lodz/ /nekrologi-lodz 301
+/uslugi/calodobowy-przewoz-zwlok-lodz/ /uslugi/calodobowy-przewoz-zwlok-lodz 301
+/uslugi/ceremonie-pogrzebowe-lodz/ /uslugi/ceremonie-pogrzebowe-lodz 301
+/przewoz-zwlok-calodobowo /uslugi/calodobowy-przewoz-zwlok-lodz 301
+/nekrologi /nekrologi-lodz 301
 /uslugi-pogrzebowe-lodz/ /uslugi-pogrzebowe-lodz 301
 /pogrzeb-bez-zaliczki/ /pogrzeb-bez-zaliczki 301
 /asortyment/ /asortyment 301

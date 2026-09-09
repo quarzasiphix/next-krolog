@@ -116,7 +116,8 @@ const FeatureItem = ({
   );
 };
 
-const Services = () => {
+const Services = ({ headingAs = 'h2' }: { headingAs?: 'h1' | 'h2' }) => {
+  const Heading = headingAs
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -156,7 +157,7 @@ const Services = () => {
           ref={sectionRef}
           className="opacity-100 translate-y-0 transition-all duration-200 text-center mb-16"
         >
-          <h1 className="section-title">Zakład Pogrzebowy Łódź - Kompleksowe Usługi</h1>
+          <Heading className="section-title">Zakład Pogrzebowy Łódź – Kompleksowe Usługi</Heading>
           <p className="section-subtitle">
             Jako profesjonalny zakład pogrzebowy w Łodzi, prowadzimy rodziny przez każdy etap organizacji ceremonii z troską i doświadczeniem
           </p>

@@ -98,6 +98,8 @@ export const SLUGS = {
     'organizacja-pogrzebow-lodz',
     'oprawa-muzyczna-lodz',
     'transport-zmarlych-lodz',
+    'calodobowy-przewoz-zwlok-lodz',
+    'ceremonie-pogrzebowe-lodz',
     'krematorium-lodz',
     'ekshumacja-lodz',
   ],
@@ -180,12 +182,6 @@ export function generateSitemapEntries(baseUrl: string): SitemapEntry[] {
       lastModified: CONTENT_LAST_MODIFIED.about,
       changeFrequency: 'monthly',
       priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/tovernet`,
-      lastModified: '2026-08-18T12:00:00Z',
-      changeFrequency: 'monthly',
-      priority: 0.4,
     },
     {
       url: `${baseUrl}/kontakt`,
@@ -397,6 +393,12 @@ export function generateSitemapEntries(baseUrl: string): SitemapEntry[] {
       lastModified: '2026-05-19T12:00:00Z',
       changeFrequency: 'monthly',
       priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/nekrologi-lodz`,
+      lastModified: '2026-09-09T12:00:00Z',
+      changeFrequency: 'monthly',
+      priority: 0.86,
     },
   )
 

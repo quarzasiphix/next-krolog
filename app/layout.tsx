@@ -1,6 +1,21 @@
 import type { Metadata } from 'next'
+import { Playfair_Display, Inter } from 'next/font/google'
 import './globals.css'
 import { Providers } from './providers'
+
+const playfair = Playfair_Display({
+  subsets: ['latin', 'latin-ext'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-playfair',
+  display: 'swap',
+})
+
+const inter = Inter({
+  subsets: ['latin', 'latin-ext'],
+  weight: ['400', '500', '600'],
+  variable: '--font-inter',
+  display: 'swap',
+})
 import ClientShell from '@/components/ClientShell'
 import OrganizationSchema from '@/components/structured-data/OrganizationSchema'
 import FuneralHomeSchema from '@/components/structured-data/FuneralHomeSchema'
@@ -74,10 +89,12 @@ export default async function RootLayout({
     })();
   `
   return (
-    <html lang={resolvedParams?.locale || 'pl'} suppressHydrationWarning>
+    <html
+      lang={resolvedParams?.locale || 'pl'}
+      className={`${playfair.variable} ${inter.variable}`}
+      suppressHydrationWarning
+    >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://maps.googleapis.com" />
         <link rel="dns-prefetch" href="https://maps.app.goo.gl" />
         <script dangerouslySetInnerHTML={{ __html: localeLangScript }} />

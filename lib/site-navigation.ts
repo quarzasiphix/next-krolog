@@ -355,6 +355,62 @@ const routeEntries: RouteEntry[] = [
       },
     ],
   },
+  {
+    href: '/uslugi/calodobowy-przewoz-zwlok-lodz',
+    label: 'Całodobowy przewóz zwłok',
+    description: 'Całodobowy przewóz zwłok w Łodzi – transport zmarłych 24h z domu, szpitala i z innego miasta.',
+    section: 'service',
+    relatedGroups: [
+      {
+        title: 'Usługi powiązane',
+        hrefs: [
+          '/uslugi/transport-zmarlych-lodz',
+          '/uslugi/organizacja-pogrzebow-lodz',
+          '/uslugi/sprowadzenie-zwlok-z-zagranicy',
+        ],
+      },
+      {
+        title: 'Pierwsze kroki',
+        hrefs: ['/poradnik/co-zrobic-po-smierci', '/kontakt', '/pogrzeb-bez-zaliczki'],
+      },
+    ],
+  },
+  {
+    href: '/uslugi/ceremonie-pogrzebowe-lodz',
+    label: 'Ceremonie pogrzebowe',
+    description: 'Ceremonie pogrzebowe w Łodzi – religijne i świeckie, z pełną oprawą florystyczną i muzyczną.',
+    section: 'service',
+    relatedGroups: [
+      {
+        title: 'Usługi powiązane',
+        hrefs: [
+          '/uslugi/organizacja-pogrzebow-lodz',
+          '/uslugi/oprawa-muzyczna-lodz',
+          '/asortyment/wience-lodz',
+        ],
+      },
+      {
+        title: 'Pomoc dla rodziny',
+        hrefs: ['/cmentarze-lodz', '/kontakt', '/pogrzeb-bez-zaliczki'],
+      },
+    ],
+  },
+  {
+    href: '/nekrologi-lodz',
+    label: 'Nekrologi Łódź',
+    description: 'Nekrologi i ogłoszenia pogrzebowe w Łodzi – jak je znaleźć i jak zamieścić, klepsydry według cmentarza.',
+    section: 'guide',
+    relatedGroups: [
+      {
+        title: 'Powiązane strony',
+        hrefs: ['/klepsydra-lodz', '/klepsydra', '/cmentarze-lodz'],
+      },
+      {
+        title: 'Pomoc dla rodziny',
+        hrefs: ['/poradnik/jak-poinformowac-inne-osoby-o-uroczystosci-pogrzebowej', '/kontakt', '/pogrzeb-bez-zaliczki'],
+      },
+    ],
+  },
 ]
 
 const routeMap = new Map(routeEntries.map((entry) => [entry.href, entry]))

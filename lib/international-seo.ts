@@ -1,6 +1,7 @@
 import type { Metadata, MetadataRoute } from 'next'
 import type { FAQItem } from '@/components/structured-data/FAQSchema'
 import { BUSINESS_INFO, SITE_URL } from '@/lib/constants'
+import { RATING } from '@/lib/reputation'
 
 export const INTERNATIONAL_LOCALES = ['pl', 'en', 'de', 'fr', 'nl', 'it'] as const
 export type InternationalLocale = (typeof INTERNATIONAL_LOCALES)[number]
@@ -892,7 +893,7 @@ export function buildInternationalOrganizationSchema(locale: InternationalLocale
     geo: { '@type': 'GeoCoordinates', latitude: BUSINESS_INFO.geo.latitude, longitude: BUSINESS_INFO.geo.longitude },
     areaServed: ['Poland', 'Germany', 'France', 'Netherlands', 'Belgium', 'Austria', 'Italy', 'United Kingdom', 'Ireland', 'Norway', 'Sweden'],
     availableLanguage: INTERNATIONAL_LOCALES,
-    aggregateRating: { '@type': 'AggregateRating', ratingValue: BUSINESS_INFO.ratingValue, reviewCount: BUSINESS_INFO.reviewCount, bestRating: 5, worstRating: 1 },
+    aggregateRating: { '@type': 'AggregateRating', ratingValue: RATING.ratingValue, reviewCount: RATING.reviewCount, bestRating: 5, worstRating: 1 },
   }
 }
 

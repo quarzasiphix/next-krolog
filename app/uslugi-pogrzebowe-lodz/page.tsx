@@ -55,7 +55,7 @@ export default function UslugiPogrzebowePage() {
           { segment: 'uslugi-pogrzebowe-lodz', label: 'Usługi Pogrzebowe' },
         ]}
       />
-      <Services />
+      <Services headingAs="h1" />
     </>
   )
 }

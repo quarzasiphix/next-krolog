@@ -8,6 +8,7 @@ import { POLAND_LABELS, buildLocalizedPath, buildRouteSlug, getAllIntlParams, ge
 import { copyPack } from '@/lib/international/localization-copy'
 import { buildIntlMetadata } from '@/lib/international/seo'
 import { BUSINESS_INFO, SITE_URL } from '@/lib/constants'
+import { RATING } from '@/lib/reputation'
 
 function text(locale: Locale, values: Record<Locale, string>) {
   return values[locale]
@@ -645,12 +646,12 @@ export default async function InternationalDynamicPage({ params }: { params: Pro
         secondaryCta={{ href: whatsapp.href, label: localeInfo[locale].cta.whatsapp, eventName: 'intl_whatsapp_click' }}
         badges={[
           text(locale, {
-            pl: `${BUSINESS_INFO.ratingValue}/5 na podstawie ${BUSINESS_INFO.reviewCount}+ opinii`,
-            en: `${BUSINESS_INFO.ratingValue}/5 based on ${BUSINESS_INFO.reviewCount}+ reviews`,
-            de: `${BUSINESS_INFO.ratingValue}/5 aus ${BUSINESS_INFO.reviewCount}+ Bewertungen`,
-            fr: `${BUSINESS_INFO.ratingValue}/5 sur la base de ${BUSINESS_INFO.reviewCount}+ avis`,
-            nl: `${BUSINESS_INFO.ratingValue}/5 op basis van ${BUSINESS_INFO.reviewCount}+ beoordelingen`,
-            it: `${BUSINESS_INFO.ratingValue}/5 sulla base di ${BUSINESS_INFO.reviewCount}+ recensioni`,
+            pl: `${RATING.ratingValue}/5 na podstawie ${RATING.reviewCount} opinii Google`,
+            en: `${RATING.ratingValue}/5 based on ${RATING.reviewCount} Google reviews`,
+            de: `${RATING.ratingValue}/5 aus ${RATING.reviewCount} Google-Bewertungen`,
+            fr: `${RATING.ratingValue}/5 sur ${RATING.reviewCount} avis Google`,
+            nl: `${RATING.ratingValue}/5 op basis van ${RATING.reviewCount} Google-beoordelingen`,
+            it: `${RATING.ratingValue}/5 su ${RATING.reviewCount} recensioni Google`,
           }),
           text(locale, {
             pl: 'Bez zaliczki i bez kosztow z gory dla rodziny',

@@ -2,6 +2,8 @@ import React from 'react';
 import { Star, Quote } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { RATING } from '@/lib/reputation';
+import { BUSINESS_INFO } from '@/lib/constants';
 
 interface Review {
   author_name: string;
@@ -111,22 +113,31 @@ const Reviews = () => {
         <div className="flex flex-col md:flex-row items-center justify-between mb-8">
           <div className="flex items-center mb-4 md:mb-0">
             <div className="flex items-center">
-              {renderStars(5)}
-              <span className="ml-2 text-white font-bold">5.0/5</span>
+              {renderStars(Math.round(RATING.ratingValue))}
+              <span className="ml-2 text-white font-bold">
+                {RATING.ratingValue.toFixed(1).replace('.', ',')}/5
+              </span>
             </div>
             <span className="mx-3 text-gray-400">|</span>
             <div className="flex items-center">
-              <span className="text-gray-300">94 opinii w Google</span>
+              <a
+                href={BUSINESS_INFO.googleBusinessUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-white underline underline-offset-2"
+              >
+                {RATING.reviewCount} opinii w Google
+              </a>
             </div>
           </div>
-          
-          <a 
-            href="https://g.co/kgs/MhdWuLg" 
-            target="_blank" 
+
+          <a
+            href={BUSINESS_INFO.googleBusinessUrl}
+            target="_blank"
             rel="noopener noreferrer"
             className="px-4 py-2 bg-white/10 text-white rounded-md hover:bg-white/20 transition-all duration-300 border border-white/20 text-sm"
           >
-            Dodaj opinię
+            Zobacz wszystkie opinie
           </a>
         </div>
 

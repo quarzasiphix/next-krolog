@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tovernet`,
     type: 'website',
   },
-  robots: { index: true, follow: true },
+  robots: { index: false, follow: true },
 }
 
 const breadcrumbs = [

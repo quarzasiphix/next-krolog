@@ -130,8 +130,8 @@ export default {
 				'slide-in': 'slide-in 0.5s ease-out'
 			},
 			fontFamily: {
-				'playfair': ['Playfair Display', 'serif'],
-				'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif']
+				'playfair': ['var(--font-playfair)', 'Playfair Display', 'Georgia', 'serif'],
+				'sans': ['var(--font-inter)', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif']
 			}
 		}
 	},

@@ -30,7 +30,7 @@ export default function KontaktPage() {
           { segment: 'kontakt', label: 'Kontakt' },
         ]}
       />
-      <Contact />
+      <Contact headingAs="h1" />
     </>
   )
 }

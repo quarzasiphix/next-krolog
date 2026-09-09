@@ -139,9 +139,9 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-4 md:py-3 flex items-center justify-between gap-4">
         <Link href="/" className="flex items-center space-x-2">
           <div className="flex items-center">
-            <h1 className="text-xl md:text-2xl font-playfair font-bold text-white">
-              <span className="text-primary">Nekrolog</span> Lodz
-            </h1>
+            <span className="block text-xl md:text-2xl font-playfair font-bold text-white">
+              <span className="text-primary">Nekrolog</span> Łódź
+            </span>
           </div>
         </Link>
 

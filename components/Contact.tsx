@@ -56,7 +56,8 @@ const ContactCard = ({
   )
 }
 
-const Contact = () => {
+const Contact = ({ headingAs = 'h2' }: { headingAs?: 'h1' | 'h2' }) => {
+  const Heading = headingAs
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
@@ -119,8 +120,8 @@ const Contact = () => {
     <section id="contact" className="py-12 bg-gradient-to-b from-black/90 to-black/80">
       <div className="section-container">
         <div ref={sectionRef} className="opacity-100 translate-y-0 transition-all duration-300 text-center mb-16">
-          <h1 className="section-title">Kontakt</h1>
-          <p className="section-subtitle">Jestesmy dostepni calodobowo</p>
+          <Heading className="section-title">Kontakt</Heading>
+          <p className="section-subtitle">Jesteśmy dostępni całodobowo</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
