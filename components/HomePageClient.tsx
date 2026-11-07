@@ -12,20 +12,20 @@ import RelatedLinks from '@/components/RelatedLinks'
 
 const internationalHighlights = [
   {
-    title: 'Miedzynarodowy transport zwlok',
-    description: 'Organizujemy odbior z placowki, formalnosci, przewoz i przekazanie w Polsce jako dodatkowa usluge dla rodzin potrzebujacych sprawnej pomocy.',
+    title: 'Międzynarodowy transport zwłok',
+    description: 'Organizujemy odbiór z placówki, formalności, przewóz i przekazanie w Polsce jako dodatkową usługę dla rodzin potrzebujących sprawnej pomocy.',
     href: '/pl/uslugi/miedzynarodowy-transport-zwlok',
-    cta: 'Przejdz do uslugi',
+    cta: 'Przejdź do usługi',
   },
   {
-    title: 'Sprowadzanie zmarlych do Polski',
-    description: 'Pomagamy rodzinom w Europie i poza nia, gdy trzeba szybko i spokojnie sprowadzic cialo do Polski.',
+    title: 'Sprowadzanie zmarłych do Polski',
+    description: 'Pomagamy rodzinom w Europie i poza nia, gdy trzeba szybko i spokojnie sprowadzić cialo do Polski.',
     href: '/pl/uslugi/sprowadzenie-zmarlego-do-polski',
     cta: 'Zobacz trasy i kraje',
   },
   {
-    title: 'Kontakt miedzynarodowy 24/7',
-    description: 'Jesli sprawa jest pilna, rodzina nie musi szukac tej uslugi. Numer i szybki kontakt sa widoczne od razu.',
+    title: 'Kontakt międzynarodowy 24/7',
+    description: 'Jeśli sprawa jest pilna, rodzina nie musi szukać tej usługi. Numer i szybki kontakt są widoczne od razu.',
     href: 'tel:+48602270050',
     cta: '+48 602 270 050',
   },
@@ -53,10 +53,10 @@ const HomePageClient = () => {
                 Dodatkowa specjalizacja
               </div>
               <h2 className="text-3xl md:text-4xl font-playfair text-white">
-                Pomagamy takze w transporcie zmarlych i sprowadzeniu zwlok do Polski
+                Pomagamy także w transporcie zmarłych i sprowadzeniu zwłok do Polski
               </h2>
               <p className="mx-auto mt-4 max-w-4xl text-base leading-8 text-gray-300">
-                Oprocz kompleksowej organizacji pogrzebow prowadzimy rowniez sprawy transportowe. Jesli zgon nastapil poza miejscem planowanego pochowku, pomagamy w formalnosciach, odbiorze i bezpiecznym przewozie do Polski lub na terenie kraju.
+                Oprócz kompleksowej organizacji pogrzebów prowadzimy również sprawy transportowe. Jeśli zgon nastąpił poza miejscem planowanego pochówku, pomagamy w formalnościach, odbiorze i bezpiecznym przewozie do Polski lub na terenie kraju.
               </p>
             </div>
 
@@ -80,9 +80,9 @@ const HomePageClient = () => {
               <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
                 <div>
                   <p className="text-xs uppercase tracking-[0.22em] text-primary/80 mb-3">Europa i zagranica</p>
-                  <h3 className="text-3xl font-playfair text-white">Pomagamy w transporcie zmarlych do Polski z Europy i z zagranicy</h3>
+                  <h3 className="text-3xl font-playfair text-white">Pomagamy w transporcie zmarłych do Polski z Europy i z zagranicy</h3>
                   <p className="mt-4 text-base leading-8 text-gray-300">
-                    Organizujemy odbior z placowki, wspieramy w formalnosciach i koordynujemy bezpieczny przewoz do Polski. Jesli sprawa jest pilna, rodzina moze zadzwonic od razu i od pierwszej rozmowy otrzyma konkretne wsparcie.
+                    Organizujemy odbiór z placówki, wspieramy w formalnościach i koordynujemy bezpieczny przewóz do Polski. Jeśli sprawa jest pilna, rodzina może zadzwonić od razu i od pierwszej rozmowy otrzyma konkretne wsparcie.
                   </p>
                 </div>
                 <div className="grid gap-3 sm:grid-cols-2">
@@ -120,28 +120,34 @@ const HomePageClient = () => {
       <section className="py-10 bg-black/95">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-playfair text-white text-center mb-8">Najwazniejsze strony</h2>
+            <h2 className="text-3xl font-playfair text-white text-center mb-8">Najważniejsze strony</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <Link href="/zaklad-pogrzebowy-lodz" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">
                 Zakład Pogrzebowy Łódź – całodobowy
               </Link>
+              <Link href="/pogrzeb-lodz" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">
+                Pogrzeby Łódź – organizacja i koszty
+              </Link>
+              <Link href="/nekrologi-lodz" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">
+                Nekrologi Łódź
+              </Link>
               <Link href="/nekrolog-lodz" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">
-                Nekrolog Lodz
+                Nekrolog Łódź
               </Link>
               <Link href="/uslugi-pogrzebowe-lodz" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">
-                Uslugi Pogrzebowe Lodz
+                Usługi Pogrzebowe Łódź
               </Link>
               <Link href="/uslugi/sprowadzenie-zwlok-z-zagranicy" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">
-                Sprowadzenie zwlok z zagranicy
+                Sprowadzenie zwłok z zagranicy
               </Link>
               <Link href="/pl/uslugi/sprowadzenie-zmarlego-do-polski" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">
-                Sprowadzenie zmarlego do Polski
+                Sprowadzenie zmarłego do Polski
               </Link>
               <Link href="/pl/uslugi/miedzynarodowy-transport-zwlok" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">
-                Miedzynarodowy transport zwlok do Polski
+                Międzynarodowy transport zwłok do Polski
               </Link>
               <Link href="/cmentarze-lodz" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">
-                Cmentarze w Lodzi
+                Cmentarze w Łodzi
               </Link>
               <Link href="/poradnik" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">
                 Poradnik Pogrzebowy
@@ -157,16 +163,16 @@ const HomePageClient = () => {
       <div className="bg-black py-12">
         <div className="container mx-auto text-center px-4">
           <h2 className="text-3xl font-semibold mb-4 text-white">Potrzebujesz pomocy od razu?</h2>
-          <p className="text-lg mb-3 text-gray-300">Jestesmy dostepni 24/7, aby pomoc przy organizacji pogrzebu lub transporcie do Polski.</p>
+          <p className="text-lg mb-3 text-gray-300">Jesteśmy dostępni 24/7, aby pomóc przy organizacji pogrzebu lub transporcie do Polski.</p>
           <p className="mx-auto mb-6 max-w-3xl text-sm text-gray-400">
-            Rodzinna firma z ponad 30-letnim doswiadczeniem, uczciwym podejsciem do wyceny i realnym wsparciem dla rodzin, takze wtedy, gdy trzeba szybko zorganizowac krajowy albo miedzynarodowy transport zmarlych bez zaliczki.
+            Rodzinna firma z ponad 30-letnim doświadczeniem, uczciwym podejściem do wyceny i realnym wsparciem dla rodzin, także wtedy, gdy trzeba szybko zorganizować krajowy albo międzynarodowy transport zmarłych bez zaliczki.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
             <a href="tel:+48602274661" className="text-2xl font-bold text-primary hover:underline">
               +48 602 274 661
             </a>
             <a href="tel:+48602270050" className="text-lg font-semibold text-gray-200 hover:text-primary transition-colors">
-              Kontakt miedzynarodowy: +48 602 270 050
+              Kontakt międzynarodowy: +48 602 270 050
             </a>
           </div>
         </div>

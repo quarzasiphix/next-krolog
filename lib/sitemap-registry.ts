@@ -98,7 +98,6 @@ export const SLUGS = {
     'organizacja-pogrzebow-lodz',
     'oprawa-muzyczna-lodz',
     'transport-zmarlych-lodz',
-    'calodobowy-przewoz-zwlok-lodz',
     'ceremonie-pogrzebowe-lodz',
     'krematorium-lodz',
     'ekshumacja-lodz',
@@ -124,14 +123,9 @@ export const SLUGS = {
     'kurczaki',
   ],
 
+  // Town doorway pages were merged into /obszar-dzialania (2026-11-07).
   locations: [
-    'zaklad-pogrzebowy-pabianice',
-    'zaklad-pogrzebowy-zgierz',
-    'zaklad-pogrzebowy-aleksandrow-lodzki',
-    'zaklad-pogrzebowy-konstantynow-lodzki',
-    'zaklad-pogrzebowy-lowicz',
-    'zaklad-pogrzebowy-sieradz',
-    'zaklad-pogrzebowy-zdunska-wola',
+    'obszar-dzialania',
   ]
 }
 
@@ -364,35 +358,19 @@ export function generateSitemapEntries(baseUrl: string): SitemapEntry[] {
     },
   )
 
-  // Synonym landing pages
-  entries.push(
-    {
-      url: `${baseUrl}/dom-pogrzebowy-lodz`,
-      lastModified: '2026-06-04T12:00:00Z',
-      changeFrequency: 'monthly',
-      priority: 0.88,
-    },
-    {
-      url: `${baseUrl}/firma-pogrzebowa-lodz`,
-      lastModified: '2026-06-04T12:00:00Z',
-      changeFrequency: 'monthly',
-      priority: 0.88,
-    },
-  )
-
   // Directory pages
   entries.push(
-    {
-      url: `${baseUrl}/zaklady-pogrzebowe-lodz`,
-      lastModified: '2026-05-19T12:00:00Z',
-      changeFrequency: 'monthly',
-      priority: 0.85,
-    },
     {
       url: `${baseUrl}/klepsydra-lodz`,
       lastModified: '2026-05-19T12:00:00Z',
       changeFrequency: 'monthly',
       priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/pogrzeb-lodz`,
+      lastModified: '2026-11-07T12:00:00Z',
+      changeFrequency: 'monthly',
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/nekrologi-lodz`,

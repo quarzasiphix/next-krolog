@@ -16,15 +16,15 @@ import { useIsMobile } from '@/hooks/use-mobile'
 import Link from 'next/link'
 
 const servicesItems = [
-  { name: 'Uslugi Pogrzebowe Lodz', path: '/uslugi-pogrzebowe-lodz' },
+  { name: 'Usługi Pogrzebowe Łódź', path: '/uslugi-pogrzebowe-lodz' },
   { name: 'Klepsydra online', path: '/klepsydra' },
-  { name: 'Organizacja pogrzebow Lodz', path: '/uslugi/organizacja-pogrzebow-lodz' },
-  { name: 'Transport zmarlych Lodz', path: '/uslugi/transport-zmarlych-lodz' },
-  { name: 'Krematorium Lodz', path: '/uslugi/krematorium-lodz' },
-  { name: 'Ekshumacja zwlok Lodz', path: '/uslugi/ekshumacja-lodz' },
-  { name: 'Oprawa muzyczna pogrzebu Lodz', path: '/uslugi/oprawa-muzyczna-lodz' },
-  { name: 'Miedzynarodowy transport zwlok', path: '/pl/uslugi/miedzynarodowy-transport-zwlok' },
-  { name: 'Sprowadzenie zmarlego do Polski', path: '/pl/uslugi/sprowadzenie-zmarlego-do-polski' },
+  { name: 'Organizacja pogrzebów Łódź', path: '/uslugi/organizacja-pogrzebow-lodz' },
+  { name: 'Transport zmarłych Łódź', path: '/uslugi/transport-zmarlych-lodz' },
+  { name: 'Krematorium Łódź', path: '/uslugi/krematorium-lodz' },
+  { name: 'Ekshumacja zwłok Łódź', path: '/uslugi/ekshumacja-lodz' },
+  { name: 'Oprawa muzyczna pogrzebu Łódź', path: '/uslugi/oprawa-muzyczna-lodz' },
+  { name: 'Międzynarodowy transport zwłok', path: '/pl/uslugi/miedzynarodowy-transport-zwlok' },
+  { name: 'Sprowadzenie zmarłego do Polski', path: '/pl/uslugi/sprowadzenie-zmarlego-do-polski' },
   { name: 'Niemcy -> Polska', path: '/pl/kraje/niemcy' },
   { name: 'UK -> Polska', path: '/pl/kraje/wielka-brytania' },
   { name: 'Holandia -> Polska', path: '/pl/kraje/holandia' },
@@ -33,28 +33,31 @@ const servicesItems = [
 
 const productsItems = [
   { name: 'Asortyment', path: '/asortyment' },
-  { name: 'Trumny Lodz', path: '/asortyment/trumny-lodz' },
-  { name: 'Urny Lodz', path: '/asortyment/urny-lodz' },
-  { name: 'Wiazanki pogrzebowe Lodz', path: '/asortyment/wiazanki-lodz' },
-  { name: 'Wience pogrzebowe Lodz', path: '/asortyment/wience-lodz' },
-  { name: 'Odziez pogrzebowa Lodz', path: '/asortyment/odziez-lodz' },
+  { name: 'Trumny Łódź', path: '/asortyment/trumny-lodz' },
+  { name: 'Urny Łódź', path: '/asortyment/urny-lodz' },
+  { name: 'Wiązanki pogrzebowe Łódź', path: '/asortyment/wiazanki-lodz' },
+  { name: 'Wieńce pogrzebowe Łódź', path: '/asortyment/wience-lodz' },
+  { name: 'Odzież pogrzebowa Łódź', path: '/asortyment/odziez-lodz' },
 ]
 
 const poradnikItems = [
   { name: 'Poradnik', path: '/poradnik' },
+  { name: 'Pogrzeb Łódź – koszty i organizacja', path: '/pogrzeb-lodz' },
+  { name: 'Nekrologi Łódź', path: '/nekrologi-lodz' },
   { name: 'Klepsydra online', path: '/klepsydra' },
   { name: 'Pogrzeb bez zaliczki', path: '/pogrzeb-bez-zaliczki' },
-  { name: 'USC Lodz i akt zgonu', path: '/urzad-stanu-cywilnego-lodz' },
-  { name: 'ZUS i zasilek pogrzebowy', path: '/zus-zasilek-pogrzebowy-lodz' },
-  { name: 'Przewoz zwlok', path: '/poradnik/przewoz-zwlok' },
+  { name: 'USC Łódź i akt zgonu', path: '/urzad-stanu-cywilnego-lodz' },
+  { name: 'ZUS i zasiłek pogrzebowy', path: '/zus-zasilek-pogrzebowy-lodz' },
+  { name: 'Przewóz zwłok', path: '/poradnik/przewoz-zwlok' },
   { name: 'Transport z zagranicy', path: '/poradnik/jak-przetransportowac-cialo-zmarlego-z-zagranicy' },
-  { name: 'Cmentarze w Lodzi', path: '/cmentarze-lodz' },
+  { name: 'Cmentarze w Łodzi', path: '/cmentarze-lodz' },
 ]
 
 const aboutItems = [
-  { name: 'Nekrolog Lodz', path: '/nekrolog-lodz' },
+  { name: 'Nekrolog Łódź', path: '/nekrolog-lodz' },
   { name: 'Klepsydra online', path: '/klepsydra' },
   { name: 'O nas', path: '/o-nas' },
+  { name: 'Obszar działania', path: '/obszar-dzialania' },
   { name: 'Kontakt', path: '/kontakt' },
 ]
 
@@ -147,7 +150,7 @@ const Navbar = () => {
 
         <nav className="hidden md:flex items-center space-x-4 lg:space-x-6">
           <button onClick={() => scrollToSection('home')} className="text-white hover:text-primary transition-colors py-2">
-            Strona glowna
+            Strona główna
           </button>
 
           <Link href="/pl/uslugi/miedzynarodowy-transport-zwlok" className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary transition hover:border-primary hover:bg-primary/15">
@@ -159,7 +162,7 @@ const Navbar = () => {
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-transparent text-white data-[state=open]:text-primary hover:text-primary/90 hover:bg-transparent focus:bg-transparent px-3 py-2">
-                  Uslugi pogrzebowe
+                  Usługi pogrzebowe
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="bg-black border border-primary/20">
                   <ul className="grid w-[360px] gap-1 p-2">
@@ -259,13 +262,23 @@ const Navbar = () => {
           </a>
           <div className="flex items-center text-gray-400 text-xs mt-1">
             <Clock className="w-3 h-3 mr-1" />
-            <span>Dostepni 24/7</span>
+            <span>Dostępni 24/7</span>
           </div>
         </div>
 
+        <a
+          href="tel:+48602274661"
+          data-phone-location="navbar_mobile_header"
+          aria-label="Zadzwoń 24/7: +48 602 274 661"
+          className="ml-auto mr-1 inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-2 text-sm font-semibold text-black md:hidden"
+        >
+          <Phone className="h-4 w-4" aria-hidden />
+          <span>Zadzwoń</span>
+        </a>
+
         <Sheet open={isMenuOpen} onOpenChange={handleMenuOpenChange}>
           <SheetTrigger asChild>
-            <button type="button" aria-label={isMenuOpen ? 'Zamknij menu' : 'Otworz menu'} className="md:hidden p-2 text-white">
+            <button type="button" aria-label={isMenuOpen ? 'Zamknij menu' : 'Otwórz menu'} className="md:hidden p-2 text-white">
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </SheetTrigger>
@@ -279,8 +292,8 @@ const Navbar = () => {
             <div className="flex h-full flex-col overflow-hidden pt-16">
               <div className="h-full overflow-y-auto overscroll-contain px-6 pb-10 pt-6">
                 <div className="border-b border-primary/30 pb-4 text-center">
-                  <h2 className="mb-1 text-xl font-playfair text-white">Nekrolog Lodz</h2>
-                  <p className="text-sm text-gray-300">Pogrzeby, krajowy i miedzynarodowy transport zwlok</p>
+                  <h2 className="mb-1 text-xl font-playfair text-white">Nekrolog Łódź</h2>
+                  <p className="text-sm text-gray-300">Pogrzeby, krajowy i międzynarodowy transport zwłok</p>
                   <p className="mt-1 text-xs text-gray-400">dostepne 24 godziny na dobe</p>
                 </div>
 
@@ -290,7 +303,7 @@ const Navbar = () => {
                     onClick={() => scrollToSection('home')}
                     className="rounded-lg border border-white/10 bg-black px-4 py-4 text-left text-xl text-white transition-colors hover:text-primary"
                   >
-                    Strona glowna
+                    Strona główna
                   </button>
 
                   <Link
@@ -299,10 +312,10 @@ const Navbar = () => {
                     className="flex items-center justify-center gap-2 rounded-md border border-primary/40 bg-primary/10 px-4 py-4 text-center text-primary"
                   >
                     <Globe2 className="h-5 w-5" />
-                    <span className="font-semibold">Transport miedzynarodowy 24/7</span>
+                    <span className="font-semibold">Transport międzynarodowy 24/7</span>
                   </Link>
 
-                  {renderMenuBlock('Uslugi pogrzebowe', 'services', servicesItems)}
+                  {renderMenuBlock('Usługi pogrzebowe', 'services', servicesItems)}
                   {renderMenuBlock('Asortyment', 'products', productsItems)}
                   {renderMenuBlock('Poradnik', 'poradnik', poradnikItems)}
                   {renderMenuBlock('O nas', 'about', aboutItems)}
@@ -317,8 +330,8 @@ const Navbar = () => {
                   </a>
 
                   <div className="mt-5 rounded-lg border border-white/10 bg-black p-4 text-center">
-                    <h3 className="mb-1 font-medium text-primary">Zaklad pogrzebowy i transport w centrum Lodzi</h3>
-                    <address className="not-italic text-sm text-gray-300">Legionow 48, 90-702 Lodz, Polska</address>
+                    <h3 className="mb-1 font-medium text-primary">Zakład pogrzebowy i transport w centrum Łodzi</h3>
+                    <address className="not-italic text-sm text-gray-300">Legionów 48, 90-702 Łódź, Polska</address>
                   </div>
                 </div>
               </div>

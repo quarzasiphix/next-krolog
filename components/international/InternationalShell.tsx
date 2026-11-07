@@ -23,7 +23,7 @@ const shellCopy: Record<
   pl: {
     summary: 'Spokojne i pilne wsparcie dla rodzin organizujacych transport z zagranicy do Polski.',
     address: 'Adres',
-    mainLine: 'Glowna linia: +48 602 274 661',
+    mainLine: 'Główna linia: +48 602 274 661',
     call: 'Zadzwon',
     form: 'Formularz',
     backToHome: 'Powrot do strony glownej',
@@ -95,7 +95,7 @@ export default function InternationalShell({ locale, children }: { locale: Local
               <Globe2 className="h-5 w-5 text-amber-300" />
             </div>
             <div>
-              <p className="text-xs uppercase tracking-[0.22em] text-stone-400">Nekrolog Lodz</p>
+              <p className="text-xs uppercase tracking-[0.22em] text-stone-400">Nekrolog Łódź</p>
               <p className="text-base font-semibold text-white">{copy.homeTitle}</p>
             </div>
           </Link>
@@ -152,12 +152,12 @@ export default function InternationalShell({ locale, children }: { locale: Local
       <footer className="border-t border-white/10 bg-black/30">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 text-sm text-stone-300 md:grid-cols-3 md:px-6">
           <div>
-            <p className="text-xs uppercase tracking-[0.24em] text-stone-500">Nekrolog Lodz</p>
+            <p className="text-xs uppercase tracking-[0.24em] text-stone-500">Nekrolog Łódź</p>
             <p className="mt-3 max-w-sm leading-7">{ui.summary}</p>
           </div>
           <div>
             <p className="text-xs uppercase tracking-[0.24em] text-stone-500">{ui.address}</p>
-            <p className="mt-3 leading-7">Legionow 48, 90-702 Lodz, Polska</p>
+            <p className="mt-3 leading-7">Legionów 48, 90-702 Łódź, Polska</p>
             <a href="mailto:kontakt@nekrolog-lodz.com" className="leading-7 text-stone-300 hover:text-amber-300 transition-colors">kontakt@nekrolog-lodz.com</a>
           </div>
           <div>

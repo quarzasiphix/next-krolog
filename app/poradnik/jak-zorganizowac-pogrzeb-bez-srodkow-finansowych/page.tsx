@@ -126,11 +126,11 @@ export default function PogrzebBezSrodkowPage() {
                       <ul className="space-y-2">
                         <li className="flex items-start gap-2 text-gray-300">
                           <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                          <span><strong className="text-white">ZUS:</strong> 4000 zł</span>
+                          <span><strong className="text-white">ZUS:</strong> 7000 zł</span>
                         </li>
                         <li className="flex items-start gap-2 text-gray-300">
                           <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                          <span><strong className="text-white">KRUS:</strong> 4000 zł</span>
+                          <span><strong className="text-white">KRUS:</strong> 7000 zł</span>
                         </li>
                       </ul>
                     </div>
@@ -213,7 +213,7 @@ export default function PogrzebBezSrodkowPage() {
                         i oddać je po otrzymaniu zasiłku.
                       </p>
                       <p className="text-sm text-gray-400">
-                        Zasiłek 4000 zł powinien pokryć podstawowy, godny pogrzeb.
+                        Zasiłek 7000 zł powinien pokryć podstawowy, godny pogrzeb.
                       </p>
                     </div>
 
@@ -491,10 +491,10 @@ export default function PogrzebBezSrodkowPage() {
                 <Card className="bg-black/30 border border-white/10">
                   <CardContent className="p-6">
                     <h3 className="text-xl font-medium text-white mb-3">
-                      Czy 4000 zł zasiłku wystarczy na pogrzeb?
+                      Czy 7000 zł zasiłku wystarczy na pogrzeb?
                     </h3>
                     <p className="text-gray-300">
-                      Tak, 4000 zł zasiłku pogrzebowego wystarczy na godny, podstawowy pogrzeb. Obejmuje to: trumnę, 
+                      Tak, 7000 zł zasiłku pogrzebowego wystarczy na godny, podstawowy pogrzeb. Obejmuje to: trumnę, 
                       transport, formalności, usługi zakładu, podstawową oprawę. Zakład Nekrolog Łódź organizuje 
                       pełen pogrzeb w ramach zasiłku.
                     </p>

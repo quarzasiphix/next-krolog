@@ -85,7 +85,44 @@ export const countries: Country[] = [
   { code: 'SE', slugPerLocale: lr('szwecja', 'sweden', 'schweden', 'suede', 'zweden', 'svezia'), namesPerLocale: lr('Szwecja', 'Sweden', 'Schweden', 'Suède', 'Zweden', 'Svezia'), priority: 8, transportModes: ['air', 'road'], legalNotes: { pl: 'Szwecja wymaga spokojnego zaplanowania terminu i kontaktu z lokalnym partnerem oraz urzędami.', en: 'Sweden requires calm planning of timing and coordination with the local partner and authorities.', de: 'In Schweden sind eine ruhige Terminplanung und Abstimmung mit Bestatter und Behörden wichtig.', fr: 'En Suède, il faut bien planifier le calendrier et coordonner avec le partenaire local et les autorités.', nl: 'Zweden vraagt om rustige planning van timing en afstemming met lokale partner en autoriteiten.', it: 'La Svezia richiede una pianificazione attenta dei tempi e il coordinamento con partner locale e autorità.' }, requiredDocuments: ['death-certificate', 'identity', 'authorisation', 'consular'], featuredCities: ['stockholm'] },
 ]
 
-const cityRecord = (code: string, countryCode: string, slugs: Record<Locale, string>, names: Record<Locale, string>, airportNearby: string, faqRefs: string[] = ['time', 'remote']): City => ({ code, countryCode, slugPerLocale: slugs, namesPerLocale: names, airportNearby, introPerLocale: { pl: `${names.pl} to ważny kierunek dla rodzin potrzebujących przewozu do Polski. Pomagamy od pierwszego telefonu po odbiór w Polsce.`, en: `${names.en} is an important origin point for families needing repatriation to Poland. We assist from the first call through to reception in Poland.`, de: `${names.de} ist ein wichtiger Ausgangspunkt für Familien, die eine Überführung nach Polen benötigen. Wir begleiten vom ersten Anruf bis zur Übergabe in Polen.`, fr: `${names.fr} est un point de départ important pour les familles ayant besoin d un rapatriement vers la Pologne. Nous accompagnons dès le premier appel jusqu à l accueil en Pologne.`, nl: `${names.nl} is een belangrijke vertrekplaats voor families die repatriëring naar Polen nodig hebben. Wij begeleiden vanaf het eerste telefoongesprek tot de ontvangst in Polen.`, it: `${names.it} è un punto di partenza importante per le famiglie che hanno bisogno del rimpatrio verso la Polonia. Assistiamo dal primo contatto fino alla presa in carico in Polonia.` }, seoTitleTemplate: { pl: `Transport zwłok z ${names.pl} do Polski`, en: `Repatriation from ${names.en} to Poland`, de: `Überführung von ${names.de} nach Polen`, fr: `Rapatriement de ${names.fr} vers la Pologne`, nl: `Transport van ${names.nl} naar Polen`, it: `Rimpatrio da ${names.it} verso la Polonia` }, seoDescriptionTemplate: { pl: `Całodobowa organizacja transportu zwłok z ${names.pl} do Polski z pomocą przy formalnościach i odbiorze.`, en: `24/7 organisation of funeral repatriation from ${names.en} to Poland with paperwork and reception support.`, de: `24/7 Organisation der Überführung von ${names.de} nach Polen mit Unterstützung bei Dokumenten und Übernahme.`, fr: `Organisation 24/7 du rapatriement de ${names.fr} vers la Pologne avec aide administrative et prise en charge.`, nl: `24/7 organisatie van repatriëring van ${names.nl} naar Polen met hulp bij documenten en ontvangst.`, it: `Organizzazione 24/7 del rimpatrio da ${names.it} verso la Polonia con supporto documentale e presa in carico.` }, faqRefs })
+// Polish genitive forms for "z <miasto/kraj>" phrases ("z Berlina", "z Niemiec").
+const PL_GENITIVE: Record<string, string> = {
+  'Monachium': 'Monachium',
+  'Berlin': 'Berlina',
+  'Hamburg': 'Hamburga',
+  'Dortmund': 'Dortmundu',
+  'Kolonia': 'Kolonii',
+  'Paryż': 'Paryża',
+  'Lyon': 'Lyonu',
+  'Lille': 'Lille',
+  'Marsylia': 'Marsylii',
+  'Amsterdam': 'Amsterdamu',
+  'Rotterdam': 'Rotterdamu',
+  'Eindhoven': 'Eindhoven',
+  'Bruksela': 'Brukseli',
+  'Antwerpia': 'Antwerpii',
+  'Wiedeń': 'Wiednia',
+  'Mediolan': 'Mediolanu',
+  'Rzym': 'Rzymu',
+  'Londyn': 'Londynu',
+  'Manchester': 'Manchesteru',
+  'Dublin': 'Dublina',
+  'Oslo': 'Oslo',
+  'Sztokholm': 'Sztokholmu',
+  'Niemcy': 'Niemiec',
+  'Francja': 'Francji',
+  'Holandia': 'Holandii',
+  'Belgia': 'Belgii',
+  'Austria': 'Austrii',
+  'Włochy': 'Włoch',
+  'Wielka Brytania': 'Wielkiej Brytanii',
+  'Irlandia': 'Irlandii',
+  'Norwegia': 'Norwegii',
+  'Szwecja': 'Szwecji',
+}
+export const plGenitive = (name: string) => PL_GENITIVE[name] ?? name
+
+const cityRecord = (code: string, countryCode: string, slugs: Record<Locale, string>, names: Record<Locale, string>, airportNearby: string, faqRefs: string[] = ['time', 'remote']): City => ({ code, countryCode, slugPerLocale: slugs, namesPerLocale: names, airportNearby, introPerLocale: { pl: `${names.pl} to ważny kierunek dla rodzin potrzebujących przewozu do Polski. Pomagamy od pierwszego telefonu po odbiór w Polsce.`, en: `${names.en} is an important origin point for families needing repatriation to Poland. We assist from the first call through to reception in Poland.`, de: `${names.de} ist ein wichtiger Ausgangspunkt für Familien, die eine Überführung nach Polen benötigen. Wir begleiten vom ersten Anruf bis zur Übergabe in Polen.`, fr: `${names.fr} est un point de départ important pour les familles ayant besoin d un rapatriement vers la Pologne. Nous accompagnons dès le premier appel jusqu à l accueil en Pologne.`, nl: `${names.nl} is een belangrijke vertrekplaats voor families die repatriëring naar Polen nodig hebben. Wij begeleiden vanaf het eerste telefoongesprek tot de ontvangst in Polen.`, it: `${names.it} è un punto di partenza importante per le famiglie che hanno bisogno del rimpatrio verso la Polonia. Assistiamo dal primo contatto fino alla presa in carico in Polonia.` }, seoTitleTemplate: { pl: `Transport zwłok z ${plGenitive(names.pl)} do Polski`, en: `Repatriation from ${names.en} to Poland`, de: `Überführung von ${names.de} nach Polen`, fr: `Rapatriement de ${names.fr} vers la Pologne`, nl: `Transport van ${names.nl} naar Polen`, it: `Rimpatrio da ${names.it} verso la Polonia` }, seoDescriptionTemplate: { pl: `Całodobowa organizacja transportu zwłok z ${plGenitive(names.pl)} do Polski z pomocą przy formalnościach i odbiorze.`, en: `24/7 organisation of funeral repatriation from ${names.en} to Poland with paperwork and reception support.`, de: `24/7 Organisation der Überführung von ${names.de} nach Polen mit Unterstützung bei Dokumenten und Übernahme.`, fr: `Organisation 24/7 du rapatriement de ${names.fr} vers la Pologne avec aide administrative et prise en charge.`, nl: `24/7 organisatie van repatriëring van ${names.nl} naar Polen met hulp bij documenten en ontvangst.`, it: `Organizzazione 24/7 del rimpatrio da ${names.it} verso la Polonia con supporto documentale e presa in carico.` }, faqRefs })
 
 export const cities: City[] = [
   cityRecord('munich', 'DE', { pl: 'monachium', en: 'munich', de: 'muenchen', fr: 'munich', nl: 'munchen', it: 'monaco-di-baviera' }, { pl: 'Monachium', en: 'Munich', de: 'München', fr: 'Munich', nl: 'München', it: 'Monaco di Baviera' }, 'Munich Airport'),

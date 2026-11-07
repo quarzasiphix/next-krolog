@@ -17,7 +17,7 @@ import {
 } from 'lucide-react'
 
 export const metadata: Metadata = buildLocalMetadata({
-  title: 'Usługi Pogrzebowe Łódź',
+  title: 'Wszystkie usługi – pogrzeb, kremacja, transport, ekshumacja',
   path: '/uslugi',
   description: buildMetaDescription([
     'Kompleksowe usługi pogrzebowe w Łodzi',

@@ -3,7 +3,9 @@
 import { Fragment, ReactNode } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Phone } from 'lucide-react';
+import { RATING } from '@/lib/reputation';
+import { BUSINESS_INFO } from '@/lib/constants';
 import ServiceSchema from '@/components/structured-data/ServiceSchema';
 import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema';
 import FAQSchema, { FAQItem } from '@/components/structured-data/FAQSchema';
@@ -72,6 +74,27 @@ const ServiceLayout = ({ children, title, description, backgroundImage, faqItems
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-playfair font-medium mb-6 text-white">{title}</h1>
             <div className="w-24 h-1 bg-primary mx-auto mb-6" />
             <p className="text-lg md:text-xl text-gray-300 mb-6 leading-relaxed">{description}</p>
+            {/* Primary call action + trust line in the first screen of every service page */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
+              <a
+                href="tel:+48602274661"
+                data-phone-location="service_hero"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-md bg-primary px-7 py-4 text-lg font-semibold text-black hover:bg-primary/90"
+              >
+                <Phone className="h-5 w-5" aria-hidden />
+                <span>Zadzwoń 24/7: 602 274 661</span>
+              </a>
+              <Link
+                href="/pogrzeb-bez-zaliczki"
+                className="inline-flex w-full sm:w-auto items-center justify-center rounded-md border border-primary/30 bg-black/50 px-6 py-4 text-white hover:bg-black/70"
+              >
+                Pogrzeb bez zaliczki – jak to działa
+              </Link>
+            </div>
+            <p className="text-sm text-gray-400">
+              Odbieramy całą dobę · rodzinna firma od {BUSINESS_INFO.foundedYear} r. ·{' '}
+              {RATING.ratingValue.toFixed(1).replace('.', ',')}/5 z {RATING.reviewCount} opinii w Google
+            </p>
           </div>
         </div>
       </section>
@@ -112,6 +135,22 @@ const ServiceLayout = ({ children, title, description, backgroundImage, faqItems
                 </div>
               ))}
             </div>
+          </div>
+
+          <div className="mt-12 rounded-xl border border-primary/30 bg-primary/5 p-6 md:p-8 text-center">
+            <h2 className="text-2xl font-playfair text-white mb-2">Potrzebujesz pomocy teraz?</h2>
+            <p className="text-gray-300 mb-5 max-w-2xl mx-auto">
+              Zadzwoń o każdej porze. Spokojnie powiemy, co zrobić w pierwszej kolejności, i podamy koszt –
+              bez zobowiązań i bez płatności z góry.
+            </p>
+            <a
+              href="tel:+48602274661"
+              data-phone-location="service_bottom"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-8 py-4 text-lg font-semibold text-black hover:bg-primary/90"
+            >
+              <Phone className="h-5 w-5" aria-hidden />
+              <span>+48 602 274 661</span>
+            </a>
           </div>
 
           <RelatedLinks

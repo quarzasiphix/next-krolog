@@ -2,6 +2,7 @@
 
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
+import { usePostHog } from 'posthog-js/react'
 import { MapPin, Phone, Mail, Clock, Send, User } from 'lucide-react'
 import RelatedLinks from '@/components/RelatedLinks'
 
@@ -58,6 +59,7 @@ const ContactCard = ({
 
 const Contact = ({ headingAs = 'h2' }: { headingAs?: 'h1' | 'h2' }) => {
   const Heading = headingAs
+  const posthog = usePostHog()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
@@ -96,11 +98,11 @@ const Contact = ({ headingAs = 'h2' }: { headingAs?: 'h1' | 'h2' }) => {
     const subject = encodeURIComponent(`Kontakt ze strony nekrolog-lodz.com - ${name || 'nowe zgloszenie'}`)
     const body = encodeURIComponent(
       [
-        `Imie i nazwisko: ${name}`,
+        `Imię i nazwisko: ${name}`,
         `Email: ${email}`,
         `Telefon: ${phone}`,
         '',
-        'Wiadomosc:',
+        'Wiadomość:',
         message,
       ].join('\n')
     )
@@ -111,6 +113,12 @@ const Contact = ({ headingAs = 'h2' }: { headingAs?: 'h1' | 'h2' }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    // Opens the visitor's mail app (mailto:) — this records intent, not a delivered message. No PII sent.
+    posthog?.capture(
+      'contact_form_submitted',
+      { method: 'mailto', has_phone: Boolean(phone.trim()), message_length: message.trim().length, page_path: window.location.pathname },
+      { send_instantly: true }
+    )
     window.location.href = emailHref
     setIsSubmitting(false)
     setSubmitSuccess(true)
@@ -126,8 +134,8 @@ const Contact = ({ headingAs = 'h2' }: { headingAs?: 'h1' | 'h2' }) => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <ContactCard icon={<MapPin className="w-6 h-6 text-primary" />} title="Adres" delay={20}>
-            <p className="mb-1">Legionow 48</p>
-            <p className="mb-3">90-702 Lodz</p>
+            <p className="mb-1">Legionów 48</p>
+            <p className="mb-3">90-702 Łódź</p>
             <a href="https://maps.app.goo.gl/96nCspWXwt5VYqkp6" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-400 transition-colors duration-180">
               Zobacz na mapie
             </a>
@@ -145,18 +153,18 @@ const Contact = ({ headingAs = 'h2' }: { headingAs?: 'h1' | 'h2' }) => {
           <ContactCard icon={<Clock className="w-6 h-6 text-primary" />} title="Godziny otwarcia" delay={60}>
             <p className="mb-2">Pon-Pt: 8:00-16:00</p>
             <p className="mb-3">Sobota: 9:00-13:00</p>
-            <p className="text-gray-500">Telefon: calodobowo</p>
+            <p className="text-gray-500">Telefon: całodobowo</p>
           </ContactCard>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="glass-card p-8 rounded-xl">
-            <h3 className="text-2xl font-playfair font-medium mb-6 text-white">Wyslij wiadomosc</h3>
+            <h3 className="text-2xl font-playfair font-medium mb-6 text-white">Wyślij wiadomość</h3>
 
             <div className="mb-6 rounded-lg border border-primary/20 bg-primary/10 p-4 text-left">
-              <p className="text-sm font-medium text-white">Pilny transport lub sprowadzenie zmarlego do Polski</p>
+              <p className="text-sm font-medium text-white">Pilny transport lub sprowadzenie zmarłego do Polski</p>
               <p className="mt-2 text-sm text-gray-300">
-                Jesli sprawa dotyczy pilnego transportu krajowego albo miedzynarodowego, najlepiej od razu zadzwonic lub napisac na WhatsApp. To bedzie szybsze niz sam formularz.
+                Jeśli sprawa dotyczy pilnego transportu krajowego albo międzynarodowego, najlepiej od razu zadzwonić lub napisać na WhatsApp. To będzie szybsze niż sam formularz.
               </p>
               <div className="mt-4 flex flex-col gap-3 sm:flex-row">
                 <a href="tel:+48602270050" data-phone-location="contact_urgent_transport" className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-3 font-medium text-black hover:bg-primary/90 transition-colors">
@@ -172,14 +180,14 @@ const Contact = ({ headingAs = 'h2' }: { headingAs?: 'h1' | 'h2' }) => {
               <div className="bg-green-900/20 border border-green-500/30 p-4 rounded-md text-white">
                 <p className="font-medium">Otworzylismy szkic wiadomosci.</p>
                 <p className="text-gray-300 text-sm mt-1">
-                  Jesli program pocztowy sie nie uruchomil, zadzwon albo napisz na WhatsApp. W pilnych sprawach telefon bedzie najszybszy.
+                  Jeśli program pocztowy się nie uruchomil, zadzwoń albo napisz na WhatsApp. W pilnych sprawach telefon będzie najszybszy.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
                 <div className="space-y-4">
                   <div>
-                    <label htmlFor="name" className="block text-gray-300 mb-1">Imie i nazwisko</label>
+                    <label htmlFor="name" className="block text-gray-300 mb-1">Imię i nazwisko</label>
                     <div className="relative">
                       <span className="absolute left-3 top-3 text-gray-400">
                         <User className="w-5 h-5" />
@@ -220,7 +228,7 @@ const Contact = ({ headingAs = 'h2' }: { headingAs?: 'h1' | 'h2' }) => {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-gray-300 mb-1">Wiadomosc</label>
+                    <label htmlFor="message" className="block text-gray-300 mb-1">Wiadomość</label>
                     <textarea
                       id="message"
                       value={message}
@@ -260,7 +268,7 @@ const Contact = ({ headingAs = 'h2' }: { headingAs?: 'h1' | 'h2' }) => {
               style={{ border: 0, minHeight: '400px' }}
               allowFullScreen
               loading="lazy"
-              title="Google Maps - Nekrolog Lodz"
+              title="Google Maps - Nekrolog Łódź"
             ></iframe>
           </div>
         </div>

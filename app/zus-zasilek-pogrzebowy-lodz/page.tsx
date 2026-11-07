@@ -55,7 +55,7 @@ const faqData = [
   {
     question: 'Ile wynosi zasiłek pogrzebowy?',
     answer:
-      'Obecnie zasiłek pogrzebowy wynosi 4000 zł. Na osobnej stronie poradnikowej wyjaśniamy także szczegóły dotyczące dokumentów i terminu złożenia wniosku.',
+      'Od 1 stycznia 2026 r. zasiłek pogrzebowy wynosi 7000 zł (dla zgonów od tej daty; wcześniej 4000 zł). Na osobnej stronie poradnikowej wyjaśniamy także szczegóły dotyczące dokumentów i terminu złożenia wniosku.',
   },
   {
     question: 'Czy można zorganizować pogrzeb bez kosztów z góry i później rozliczyć go z ZUS?',

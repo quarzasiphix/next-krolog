@@ -7,7 +7,7 @@ import ArticleSchema from '@/components/structured-data/ArticleSchema'
 import FAQSchema, { FAQItem } from '@/components/structured-data/FAQSchema'
 
 export const metadata: Metadata = {
-  title: 'Jak Wybrać Zakład Pogrzebowy? Praktyczny Przewodnik | Nekrolog Łódź',
+  title: { absolute: 'Jak Wybrać Zakład Pogrzebowy? Praktyczny Przewodnik | Nekrolog Łódź' },
   description: 'Dowiedz się, na co zwrócić uwagę przy wyborze zakładu pogrzebowego. Praktyczne porady, lista pytań i informacje o Nekrolog Łódź - zakładzie bez kosztów z góry.',
   keywords: [
     'jak wybrać zakład pogrzebowy',

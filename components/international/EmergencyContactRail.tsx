@@ -3,18 +3,18 @@ import { POLAND_LABELS, type Locale } from '@/lib/international/content'
 
 const railCopy: Record<Locale, { label: string; bullets: string[] }> = {
   pl: {
-    label: 'Kontakt miedzynarodowy 24/7',
+    label: 'Kontakt międzynarodowy 24/7',
     bullets: [
-      'Osobna sciezka kontaktu dla transportu z zagranicy',
-      'Widoczna na telefonie i desktopie przez cala strone',
-      'Telefon, WhatsApp albo formularz bez szukania kolejnego kroku',
+      'Osobny numer do spraw transportu z zagranicy: +48 602 270 050',
+      'Odbieramy całą dobę, także w weekendy i święta',
+      'Telefon, WhatsApp albo formularz – jak Ci wygodniej',
     ],
   },
   en: {
     label: 'International 24/7',
     bullets: [
       'Separate contact path for transport from abroad',
-      'Visible on mobile and desktop across the whole page',
+      'We answer around the clock, including weekends and holidays',
       'Call, WhatsApp or form without searching for the next step',
     ],
   },

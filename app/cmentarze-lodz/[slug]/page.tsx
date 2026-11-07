@@ -460,6 +460,22 @@ export default async function CemeteryPage({
               {cemetery.gateHours.winter}. W okresie Wszystkich Świętych godziny są zwykle wydłużone, a wokół
               cmentarza obowiązuje zmieniona organizacja ruchu.
             </p>
+
+            {/* Families calling the office often need to arrange a burial; offer to do it for them. */}
+            <div className="mt-6 rounded-lg border border-primary/30 bg-primary/5 p-5">
+              <p className="text-white font-medium mb-1">Organizujesz pogrzeb na tym cmentarzu?</p>
+              <p className="text-gray-300 text-sm leading-relaxed mb-3">
+                Termin pochówku, miejsce i dokumenty ustala się w kancelarii. Możemy załatwić to za rodzinę – razem
+                z całą organizacją pogrzebu, bez zaliczki. Odbieramy całą dobę.
+              </p>
+              <a
+                href={PHONE_HREF}
+                data-phone-location="cemetery_office_box"
+                className="inline-flex items-center justify-center rounded-md bg-primary px-5 py-3 font-medium text-black"
+              >
+                Zadzwoń do nas: {PHONE}
+              </a>
+            </div>
           </div>
         </div>
       </section>

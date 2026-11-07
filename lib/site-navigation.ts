@@ -356,26 +356,6 @@ const routeEntries: RouteEntry[] = [
     ],
   },
   {
-    href: '/uslugi/calodobowy-przewoz-zwlok-lodz',
-    label: 'Całodobowy przewóz zwłok',
-    description: 'Całodobowy przewóz zwłok w Łodzi – transport zmarłych 24h z domu, szpitala i z innego miasta.',
-    section: 'service',
-    relatedGroups: [
-      {
-        title: 'Usługi powiązane',
-        hrefs: [
-          '/uslugi/transport-zmarlych-lodz',
-          '/uslugi/organizacja-pogrzebow-lodz',
-          '/uslugi/sprowadzenie-zwlok-z-zagranicy',
-        ],
-      },
-      {
-        title: 'Pierwsze kroki',
-        hrefs: ['/poradnik/co-zrobic-po-smierci', '/kontakt', '/pogrzeb-bez-zaliczki'],
-      },
-    ],
-  },
-  {
     href: '/uslugi/ceremonie-pogrzebowe-lodz',
     label: 'Ceremonie pogrzebowe',
     description: 'Ceremonie pogrzebowe w Łodzi – religijne i świeckie, z pełną oprawą florystyczną i muzyczną.',
@@ -392,6 +372,22 @@ const routeEntries: RouteEntry[] = [
       {
         title: 'Pomoc dla rodziny',
         hrefs: ['/cmentarze-lodz', '/kontakt', '/pogrzeb-bez-zaliczki'],
+      },
+    ],
+  },
+  {
+    href: '/pogrzeb-lodz',
+    label: 'Pogrzeb Łódź',
+    description: 'Pogrzeb w Łodzi krok po kroku: organizacja, koszty w 2026 r., tradycyjny czy kremacja, zasiłek 7000 zł i pogrzeb bez zaliczki.',
+    section: 'guide',
+    relatedGroups: [
+      {
+        title: 'Powiązane strony',
+        hrefs: ['/uslugi/organizacja-pogrzebow-lodz', '/pogrzeb-bez-zaliczki', '/uslugi/krematorium-lodz'],
+      },
+      {
+        title: 'Pomoc dla rodziny',
+        hrefs: ['/poradnik/zasilek-pogrzebowy-zus', '/urzad-stanu-cywilnego-lodz', '/cmentarze-lodz'],
       },
     ],
   },

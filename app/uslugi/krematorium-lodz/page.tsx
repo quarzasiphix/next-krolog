@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import ServiceLayout from '@/components/ServiceLayout'
 import type { FAQItem } from '@/components/structured-data/FAQSchema'
 import { IMAGES } from '@/assets/images'
@@ -19,12 +20,32 @@ const faqData: FAQItem[] = [
   {
     question: 'Czy kremację można zorganizować bez kosztów z góry?',
     answer:
-      'Tak, w wielu sytuacjach możliwa jest organizacja bez zaliczki i rozliczenie w oparciu o zasiłek pogrzebowy ZUS/KRUS.',
+      'Tak. Organizujemy pogrzeb kremacyjny bez zaliczki i rozliczamy się z zasiłku pogrzebowego ZUS/KRUS, który od 1 stycznia 2026 r. wynosi 7000 zł (dla zgonów od tej daty). Wycenę podajemy przed podpisaniem umowy.',
+  },
+  {
+    question: 'Ile trwa kremacja i kiedy odbywa się pochówek urny?',
+    answer:
+      'Sam proces spopielenia trwa kilka godzin. Termin kremacji zależy od dostępności krematorium i kompletu dokumentów – zwykle jest to kilka dni od zgonu. Pochówek urny ustalamy z rodziną i kancelarią cmentarza.',
+  },
+  {
+    question: 'Czy Kościół katolicki dopuszcza kremację?',
+    answer:
+      'Tak. Kościół katolicki dopuszcza kremację, zaleca jednak, aby urnę pochować na cmentarzu lub w kolumbarium. Msza żałobna może odbyć się z trumną przed kremacją albo z urną po kremacji – ustalamy to z parafią.',
+  },
+  {
+    question: 'Czy mogę trzymać urnę w domu albo rozsypać prochy?',
+    answer:
+      'Według obecnych przepisów nie – prochy chowa się na cmentarzu, w grobie lub w kolumbarium. Szczegóły i planowane zmiany prawa opisujemy w poradniku o urnie z prochami.',
+  },
+  {
+    question: 'Czy rodzina może pożegnać zmarłego przed kremacją?',
+    answer:
+      'Tak. Można zorganizować ceremonię pożegnalną z trumną (w kościele lub kaplicy) przed kremacją, a następnie uroczystość z urną na cmentarzu. Możliwości zależą od wybranego krematorium i parafii – omawiamy je przy pierwszej rozmowie.',
   },
 ]
 
 export const metadata: Metadata = buildLocalMetadata({
-  title: 'Kremacja Łódź – Usługi Kremacyjne i Pogrzeb Kremacyjny',
+  title: 'Kremacja Łódź – Pogrzeb Kremacyjny bez Zaliczki 24/7',
   path: '/uslugi/krematorium-lodz',
   description: buildMetaDescription([
     'Kremacja w Łodzi – organizacja pogrzebu kremacyjnego bez zaliczki',
@@ -37,8 +58,8 @@ export const metadata: Metadata = buildLocalMetadata({
 export default function KrematoriumPage() {
   return (
     <ServiceLayout
-      title="Krematorium w Łodzi"
-      description="Profesjonalna usługa kremacji z zachowaniem godności i szacunku dla zmarłego"
+      title="Kremacja w Łodzi – pogrzeb kremacyjny bez zaliczki"
+      description="Organizujemy kremację i pochówek urny w Łodzi: dokumenty, transport do krematorium, urna, ceremonia – całodobowo"
       backgroundImage={IMAGES.services.cremation}
       faqItems={faqData}
     >
@@ -50,9 +71,11 @@ export default function KrematoriumPage() {
           
           <div className="prose prose-lg dark:prose-invert">
             <p className="mb-6">
-              Kremacja (spopielenie) to coraz bardziej popularna forma pochówku, polegająca na 
-              spopieleniu ciała zmarłego w specjalnym piecu kremacyjnym. Jest to alternatywa dla 
-              tradycyjnego pochówku, wybierana ze względów osobistych, religijnych czy ekonomicznych.
+              Zakład Pogrzebowy Nekrolog Łódź organizuje pogrzeby z kremacją w Łodzi i okolicach – od
+              odebrania zmarłego, przez dokumenty i kremację w jednym z łódzkich krematoriów, po pochówek urny
+              na wybranym cmentarzu. Rodzina nie płaci z góry: rozliczamy się z zasiłku pogrzebowego.
+              Kremacja (spopielenie) to forma pochówku wybierana ze względów osobistych, praktycznych
+              lub ekonomicznych.
             </p>
             
             <p>
@@ -72,7 +95,7 @@ export default function KrematoriumPage() {
               </li>
               <li className="flex items-start">
                 <CheckCircle className="h-5 w-5 text-primary mr-3 mt-1 flex-shrink-0" />
-                <span className="text-gray-300">Możliwość przechowywania urny w kolumbarium lub w domu</span>
+                <span className="text-gray-300">Możliwość pochowania urny w istniejącym grobie rodzinnym lub w kolumbarium</span>
               </li>
               <li className="flex items-start">
                 <CheckCircle className="h-5 w-5 text-primary mr-3 mt-1 flex-shrink-0" />
@@ -187,10 +210,6 @@ export default function KrematoriumPage() {
                 </li>
                 <li className="flex items-start">
                   <FileText className="h-5 w-5 text-primary mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-gray-300">Zaświadczenie lekarskie o przyczynie zgonu</span>
-                </li>
-                <li className="flex items-start">
-                  <FileText className="h-5 w-5 text-primary mr-3 mt-1 flex-shrink-0" />
                   <span className="text-gray-300">Pisemna zgoda członka rodziny na kremację (najczęściej osoby organizującej pogrzeb)</span>
                 </li>
               </ul>
@@ -209,14 +228,57 @@ export default function KrematoriumPage() {
                   <CheckCircle className="h-5 w-5 text-primary mr-3 mt-1 flex-shrink-0" />
                   <span className="text-gray-300">Złożenie urny w grobie rodzinnym</span>
                 </li>
-                <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-primary mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-gray-300">Rozsypanie prochów w ogrodzie pamięci (jeśli dostępny)</span>
-                </li>
+
               </ul>
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="glass-card p-8 rounded-xl">
+          <h2 className="text-2xl font-playfair text-white mb-4">Dwa warianty pogrzebu z kremacją</h2>
+          <ol className="space-y-4 list-decimal pl-6 text-gray-300">
+            <li>
+              <span className="font-medium text-white">Ceremonia z trumną, potem kremacja</span> – msza lub
+              pożegnanie w kaplicy z trumną, następnie kremacja i późniejszy pochówek urny.
+            </li>
+            <li>
+              <span className="font-medium text-white">Kremacja, potem ceremonia z urną</span> – najpierw
+              kremacja, a uroczystość (w kościele, kaplicy lub na cmentarzu) odbywa się z urną.
+            </li>
+          </ol>
+          <p className="mt-4 text-gray-300">
+            Porównanie z pochówkiem tradycyjnym: <Link href="/pogrzeb-lodz" className="text-primary underline">pogrzeb w Łodzi – organizacja i koszty</Link>.
+          </p>
+        </div>
+        <div className="glass-card p-8 rounded-xl">
+          <h2 className="text-2xl font-playfair text-white mb-4">Ile kosztuje kremacja w Łodzi?</h2>
+          <p className="text-gray-300 mb-3">
+            Koszt pogrzebu z kremacją składa się m.in. z opłaty za kremację w krematorium, trumny kremacyjnej, urny,
+            przewozu, przygotowania zmarłego, ceremonii oraz opłat cmentarnych za pochówek urny. Zwykle jest
+            niższy niż pochówek tradycyjny, bo urna wymaga mniejszego miejsca.
+          </p>
+          <p className="text-gray-300">
+            Dokładną wycenę podajemy przed podpisaniem umowy. Pogrzeb organizujemy bez zaliczki i rozliczamy z
+            zasiłku pogrzebowego (7000 zł od 2026 r.) – zadzwoń, a od razu powiemy, co obejmie kwota zasiłku.
+          </p>
+          <a href="tel:+48602274661" data-phone-location="kremacja_koszt" className="mt-5 inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 font-medium text-black">
+            Zapytaj o wycenę: 602 274 661
+          </a>
+        </div>
+      </div>
+
+      <div className="mt-10 text-gray-300 px-4 sm:px-0">
+        <h2 className="text-2xl font-playfair text-white mb-3">Gdzie trafia urna? Przepisy w skrócie</h2>
+        <p>
+          Według obecnych przepisów prochy chowa się na cmentarzu – w grobie (także dochowując urnę do grobu
+          rodzinnego) lub w kolumbarium. Przechowywanie urny w domu i rozsypywanie prochów nie są dopuszczone.
+          Więcej: <Link href="/poradnik/czy-urne-z-prochami-mozna-trzymac-w-domu" className="text-primary underline">czy można trzymać urnę w domu</Link>,{' '}
+          <Link href="/asortyment/urny-lodz" className="text-primary underline">urny</Link>,{' '}
+          <Link href="/asortyment/trumny-lodz" className="text-primary underline">trumny kremacyjne</Link>,{' '}
+          <Link href="/cmentarze-lodz" className="text-primary underline">cmentarze w Łodzi</Link>.
+        </p>
       </div>
     </ServiceLayout>
   )

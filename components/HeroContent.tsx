@@ -5,44 +5,21 @@ const HeroContent = () => {
         <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-black/35 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
           <span>Kontakt 24/7</span>
           <span className="h-1 w-1 rounded-full bg-primary/70" />
-          <span>Zaklad pogrzebowy Lodz i pomoc bez zaliczki</span>
+          <span>Zakład pogrzebowy Łódź i pomoc bez zaliczki</span>
         </div>
 
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair mb-4 leading-tight">
-          Zaklad Pogrzebowy Lodz
-          <span className="mt-2 block text-primary">calodobowa pomoc w organizacji pogrzebu</span>
+          Zakład Pogrzebowy Łódź{' '}
+          <span className="mt-2 block text-primary">pogrzeby bez zaliczki, całodobowa pomoc 24/7</span>
         </h1>
 
         <div className="w-16 h-[1px] bg-primary/40 mx-auto mb-6"></div>
 
         <h2 className="mx-auto max-w-[54rem] text-xl md:text-2xl mb-8 leading-relaxed text-gray-300/90 font-normal">
-          Organizujemy pogrzeby tradycyjne i kremacyjne w Lodzi i okolicach, pomagamy w formalnosciach oraz wspieramy rodziny 24/7 bez kosztow z gory.
+          Organizujemy pogrzeby w Łodzi i okolicach – tradycyjne i kremacyjne, pomagamy w formalnościach oraz wspieramy rodziny 24/7 bez kosztów z góry.
         </h2>
 
-        <p className="mx-auto max-w-[58rem] text-[16px] md:text-[17px] mb-10 text-gray-300/85 leading-loose mt-6">
-          Jako ponad 30-letnia firma rodzinna wspieramy rodziny z empatia, dyskrecja i spokojnym prowadzeniem kazdego etapu. Nasza podstawowa rola to kompleksowa organizacja pogrzebu, a dodatkowo pomagamy takze w krajowym i miedzynarodowym transporcie zmarlych oraz sprowadzaniu ciala do Polski.
-        </p>
-
-        <div className="mx-auto mb-10 grid max-w-5xl gap-3 text-left md:grid-cols-4">
-          <div className="glass-card rounded-lg p-4">
-            <p className="mb-2 text-xs uppercase tracking-[0.18em] text-primary/80">Ceremonia</p>
-            <p className="text-sm leading-6 text-gray-200">Kompleksowa organizacja pogrzebu, kremacji i oprawy ceremonii w Lodzi i okolicach.</p>
-          </div>
-          <div className="glass-card rounded-lg p-4">
-            <p className="mb-2 text-xs uppercase tracking-[0.18em] text-primary/80">Formalnosci</p>
-            <p className="text-sm leading-6 text-gray-200">Pomoc w dokumentach, kontakcie z cmentarzem, krematorium, parafia i urzedami.</p>
-          </div>
-          <div className="glass-card rounded-lg p-4">
-            <p className="mb-2 text-xs uppercase tracking-[0.18em] text-primary/80">Rozliczenie</p>
-            <p className="text-sm leading-6 text-gray-200">Mozliwosc organizacji pogrzebu bez zaliczki i bez kosztow z gory dla rodziny.</p>
-          </div>
-          <div className="glass-card rounded-lg p-4">
-            <p className="mb-2 text-xs uppercase tracking-[0.18em] text-primary/80">Transport</p>
-            <p className="text-sm leading-6 text-gray-200">Dodatkowo organizujemy transport zmarlych w Polsce oraz sprowadzenie zwlok z zagranicy do Polski.</p>
-          </div>
-        </div>
-
-        <div className="mb-16 flex flex-col items-center justify-center gap-4">
+        <div className="mb-10 flex flex-col items-center justify-center gap-4">
           <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
             <a href="tel:+48602274661" className="button-primary flex items-center justify-center gap-3" data-phone-location="hero">
               <span>+48 602 274 661</span>
@@ -51,20 +28,49 @@ const HeroContent = () => {
               href="/uslugi-pogrzebowe-lodz"
               className="inline-flex items-center justify-center rounded-md border border-primary/40 bg-black/35 px-6 py-4 font-medium text-white transition-all duration-200 hover:border-primary hover:bg-primary/10"
             >
-              Uslugi pogrzebowe Lodz
+              Usługi pogrzebowe Łódź
             </a>
             <a
               href="/uslugi/sprowadzenie-zwlok-z-zagranicy"
               className="inline-flex items-center justify-center rounded-md border border-white/20 bg-black/20 px-6 py-4 font-medium text-gray-100 transition-all duration-200 hover:border-primary/40 hover:text-white"
             >
-              Transport i sprowadzenie zwlok
+              Transport i sprowadzenie zwłok
             </a>
           </div>
-          <p className="text-sm font-medium text-white">Dostepni calodobowo dla rodzin w Lodzi, okolicach i w sprawach pilnego transportu</p>
+          <p className="text-sm font-medium text-white">Dostępni całodobowo dla rodzin w Łodzi, okolicach i w sprawach pilnego transportu</p>
+        </div>
+
+        <ol className="mx-auto mb-10 grid max-w-3xl gap-2 text-left text-sm text-gray-300 sm:grid-cols-3">
+          <li className="rounded-md border border-white/10 bg-black/35 px-4 py-3"><span className="text-primary font-semibold">1.</span> Lekarz stwierdza zgon i wystawia kartę zgonu</li>
+          <li className="rounded-md border border-white/10 bg-black/35 px-4 py-3"><span className="text-primary font-semibold">2.</span> Dzwonisz do nas – przyjeżdżamy o każdej porze</li>
+          <li className="rounded-md border border-white/10 bg-black/35 px-4 py-3"><span className="text-primary font-semibold">3.</span> Formalnościami i ceremonią zajmujemy się my</li>
+        </ol>
+
+        <p className="mx-auto max-w-[58rem] text-[16px] md:text-[17px] mb-10 text-gray-300/85 leading-loose mt-6">
+          Jako ponad 30-letnia firma rodzinna wspieramy rodziny z empatią, dyskrecją i spokojnym prowadzeniem każdego etapu. Nasza podstawowa rola to kompleksowa organizacja pogrzebu, a dodatkowo pomagamy także w krajowym i międzynarodowym transporcie zmarłych oraz sprowadzaniu ciała do Polski.
+        </p>
+
+        <div className="mx-auto mb-10 grid max-w-5xl gap-3 text-left md:grid-cols-4">
+          <div className="glass-card rounded-lg p-4">
+            <p className="mb-2 text-xs uppercase tracking-[0.18em] text-primary/80">Ceremonia</p>
+            <p className="text-sm leading-6 text-gray-200">Kompleksowa organizacja pogrzebu, kremacji i oprawy ceremonii w Łodzi i okolicach.</p>
+          </div>
+          <div className="glass-card rounded-lg p-4">
+            <p className="mb-2 text-xs uppercase tracking-[0.18em] text-primary/80">Formalności</p>
+            <p className="text-sm leading-6 text-gray-200">Pomoc w dokumentach, kontakcie z cmentarzem, krematorium, parafią i urzędami.</p>
+          </div>
+          <div className="glass-card rounded-lg p-4">
+            <p className="mb-2 text-xs uppercase tracking-[0.18em] text-primary/80">Rozliczenie</p>
+            <p className="text-sm leading-6 text-gray-200">Możliwość organizacji pogrzebu bez zaliczki i bez kosztów z góry dla rodziny.</p>
+          </div>
+          <div className="glass-card rounded-lg p-4">
+            <p className="mb-2 text-xs uppercase tracking-[0.18em] text-primary/80">Transport</p>
+            <p className="text-sm leading-6 text-gray-200">Dodatkowo organizujemy transport zmarłych w Polsce oraz sprowadzenie zwłok z zagranicy do Polski.</p>
+          </div>
         </div>
 
         <div className="glass-card p-8 rounded-lg mx-auto max-w-sm text-center">
-          <address className="not-italic text-gray-400 text-sm mb-4">Legionow 48, 90-702 Lodz</address>
+          <address className="not-italic text-gray-400 text-sm mb-4">Legionów 48, 90-702 Łódź</address>
           <a
             href="https://maps.app.goo.gl/96nCspWXwt5VYqkp6"
             target="_blank"

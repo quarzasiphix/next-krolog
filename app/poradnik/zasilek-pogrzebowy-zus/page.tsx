@@ -28,12 +28,12 @@ export default function ZasilekPogrzebowyZUSPage() {
     {
       question: 'Ile wynosi zasiłek pogrzebowy ZUS/KRUS?',
       answer:
-        'Aktualnie zasiłek pogrzebowy wynosi 4000 zł. To stała kwota, niezależnie od pełnego kosztu ceremonii.',
+        'Od 1 stycznia 2026 r. zasiłek pogrzebowy wynosi 7000 zł (wcześniej 4000 zł). O kwocie decyduje data zgonu wpisana w akcie zgonu. To stała kwota, niezależnie od pełnego kosztu ceremonii.',
     },
     {
       question: 'W jakim terminie trzeba złożyć wniosek o zasiłek pogrzebowy?',
       answer:
-        'Wniosek należy złożyć zwykle w ciągu 12 miesięcy od dnia pogrzebu, wraz z wymaganymi dokumentami.',
+        'Wniosek należy złożyć zwykle w ciągu 12 miesięcy od dnia śmierci, wraz z wymaganymi dokumentami.',
     },
     {
       question: 'Czy można zorganizować pogrzeb bez zaliczki i rozliczyć go z zasiłku?',
@@ -57,7 +57,7 @@ export default function ZasilekPogrzebowyZUSPage() {
             <div className="bg-black/40 border border-white/10 rounded-lg p-5 mb-8 text-left">
               <p className="text-white font-medium mb-2">Szybka odpowiedź</p>
               <p className="text-gray-300">
-                Zasiłek pogrzebowy wynosi 4000 zł. Wniosek składa się w ZUS/KRUS (zwykle do 12 miesięcy od pogrzebu)
+                Od 1 stycznia 2026 r. zasiłek pogrzebowy wynosi 7000 zł (dla zgonów od tej daty). Wniosek składa się w ZUS/KRUS w ciągu 12 miesięcy od dnia śmierci
                 z kompletem dokumentów. W Nekrolog Łódź pomagamy w formalnościach i rozliczeniu bez zaliczki.
               </p>
               <p className="text-xs text-gray-500 mt-3">Aktualizacja: 27 lutego 2026</p>
@@ -65,7 +65,7 @@ export default function ZasilekPogrzebowyZUSPage() {
             <div className="bg-primary/10 border border-primary/30 rounded-lg p-6">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <Euro className="w-8 h-8 text-primary" />
-                <p className="text-3xl font-bold text-primary">4000 zł</p>
+                <p className="text-3xl font-bold text-primary">7000 zł</p>
               </div>
               <p className="text-lg text-gray-300">
                 Aktualna wysokość zasiłku pogrzebowego
@@ -137,7 +137,7 @@ export default function ZasilekPogrzebowyZUSPage() {
                     <h3 className="text-xl font-medium text-white">Wysokość Zasiłku</h3>
                   </div>
                   <p className="text-gray-300 mb-4">
-                    Zasiłek pogrzebowy wynosi <strong className="text-primary">4000 zł</strong> niezależnie od rzeczywistych kosztów pogrzebu.
+                    Zasiłek pogrzebowy wynosi <strong className="text-primary">7000 zł</strong> niezależnie od rzeczywistych kosztów pogrzebu.
                   </p>
                   <p className="text-sm text-gray-400">
                     Kwota jest stała i nie zależy od tego, ile faktycznie kosztował pogrzeb.
@@ -152,7 +152,7 @@ export default function ZasilekPogrzebowyZUSPage() {
                     <h3 className="text-xl font-medium text-white">Termin Złożenia Wniosku</h3>
                   </div>
                   <p className="text-gray-300 mb-4">
-                    Wniosek można złożyć w ciągu <strong className="text-primary">12 miesięcy</strong> od dnia pogrzebu.
+                    Wniosek można złożyć w ciągu <strong className="text-primary">12 miesięcy</strong> od dnia śmierci.
                   </p>
                   <p className="text-sm text-gray-400">
                     Nie ma pośpiechu - masz rok czasu na złożenie wniosku.
@@ -357,10 +357,10 @@ export default function ZasilekPogrzebowyZUSPage() {
               <Card className="bg-black/30 border border-white/10">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-medium text-white mb-3">
-                    Co jeśli pogrzeb kosztował więcej niż 4000 zł?
+                    Co jeśli pogrzeb kosztował więcej niż 7000 zł?
                   </h3>
                   <p className="text-gray-300">
-                    Zasiłek pogrzebowy wynosi zawsze 4000 zł, niezależnie od rzeczywistych kosztów pogrzebu. 
+                    Zasiłek pogrzebowy wynosi zawsze 7000 zł, niezależnie od rzeczywistych kosztów pogrzebu. 
                     Jeśli pogrzeb kosztował więcej, różnicę pokrywa osoba organizująca pogrzeb.
                   </p>
                 </CardContent>
@@ -369,10 +369,10 @@ export default function ZasilekPogrzebowyZUSPage() {
               <Card className="bg-black/30 border border-white/10">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-medium text-white mb-3">
-                    Co jeśli pogrzeb kosztował mniej niż 4000 zł?
+                    Co jeśli pogrzeb kosztował mniej niż 7000 zł?
                   </h3>
                   <p className="text-gray-300">
-                    Zasiłek i tak wynosi 4000 zł. Jeśli faktyczne koszty były niższe, otrzymujesz pełną kwotę zasiłku.
+                    Członek rodziny, który pokrył koszty, i tak otrzymuje pełne 7000 zł. Osoba spoza rodziny (np. pracodawca) dostaje zwrot faktycznie poniesionych kosztów – maksymalnie do 7000 zł.
                   </p>
                 </CardContent>
               </Card>

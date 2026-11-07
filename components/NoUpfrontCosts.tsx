@@ -111,7 +111,7 @@ const NoUpfrontCosts = () => {
                     Zasiłek Pogrzebowy
                   </h4>
                   <p className="text-gray-300 mb-4">
-                    Pomagamy w uzyskaniu zasiłku pogrzebowego z ZUS/KRUS do 4000 zł
+                    Pomagamy w uzyskaniu zasiłku pogrzebowego z ZUS/KRUS do 7000 zł
                   </p>
                   <div className="flex items-center justify-center gap-2 text-primary">
                     <CheckCircle2 className="w-5 h-5" />

@@ -9,7 +9,7 @@ import FAQSchema from '@/components/structured-data/FAQSchema'
 import FuneralHomeSchema from '@/components/structured-data/FuneralHomeSchema'
 
 export const metadata: Metadata = {
-  title: 'Nekrolog Łódź - Jolanta Kostowska | Zakład Pogrzebowy w Łodzi',
+  title: { absolute: 'Nekrolog Łódź – Jolanta Kostowska | Zakład Pogrzebowy w Łodzi' },
   description:
     'Nekrolog Łódź - Jolanta Kostowska to zakład pogrzebowy w Łodzi przy ul. Legionów 48. Kompleksowa organizacja pogrzebów, kremacja, transport zmarłych i pomoc 24/7.',
   keywords: [

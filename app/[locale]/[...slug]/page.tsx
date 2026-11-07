@@ -4,7 +4,7 @@ import EmergencyContactRail from '@/components/international/EmergencyContactRai
 import { DocumentsChecklist, FAQSection, InternationalContactBox, LocalizedHero, ProcedureSteps, RelatedRoutes, RouteCoverageSection, TransportModesSection, TrustSection, UrgentContactBar } from '@/components/international/section-components'
 import StickyContactBar from '@/components/international/StickyContactBar'
 import { StructuredData } from '@/components/international/StructuredData'
-import { POLAND_LABELS, buildLocalizedPath, buildRouteSlug, getAllIntlParams, getDocumentRequirements, getFaqEntries, getFeaturedRoutes, getPagePath, getRelatedRoutes, internationalContactChannels, isSupportedLocale, localeInfo, resolveIntlPage, serviceCatalog, type Locale, type ResolvedIntlPage } from '@/lib/international/content'
+import { plGenitive, POLAND_LABELS, buildLocalizedPath, buildRouteSlug, getAllIntlParams, getDocumentRequirements, getFaqEntries, getFeaturedRoutes, getPagePath, getRelatedRoutes, internationalContactChannels, isSupportedLocale, localeInfo, resolveIntlPage, serviceCatalog, type Locale, type ResolvedIntlPage } from '@/lib/international/content'
 import { copyPack } from '@/lib/international/localization-copy'
 import { buildIntlMetadata } from '@/lib/international/seo'
 import { BUSINESS_INFO, SITE_URL } from '@/lib/constants'
@@ -37,7 +37,7 @@ function displayTitle(page: ResolvedIntlPage) {
   if (page.kind === 'route') return page.city.seoTitleTemplate[locale]
   if (page.kind === 'city') {
     return text(locale, {
-      pl: `Odbior i organizacja transportu z ${page.city.namesPerLocale.pl}`,
+      pl: `Odbiór i organizacja transportu z ${plGenitive(page.city.namesPerLocale.pl)}`,
       en: `Collection and organisation from ${page.city.namesPerLocale.en}`,
       de: `Abholung und Organisation aus ${page.city.namesPerLocale.de}`,
       fr: `Prise en charge et organisation depuis ${page.city.namesPerLocale.fr}`,
@@ -47,7 +47,7 @@ function displayTitle(page: ResolvedIntlPage) {
   }
   if (page.kind === 'country') {
     return text(locale, {
-      pl: `Transport zwlok z ${page.country.namesPerLocale.pl} do Polski`,
+      pl: `Transport zwłok z ${plGenitive(page.country.namesPerLocale.pl)} do Polski`,
       en: `Repatriation from ${page.country.namesPerLocale.en} to Poland`,
       de: `Uberfuhrung aus ${page.country.namesPerLocale.de} nach Polen`,
       fr: `Rapatriement depuis ${page.country.namesPerLocale.fr} vers la Pologne`,
@@ -64,7 +64,7 @@ function pageTitle(page: ResolvedIntlPage) {
   if (page.kind === 'service') {
     if (page.service.key === 'international-transport') {
       return text(locale, {
-        pl: 'Miedzynarodowy transport zwlok do Polski | Kontakt 24/7 i formalnosci',
+        pl: 'Międzynarodowy transport zwłok do Polski | Kontakt 24/7 i formalności',
         en: 'International transport of remains to Poland | 24/7 contact and paperwork',
         de: 'Internationale Uberfuhrung nach Polen | 24/7 Kontakt und Formalitaten',
         fr: 'Transport funeraire international vers la Pologne | Contact 24/7 et demarches',
@@ -74,7 +74,7 @@ function pageTitle(page: ResolvedIntlPage) {
     }
     if (page.service.key === 'repatriation-to-poland') {
       return text(locale, {
-        pl: 'Sprowadzenie zmarlego do Polski | Pomoc 24/7 i spokojna organizacja',
+        pl: 'Sprowadzenie zmarłego do Polski | Pomoc 24/7 i spokojną organizacja',
         en: 'Bringing the deceased to Poland | Calm 24/7 support',
         de: 'Uberfuhrung nach Polen | Ruhige Organisation und Hilfe 24/7',
         fr: 'Rapatriement vers la Pologne | Accompagnement calme 24/7',
@@ -84,7 +84,7 @@ function pageTitle(page: ResolvedIntlPage) {
     }
     if (page.service.key === 'air-transport') {
       return text(locale, {
-        pl: 'Transport lotniczy zmarlych do Polski | Kiedy ma sens i jak wyglada',
+        pl: 'Transport lotniczy zmarłych do Polski | Kiedy ma sens i jak wygląda',
         en: 'Air transport of remains to Poland | When it is needed and how it works',
         de: 'Lufttransport Verstorbener nach Polen | Wann er sinnvoll ist und wie er ablauft',
         fr: 'Transport aerien du defunt vers la Pologne | Quand il est utile et comment il fonctionne',
@@ -96,7 +96,7 @@ function pageTitle(page: ResolvedIntlPage) {
   }
   if (page.kind === 'country') {
     return text(locale, {
-      pl: `Transport zwlok z ${page.country.namesPerLocale.pl} do Polski | Formalnosci i kontakt 24/7`,
+      pl: `Transport zwłok z ${plGenitive(page.country.namesPerLocale.pl)} do Polski | Formalności i kontakt 24/7`,
       en: `Repatriation from ${page.country.namesPerLocale.en} to Poland | 24/7 support`,
       de: `Uberfuhrung aus ${page.country.namesPerLocale.de} nach Polen | 24/7 Kontakt`,
       fr: `Rapatriement depuis ${page.country.namesPerLocale.fr} vers la Pologne | Contact 24/7`,
@@ -106,7 +106,7 @@ function pageTitle(page: ResolvedIntlPage) {
   }
   if (page.kind === 'city' || page.kind === 'route') {
     return text(locale, {
-      pl: `${page.city.seoTitleTemplate.pl} | Odbior, dokumenty i kontakt 24/7`,
+      pl: `${page.city.seoTitleTemplate.pl} | Odbiór, dokumenty i kontakt 24/7`,
       en: `${page.city.seoTitleTemplate.en} | Collection, paperwork and 24/7 contact`,
       de: `${page.city.seoTitleTemplate.de} | Abholung, Unterlagen und Kontakt 24/7`,
       fr: `${page.city.seoTitleTemplate.fr} | Prise en charge, documents et contact 24/7`,
@@ -116,7 +116,7 @@ function pageTitle(page: ResolvedIntlPage) {
   }
   if (page.kind === 'services') {
     return text(locale, {
-      pl: 'Uslugi miedzynarodowe i trasy do Polski',
+      pl: 'Usługi międzynarodowe i trasy do Polski',
       en: 'International services and routes to Poland',
       de: 'Internationale Leistungen und Routen nach Polen',
       fr: 'Services internationaux et itineraires vers la Pologne',
@@ -136,7 +136,7 @@ function pageDescription(page: ResolvedIntlPage) {
   if (page.kind === 'service') return page.service.summaryPerLocale[locale]
   if (page.kind === 'country') {
     return text(locale, {
-      pl: `Organizujemy sprowadzenie zmarlego z ${page.country.namesPerLocale.pl} do Polski. Odbior z placowki, dokumenty, transport drogowy lub lotniczy i wsparcie rodziny 24/7 bez kosztow z gory.`,
+      pl: `Organizujemy sprowadzenie zmarłego z ${plGenitive(page.country.namesPerLocale.pl)} do Polski. Odbiór z placówki, dokumenty, transport drogowy lub lotniczy i wsparcie rodziny 24/7 bez kosztów z góry.`,
       en: `We organise repatriation from ${page.country.namesPerLocale.en} to Poland, including collection, paperwork, road or air transport and calm family support 24/7.`,
       de: `Wir organisieren die Uberfuhrung aus ${page.country.namesPerLocale.de} nach Polen mit Abholung, Unterlagen, Strassen- oder Lufttransport und ruhiger Hilfe fur die Familie 24/7.`,
       fr: `Nous organisons le rapatriement depuis ${page.country.namesPerLocale.fr} vers la Pologne avec prise en charge, documents, transport routier ou aerien et accompagnement 24/7.`,
@@ -146,7 +146,7 @@ function pageDescription(page: ResolvedIntlPage) {
   }
   if (page.kind === 'city' || page.kind === 'route') {
     return text(locale, {
-      pl: `Pomagamy w organizacji transportu z ${page.city.namesPerLocale.pl} do Polski: odbior z placowki, dokumenty, wybor transportu i przekazanie w Polsce.`,
+      pl: `Pomagamy w organizacji transportu z ${plGenitive(page.city.namesPerLocale.pl)} do Polski: odbiór z placówki, dokumenty, wybór transportu i przekazanie w Polsce.`,
       en: `We help organise transport from ${page.city.namesPerLocale.en} to Poland, including collection, paperwork, transport planning and handover in Poland.`,
       de: `Wir helfen bei der Organisation der Uberfuhrung von ${page.city.namesPerLocale.de} nach Polen: Abholung, Unterlagen, Transportplanung und Ubergabe in Polen.`,
       fr: `Nous aidons a organiser le rapatriement de ${page.city.namesPerLocale.fr} vers la Pologne: prise en charge, documents, choix du transport et remise en Pologne.`,
@@ -177,7 +177,7 @@ function pageOverview(page: ResolvedIntlPage) {
   if (page.kind === 'route') {
     return {
       title: text(locale, {
-        pl: 'Co obejmuje ta konkretna trasa',
+        pl: 'Co obejmuje ta konkretną trasa',
         en: 'What this exact route includes',
         de: 'Was diese konkrete Route umfasst',
         fr: 'Ce que couvre cet itineraire precis',
@@ -185,7 +185,7 @@ function pageOverview(page: ResolvedIntlPage) {
         it: 'Cosa comprende questa rotta specifica',
       }),
       description: text(locale, {
-        pl: 'Ta strona jest przygotowana dla rodzin, ktore potrzebuja realnej pomocy na trasie z konkretnego miasta do Polski. Pokazujemy, jak wyglada odbior, dokumenty, wybor transportu i przekazanie po stronie polskiej.',
+        pl: 'Na tej trasie zajmujemy się odbiorem zmarłego z placówki, dokumentami, wyborem transportu drogowego lub lotniczego oraz przekazaniem w Polsce – do pogrzebu w Łodzi lub w innym miejscu.',
         en: 'This page is built for families who need practical help on a specific route to Poland. We explain collection, paperwork, transport choice and handover on the Polish side.',
         de: 'Diese Seite ist fur Familien gedacht, die konkrete Hilfe auf einer bestimmten Route nach Polen brauchen. Wir erklaren Abholung, Unterlagen, Transportwahl und Ubergabe in Polen.',
         fr: 'Cette page est concue pour les familles qui ont besoin d une aide concrete sur un itineraire precis vers la Pologne. Nous expliquons la prise en charge, les documents, le choix du transport et la remise en Pologne.',
@@ -197,7 +197,7 @@ function pageOverview(page: ResolvedIntlPage) {
   if (page.kind === 'country') {
     return {
       title: text(locale, {
-        pl: 'Jak zwykle wyglada organizacja z tego kraju',
+        pl: 'Jak zwykle wygląda organizacja z tego kraju',
         en: 'How the process usually works from this country',
         de: 'Wie die Organisation aus diesem Land meist ablauft',
         fr: 'Comment l organisation se deroule generalement depuis ce pays',
@@ -205,7 +205,7 @@ function pageOverview(page: ResolvedIntlPage) {
         it: 'Come di solito si organizza il trasferimento da questo Paese',
       }),
       description: text(locale, {
-        pl: `Pokazujemy typowe formalnosci, dokumenty i logistyczne decyzje przy sprowadzaniu zmarlego z ${page.country.namesPerLocale.pl} do Polski. Zakres zalezy od miejsca zgonu, placowki i wybranego trybu przewozu.`,
+        pl: `Pokazujemy typowe formalności, dokumenty i logistyczne decyzje przy sprowadzaniu zmarłego z ${plGenitive(page.country.namesPerLocale.pl)} do Polski. Zakres zależy od miejsca zgonu, placówki i wybranego trybu przewozu.`,
         en: `We explain the usual paperwork, documents and logistics when bringing a deceased person from ${page.country.namesPerLocale.en} to Poland. The exact scope depends on the place of death, the facility and the transport mode.`,
         de: `Wir erklaren die ublichen Unterlagen, Formalitaten und logistischen Entscheidungen bei einer Uberfuhrung aus ${page.country.namesPerLocale.de} nach Polen. Der genaue Umfang hangt vom Sterbeort, der Einrichtung und der Transportart ab.`,
         fr: `Nous expliquons les documents, les demarches et les choix logistiques habituels pour un rapatriement depuis ${page.country.namesPerLocale.fr} vers la Pologne. L etendue exacte depend du lieu du deces, de la structure et du mode de transport.`,
@@ -216,7 +216,7 @@ function pageOverview(page: ResolvedIntlPage) {
   }
   return {
     title: text(locale, {
-      pl: 'Kolejne kroki i wersje jezykowe',
+      pl: 'Kolejne kroki i wersje językowe',
       en: 'Next steps and language versions',
       de: 'Nachste Schritte und Sprachversionen',
       fr: 'Prochaines etapes et versions linguistiques',
@@ -232,7 +232,7 @@ function getOverviewBullets(page: ResolvedIntlPage) {
   if (page.kind === 'route') {
     return [
       text(locale, {
-        pl: `Odbior z placowki w ${page.city.namesPerLocale.pl}`,
+        pl: `Odbiór z placówki – ${page.city.namesPerLocale.pl}`,
         en: `Collection from a facility in ${page.city.namesPerLocale.en}`,
         de: `Abholung aus einer Einrichtung in ${page.city.namesPerLocale.de}`,
         fr: `Prise en charge dans une structure a ${page.city.namesPerLocale.fr}`,
@@ -240,7 +240,7 @@ function getOverviewBullets(page: ResolvedIntlPage) {
         it: `Presa in carico da una struttura a ${page.city.namesPerLocale.it}`,
       }),
       text(locale, {
-        pl: 'Sprawdzenie dokumentow i decyzja: droga czy lot',
+        pl: 'Sprawdzenie dokumentów i decyzja: droga czy lot',
         en: 'Document review and a decision between road and air',
         de: 'Prufung der Unterlagen und Entscheidung zwischen Strasse und Luft',
         fr: 'Verification des documents et choix entre route et aerien',
@@ -261,7 +261,7 @@ function getOverviewBullets(page: ResolvedIntlPage) {
   if (page.kind === 'country') {
     return [
       text(locale, {
-        pl: `Typowe dokumenty i formalnosci w ${page.country.namesPerLocale.pl}`,
+        pl: `Typowe dokumenty i formalności w ${page.country.namesPerLocale.pl}`,
         en: `Typical documents and paperwork in ${page.country.namesPerLocale.en}`,
         de: `Typische Unterlagen und Formalitaten in ${page.country.namesPerLocale.de}`,
         fr: `Documents et demarches habituels en ${page.country.namesPerLocale.fr}`,
@@ -289,7 +289,7 @@ function getOverviewBullets(page: ResolvedIntlPage) {
 
   return [
     text(locale, {
-      pl: 'Przejmujemy kontakt, formalnosci i logistyke od pierwszego telefonu',
+      pl: 'Przejmujemy kontakt, formalności i logistykę od pierwszego telefonu',
       en: 'We take over contact, paperwork and logistics from the first call',
       de: 'Wir ubernehmen Kontakt, Formalitaten und Logistik ab dem ersten Anruf',
       fr: 'Nous prenons en charge contacts, demarches et logistique des le premier appel',
@@ -305,7 +305,7 @@ function getProcedureSteps(page: ResolvedIntlPage) {
     return [
       {
         title: text(locale, {
-          pl: `Potwierdzamy odbior w ${page.city.namesPerLocale.pl}`,
+          pl: `Potwierdzamy odbiór w ${page.city.namesPerLocale.pl}`,
           en: `We confirm collection in ${page.city.namesPerLocale.en}`,
           de: `Wir bestatigen die Abholung in ${page.city.namesPerLocale.de}`,
           fr: `Nous confirmons la prise en charge a ${page.city.namesPerLocale.fr}`,
@@ -313,7 +313,7 @@ function getProcedureSteps(page: ResolvedIntlPage) {
           it: `Confermiamo il ritiro a ${page.city.namesPerLocale.it}`,
         }),
         description: text(locale, {
-          pl: 'Ustalamy szpital, prosektorium, dom pogrzebowy albo inna placowke i przejmujemy pierwszy kontakt organizacyjny.',
+          pl: 'Ustalamy szpital, prosektorium, dom pogrzebowy albo inna placówkę i przejmujemy pierwszy kontakt organizacyjny.',
           en: 'We identify the hospital, mortuary, funeral home or another facility and take over the first operational contact.',
           de: 'Wir klaren Krankenhaus, Leichenhalle, Bestatter oder eine andere Einrichtung und ubernehmen den ersten organisatorischen Kontakt.',
           fr: 'Nous identifions l hopital, la morgue, l operateur funeraire ou une autre structure et prenons le premier contact.',
@@ -331,7 +331,7 @@ function getProcedureSteps(page: ResolvedIntlPage) {
           it: 'Verifichiamo documenti e scelta del trasporto',
         }),
         description: text(locale, {
-          pl: 'Pomagamy ustalic, czego brakuje, czy lepszy bedzie transport drogowy czy lotniczy i jakie zgody trzeba jeszcze uzyskac.',
+          pl: 'Pomagamy ustalić, czego brakuje, czy lepszy będzie transport drogowy czy lotniczy i jakie zgody trzeba jeszcze uzyskać.',
           en: 'We clarify what is missing, whether road or air transport is more suitable and which approvals may still be required.',
           de: 'Wir klaren, was noch fehlt, ob Strassen- oder Lufttransport sinnvoller ist und welche Genehmigungen noch erforderlich sein konnen.',
           fr: 'Nous precisons ce qui manque, si le transport routier ou aerien est plus adapte et quelles autorisations peuvent encore etre necessaires.',
@@ -341,7 +341,7 @@ function getProcedureSteps(page: ResolvedIntlPage) {
       },
       {
         title: text(locale, {
-          pl: 'Przewoz i przekazanie w Polsce',
+          pl: 'Przewóz i przekazanie w Polsce',
           en: 'Transfer and handover in Poland',
           de: 'Transport und Ubergabe in Polen',
           fr: 'Transport et remise en Pologne',
@@ -349,7 +349,7 @@ function getProcedureSteps(page: ResolvedIntlPage) {
           it: 'Trasferimento e consegna in Polonia',
         }),
         description: text(locale, {
-          pl: 'Koordynujemy trase, odbior w Polsce i dalsze przygotowanie do pochowku albo przekazania do innego zakladu.',
+          pl: 'Koordynujemy trasę, odbiór w Polsce i dalsze przygotowanie do pochówku albo przekazania do innego zakładu.',
           en: 'We coordinate the route, reception in Poland and the next step toward burial preparation or transfer to another funeral home.',
           de: 'Wir koordinieren die Route, die Ubernahme in Polen und den nachsten Schritt zur Bestattungsvorbereitung oder zur Ubergabe an ein anderes Bestattungsunternehmen.',
           fr: 'Nous coordonnons l itineraire, la prise en charge en Pologne et l etape suivante vers la preparation des obseques ou la remise a un autre operateur.',
@@ -371,7 +371,7 @@ function getProcedureSteps(page: ResolvedIntlPage) {
         it: 'Confermiamo il luogo di ritiro',
       }),
       description: text(locale, {
-        pl: 'Ustalamy szpital, prosektorium, dom pogrzebowy albo inna placowke i przejmujemy pierwszy kontakt.',
+        pl: 'Ustalamy szpital, prosektorium, dom pogrzebowy albo inna placówkę i przejmujemy pierwszy kontakt.',
         en: 'We establish the hospital, mortuary, funeral home or another facility and take over the first contact.',
         de: 'Wir klaren Krankenhaus, Leichenhalle, Bestattungsinstitut oder eine andere Einrichtung und ubernehmen den ersten Kontakt.',
         fr: 'Nous identifions l hopital, la morgue, l operateur funeraire ou une autre structure et nous prenons le premier contact.',
@@ -389,7 +389,7 @@ function getProcedureSteps(page: ResolvedIntlPage) {
         it: 'Verifichiamo i documenti',
       }),
       description: text(locale, {
-        pl: 'Pomagamy ustalic, co jest juz gotowe i co trzeba jeszcze uzyskac przed przewozem do Polski.',
+        pl: 'Pomagamy ustalić, co jest już gotowe i co trzeba jeszcze uzyskać przed przewozem do Polski.',
         en: 'We help determine what is ready and what still needs to be obtained before transport to Poland.',
         de: 'Wir helfen zu bestimmen, was bereits vorliegt und was vor dem Transport nach Polen noch fehlt.',
         fr: 'Nous aidons a determiner ce qui est pret et ce qu il faut encore obtenir avant le transport vers la Pologne.',
@@ -399,7 +399,7 @@ function getProcedureSteps(page: ResolvedIntlPage) {
     },
     {
       title: text(locale, {
-        pl: 'Organizujemy przewoz do Polski',
+        pl: 'Organizujemy przewóz do Polski',
         en: 'We organise the transfer to Poland',
         de: 'Wir organisieren die Uberfuhrung nach Polen',
         fr: 'Nous organisons le transport vers la Pologne',
@@ -407,7 +407,7 @@ function getProcedureSteps(page: ResolvedIntlPage) {
         it: 'Organizziamo il trasferimento verso la Polonia',
       }),
       description: text(locale, {
-        pl: 'Koordynujemy droge lub lot, przekazanie w Polsce i dalsze kroki do przygotowania pochowku.',
+        pl: 'Koordynujemy drogę lub lot, przekazanie w Polsce i dalsze kroki do przygotowania pochówku.',
         en: 'We coordinate road or air transport, handover in Poland and the next steps through to funeral preparation.',
         de: 'Wir koordinieren Strasse oder Flug, die Ubergabe in Polen und die weiteren Schritte bis zur Bestattungsvorbereitung.',
         fr: 'Nous coordonnons la route ou l avion, la remise en Pologne et les etapes suivantes jusqu a la preparation des obseques.',
@@ -444,15 +444,15 @@ function getTransportModes(page: ResolvedIntlPage) {
         description:
           mode === 'road'
             ? text(locale, {
-                pl: 'W wielu trasach europejskich jest to rozwiazanie sprawne, przewidywalne i pozwalajace utrzymac ciaglosc organizacji po obu stronach granicy.',
+                pl: 'W wielu trasach europejskich jest to rozwiązanie sprawne, przewidywalne i pozwalające utrzymać ciągłość organizacji po obu stronach granicy.',
                 en: 'On many European routes this is an efficient and predictable option that supports smooth coordination on both sides of the border.',
-                de: 'Auf vielen europaischen Routen ist dies eine effiziente und gut planbare Losung, ktora eine ruhige Abstimmung auf beiden Seiten der Grenze ermoglicht.',
+                de: 'Auf vielen europaischen Routen ist dies eine effiziente und gut planbare Losung, die eine ruhige Abstimmung auf beiden Seiten der Grenze ermoglicht.',
                 fr: 'Sur de nombreux itineraires europeens, c est une solution efficace et previsible qui permet une coordination fluide des deux cotes de la frontiere.',
                 nl: 'Op veel Europese routes is dit een efficiente en voorspelbare oplossing die een soepele coordinatie aan beide kanten van de grens ondersteunt.',
                 it: 'Su molte rotte europee e una soluzione efficiente e prevedibile che consente un coordinamento fluido su entrambi i lati della frontiera.',
               })
             : text(locale, {
-                pl: 'Rozwazamy go wtedy, gdy wymaga tego odleglosc, czas, logistyka kraju albo decyzje placowki i przewoznika.',
+                pl: 'Rozważamy go wtedy, gdy wymaga tego odległość, czas, logistyka kraju albo decyzje placówki i przewoźnika.',
                 en: 'We consider it when distance, timing, local logistics or carrier requirements make it the better option.',
                 de: 'Wir ziehen ihn in Betracht, wenn Entfernung, Zeit, lokale Logistik oder Vorgaben des Beforderers dafur sprechen.',
                 fr: 'Nous le considerons lorsque la distance, les delais, la logistique locale ou les contraintes du transporteur le justifient.',
@@ -468,7 +468,7 @@ function getCoverage(page: ResolvedIntlPage) {
   if (page.kind === 'country') {
     return {
       title: text(locale, {
-        pl: 'Najczesciej obslugiwane miasta w tym kraju',
+        pl: 'Najczęściej obsługiwane miasta w tym kraju',
         en: 'Most frequently handled cities in this country',
         de: 'Am haufigsten betreute Stadte in diesem Land',
         fr: 'Villes les plus souvent prises en charge dans ce pays',
@@ -476,7 +476,7 @@ function getCoverage(page: ResolvedIntlPage) {
         it: 'Citta gestite piu spesso in questo Paese',
       }),
       description: text(locale, {
-        pl: 'Te kierunki sa dla rodzin najczesciej punktem wyjscia do transportu do Polski. Kazda trasa ma wlasna logike odbioru i dokumentow.',
+        pl: 'Te kierunki są dla rodzin najczęściej punktem wyjścia do transportu do Polski. Każda trasa ma własną logike odbioru i dokumentów.',
         en: 'These directions are the most common starting points for transport to Poland. Each route has its own pickup and document logic.',
         de: 'Diese Orte sind fur Familien die haufigsten Ausgangspunkte fur eine Uberfuhrung nach Polen. Jede Route hat ihre eigene Logik bei Abholung und Unterlagen.',
         fr: 'Ces villes sont les points de depart les plus frequents pour un transport vers la Pologne. Chaque itineraire a sa propre logique de prise en charge et de documents.',
@@ -500,7 +500,7 @@ function getCoverage(page: ResolvedIntlPage) {
         it: 'Cosa prendiamo abitualmente in carico su questa rotta',
       }),
       description: text(locale, {
-        pl: 'Zakres moze sie roznic w zaleznosci od placowki i dokumentow, ale rodzina od razu wie, za co odpowiadamy po naszej stronie.',
+        pl: 'Zakres może się różnić w zależności od placówki i dokumentów, ale rodzina od razu wie, za co odpowiadamy po naszej stronie.',
         en: 'The exact scope can vary by facility and paperwork, but the family can immediately see what we take care of on our side.',
         de: 'Der genaue Umfang kann je nach Einrichtung und Unterlagen variieren, aber die Familie sieht sofort, was wir auf unserer Seite ubernehmen.',
         fr: 'L etendue exacte peut varier selon la structure et les documents, mais la famille voit immediatement ce que nous prenons en charge.',
@@ -508,8 +508,8 @@ function getCoverage(page: ResolvedIntlPage) {
         it: 'La portata esatta puo variare in base alla struttura e ai documenti, ma la famiglia vede subito di cosa ci occupiamo noi.',
       }),
       items: [
-        text(locale, { pl: 'Pierwszy kontakt z placowka', en: 'First contact with the facility', de: 'Erster Kontakt mit der Einrichtung', fr: 'Premier contact avec la structure', nl: 'Eerste contact met de instelling', it: 'Primo contatto con la struttura' }),
-        text(locale, { pl: 'Weryfikacja dokumentow', en: 'Document review', de: 'Prufung der Unterlagen', fr: 'Verification des documents', nl: 'Controle van de documenten', it: 'Verifica dei documenti' }),
+        text(locale, { pl: 'Pierwszy kontakt z placówka', en: 'First contact with the facility', de: 'Erster Kontakt mit der Einrichtung', fr: 'Premier contact avec la structure', nl: 'Eerste contact met de instelling', it: 'Primo contatto con la struttura' }),
+        text(locale, { pl: 'Weryfikacja dokumentów', en: 'Document review', de: 'Prufung der Unterlagen', fr: 'Verification des documents', nl: 'Controle van de documenten', it: 'Verifica dei documenti' }),
         text(locale, { pl: 'Koordynacja przewozu do Polski', en: 'Coordination of transport to Poland', de: 'Koordination der Uberfuhrung nach Polen', fr: 'Coordination du transport vers la Pologne', nl: 'Coordinatie van vervoer naar Polen', it: 'Coordinamento del trasporto verso la Polonia' }),
         text(locale, { pl: 'Przekazanie po stronie polskiej', en: 'Handover in Poland', de: 'Ubergabe in Polen', fr: 'Remise en Pologne', nl: 'Overdracht in Polen', it: 'Presa in carico in Polonia' }),
       ],
@@ -588,7 +588,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: pageDescription(page),
     path: getPagePath(page, locale),
   })
-  if (locale !== 'pl') return { ...base, robots: { index: false, follow: false } }
+  if (locale !== 'pl') return { ...base, robots: { index: false, follow: true } }
+  // /pl/miasta/<city> duplicates /pl/trasy/transport-zwlok-z-<city>-do-polski (same title/intent): keep the route page indexable.
+  if (page.kind === 'city') return { ...base, robots: { index: false, follow: true } }
   return base
 }
 
@@ -610,7 +612,8 @@ export default async function InternationalDynamicPage({ params }: { params: Pro
   const manualCopy = getManualCopy(page)
   const overview = pageOverview(page)
   const visibleTitle = manualCopy?.hero.headline ?? displayTitle(page)
-  const overviewBullets = manualCopy?.hero.bodyOutline ?? getOverviewBullets(page)
+  // manualCopy.hero.bodyOutline holds unfinished writer briefs ("Podkreśl…", "Dodaj…"), never render them.
+  const overviewBullets = getOverviewBullets(page)
   const procedureSteps = getProcedureSteps(page)
   const transportModes = getTransportModes(page)
   const coverage = getCoverage(page)
@@ -654,7 +657,7 @@ export default async function InternationalDynamicPage({ params }: { params: Pro
             it: `${RATING.ratingValue}/5 su ${RATING.reviewCount} recensioni Google`,
           }),
           text(locale, {
-            pl: 'Bez zaliczki i bez kosztow z gory dla rodziny',
+            pl: 'Bez zaliczki i bez kosztów z góry dla rodziny',
             en: 'No upfront family payment',
             de: 'Keine Vorauszahlung fur die Familie',
             fr: 'Sans paiement initial pour la famille',
@@ -699,8 +702,8 @@ export default async function InternationalDynamicPage({ params }: { params: Pro
           </div>
         </div>
         <EmergencyContactRail
-          title={text(locale, { pl: 'Szybki kontakt miedzynarodowy', en: 'Quick international contact', de: 'Schneller internationaler Kontakt', fr: 'Contact international rapide', nl: 'Snel internationaal contact', it: 'Contatto internazionale rapido' })}
-          summary={text(locale, { pl: 'Osobna sciezka dla rodzin potrzebujacych spokojnej i pilnej pomocy z zagranicy.', en: 'A dedicated path for families who need calm and urgent help from abroad.', de: 'Ein eigener Weg fur Familien, die ruhige und dringende Hilfe aus dem Ausland brauchen.', fr: 'Un parcours dedie aux familles qui ont besoin d une aide urgente et rassurante depuis l etranger.', nl: 'Een apart pad voor families die vanuit het buitenland rustige en urgente hulp nodig hebben.', it: 'Un percorso dedicato alle famiglie che hanno bisogno di aiuto urgente e rassicurante dall estero.' })}
+          title={text(locale, { pl: 'Szybki kontakt międzynarodowy', en: 'Quick international contact', de: 'Schneller internationaler Kontakt', fr: 'Contact international rapide', nl: 'Snel internationaal contact', it: 'Contatto internazionale rapido' })}
+          summary={text(locale, { pl: 'Osobna ścieżka dla rodzin potrzebujących spokojnej i pilnej pomocy z zagranicy.', en: 'A dedicated path for families who need calm and urgent help from abroad.', de: 'Ein eigener Weg fur Familien, die ruhige und dringende Hilfe aus dem Ausland brauchen.', fr: 'Un parcours dedie aux familles qui ont besoin d une aide urgente et rassurante depuis l etranger.', nl: 'Een apart pad voor families die vanuit het buitenland rustige en urgente hulp nodig hebben.', it: 'Un percorso dedicato alle famiglie che hanno bisogno di aiuto urgente e rassicurante dall estero.' })}
           locale={locale}
           pageType={pType}
           routeSlug={routeSlug}
@@ -710,16 +713,16 @@ export default async function InternationalDynamicPage({ params }: { params: Pro
       </section>
 
       <TrustSection
-        title={text(locale, { pl: 'Najwazniejsze filary zaufania', en: 'Core trust pillars', de: 'Wichtigste Vertrauenssignale', fr: 'Principaux elements de confiance', nl: 'Belangrijkste vertrouwenspunten', it: 'Principali elementi di fiducia' })}
+        title={text(locale, { pl: 'Najważniejsze filary zaufania', en: 'Core trust pillars', de: 'Wichtigste Vertrauenssignale', fr: 'Principaux elements de confiance', nl: 'Belangrijkste vertrouwenspunten', it: 'Principali elementi di fiducia' })}
         items={[
-          { title: text(locale, { pl: 'Rodzinna firma z doswiadczeniem', en: 'Experienced family business', de: 'Erfahrenes Familienunternehmen', fr: 'Entreprise familiale experimentee', nl: 'Ervaren familiebedrijf', it: 'Impresa familiare con esperienza' }), description: text(locale, { pl: 'Ponad 30 lat rodzinnego doswiadczenia i spokojnego prowadzenia rodzin w trudnym czasie.', en: 'Over 30 years of family business experience and calm guidance in difficult moments.', de: 'Uber 30 Jahre Familienerfahrung und ruhige Begleitung in einer schwierigen Zeit.', fr: 'Plus de 30 ans d experience familiale et un accompagnement calme dans un moment difficile.', nl: 'Meer dan 30 jaar familie-ervaring en rustige begeleiding in een moeilijke periode.', it: 'Oltre 30 anni di esperienza familiare e accompagnamento sereno in un momento difficile.' }) },
-          { title: text(locale, { pl: 'Bez zaliczki', en: 'No upfront payment', de: 'Ohne Vorauszahlung', fr: 'Sans paiement initial', nl: 'Zonder vooruitbetaling', it: 'Senza anticipo' }), description: text(locale, { pl: 'Wyjasniamy mozliwosci rozliczenia bez kosztow z gory i pomagamy rodzinie dzialac od razu.', en: 'We explain no-upfront-payment options so the family can act immediately.', de: 'Wir erklaren Moglichkeiten ohne Vorauszahlung, damit die Familie sofort handeln kann.', fr: 'Nous expliquons les options sans paiement initial pour que la famille puisse agir tout de suite.', nl: 'Wij leggen mogelijkheden zonder vooruitbetaling uit zodat de familie direct kan handelen.', it: 'Spieghiamo le opzioni senza anticipo per permettere alla famiglia di agire subito.' }) },
-          { title: text(locale, { pl: 'Dostepnosc 24/7', en: '24/7 availability', de: '24/7 Erreichbarkeit', fr: 'Disponibilite 24/7', nl: '24/7 beschikbaarheid', it: 'Disponibilita 24/7' }), description: text(locale, { pl: 'Telefon, WhatsApp i szybka reakcja non stop dla przypadkow pilnych.', en: 'Phone, WhatsApp and non-stop response for urgent cases.', de: 'Telefon, WhatsApp und schnelle Reaktion rund um die Uhr fur dringende Falle.', fr: 'Telephone, WhatsApp et reaction continue pour les situations urgentes.', nl: 'Telefoon, WhatsApp en continue reactie voor spoedgevallen.', it: 'Telefono, WhatsApp e risposta continua per i casi urgenti.' }) },
+          { title: text(locale, { pl: 'Rodzinna firma z doświadczeniem', en: 'Experienced family business', de: 'Erfahrenes Familienunternehmen', fr: 'Entreprise familiale experimentee', nl: 'Ervaren familiebedrijf', it: 'Impresa familiare con esperienza' }), description: text(locale, { pl: 'Ponad 30 lat rodzinnego doświadczenia i spokojnego prowadzenia rodzin w trudnym czasie.', en: 'Over 30 years of family business experience and calm guidance in difficult moments.', de: 'Uber 30 Jahre Familienerfahrung und ruhige Begleitung in einer schwierigen Zeit.', fr: 'Plus de 30 ans d experience familiale et un accompagnement calme dans un moment difficile.', nl: 'Meer dan 30 jaar familie-ervaring en rustige begeleiding in een moeilijke periode.', it: 'Oltre 30 anni di esperienza familiare e accompagnamento sereno in un momento difficile.' }) },
+          { title: text(locale, { pl: 'Bez zaliczki', en: 'No upfront payment', de: 'Ohne Vorauszahlung', fr: 'Sans paiement initial', nl: 'Zonder vooruitbetaling', it: 'Senza anticipo' }), description: text(locale, { pl: 'Wyjaśniamy możliwości rozliczenia bez kosztów z góry i pomagamy rodzinie działać od razu.', en: 'We explain no-upfront-payment options so the family can act immediately.', de: 'Wir erklaren Moglichkeiten ohne Vorauszahlung, damit die Familie sofort handeln kann.', fr: 'Nous expliquons les options sans paiement initial pour que la famille puisse agir tout de suite.', nl: 'Wij leggen mogelijkheden zonder vooruitbetaling uit zodat de familie direct kan handelen.', it: 'Spieghiamo le opzioni senza anticipo per permettere alla famiglia di agire subito.' }) },
+          { title: text(locale, { pl: 'Dostępność 24/7', en: '24/7 availability', de: '24/7 Erreichbarkeit', fr: 'Disponibilite 24/7', nl: '24/7 beschikbaarheid', it: 'Disponibilita 24/7' }), description: text(locale, { pl: 'Telefon, WhatsApp i szybka reakcja non stop dla przypadków pilnych.', en: 'Phone, WhatsApp and non-stop response for urgent cases.', de: 'Telefon, WhatsApp und schnelle Reaktion rund um die Uhr fur dringende Falle.', fr: 'Telephone, WhatsApp et reaction continue pour les situations urgentes.', nl: 'Telefoon, WhatsApp en continue reactie voor spoedgevallen.', it: 'Telefono, WhatsApp e risposta continua per i casi urgenti.' }) },
         ]}
       />
 
       <ProcedureSteps
-        title={text(locale, { pl: 'Jak wyglada organizacja krok po kroku', en: 'How the process works step by step', de: 'Wie der Ablauf Schritt fur Schritt aussieht', fr: 'Comment l organisation se deroule pas a pas', nl: 'Hoe het proces stap voor stap verloopt', it: 'Come si svolge il processo passo dopo passo' })}
+        title={text(locale, { pl: 'Jak wygląda organizacja krok po kroku', en: 'How the process works step by step', de: 'Wie der Ablauf Schritt fur Schritt aussieht', fr: 'Comment l organisation se deroule pas a pas', nl: 'Hoe het proces stap voor stap verloopt', it: 'Come si svolge il processo passo dopo passo' })}
         locale={locale}
         steps={procedureSteps}
       />
@@ -738,10 +741,10 @@ export default async function InternationalDynamicPage({ params }: { params: Pro
         />
       ) : null}
 
-      <DocumentsChecklist title={text(locale, { pl: 'Najczesciej potrzebne dokumenty', en: 'Most common documents', de: 'Am haufigsten benotigte Unterlagen', fr: 'Documents le plus souvent necessaires', nl: 'Meest gevraagde documenten', it: 'Documenti richiesti piu spesso' })} items={docs.map((item) => ({ title: item.labelPerLocale[locale], note: item.notePerLocale[locale] }))} />
+      <DocumentsChecklist title={text(locale, { pl: 'Najczęściej potrzebne dokumenty', en: 'Most common documents', de: 'Am haufigsten benotigte Unterlagen', fr: 'Documents le plus souvent necessaires', nl: 'Meest gevraagde documenten', it: 'Documenti richiesti piu spesso' })} items={docs.map((item) => ({ title: item.labelPerLocale[locale], note: item.notePerLocale[locale] }))} />
       {coverage ? <RouteCoverageSection title={coverage.title} description={coverage.description} items={coverage.items} /> : null}
       <FAQSection title={page.kind === 'route' ? text(locale, { pl: `FAQ dla trasy ${page.city.namesPerLocale.pl} -> Polska`, en: `FAQ for the ${page.city.namesPerLocale.en} -> Poland route`, de: `FAQ fur die Route ${page.city.namesPerLocale.de} -> Polen`, fr: `FAQ pour l itineraire ${page.city.namesPerLocale.fr} -> Pologne`, nl: `FAQ voor de route ${page.city.namesPerLocale.nl} -> Polen`, it: `FAQ per la tratta ${page.city.namesPerLocale.it} -> Polonia` }) : localeInfo[locale].nav.faq} entries={faqEntries} locale={locale} />
-      <RelatedRoutes title={page.kind === 'country' ? text(locale, { pl: 'Najwazniejsze miasta i trasy', en: 'Key cities and routes', de: 'Wichtige Stadte und Routen', fr: 'Villes et itineraires prioritaires', nl: 'Belangrijkste steden en routes', it: 'Citta e rotte principali' }) : text(locale, { pl: 'Powiazane strony', en: 'Related pages', de: 'Verwandte Seiten', fr: 'Pages associees', nl: 'Gerelateerde paginas', it: 'Pagine correlate' })} links={links} locale={locale} />
+      <RelatedRoutes title={page.kind === 'country' ? text(locale, { pl: 'Najważniejsze miasta i trasy', en: 'Key cities and routes', de: 'Wichtige Stadte und Routen', fr: 'Villes et itineraires prioritaires', nl: 'Belangrijkste steden en routes', it: 'Citta e rotte principali' }) : text(locale, { pl: 'Powiązane strony', en: 'Related pages', de: 'Verwandte Seiten', fr: 'Pages associees', nl: 'Gerelateerde paginas', it: 'Pagine correlate' })} links={links} locale={locale} />
       <InternationalContactBox title={phone.labelPerLocale[locale]} description={description} channels={internationalContactChannels} locale={locale} />
 
       <StickyContactBar

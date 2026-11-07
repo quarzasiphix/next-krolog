@@ -228,7 +228,7 @@ export default function PogrzebBezZaliczkiPage() {
                     <div>
                       <h3 className="text-xl font-medium text-white mb-2">Zasiłek Pogrzebowy</h3>
                       <p className="text-gray-300 mb-3">
-                        Zasiłek pogrzebowy z ZUS/KRUS wynosi 4000 zł. To kwota, którą państwo wypłaca na pokrycie 
+                        Zasiłek pogrzebowy z ZUS/KRUS wynosi 7000 zł. To kwota, którą państwo wypłaca na pokrycie 
                         kosztów pogrzebu osoby ubezpieczonej.
                       </p>
                       <p className="text-sm text-gray-400">

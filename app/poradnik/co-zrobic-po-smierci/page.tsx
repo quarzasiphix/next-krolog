@@ -107,7 +107,7 @@ export default function CoZrobicPoSmierciPage() {
       icon: FileText,
       description: 'Pomoc w uzyskaniu zasiłku pogrzebowego - rozliczenie bezpośrednio z ZUS.',
       details: [
-        'Zasiłek wynosi 4000 zł',
+        'Zasiłek wynosi 7000 zł',
         'Pomożemy w kompletowaniu dokumentów',
         'Możliwość rozliczenia bezpośrednio z ZUS - bez kosztów z góry',
         'Wniosek można złożyć w ciągu 12 miesięcy',

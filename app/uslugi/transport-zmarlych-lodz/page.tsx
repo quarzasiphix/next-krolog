@@ -2,275 +2,169 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import ServiceLayout from '@/components/ServiceLayout'
 import type { FAQItem } from '@/components/structured-data/FAQSchema'
-import { IMAGES } from '@/assets/images'
 import { Card, CardContent } from '@/components/ui/card'
-import { CheckCircle, MapPin, Clock, Globe, AlertTriangle, Plane, Building2, Star, Truck } from 'lucide-react'
-import { buildLocalMetadata, buildMetaDescription } from '@/lib/local-seo'
+import { Phone, Clock, MapPin, ShieldCheck } from 'lucide-react'
+import { generateCanonicalMetadata } from '@/lib/canonical'
 
-const transportServices = [
-  'Transport zmarłych z miejsca zgonu do kostnicy lub chłodni',
-  'Przewóz na terenie Łodzi i całego kraju specjalistycznymi karawanami',
-  'Pełna obsługa ceremonii, przewóz na mszę oraz na cmentarz',
-  'Transport do krematorium i odbiór urny po kremacji',
-  'Koordynacja formalności i dokumentów transportowych',
+const firstHours = [
+  'Odbieramy telefon o każdej porze — w nocy, w weekend i w święta.',
+  'Przyjeżdżamy pod wskazany adres: dom, szpital, hospicjum, dom opieki lub miejsce zdarzenia.',
+  'Zabezpieczamy i przewozimy ciało osoby zmarłej do chłodni z zachowaniem godności i przepisów sanitarnych.',
+  'Doradzamy, jakie dokumenty przygotować i jakie są kolejne kroki — bez presji i bez zaliczki.',
 ]
 
-const infoBoxes = [
-  {
-    icon: MapPin,
-    title: 'Transport lokalny',
-    description:
-      'Zapewniamy szybki i godny transport na terenie Łodzi i województwa łódzkiego, z zachowaniem wszystkich procedur sanitarnych.',
-  },
+const scope = [
   {
     icon: Clock,
-    title: 'Dostępność 24/7',
+    title: 'Przewóz 24 godziny na dobę',
     description:
-      'Nasze zespoły dyżurują przez całą dobę. Reagujemy natychmiast po otrzymaniu zgłoszenia, niezależnie od dnia tygodnia.',
+      'Całodobowy przewóz zwłok w Łodzi i okolicach. Karawan wyjeżdża zaraz po zgłoszeniu, również w nocy i w dni wolne.',
   },
   {
-    icon: Globe,
-    title: 'Transport międzynarodowy',
+    icon: MapPin,
+    title: 'Z domu, szpitala i z innego miasta',
     description:
-      'Organizujemy przewóz zmarłych z zagranicy i za granicę, przygotowując wszystkie konieczne pozwolenia oraz dokumenty konsularne.',
+      'Przewozimy ciało z mieszkania, placówki medycznej, a także z innych miejscowości do Łodzi. Organizujemy też transport międzynarodowy.',
   },
-]
-
-const internationalDocuments = [
-  'Akt zgonu w języku polskim i tłumaczeniu przysięgłym',
-  'Zaświadczenie lekarskie wykluczające choroby zakaźne',
-  'Zezwolenie konsularne lub ambasady, gdy wymagają tego przepisy',
-  'Dokument potwierdzający balsamację, jeśli jest konieczna',
-]
-
-const internationalSupport = [
-  'Specjalistyczne trumny transportowe zgodne z wymogami sanitarnymi',
-  'Pomoc w uzyskaniu wszystkich pozwoleń i tłumaczeń dokumentów',
-  'Koordynacja transportu lotniczego lub lądowego do wybranego kraju',
-  'Opieka koordynatora, który monitoruje transport na każdym etapie',
-  'Informowanie rodziny o postępie transportu i przewidywanym terminie pochówku',
-]
-
-const priorityMarkets = [
-  'Wielka Brytania i Irlandia',
-  'Niemcy, Holandia, Belgia i Luksemburg',
-  'Francja, Szwajcaria i Austria',
-  'Norwegia, Szwecja i Dania',
-  'Włochy i Hiszpania',
-  'Kraje spoza Unii Europejskiej',
+  {
+    icon: ShieldCheck,
+    title: 'Zgodnie z przepisami',
+    description:
+      'Pojazd jest przystosowany do przewozu zwłok i posiada wymagane pozwolenia. Pracownicy działają z taktem i dyskrecją.',
+  },
 ]
 
 const faqData: FAQItem[] = [
   {
-    question: 'Czy transport zmarłych w Łodzi jest dostępny całodobowo?',
+    question: 'Czy przewóz zwłok w Łodzi jest całodobowy?',
     answer:
-      'Tak. Transport zmarłych realizujemy 24/7 na terenie Łodzi i okolic, również w nocy, weekendy i święta.',
+      'Tak. Przewóz zwłok realizujemy 24 godziny na dobę, 7 dni w tygodniu, także w nocy oraz w niedziele i święta. Wystarczy jeden telefon pod numer +48 602 274 661.',
   },
   {
-    question: 'Czy organizujecie transport zmarłych z zagranicy?',
+    question: 'Ile kosztuje całodobowy przewóz zwłok i czy trzeba płacić od razu?',
     answer:
-      'Tak. Organizujemy transport międzynarodowy, pomagamy z dokumentami konsularnymi i koordynujemy cały proces do miejsca pochówku.',
+      'Koszt zależy od odległości i pory. Przewozu nie trzeba opłacać z góry — całość rozliczamy razem z organizacją pogrzebu, z zasiłku pogrzebowego ZUS lub KRUS.',
   },
   {
-    question: 'Czy macie własny pojazd do transportu?',
+    question: 'Skąd możecie przewieźć ciało osoby zmarłej?',
     answer:
-      'Tak. Dysponujemy specjalistycznym busem do transportu zmarłych, dzięki czemu możemy sprawnie realizować przewozy drogowe w Polsce i Europie.',
+      'Z domu, szpitala, hospicjum, domu opieki, a także z miejsca zdarzenia po zwolnieniu przez odpowiednie służby. Przewozimy również z innych miast do Łodzi oraz z zagranicy.',
+  },
+  {
+    question: 'Ile kosztuje przewóz zwłok w Łodzi?',
+    answer:
+      'Cena zależy od miejsca odbioru, odległości i pory. Na terenie Łodzi przewóz zwykle jest częścią kompleksowej organizacji pogrzebu – podajemy koszt przy pierwszym telefonie, a całość rozliczamy z zasiłku pogrzebowego, bez płatności z góry.',
+  },
+  {
+    question: 'Czy przewozicie zmarłych z innego miasta lub z zagranicy do Łodzi?',
+    answer:
+      'Tak. Przewozimy zmarłych z innych miejscowości w Polsce do Łodzi oraz organizujemy sprowadzenie zwłok z zagranicy (m.in. z Niemiec, Wielkiej Brytanii, Holandii i Norwegii) – z kompletem dokumentów.',
+  },
+  {
+    question: 'Co robić bezpośrednio po śmierci bliskiej osoby w domu?',
+    answer:
+      'Wezwij lekarza w celu stwierdzenia zgonu i wystawienia karty zgonu, a następnie zadzwoń do nas. Zajmiemy się przewozem ciała do chłodni i przeprowadzimy Cię przez dalsze formalności.',
   },
 ]
 
-export const metadata: Metadata = buildLocalMetadata({
-  title: 'Transport Zmarłych Łódź',
-  path: '/uslugi/transport-zmarlych-lodz',
-  description: buildMetaDescription([
-    'Całodobowy transport zmarłych w Łodzi i na terenie kraju',
-    'własny specjalistyczny bus, pomoc formalna i szybka organizacja 24/7',
-    'obsługa także dla transportu międzynarodowego i sprowadzenia do Polski',
-  ]),
+export const metadata: Metadata = {
+  title: {
+    absolute: 'Przewóz Zwłok Łódź 24h – Całodobowy Transport Zmarłych | Nekrolog Łódź',
+  },
+  description:
+    'Przewóz zwłok w Łodzi 24h – transport zmarłych z domu, szpitala i z innego miasta. Przyjazd zaraz po zgłoszeniu, bez zaliczki. Tel: +48 602 274 661.',
   keywords: [
-    'transport zmarłych łódź',
     'przewóz zwłok łódź',
-    'karawan łódź',
-    'transport międzynarodowy zmarłych',
-    'transport zmarłych z zagranicy do polski',
-    'transport zwłok niemcy polska',
-    'transport zwłok uk polska',
+    'transport zmarłych łódź',
+    'przewóz zmarłych łódź',
+    'przewóz osoby zmarłej łódź',
+    'całodobowy przewóz zwłok łódź',
+    'całodobowy transport zmarłych łódź',
+    'przewóz zwłok łódź 24h',
+    'transport zmarłych łódź całodobowo',
+    'przewóz ciała zmarłego łódź',
+    'karawan łódź całodobowo',
   ],
-})
+  ...generateCanonicalMetadata('/uslugi/transport-zmarlych-lodz'),
+}
 
 export default function TransportZmarlychPage() {
   return (
     <ServiceLayout
-      title="Transport Zmarłych"
-      description="Zapewniamy całodobowy, profesjonalny transport zmarłych na terenie kraju oraz międzynarodowo."
-      backgroundImage={IMAGES.subpages.transport}
+      title="Przewóz zwłok Łódź – całodobowy transport zmarłych"
+      description="Transport zmarłych 24 godziny na dobę – z domu, szpitala i z innego miasta. Przyjeżdżamy zaraz po zgłoszeniu, bez kosztów z góry."
       faqItems={faqData}
     >
       <div className="space-y-12">
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div className="space-y-6">
             <h2 className="text-2xl sm:text-3xl font-playfair font-medium text-white">
-              Kompleksowa usługa transportu zmarłych
+              Jeden telefon o każdej porze
             </h2>
             <div className="prose prose-lg prose-invert max-w-none space-y-4">
               <p>
-                Zakład Pogrzebowy Nekrolog Łódź dysponuje specjalistycznym transportem oraz doświadczonym personelem,
-                który zapewnia godny przewóz ciała na każdym etapie, od miejsca zgonu po miejsce pochówku lub kremację.
-                Działamy całodobowo, by rodzina otrzymała pomoc w chwili, gdy jest ona najbardziej potrzebna.
+                Śmierć bliskiej osoby często następuje w nocy albo w dzień wolny. Zakład Pogrzebowy Nekrolog Łódź –
+                Jolanta Kostowska prowadzi <strong>całodobowy przewóz zwłok</strong> w Łodzi i okolicach. Po
+                telefonie karawan wyjeżdża bez zwłoki, o dowolnej porze.
               </p>
               <p>
-                Obsługujemy transport miejscowy, krajowy oraz międzynarodowy, dbając o bezpieczeństwo, dyskrecję i pełną
-                zgodność z obowiązującymi przepisami sanitarnymi. W imieniu rodziny zajmujemy się także formalnościami oraz logistyką.
+                Przewóz zwłok to zwykle pierwsza czynność po stwierdzeniu zgonu. Zajmujemy się nią z pełnym
+                szacunkiem, a rodzinę od razu informujemy, co dalej — jakie dokumenty przygotować i jak wygląda
+                organizacja pogrzebu bez zaliczki.
               </p>
             </div>
-
             <ul className="space-y-3">
-              {transportServices.map((service) => (
-                <li key={service} className="flex items-start gap-3 text-gray-300">
-                  <CheckCircle className="h-5 w-5 text-primary mt-1" />
-                  <span>{service}</span>
+              {firstHours.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-gray-300">
+                  <Clock className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>
+            <a
+              href="tel:+48602274661"
+              data-phone-location="transport_first_hours"
+              className="inline-flex items-center gap-2 bg-primary text-black px-8 py-4 rounded-md font-medium text-lg hover:bg-primary/90 transition"
+            >
+              <Phone className="w-5 h-5" />
+              Zadzwoń: +48 602 274 661
+            </a>
           </div>
 
           <div className="space-y-6">
-            {infoBoxes.map((box) => (
-              <Card key={box.title} className="bg-black/30 border border-white/10">
+            {scope.map((item) => (
+              <Card key={item.title} className="bg-black/30 border border-white/10">
                 <CardContent className="p-6 space-y-3">
                   <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
-                    <box.icon className="w-6 h-6 text-primary" />
+                    <item.icon className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-playfair font-medium text-white">{box.title}</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed">{box.description}</p>
+                  <h3 className="text-xl font-playfair font-medium text-white">{item.title}</h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">{item.description}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
         </section>
 
-        <section className="glass-card p-8 rounded-xl space-y-6">
-          <h3 className="text-2xl font-playfair text-white text-center">Transport międzynarodowy - ważne informacje</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h4 className="text-xl font-medium text-white mb-4">Niezbędne dokumenty</h4>
-              <ul className="space-y-3">
-                {internationalDocuments.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-gray-300">
-                    <CheckCircle className="h-5 w-5 text-primary mt-1" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-xl font-medium text-white mb-4">Wsparcie ze strony Nekrolog Łódź</h4>
-              <ul className="space-y-3">
-                {internationalSupport.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-gray-300">
-                    <CheckCircle className="h-5 w-5 text-primary mt-1" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-                <li className="flex items-start gap-3 text-gray-300">
-                  <AlertTriangle className="h-5 w-5 text-primary mt-1" />
-                  <span>Niektóre kraje wymagają dodatkowych zezwoleń, pomagamy w ich uzyskaniu oraz przeprowadzamy rodzinę przez procedury.</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section className="grid gap-6 md:grid-cols-4">
-          <Card className="bg-black/30 border border-white/10">
-            <CardContent className="p-6 space-y-5">
-              <div className="flex items-center gap-3">
-                <Plane className="h-6 w-6 text-primary" />
-                <h3 className="text-2xl font-playfair text-white">Kierunki zagraniczne</h3>
-              </div>
-              <div className="grid grid-cols-1 gap-3">
-                {priorityMarkets.map((market) => (
-                  <div key={market} className="rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-gray-200">
-                    {market}
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-black/30 border border-white/10">
-            <CardContent className="p-6 space-y-3">
-              <Truck className="h-8 w-8 text-primary" />
-              <h3 className="text-xl font-playfair text-white">Specjalistyczny bus</h3>
-              <p className="text-sm leading-relaxed text-gray-300">
-                Dysponujemy własnym busem do transportu zmarłych, co pozwala nam sprawnie obsługiwać przewozy drogowe
-                z Polski i wielu krajów europejskich.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-black/30 border border-white/10">
-            <CardContent className="p-6 space-y-3">
-              <Building2 className="h-8 w-8 text-primary" />
-              <h3 className="text-xl font-playfair text-white">Obsługa rodzin i partnerów</h3>
-              <p className="text-sm leading-relaxed text-gray-300">
-                Oprócz bezpośredniej obsługi rodzin możemy również pośredniczyć dla innych zakładów pogrzebowych,
-                szpitali i instytucji, które potrzebują sprawnego partnera w Polsce.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-black/30 border border-white/10">
-            <CardContent className="p-6 space-y-3">
-              <Star className="h-8 w-8 text-primary" />
-              <h3 className="text-xl font-playfair text-white">Renoma 5 gwiazdek</h3>
-              <p className="text-sm leading-relaxed text-gray-300">
-                Nekrolog Łódź ma bardzo dobrą renomę i ocenę 5 gwiazdek, co wzmacnia zaufanie rodzin powierzających nam
-                trudne i pilne sprawy transportowe.
-              </p>
-            </CardContent>
-          </Card>
-        </section>
-
-        <section className="rounded-xl border border-primary/20 bg-white/5 p-8">
-          <h3 className="text-2xl font-playfair text-white">Transport i organizacja bez zaliczki</h3>
-          <p className="mt-4 text-gray-300 leading-relaxed">
-            Jeżeli rodzina nie ma środków na start, pomagamy rozpocząć organizację transportu i dalszych usług bez kosztów z góry. Wyjaśniamy, jak wygląda rozliczenie zasiłku pogrzebowego i jakie formalności można powierzyć naszej firmie.
+        <section className="glass-card rounded-xl p-8 space-y-4">
+          <h2 className="text-2xl font-playfair font-medium text-white">Transport zmarłych z innego miasta i z zagranicy</h2>
+          <p className="text-gray-300 leading-relaxed">
+            Gdy zgon nastąpił poza Łodzią, organizujemy przewóz do Łodzi lub do miejsca pochówku w Polsce. Przy
+            śmierci za granicą przejmujemy kontakt z placówką, dokumenty, trumnę transportową i przewóz drogowy
+            lub lotniczy. Dla spraw międzynarodowych działa osobny numer: <a href="tel:+48602270050" data-phone-location="transport_international" className="text-primary underline">+48 602 270 050</a>.
           </p>
-        </section>
-
-        <section className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-          <Card className="bg-black/30 border border-primary/20">
-            <CardContent className="p-6 space-y-5">
-              <div className="flex items-center gap-3">
-                <Globe className="h-6 w-6 text-primary" />
-                <h3 className="text-2xl font-playfair text-white">Transport z całej Europy</h3>
-              </div>
-              <p className="text-gray-300 leading-relaxed">
-                Obsługujemy kierunki najważniejsze dla Polonii i rodzin wracających do kraju, ale również mniej oczywiste
-                państwa, jeśli wymaga tego sytuacja. Każde zlecenie analizujemy indywidualnie pod kątem trasy, formalności i czasu realizacji.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-black/30 border border-primary/20">
-            <CardContent className="p-6 space-y-5">
-              <div className="flex items-center gap-3">
-                <Building2 className="h-6 w-6 text-primary" />
-                <h3 className="text-2xl font-playfair text-white">Obsługa rodzin i partnerów</h3>
-              </div>
-              <p className="text-gray-300 leading-relaxed">
-                Oprócz bezpośredniej obsługi rodzin możemy również pośredniczyć dla innych zakładów pogrzebowych,
-                szpitali i instytucji, które potrzebują sprawnego partnera w Polsce. Przejmujemy ustalenia
-                transportowe, odbiór w kraju i dalszą koordynację.
-              </p>
-              <Link
-                href="/uslugi/sprowadzenie-zwlok-z-zagranicy"
-                className="inline-flex items-center justify-center rounded-md border border-primary/30 bg-primary/10 px-6 py-3 font-medium text-primary transition hover:bg-primary/20"
-              >
-                Zobacz usługę sprowadzenia zwłok z zagranicy
+          <div className="flex flex-wrap gap-3">
+            {[
+              ['Sprowadzenie zwłok z zagranicy', '/uslugi/sprowadzenie-zwlok-z-zagranicy'],
+              ['Międzynarodowy transport zwłok', '/pl/uslugi/miedzynarodowy-transport-zwlok'],
+              ['Przewóz zwłok – koszty i przepisy', '/poradnik/przewoz-zwlok'],
+              ['Pogrzeb w Łodzi – krok po kroku', '/pogrzeb-lodz'],
+            ].map(([label, href]) => (
+              <Link key={href} href={href} className="rounded-md border border-white/10 bg-black/40 px-4 py-2 text-gray-200 hover:border-primary/40 hover:text-white">
+                {label}
               </Link>
-            </CardContent>
-          </Card>
+            ))}
+          </div>
         </section>
       </div>
     </ServiceLayout>

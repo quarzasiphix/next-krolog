@@ -10,6 +10,7 @@ import { PostHogPageView } from '@/components/analytics/PostHogPageView';
 import { PostHogPhoneClick } from '@/components/analytics/PostHogPhoneClick';
 import { PostHogInternationalConversion } from '@/components/analytics/PostHogInternationalConversion';
 import InternationalShell from './international/InternationalShell';
+import MobileCallBar from './MobileCallBar';
 import { getLocaleFromPathname } from '@/lib/international/seo';
 import { localeInfo } from '@/lib/international/content';
 
@@ -50,6 +51,9 @@ const ClientShell = ({ children }: ClientShellProps) => {
       <Breadcrumb />
       <main className="flex-grow">{children}</main>
       <Footer />
+      {/* Spacer so the fixed mobile call bar never covers the footer */}
+      <div className="h-24 md:hidden" aria-hidden />
+      <MobileCallBar />
     </div>
   );
 };

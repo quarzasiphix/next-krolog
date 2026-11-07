@@ -69,11 +69,11 @@ const Footer = () => {
               </li>
               <li className="flex items-start">
                 <Phone className="w-5 h-5 mr-3 text-primary flex-shrink-0 mt-1" />
-                <a href="tel:+48602274661" data-phone-location="footer_primary" className="text-gray-300 hover:text-primary transition-colors">+48 602 274 661 (calodobowo)</a>
+                <a href="tel:+48602274661" data-phone-location="footer_primary" className="text-gray-300 hover:text-primary transition-colors">+48 602 274 661 (całodobowo)</a>
               </li>
               <li className="flex items-start">
                 <Phone className="w-5 h-5 mr-3 text-primary/70 flex-shrink-0 mt-1" />
-                <a href="tel:+48602270050" data-phone-location="footer_international" className="text-gray-300 hover:text-primary transition-colors">+48 602 270 050 (transport miedzynarodowy 24/7)</a>
+                <a href="tel:+48602270050" data-phone-location="footer_international" className="text-gray-300 hover:text-primary transition-colors">+48 602 270 050 (transport międzynarodowy 24/7)</a>
               </li>
               <li className="flex items-start">
                 <Mail className="w-5 h-5 mr-3 text-primary flex-shrink-0 mt-1" />
@@ -145,6 +145,16 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/pogrzeb-lodz" className="inline-block text-gray-300 hover:text-primary transition-colors">
+                  Pogrzeb Łódź – koszty
+                </Link>
+              </li>
+              <li>
+                <Link href="/nekrologi-lodz" className="inline-block text-gray-300 hover:text-primary transition-colors">
+                  Nekrologi Łódź
+                </Link>
+              </li>
+              <li>
                 <Link href="/cmentarze-lodz" className="inline-block text-gray-300 hover:text-primary transition-colors">
                   Cmentarze w Łodzi
                 </Link>
@@ -152,6 +162,11 @@ const Footer = () => {
               <li>
                 <Link href="/cmentarze-lodz/radogoszcz" className="inline-block text-gray-300 hover:text-primary transition-colors">
                   Cmentarz Radogoszcz
+                </Link>
+              </li>
+              <li>
+                <Link href="/obszar-dzialania" className="inline-block text-gray-300 hover:text-primary transition-colors">
+                  Obszar działania
                 </Link>
               </li>
               <li>

@@ -45,8 +45,9 @@ export function buildCanonicalUrl(path = '/') {
   return `${SITE_URL}${prefixed || '/'}`
 }
 
-export function buildSeoTitle(title: string, template = 'Zakład Pogrzebowy Łódź') {
-  return title.includes(template) ? title : `${title} | ${template}`
+// Short brand suffix keeps titles near the ~60-char SERP limit; page titles already carry "Łódź".
+export function buildSeoTitle(title: string, template = 'Nekrolog Łódź') {
+  return title.includes(template) || title.includes('Zakład Pogrzebowy Łódź') ? title : `${title} | ${template}`
 }
 
 export function buildMetaDescription(parts: Array<string | null | undefined>) {
@@ -54,7 +55,16 @@ export function buildMetaDescription(parts: Array<string | null | undefined>) {
     .filter((part): part is string => Boolean(part && part.trim()))
     .map((part) => part.trim().replace(/\.\s*$/, ''))
 
-  return cleaned.length ? `${cleaned.join('. ')}.` : ''
+  // Add parts in priority order while the snippet stays within ~160 chars (SERP truncation);
+  // the first part is always kept.
+  const MAX = 160
+  let out = ''
+  for (const part of cleaned) {
+    const next = out ? `${out}. ${part}` : part
+    if (out && next.length + 1 > MAX) break
+    out = next
+  }
+  return out ? `${out}.` : ''
 }
 
 export function buildOpenGraphFields({

@@ -11,7 +11,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     static: 0.9,
     services: 0.86,
     countries: 0.84,
-    cities: 0.83,
+    // cities omitted: /pl/miasta/* are noindex duplicates of the route pages
     routes: 0.88,
   }
   const intlEntries = Object.entries(getIntlSitemapGroups()).flatMap(([key, paths]) => {
@@ -25,6 +25,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       .map((path) => {
         const segments = path.split('/').filter(Boolean)
         const locale = segments[0] as Locale
+        // Only Polish-language international pages are indexable; other locales are noindex.
+        if (locale !== 'pl') return null
         const page = resolveIntlPage(locale, segments.slice(1))
         return page ? buildIntlSitemapEntry(page, path, priority) : null
       })
