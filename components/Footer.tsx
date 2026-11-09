@@ -115,23 +115,23 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/pl/uslugi/sprowadzenie-zmarlego-do-polski" className="inline-block text-gray-300 hover:text-primary transition-colors">
-                  Sprowadzenie zmarłego do Polski
+                <Link href="/dla-zakladow-pogrzebowych" className="inline-block text-gray-300 hover:text-primary transition-colors">
+                  Dla zakładów pogrzebowych
                 </Link>
               </li>
               <li>
-                <Link href="/pl/uslugi/miedzynarodowy-transport-zwlok" className="inline-block text-gray-300 hover:text-primary transition-colors">
-                  Międzynarodowy transport do Polski
+                <Link href="/repatriation-to-poland" className="inline-block text-gray-300 hover:text-primary transition-colors">
+                  Repatriation to Poland (English)
                 </Link>
               </li>
               <li>
-                <Link href="/pl/kraje/niemcy" className="inline-block text-gray-300 hover:text-primary transition-colors">
+                <Link href="/uslugi/sprowadzenie-zwlok-z-niemiec" className="inline-block text-gray-300 hover:text-primary transition-colors">
                   Niemcy - Polska
                 </Link>
               </li>
               <li>
-                <Link href="/pl/trasy/transport-zwlok-z-monachium-do-polski" className="inline-block text-gray-300 hover:text-primary transition-colors">
-                  Monachium - Polska
+                <Link href="/uslugi/sprowadzenie-zwlok-z-norwegii" className="inline-block text-gray-300 hover:text-primary transition-colors">
+                  Norwegia - Polska
                 </Link>
               </li>
               <li>

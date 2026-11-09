@@ -132,7 +132,8 @@ const homeConversionCopy = {
 export const dynamicParams = false
 
 export function generateStaticParams() {
-  return (Object.keys(localeInfo) as Locale[]).map((locale) => ({ locale }))
+  // /pl was consolidated into /uslugi/* (301 in public/_redirects).
+  return (Object.keys(localeInfo) as Locale[]).filter((locale) => locale !== 'pl').map((locale) => ({ locale }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {

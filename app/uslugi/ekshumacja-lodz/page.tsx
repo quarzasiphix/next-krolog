@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Metadata } from 'next'
 import ServiceLayout from '@/components/ServiceLayout'
 import type { FAQItem } from '@/components/structured-data/FAQSchema'
@@ -83,6 +84,10 @@ export default function EkshumacjaPage() {
       faqItems={faqData}
     >
       <div className="space-y-12">
+        <p className="text-sm text-gray-400">
+          Szukasz przewozu po śmierci bliskiej osoby? Zobacz{' '}
+          <Link href="/uslugi/transport-zmarlych-lodz" className="text-primary underline">całodobowy przewóz zwłok w Łodzi</Link>.
+        </p>
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div className="space-y-6">
             <h2 className="text-2xl sm:text-3xl font-playfair font-medium text-white">Ekshumacja z poszanowaniem prawa i tradycji</h2>

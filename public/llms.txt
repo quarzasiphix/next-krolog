@@ -84,8 +84,9 @@ Each page gives the verified address, office (kancelaria) hours, office phone, g
 
 ## International transport hub
 
-- [Międzynarodowy transport zwłok do Polski](https://nekrolog-lodz.com/pl/uslugi/miedzynarodowy-transport-zwlok): International transport hub for families abroad.
-- [Kontakt międzynarodowy](https://nekrolog-lodz.com/pl/kontakt): International contact page.
+- [Międzynarodowy transport zwłok do Polski](https://nekrolog-lodz.com/uslugi/sprowadzenie-zwlok-z-zagranicy): International transport hub for families abroad.
+- [Współpraca dla zakładów pogrzebowych](https://nekrolog-lodz.com/dla-zakladow-pogrzebowych): Partner page for funeral homes and insurers.
+- [Repatriation to Poland](https://nekrolog-lodz.com/repatriation-to-poland): English page for foreign funeral directors and insurers.
 
 ## Optional
 

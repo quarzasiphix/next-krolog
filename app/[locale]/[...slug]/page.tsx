@@ -574,7 +574,8 @@ export const dynamicParams = false
 
 export function generateStaticParams() {
   return getAllIntlParams().filter(
-    (entry): entry is { locale: Locale; slug: string[] } => Array.isArray(entry.slug) && entry.slug.length > 0
+    // The /pl tree was consolidated into /uslugi/* (301s in public/_redirects).
+    (entry): entry is { locale: Locale; slug: string[] } => entry.locale !== 'pl' && Array.isArray(entry.slug) && entry.slug.length > 0
   )
 }
 

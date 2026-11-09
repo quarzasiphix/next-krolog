@@ -156,7 +156,7 @@ export default function TransportZmarlychPage() {
           <div className="flex flex-wrap gap-3">
             {[
               ['Sprowadzenie zwłok z zagranicy', '/uslugi/sprowadzenie-zwlok-z-zagranicy'],
-              ['Międzynarodowy transport zwłok', '/pl/uslugi/miedzynarodowy-transport-zwlok'],
+              ['Dla zakładów pogrzebowych', '/dla-zakladow-pogrzebowych'],
               ['Przewóz zwłok – koszty i przepisy', '/poradnik/przewoz-zwlok'],
               ['Pogrzeb w Łodzi – krok po kroku', '/pogrzeb-lodz'],
             ].map(([label, href]) => (

@@ -23,12 +23,12 @@ const servicesItems = [
   { name: 'Krematorium Łódź', path: '/uslugi/krematorium-lodz' },
   { name: 'Ekshumacja zwłok Łódź', path: '/uslugi/ekshumacja-lodz' },
   { name: 'Oprawa muzyczna pogrzebu Łódź', path: '/uslugi/oprawa-muzyczna-lodz' },
-  { name: 'Międzynarodowy transport zwłok', path: '/pl/uslugi/miedzynarodowy-transport-zwlok' },
-  { name: 'Sprowadzenie zmarłego do Polski', path: '/pl/uslugi/sprowadzenie-zmarlego-do-polski' },
-  { name: 'Niemcy -> Polska', path: '/pl/kraje/niemcy' },
-  { name: 'UK -> Polska', path: '/pl/kraje/wielka-brytania' },
-  { name: 'Holandia -> Polska', path: '/pl/kraje/holandia' },
-  { name: 'Kontakt 24/7 dla rodzin z zagranicy', path: '/pl/kontakt' },
+  { name: 'Międzynarodowy transport zwłok', path: '/uslugi/sprowadzenie-zwlok-z-zagranicy' },
+  { name: 'Dla zakładów pogrzebowych', path: '/dla-zakladow-pogrzebowych' },
+  { name: 'Niemcy – Polska', path: '/uslugi/sprowadzenie-zwlok-z-niemiec' },
+  { name: 'UK – Polska', path: '/uslugi/sprowadzenie-zwlok-z-uk' },
+  { name: 'Holandia – Polska', path: '/uslugi/sprowadzenie-zwlok-z-holandii' },
+  { name: 'Kontakt 24/7 dla rodzin z zagranicy', path: '/kontakt' },
 ]
 
 const productsItems = [
@@ -153,7 +153,7 @@ const Navbar = () => {
             Strona główna
           </button>
 
-          <Link href="/pl/uslugi/miedzynarodowy-transport-zwlok" className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary transition hover:border-primary hover:bg-primary/15">
+          <Link href="/uslugi/sprowadzenie-zwlok-z-zagranicy" className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary transition hover:border-primary hover:bg-primary/15">
             <Globe2 className="h-4 w-4" />
             Transport 24/7 Polska
           </Link>
@@ -307,7 +307,7 @@ const Navbar = () => {
                   </button>
 
                   <Link
-                    href="/pl/uslugi/miedzynarodowy-transport-zwlok"
+                    href="/uslugi/sprowadzenie-zwlok-z-zagranicy"
                     onClick={() => setIsMenuOpen(false)}
                     className="flex items-center justify-center gap-2 rounded-md border border-primary/40 bg-primary/10 px-4 py-4 text-center text-primary"
                   >

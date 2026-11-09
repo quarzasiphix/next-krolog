@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Przewóz Zwłok - Krajowy i Międzynarodowy Transport Zmarłych | Nekrolog Łódź',
+  title: 'Przewóz zwłok – przepisy, formalności i koszty (poradnik) | Nekrolog Łódź',
   description: 'Kompleksowy przewodnik o przewozie zwłok w Polsce i za granicę. Dowiedz się, jakie formalności są potrzebne, ile kosztuje transport i jak go zorganizować.',
   keywords: [
     'przewóz zwłok',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     canonical: `${SITE_URL}/poradnik/przewoz-zwlok`,
   },
   openGraph: {
-    title: 'Przewóz Zwłok - Krajowy i Międzynarodowy Transport Zmarłych',
+    title: 'Przewóz zwłok – przepisy, formalności i koszty',
     description: 'Wszystko o transporcie zmarłych - formalności, koszty i organizacja przewozu krajowego i międzynarodowego.',
     url: `${SITE_URL}/poradnik/przewoz-zwlok`,
     type: 'article',

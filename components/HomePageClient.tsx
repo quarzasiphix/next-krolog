@@ -14,14 +14,14 @@ const internationalHighlights = [
   {
     title: 'Międzynarodowy transport zwłok',
     description: 'Organizujemy odbiór z placówki, formalności, przewóz i przekazanie w Polsce jako dodatkową usługę dla rodzin potrzebujących sprawnej pomocy.',
-    href: '/pl/uslugi/miedzynarodowy-transport-zwlok',
+    href: '/uslugi/sprowadzenie-zwlok-z-zagranicy',
     cta: 'Przejdź do usługi',
   },
   {
-    title: 'Sprowadzanie zmarłych do Polski',
-    description: 'Pomagamy rodzinom w Europie i poza nia, gdy trzeba szybko i spokojnie sprowadzić cialo do Polski.',
-    href: '/pl/uslugi/sprowadzenie-zmarlego-do-polski',
-    cta: 'Zobacz trasy i kraje',
+    title: 'Współpraca dla zakładów pogrzebowych',
+    description: 'Zakłady pogrzebowe i ubezpieczyciele z zagranicy: przejmujemy odbiór i formalności po stronie polskiej.',
+    href: '/dla-zakladow-pogrzebowych',
+    cta: 'Zobacz współpracę',
   },
   {
     title: 'Kontakt międzynarodowy 24/7',
@@ -32,12 +32,12 @@ const internationalHighlights = [
 ]
 
 const topRoutes = [
-  { label: 'Niemcy -> Polska', href: '/pl/kraje/niemcy' },
-  { label: 'UK -> Polska', href: '/pl/kraje/wielka-brytania' },
-  { label: 'Holandia -> Polska', href: '/pl/kraje/holandia' },
-  { label: 'Francja -> Polska', href: '/pl/kraje/francja' },
-  { label: 'Norwegia -> Polska', href: '/pl/kraje/norwegia' },
-  { label: 'Monachium / Berlin / Paryz / Amsterdam -> Polska', href: '/pl/trasy/transport-zwlok-z-monachium-do-polski' },
+  { label: 'Niemcy – Polska', href: '/uslugi/sprowadzenie-zwlok-z-niemiec' },
+  { label: 'UK – Polska', href: '/uslugi/sprowadzenie-zwlok-z-uk' },
+  { label: 'Holandia – Polska', href: '/uslugi/sprowadzenie-zwlok-z-holandii' },
+  { label: 'Francja – Polska', href: '/uslugi/sprowadzenie-zwlok-z-francji' },
+  { label: 'Norwegia – Polska', href: '/uslugi/sprowadzenie-zwlok-z-norwegii' },
+  { label: 'Irlandia – Polska', href: '/uslugi/sprowadzenie-zwlok-z-irlandii' },
 ]
 
 const HomePageClient = () => {
@@ -140,11 +140,11 @@ const HomePageClient = () => {
               <Link href="/uslugi/sprowadzenie-zwlok-z-zagranicy" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">
                 Sprowadzenie zwłok z zagranicy
               </Link>
-              <Link href="/pl/uslugi/sprowadzenie-zmarlego-do-polski" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">
-                Sprowadzenie zmarłego do Polski
+              <Link href="/uslugi/transport-zmarlych-lodz" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">
+                Całodobowy przewóz zwłok Łódź
               </Link>
-              <Link href="/pl/uslugi/miedzynarodowy-transport-zwlok" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">
-                Międzynarodowy transport zwłok do Polski
+              <Link href="/dla-zakladow-pogrzebowych" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">
+                Współpraca dla zakładów pogrzebowych
               </Link>
               <Link href="/cmentarze-lodz" className="bg-black/40 border border-white/10 rounded-lg p-4 text-gray-200 hover:border-primary/40 hover:text-white transition-colors">
                 Cmentarze w Łodzi

@@ -80,7 +80,7 @@ const faqData: FAQItem[] = [
 ]
 
 export const metadata: Metadata = buildLocalMetadata({
-  title: 'Sprowadzenie Zwłok z Zagranicy do Polski',
+  title: 'Międzynarodowy transport zwłok do Polski – sprowadzenie z zagranicy 24/7',
   path: '/uslugi/sprowadzenie-zwlok-z-zagranicy',
   description: buildMetaDescription([
     'Sprowadzanie zwłok i prochów z zagranicy do Polski przez zakład pogrzebowy z Łodzi',
@@ -88,6 +88,9 @@ export const metadata: Metadata = buildLocalMetadata({
     'koordynacja formalności oraz wsparcie rodzin i partnerów branżowych',
   ]),
   keywords: [
+    'międzynarodowy transport zwłok',
+    'międzynarodowy transport zwłok łódź',
+    'sprowadzenie zmarłego do polski',
     'sprowadzenie zwłok z zagranicy',
     'transport zwłok z zagranicy do polski',
     'repatriacja zwłok',
@@ -99,13 +102,13 @@ export const metadata: Metadata = buildLocalMetadata({
     'transport zmarłych ze szwajcarii do polski',
     'transport zmarłych skandynawia polska',
   ],
-  ogTitle: 'Sprowadzenie Zwłok z Zagranicy do Polski | Łódź',
+  ogTitle: 'Międzynarodowy transport zwłok do Polski',
 })
 
 export default function SprowadzenieZwlokZagranicaPage() {
   return (
     <ServiceLayout
-      title="Sprowadzenie Zwłok z Zagranicy"
+      title="Międzynarodowy transport i sprowadzenie zwłok do Polski"
       description="Organizujemy transport zmarłych z całej Europy i spoza UE do Polski, a także pośredniczymy dla innych zakładów i instytucji."
       faqItems={faqData}
     >
@@ -142,8 +145,8 @@ export default function SprowadzenieZwlokZagranicaPage() {
           <Card className="bg-black/30 border border-primary/20">
             <CardContent className="p-6 space-y-5">
               <div>
-                <p className="text-sm uppercase tracking-[0.22em] text-primary/80">Najczęstsze kierunki</p>
-                <h3 className="mt-2 text-2xl font-playfair text-white">Kraje, z których najczęściej organizujemy transport</h3>
+                <p className="text-sm uppercase tracking-[0.22em] text-primary/80">Kierunki</p>
+                <h3 className="mt-2 text-2xl font-playfair text-white">Kraje, z których organizujemy transport</h3>
               </div>
               <div className="grid grid-cols-2 gap-3">
                 {priorityCountries.map((country) => (
@@ -282,6 +285,20 @@ export default function SprowadzenieZwlokZagranicaPage() {
           </Card>
         </section>
 
+        <section className="rounded-xl border border-white/10 bg-black/30 p-8 space-y-4">
+          <h2 className="text-2xl sm:text-3xl font-playfair font-medium text-white">Ile kosztuje i kto płaci za transport z zagranicy</h2>
+          <p className="text-gray-300 leading-relaxed">
+            Cena zależy od kraju, miejsca odbioru, rodzaju transportu i dokumentów. Poradnik{' '}
+            <a href="https://mubi.pl/poradniki/transport-zwlok-z-zagranicy/" target="_blank" rel="noopener noreferrer" className="underline">Mubi</a>{' '}
+            podaje orientacyjnie 4–10 tys. zł m.in. z Niemiec, Belgii i Holandii oraz kilkanaście tysięcy zł i więcej m.in. z Wielkiej Brytanii,
+            Hiszpanii i Skandynawii. To dane rynkowe, nie nasz cennik – wycenę podajemy indywidualnie przed zleceniem.
+          </p>
+          <p className="text-gray-300 leading-relaxed">
+            Konsulat nie finansuje transportu. Koszty pokrywa ubezpieczyciel, a przy braku polisy rodzina. Warto sprawdzić ubezpieczenie
+            zmarłego. Jeśli spełnione są warunki, można też wystąpić o zasiłek pogrzebowy ZUS lub KRUS – pomagamy to rozliczyć.
+          </p>
+        </section>
+
         <section className="rounded-xl border border-white/10 bg-black/30 p-8">
           <h2 className="text-2xl sm:text-3xl font-playfair font-medium text-white text-center">
             Najważniejsze kierunki transportu
@@ -328,11 +345,16 @@ export default function SprowadzenieZwlokZagranicaPage() {
             działania. Obsługujemy również zlecenia partnerskie dla innych zakładów pogrzebowych.
           </p>
           <a
-            href="tel:+48602274661"
+            href="tel:+48602270050"
+            data-phone-location="transport_hub_bottom"
             className="mt-6 inline-flex items-center justify-center rounded-md bg-primary px-8 py-4 text-lg font-medium text-black transition hover:bg-primary/90"
           >
-            +48 602 274 661
+            +48 602 270 050 (24/7)
           </a>
+          <p className="mt-4 text-sm text-gray-300">
+            Zakład pogrzebowy lub ubezpieczyciel?{' '}
+            <Link href="/dla-zakladow-pogrzebowych" className="text-primary underline">Współpraca dla partnerów</Link>
+          </p>
         </section>
       </div>
     </ServiceLayout>

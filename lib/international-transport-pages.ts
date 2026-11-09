@@ -256,7 +256,7 @@ export const internationalTransportConfigs: InternationalTransportPageConfig[] =
     regionLabel: 'Norwegia',
     countries: ['Oslo', 'Bergen', 'Stavanger', 'Trondheim', 'Drammen'],
     intro: [
-      'Norwegia to bardzo ważny kierunek dla polskich rodzin i jeden z najbardziej wartościowych rynków zagranicznych. Organizujemy transport zmarłych do Polski, dobierając procedurę do miejsca zgonu i wymogów formalnych.',
+      'Przy transporcie trumny z Norwegii do Polski potrzebne są m.in. Smitteattest, zgoda policji na wywóz i zaświadczenie polskiego konsula w Oslo. Organizujemy transport zmarłych do Polski, dobierając procedurę do miejsca zgonu i wymogów formalnych.',
       'Prowadzimy sprawę dla rodzin indywidualnych i partnerów branżowych. Możemy koordynować kontakt z zagranicznym zakładem, formalności i odbiór po stronie polskiej.',
     ],
     highlights: [
@@ -300,7 +300,7 @@ export const internationalTransportConfigs: InternationalTransportPageConfig[] =
     regionLabel: 'Szwajcaria',
     countries: ['Zurych', 'Genewa', 'Bazylea', 'Lozanna', 'Berno'],
     intro: [
-      'Szwajcaria to kierunek mniejszy liczebnie niż Niemcy czy UK, ale bardzo perspektywiczny biznesowo. Organizujemy sprowadzenie zmarłych do Polski z pełną koordynacją formalności i odbioru.',
+      'Organizujemy sprowadzenie zmarłych do Polski z pełną koordynacją formalności i odbioru.',
       'Prowadzimy kontakt z rodziną, partnerem zagranicznym i stroną polską, aby skrócić czas organizacji i uporządkować procedurę.',
     ],
     highlights: [
@@ -432,7 +432,7 @@ export const internationalTransportConfigs: InternationalTransportPageConfig[] =
     regionLabel: 'Austria',
     countries: ['Wiedeń', 'Linz', 'Graz', 'Salzburg', 'Innsbruck'],
     intro: [
-      'Austria to kierunek dobrze pasujący do transportu zmarłych do Polski zarówno pod kątem logistycznym, jak i biznesowym. Organizujemy przewóz i formalności od zgłoszenia do odbioru.',
+      'Przy transporcie zmarłego z Austrii do Polski podstawą są Leichenpass, akt zgonu, zezwolenie polskiego urzędu i zaświadczenie konsula w Wiedniu. Organizujemy przewóz i formalności od zgłoszenia do odbioru.',
       'Prowadzimy sprawy dla rodzin oraz partnerów branżowych, zapewniając jeden punkt kontaktu po stronie polskiej i jasny plan działania.',
     ],
     highlights: [
@@ -465,16 +465,21 @@ export function getInternationalTransportConfig(slug: string) {
   return internationalTransportConfigs.find((config) => config.slug === slug)
 }
 
+/** Polish phrase with the correct case taken from the title, e.g. "z Norwegii", "ze Szwajcarii". */
+export function transportOrigin(config: InternationalTransportPageConfig) {
+  return config.title.replace(/^Sprowadzenie Zwłok /, '')
+}
+
 export function buildInternationalTransportMetadata(config: InternationalTransportPageConfig): Metadata {
   return buildLocalMetadata({
-    title: config.metadataTitle,
+    title: `Transport zwłok ${transportOrigin(config)} do Polski – sprowadzenie i dokumenty`,
     path: `/uslugi/${config.slug}`,
     description: buildMetaDescription([
       config.description,
       'Obsługa prowadzona przez zakład pogrzebowy z Łodzi z koordynacją formalności i transportu do Polski',
     ]),
     keywords: config.keywords,
-    ogTitle: `${config.metadataTitle} | Łódź`,
+    ogTitle: `Transport zwłok ${transportOrigin(config)} do Polski`,
     index: true,
   })
 }
